@@ -1,7 +1,5 @@
 # Introduction 
-Le module Java_PropertySourceUtils est un module de support au projet Formapass.
-
-Il contient des classes qui permettent de charger les propriétés à partir de fichiers yaml à l'aide de l'annotation @PropertySource. 
+Le module contient des classes qui permettent de charger les propriétés à partir de fichiers yaml à l'aide de l'annotation @PropertySource. 
 Cette fonctionnalité n'est actuellement pas prise en charge par Spring
 
 # Branching
