@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+    - feature/*
+    - hotfix/*
+    - master
+  paths:
+    exclude:
+    - README.md
+    - azure-pipelines.yml
+
+schedules:
+  - cron: "0 0 * * Sat"
+    displayName: Weekly nightly CI
+    branches:
+      include:
+        - master
+    always: true
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: 'Composants partagés Forem/buildtemplates'
+      ref: refs/heads/release/v2
+
+stages:
+  - template: java/template.yaml@templates
+    parameters:
+      containsShareable: true
+      mavenMainTaskOptions: '-DfailIfNoTests=false'
+      alwaysRunSonar: true
+      sonarType: 'SonarCloud'
