@@ -1,0 +1,523 @@
+@import "./_variables.scss";
+
+$button-font-color: $primary-font-colorV2;
+
+$primary-button-color: #ff8e97;
+$primary-button-color-pressed: #ff6f7b;
+$primary-button-color-hover: #ffbcc1;
+$primary-button-color-focus-border: #bf1329;
+$primary-button-color-disabled: #ffd8d8;
+
+$secondary-button-color: #fbe7cb;
+$secondary-button-color-pressed: #fcdbad;
+$secondary-button-color-hover: #fdf2e2;
+$secondary-button-color-focus-border: #dbc2a4;
+$secondary-button-color-disabled: #faf5ec;
+
+$tertiary-button-color: #ffffff;
+$tertiary-button-color-hover: #fdf2e2;
+$tertiary-button-color-pressed: #fcdbad;
+$tertiary-button-color-focus-border: #dbc2a4;
+$tertiary-button-color-focus: #fbe7cb;
+$tertiary-button-color-disabled: #ffffff;
+
+$outline-button-color: #ffffff;
+$outline-button-color-hover: #efefef;
+$outline-button-color-pressed: #bcbcbc;
+$outline-button-color-border: #2f3a48;
+$outline-button-color-focus: #cacdd1;
+$outline-button-color-disabled: #ffffff;
+$outline-button-color-disabled-border: #8c949f;
+
+$blue-button-color: #d9eff0;
+$blue-button-color-hover: #e1f7f7;
+$blue-button-color-pressed: #ceeff0;
+$blue-button-color-border: #d9eff0;
+$blue-button-color-focus: #aed2d3;
+$blue-button-color-disabled: #ffffff;
+$blue-button-color-disabled-border: #8c949f;
+
+$button-border-raduis: 1rem;
+$button-height: 6rem;
+$button-height-mobile: 5rem;
+$button-font-size: 2rem;
+$button-font-size-mobile: 1.8rem;
+$button-padding: 0 2.4rem;
+$button-size-border-focus: 0.2rem;
+$button-disabled-font-color: #91858c;
+
+$link-icone-size: 6rem;
+$link-icone-size-mobile: 4.4rem;
+$link-icone-background-color: $secondary-button-color;
+$link-icone-background-color-hover: $secondary-button-color-hover;
+$link-icone-text-color: $primary-font-colorV2;
+$link-icone-color-focus-border: $secondary-button-color-focus-border;
+$link-icone-size-border-focus: 0.2rem;
+$link-icone-background-color-pressed: #efcfa4;
+
+$link-big-icone-size: 20rem;
+$link-big-icone-size-mobile: 10rem;
+$link-big-icone-size-border-focus: 0.8rem;
+
+@mixin button {
+  cursor: pointer;
+  font-family: $ffRegularV2;
+  font-weight: 500;
+  border-radius: $button-border-raduis;
+  font-size: 2rem;
+
+  color: $button-font-color;
+  padding: $button-padding;
+  min-height: $button-height;
+  /* box-shadow: 0px 4px 4px #00000033; */
+  border-width: $button-size-border-focus;
+  border-style: solid;
+  box-sizing: border-box;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  transition: background-color $transitiontime $transitionmode,
+    border-color $transitiontime $transitionmode;
+  &:active {
+    /* box-shadow: 0px 8px 10px #00000033; */
+  }
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    cursor: default;
+    pointer-events: none;
+    color: $button-disabled-font-color;
+    box-shadow: none;
+  }
+}
+
+@mixin button-mobile {
+  min-height: $button-height-mobile;
+  font-size: $button-font-size-mobile;
+}
+
+@mixin primary-button {
+  background-color: $primary-button-color;
+  border-color: $primary-button-color;
+  &:hover {
+    background-color: $primary-button-color-hover;
+    border-color: $primary-button-color-hover;
+  }
+  &:focus-visible {
+    border-color: $primary-button-color-focus-border;
+  }
+  &:active {
+    background-color: $primary-button-color-pressed;
+    border-color: $primary-button-color-pressed;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    border-color: $primary-button-color-disabled;
+    background-color: $primary-button-color-disabled;
+  }
+}
+
+@mixin secondary-button {
+  background-color: $secondary-button-color;
+  border-color: $secondary-button-color;
+  &:hover {
+    background-color: $secondary-button-color-hover;
+    border-color: $secondary-button-color-hover;
+  }
+  &:focus-visible {
+    border-color: $secondary-button-color-focus-border;
+  }
+  &:active {
+    background-color: $secondary-button-color-pressed;
+    border-color: $secondary-button-color-pressed;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    border-color: $secondary-button-color-disabled;
+    background-color: $secondary-button-color-disabled;
+  }
+}
+p > .btn {
+  width: fit-content;
+}
+
+@mixin tertiary-button {
+  background-color: $tertiary-button-color;
+  border-color: $tertiary-button-color;
+  text-decoration: underline;
+  &:hover {
+    background-color: $tertiary-button-color-hover;
+    border-color: $tertiary-button-color-hover;
+    text-decoration: none;
+  }
+  &:focus-visible {
+    border-color: $tertiary-button-color-focus-border;
+    background-color: $tertiary-button-color-focus;
+    text-decoration: none;
+  }
+  &:active {
+    background-color: $tertiary-button-color-pressed;
+    border-color: $tertiary-button-color-pressed;
+    text-decoration: none;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    border-color: $tertiary-button-color-disabled;
+    background-color: $tertiary-button-color-disabled;
+    text-decoration: underline;
+  }
+}
+
+@mixin outline-button {
+  background-color: $outline-button-color;
+  border-color: $outline-button-color-border;
+
+  &:hover {
+    background-color: $outline-button-color-hover;
+    border-color: $outline-button-color-border;
+  }
+  &:focus-visible {
+    border-color: $outline-button-color-border;
+    background-color: $outline-button-color-focus;
+  }
+  &:active {
+    background-color: $outline-button-color-pressed;
+    border-color: $outline-button-color-border;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    border-color: $outline-button-color-disabled-border;
+    background-color: $outline-button-color-disabled;
+  }
+}
+
+@mixin blue-button {
+  background-color: $blue-button-color;
+  border-color: $blue-button-color-border;
+
+  &:hover {
+    background-color: $blue-button-color-hover;
+    border-color: $blue-button-color-border;
+  }
+  &:focus-visible {
+    border-color: $blue-button-color-border;
+    background-color: $blue-button-color-focus;
+  }
+  &:active {
+    background-color: $blue-button-color-pressed;
+    border-color: $blue-button-color-border;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:active,
+  &[disabled]:focus {
+    border-color: $blue-button-color-disabled-border;
+    background-color: $blue-button-color-disabled;
+  }
+}
+.aem {
+  .btn,
+  button.btn,
+  a.btn,
+  a:link.btn,
+  a:link.BtBleuPrusse34495E,
+  a.BtBleuPrusse34495E {
+    @include button;
+  }
+
+  .btn-primary,
+  button.btn-primary,
+  a:link.BtBleuPrusse34495E,
+  a.BtBleuPrusse34495E {
+    @include primary-button;
+  }
+
+  .btn-secondary,
+  button.btn-secondary {
+    @include secondary-button;
+  }
+  a:link.BtBleuPrusse34495E,
+  a.BtBleuPrusse34495E,
+  a.btn,
+  a:link.btn {
+    max-width: fit-content;
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  .btn-tertiary,
+  button.btn-tertiary {
+    @include tertiary-button;
+  }
+
+  .btn-outline,
+  button.btn-outline {
+    @include outline-button;
+  }
+}
+@media screen and (max-width: $breakpointMobile) {
+  .aem {
+    .btn,
+    button.btn,
+    a.btn,
+    a:link.btn,
+    a:link.BtBleuPrusse34495E,
+    a.BtBleuPrusse34495E {
+      @include button-mobile;
+    }
+  }
+}
+
+@mixin link-icone {
+  display: flex;
+  align-items: center;
+  color: $link-icone-text-color !important;
+  text-decoration: underline;
+  .icone {
+    margin-right: 1.5rem;
+    border: $link-icone-size-border-focus solid $link-icone-background-color;
+    height: $link-icone-size;
+    min-width: $link-icone-size;
+    width: $link-icone-size;
+    border-radius: 50%;
+    background-color: $link-icone-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color $transitiontime $transitionmode,
+      border-color $transitiontime $transitionmode;
+
+    img {
+      height: 125%;
+      width: 125%;
+    }
+  }
+  span {
+    padding: 0.4rem 0;
+  }
+
+  &:hover {
+    .icone {
+      background-color: $link-icone-background-color-hover;
+      border-color: $link-icone-background-color-hover;
+    }
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:focus-visible {
+    box-shadow: none !important;
+    outline: none;
+    /* font-family: $ffSemiBoldV2; */
+    .icone {
+      border-color: $link-icone-color-focus-border;
+    }
+    span {
+      border: 1px solid #0075fd;
+      box-shadow: 0px 0px 4px #4292df;
+    }
+  }
+  &:active {
+    /* font-family: $ffSemiBoldV2; */
+    .icone {
+      background-color: $link-icone-background-color-pressed;
+      border-color: $link-icone-background-color-pressed;
+    }
+  }
+}
+
+@mixin link-icone-special {
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration: underline !important;
+  }
+}
+.aem {
+  .link-icone {
+    @include link-icone;
+  }
+
+  .link-icone-special {
+    @include link-icone-special;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem .link-icone .icone {
+    height: $link-icone-size-mobile;
+    min-width: $link-icone-size-mobile;
+    width: $link-icone-size-mobile;
+  }
+}
+
+@mixin link-big-icone {
+  display: flex;
+  width: fit-content;
+  color: $link-icone-text-color !important;
+  text-decoration: underline;
+  flex-direction: column;
+  align-items: center;
+  max-width: 36rem;
+  .icone {
+    border: $link-big-icone-size-border-focus solid $link-icone-background-color;
+    height: $link-big-icone-size;
+    min-width: $link-big-icone-size;
+    box-sizing: border-box;
+    width: $link-big-icone-size;
+    border-radius: 50%;
+    background-color: $link-icone-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color $transitiontime $transitionmode,
+      border-color $transitiontime $transitionmode;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  span,
+  h2 {
+    padding: 3rem 0;
+    font-weight: 600;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  &:hover {
+    .icone {
+      background-color: $link-icone-background-color-hover;
+      border-color: $link-icone-background-color-hover;
+    }
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:focus-visible {
+    outline: none;
+    /* font-family: $ffSemiBoldV2; */
+    box-sizing: border-box;
+    border: 1px solid #0075fd;
+    box-shadow: 0px 0px 4px #4292df;
+    .icone {
+      border-color: $link-icone-color-focus-border;
+    }
+  }
+  &:active {
+    /* font-family: $ffSemiBoldV2; */
+    .icone {
+      background-color: $link-icone-background-color-pressed;
+      border-color: $link-icone-background-color-pressed;
+    }
+  }
+}
+
+.aem .link-big-icone {
+  @include link-big-icone;
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem .link-big-icone {
+    max-width: 20rem;
+    .icone {
+      border: $link-icone-size-border-focus solid $link-icone-background-color;
+      height: $link-big-icone-size-mobile;
+      min-width: $link-big-icone-size-mobile;
+      width: $link-big-icone-size-mobile;
+    }
+    span,
+    h2 {
+      font-size: 1.6rem;
+      padding: 1.6rem 0;
+      font-weight: 500;
+    }
+  }
+}
+
+@mixin chips {
+  display: inline-flex;
+
+  height: 3.6rem;
+  align-items: center;
+  border-radius: 4rem;
+  border: 2px transparent solid;
+  box-sizing: border-box;
+  padding: 0 1.8rem;
+  font-size: 1.4rem;
+  font-family: $ffRegularV2;
+  transition: background-color $transitiontime $transitionmode,
+    border-color $transitiontime $transitionmode;
+  &::after {
+    content: "";
+    mask-image: url($resourcePath + "/images/Close.svg");
+
+    background-color: $primary-colorV2;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 1.2rem;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.aem .chips {
+  @include chips;
+}
+
+.aem .chips-primary {
+  @include secondary-button;
+}
+
+.aem .chips-secondary {
+  @include blue-button;
+}
+
+.aem .chips-wrong {
+  background-color: #f9d9d9;
+  border-color: #b65156;
+  &:hover {
+    background-color: #f9d9d9;
+    border-color: #b65156;
+  }
+  &:focus-visible {
+    background-color: #f9d9d9;
+    border-color: #b65156;
+  }
+  &:active {
+    background-color: #f9d9d9;
+    border-color: #b65156;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem {
+    .chips {
+      font-size: 1.2rem;
+    }
+  }
+}

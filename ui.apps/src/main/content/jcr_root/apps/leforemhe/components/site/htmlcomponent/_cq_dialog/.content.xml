@@ -1,0 +1,44 @@
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Composant HTML"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+             sling:resourceType="granite/ui/components/coral/foundation/container"
+             maximized="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+            <fields jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <html
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                            required="{Boolean}true"
+                            name="./html"
+                            useFixedInlineToolbar="{Boolean}true"
+                            fieldLabel="Contenu HTML">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <misctools
+                                    jcr:primaryType="nt:unstructured"
+                                    features="sourceedit">
+                            </misctools>
+                        </rtePlugins>
+                        <uiSettings jcr:primaryType="nt:unstructured">
+                            <cui jcr:primaryType="nt:unstructured">
+                                <inline
+                                        jcr:primaryType="nt:unstructured"
+                                        toolbar="[misctools#sourceedit]" />
+                                <dialogFullScreen
+                                        jcr:primaryType="nt:unstructured"
+                                        toolbar="[misctools#sourceedit]" />
+                            </cui>
+                        </uiSettings>
+                    </html>
+                </items>
+            </fields>
+        </items>
+    </content>
+</jcr:root>

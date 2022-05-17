@@ -1,0 +1,119 @@
+$max-footer-width: 160rem;
+$footerMobileBreakPoint: $breakpointMobile;
+footer.aem {
+  font-size: 1.8rem;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  background-color: white;
+  > div {
+    max-width: $max-footer-width;
+    margin: 0 auto;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+footer.aem .mentionsLegales ul {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 7rem;
+}
+
+footer.aem .logosPartenaires {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    margin: 0 3rem;
+  }
+  .logoForem a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    img,
+    svg {
+      height: 3.6rem;
+      width: auto;
+    }
+    span {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+  .logosPartenairesContainer {
+    display: flex;
+    a,
+    a:link {
+      text-decoration: none;
+      height: 7.2rem;
+    }
+    .cq-LinkChecker {
+      align-self: center;
+    }
+    img {
+      max-height: 7.2rem;
+      margin: 0 1rem;
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+    &:first-child img {
+      margin-left: 0;
+    }
+    &:last-child img {
+      margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $footerMobileBreakPoint) {
+  footer.aem {
+    font-size: 1.4rem;
+    padding: 0 $min-padding 2.5rem $min-padding;
+  }
+  footer.aem .mentionsLegales ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    li {
+      height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px #dbcaaf solid;
+      width: 100%;
+    }
+  }
+  footer.aem .logosPartenaires {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > div {
+      margin: 0;
+    }
+    .logoForem a {
+      padding-bottom: 6.5rem;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 12rem;
+        height: auto;
+      }
+      span {
+        display: block;
+        font-size: 1.4rem;
+      }
+    }
+    .logosPartenairesContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,618 @@
+$form-primary-color: #dbc2a4;
+$form-disabled-color: #e3e3e3;
+$form-enabled-color: $primary-colorV2;
+
+.aem.forms {
+  @include max-width;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="month"],
+  input[type="tel"],
+  input[type="datetime"],
+  input[type="week"],
+  input[type="time"],
+  input[type="url"],
+  select,
+  .textarea,
+  .title {
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+  fieldset {
+    width: 100%;
+    border-radius: 1rem;
+    border: 0.1rem solid $form-primary-color;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 5rem;
+    padding: 2rem 2rem 3rem;
+    gap: 3.6rem;
+
+    legend {
+      margin-left: 1rem;
+      font-weight: 500;
+      font-size: 1.8rem;
+      color: $primary-font-colorV2;
+    }
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: calc(33.33% - 3.6rem);
+    }
+    p:hover {
+      background: transparent;
+    }
+  }
+  label {
+    font-weight: 500;
+    span {
+      font-weight: 200;
+      font-style: italic;
+      font-size: 1.4rem;
+    }
+    acronym {
+      text-decoration: none;
+    }
+  }
+  > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    > div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
+  }
+
+  textarea {
+    height: 12rem;
+    width: 66.66%;
+    min-height: 4.4rem;
+  }
+  .one-col {
+    width: 100%;
+  }
+
+  .two-col {
+    width: 66.66%;
+  }
+  .tree-col {
+    width: 33.33%;
+  }
+
+  .four-col {
+    width: 25%;
+  }
+  fieldset {
+    .one-col {
+      width: calc(100% - 3.6rem);
+    }
+
+    .two-col {
+      width: calc(66.66% - 3.6rem);
+    }
+    .tree-col {
+      width: calc(33.33% - 3.6rem);
+    }
+
+    .four-col {
+      width: calc(25% - 3.6rem);
+    }
+    .textarea.one-col {
+      width: fit-content;
+      textarea {
+        width: calc(calc(#{$global-max-width} - calc(5.6rem * 2)) * 1);
+        max-width: calc(#{$global-max-width} - calc(5.6rem * 2));
+      }
+    }
+
+    .textarea.two-col {
+      width: fit-content;
+      textarea {
+        width: calc(calc(#{$global-max-width} - calc(5.6rem * 2)) * 0.6666);
+        max-width: calc(#{$global-max-width} - calc(5.6rem * 2));
+      }
+    }
+    .textarea.tree-col {
+      width: fit-content;
+      textarea {
+        width: calc(calc(#{$global-max-width} - calc(5.6rem * 2)) * 0.3333);
+        max-width: calc(#{$global-max-width} - calc(5.6rem * 2));
+      }
+    }
+    .textarea.four-col {
+      width: fit-content;
+      textarea {
+        width: calc(calc(#{$global-max-width} - calc(5.6rem * 2)) * 0.25);
+        max-width: calc(#{$global-max-width} - calc(5.6rem * 2));
+      }
+    }
+  }
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="month"],
+  input[type="tel"],
+  input[type="datetime"],
+  input[type="week"],
+  input[type="time"],
+  input[type="url"],
+  select,
+  textarea {
+    border: 0.2rem solid #dbc2a4;
+    border-radius: 1rem;
+    background-color: transparent;
+    box-sizing: border-box;
+    &:not([type="file"]) {
+      padding: 0 1rem;
+    }
+    &:focus-visible {
+      border: 0.2rem solid #dbc2a4;
+      outline: none;
+    }
+  }
+  .textarea {
+    position: relative;
+    min-width: fit-content;
+    max-width: fit-content;
+    overflow: hidden;
+    display: flex;
+    &.one-col {
+      textarea {
+        width: $global-max-width;
+      }
+    }
+    &.two-col {
+      textarea {
+        width: calc(#{$global-max-width} * 0.6666);
+      }
+    }
+    &.tree-col {
+      textarea {
+        width: calc(#{$global-max-width} * 0.3333);
+      }
+    }
+    &.four-col {
+      textarea {
+        width: calc(#{$global-max-width} * 0.25);
+      }
+    }
+
+    textarea {
+      max-width: $global-max-width;
+      position: relative;
+      width: 100%;
+    }
+    &::before {
+      position: absolute;
+      right: 0.2rem;
+      bottom: 0.2rem;
+      pointer-events: none;
+      content: "";
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      background-color: white;
+      border-radius: 0.7rem;
+      z-index: 1;
+    }
+    &::after {
+      position: absolute;
+      right: 0.2rem;
+      bottom: 0.2rem;
+      pointer-events: none;
+      content: "";
+      display: block;
+      mask-image: url($resourcePath + "/images/forms/Form-textarea.svg");
+      z-index: 2;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      width: 3rem;
+      height: 3rem;
+      background-color: $form-primary-color;
+      border-radius: 0.7rem;
+    }
+  }
+  .date {
+    position: relative;
+    input[type="date"] {
+    }
+    &::before {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      right: 0;
+      top: 0;
+      background-color: white;
+      right: 0.2rem;
+      top: 0.2rem;
+      border-radius: 1rem;
+    }
+    &::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+
+      mask-image: url($resourcePath + "/images/forms/Form-date-picker.svg");
+
+      mask-repeat: no-repeat;
+      mask-position: center;
+      width: 4rem;
+      height: 4rem;
+      right: 0.2rem;
+      top: 0.2rem;
+      border-radius: 1rem;
+      background-color: $primary-colorV2;
+    }
+  }
+
+  input,
+  select {
+    height: 4.4rem;
+    width: 100%;
+  }
+  .select {
+    position: relative;
+    select {
+      appearance: none;
+    }
+    &::after {
+      pointer-events: none;
+      position: absolute;
+      display: block;
+      top: calc(50% - 0.7rem);
+      right: 1rem;
+      content: "";
+      mask-image: url($resourcePath + "/images/forms/Form-chev-down.svg");
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      background-color: $primary-colorV2;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    font-weight: 200;
+    font-style: italic;
+  }
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="month"],
+  input[type="tel"],
+  input[type="datetime"],
+  input[type="week"],
+  input[type="time"] {
+    &:invalid {
+      border: 0.2rem solid #c44953;
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 200;
+  }
+
+  .form-Button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem 0;
+  }
+
+  .inputFile {
+    background-color: transparent;
+    width: 100%;
+
+    &.one-col {
+      .title,
+      .files {
+        width: 100%;
+      }
+    }
+    &.two-col {
+      .title,
+      .files {
+        width: 66.66%;
+      }
+    }
+    &.tree-col {
+      .title,
+      .files {
+        width: 33.33%;
+      }
+    }
+    &.four-col {
+      .title,
+      .files {
+        width: 253%;
+      }
+    }
+
+    input[type="file"] {
+      overflow: hidden;
+      height: 0;
+      border: none;
+    }
+    .title {
+      cursor: pointer;
+      box-sizing: border-box;
+      border: 0.2rem solid #dbc2a4;
+      border-radius: 1rem 1rem 0 0;
+      min-height: 4.4rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::after {
+        content: "";
+        height: 2rem;
+        width: 2rem;
+        mask-image: url($resourcePath + "/images/forms/Form-clipboard.svg");
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        background-color: $primary-colorV2;
+      }
+    }
+    &.empty {
+      .title {
+        border-radius: 1rem;
+      }
+      .files {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    .files {
+      flex-wrap: wrap;
+
+      display: flex;
+
+      border-radius: 0 0 1rem 1rem;
+      border: 0.2rem solid #dbc2a4;
+      border-top: none;
+      box-sizing: border-box;
+      padding: 1rem 1rem 0 1rem;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2.6rem;
+      margin-right: 0.7rem;
+      &.invalid {
+        margin-bottom: 1.8rem;
+      }
+    }
+    .chips.file {
+      height: 3.6rem;
+      cursor: pointer;
+      width: fit-content;
+      border-radius: 1rem;
+      padding: 0 1.8rem;
+
+      font-family: $ffRegularV2;
+    }
+    .warning {
+      font-size: 1.2rem;
+      color: #c21d2b;
+      font-weight: 500;
+    }
+  }
+  .checkbox,
+  .radio,
+  .toggle {
+    display: flex;
+    margin-bottom: 1.5rem;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+
+    input[type="checkbox"],
+    input.toggleInput[type="checkbox"],
+    input[type="radio"] {
+      appearance: none;
+
+      margin-right: 1rem;
+    }
+    input.toggleInput[type="checkbox"] {
+      content: "";
+
+      width: 3.5rem;
+      height: 2rem;
+      mask-image: none;
+      border-radius: 2rem;
+      position: relative;
+      background-color: $form-disabled-color;
+      transition: background-color 0.2s linear;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: $form-enabled-color;
+        left: 0;
+        top: 0;
+        width: 3.5rem;
+        height: 2rem;
+        mask-image: url($resourcePath + "/images/forms/toggleBackground.svg");
+      }
+
+      &::after {
+        position: absolute;
+        background-color: $form-enabled-color;
+
+        content: "";
+        mask-image: url($resourcePath + "/images/forms/toggle.svg");
+        background-image: url($resourcePath + "/images/forms/toggleContent.svg");
+
+        left: 0rem;
+        top: 0rem;
+        width: 2rem;
+        height: 2rem;
+        transition: left 0.2s linear;
+      }
+    }
+    input.toggleInput[type="checkbox"]:checked {
+      content: "";
+      mask-image: none;
+      background-color: $form-enabled-color;
+      &::after {
+        left: (3.5rem - 2rem);
+      }
+    }
+
+    input[type="checkbox"] {
+      content: "";
+      height: 2rem;
+      width: 2rem;
+      mask-image: url($resourcePath + "/images/forms/Form-checkbox-unchecked.svg");
+      background-color: $form-enabled-color;
+    }
+
+    input[type="checkbox"]:checked {
+      mask-image: url($resourcePath + "/images/forms/Form-checkbox-checked.svg");
+      background-color: $form-enabled-color;
+    }
+
+    input[type="radio"] {
+      height: 2rem;
+      width: 2rem;
+      content: "";
+      mask-image: url($resourcePath + "/images/forms/Form-radiobutton-unchecked.svg");
+      background-color: $form-enabled-color;
+    }
+    input[type="radio"]:checked {
+      content: "";
+
+      mask-image: url($resourcePath + "/images/forms/Form-radiobutton-checked.svg");
+      background-color: $form-enabled-color;
+    }
+
+    label {
+      font-family: $form-enabled-color;
+    }
+
+    &.disabled {
+      input[type="checkbox"],
+      input[type="checkbox"]:disabled {
+        background-color: $form-disabled-color;
+      }
+      input[type="checkbox"]:checked,
+      input[type="checkbox"]:disabled:checked {
+        background-color: $form-disabled-color;
+      }
+
+      input[type="radio"],
+      input[type="radio"]:disabled {
+        background-color: $form-disabled-color;
+      }
+      input[type="radio"]:checked,
+      input[type="radio"]:disabled:checked {
+        background-color: $form-disabled-color;
+      }
+      label {
+        color: $form-disabled-color;
+      }
+      input.toggleInput[type="checkbox"],
+      input.toggleInput[type="checkbox"]:disabled {
+        content: "";
+        background-color: $form-disabled-color;
+        &::after {
+          content: "";
+          background-color: $form-disabled-color;
+        }
+        &::before {
+          content: "";
+          background-color: $form-disabled-color;
+        }
+      }
+      input.toggleInput[type="checkbox"]:checked,
+      input.toggleInput[type="checkbox"]:disabled:checked {
+        background-color: $form-disabled-color;
+      }
+    }
+  }
+  .form-Button {
+    display: flex;
+    align-items: flex-end;
+    button {
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.forms {
+    fieldset {
+      padding: 1rem;
+      > div {
+        width: 100%;
+      }
+    }
+
+    .one-col,
+    .two-col,
+    .tree-col,
+    .four-col {
+      width: 100%;
+      &.textarea textarea {
+        width: calc(100vw - calc(#{$min-padding} * 2));
+        max-width: calc(100vw - calc(#{$min-padding} * 2));
+      }
+      &.inputFile {
+        .title,
+        .files {
+          width: 100%;
+        }
+      }
+    }
+    fieldset {
+      .one-col,
+      .two-col,
+      .tree-col,
+      .four-col {
+        width: 100%;
+        &textarea {
+          width: 100%;
+        }
+        &.inputFile {
+          .title,
+          .files {
+            width: 100%;
+          }
+        }
+      }
+      .textarea.one-col,
+      .textarea.two-col,
+      .textarea.tree-col,
+      .textarea.four-col {
+        width: fit-content;
+        textarea {
+          width: calc(100vw - calc(3.5rem * 2));
+          max-width: calc(100vw - calc(3.5rem * 2));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Chatbot"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured">
+                <items
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideChildren="[cloudservices,personalization,blueprint,livecopy,layout-information]">
+                    <javascript
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Javascript"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fields
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <urlChatbot
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Url du chatbot"
+                                            name="./urlChatbot"
+                                            required="{Boolean}true"/>
+                                </items>
+                            </fields>
+                        </items>
+                    </javascript>
+                    <listLinks
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Liste des liens"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fields
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <listUrlChatbot
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                            fieldDescription="Cliquez sur 'Add field' pour ajouter un lien."
+                                            fieldLabel="Liste des urls pour le chatbot">
+                                        <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                required="true"
+                                                name="./listUrlChatbot"/>
+                                    </listUrlChatbot>
+                                </items>
+                            </fields>
+                        </items>
+                    </listLinks>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

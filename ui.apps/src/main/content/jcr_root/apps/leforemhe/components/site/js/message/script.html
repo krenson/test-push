@@ -1,0 +1,57 @@
+<sly data-sly-template.script="${@ properties}">
+    <script data-sly-use.global="com.leforemhe.aem.site.core.models.MessageGlobalModel">
+        // JavaScript Document
+        var messageDeroulant = "${global.message @ context='scriptString'}";
+        var dateStart = new Date(${global.startYear @ context='unsafe'},${global.startMonth @ context='unsafe'},${global.startDay @ context='unsafe'},${global.startHour @ context='unsafe'},${global.startMinute @ context='unsafe'},${global.startSecond @ context='unsafe'});
+        var dateEnd = new Date(${global.endYear @ context='unsafe'},${global.endMonth @ context='unsafe'},${global.endDay @ context='unsafe'},${global.endHour @ context='unsafe'},${global.endMinute @ context='unsafe'},${global.endSecond @ context='unsafe'});
+        var detectStringCookies = 'message';
+
+        var eventCLICKCLose = function(e) {
+            createCookie("message", true);
+            document.querySelector('#taf').remove();
+        };
+
+        if (document.cookie.indexOf(detectStringCookies) < 0 ) {
+            if (typeof messageDeroulant !== "undefined" && checkDate(dateStart, dateEnd) ) {
+                var content = "<section class=\"taf\" id=\"taf\">";
+                content += "<div class=\"taf-container\">";
+                content += "<div class=\"alert-image\"><img alt=\"\" src=\"/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/exclamation-circle-solid.png\" /></div>";
+                content += "<div class=\"taf-content\">";
+                content += "<p>" + messageDeroulant + "</p>";
+                content += "<button id=\"closeTAF\" role=\"button\" type=\"button\" value=\"FERMER\">FERMER</button>";
+                content += "</div>";
+                content += "</div>";
+                content += "</section>";
+
+                document.querySelector('.top').insertAdjacentHTML("beforebegin", content);
+                document.getElementById("closeTAF").addEventListener('click', eventCLICKCLose);
+            }
+        }
+
+        function createCookie(nom, valeur, jours) {
+            if (jours) {
+                var date = new Date();
+                date.setTime(date.getTime()+(jours*24*60*60*1000));
+                var expire = "; expire="+date.toGMTString();
+            }
+            else var expire = "";
+            document.cookie = nom+"="+valeur+expire+"; path=/";
+        }
+
+        function checkDate(dateStart, dateEnd) {
+            var today = new Date();
+            if (typeof dateEnd === "undefined" ) {
+                return true;
+            }
+            if (typeof dateStart === "undefined" ) {
+                return (Date.parse(today) <= dateEnd.getTime());
+            } else {
+                if (Date.parse(today) >= dateStart.getTime() && Date.parse(today) <= dateEnd.getTime()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</sly>

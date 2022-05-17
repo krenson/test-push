@@ -1,0 +1,25 @@
+<sly
+  data-sly-use.hamburgerModel="com.leforemhe.aem.site.core.models.HamburgerMenuModel"
+>
+  <div class="containerBurger">
+    <sly data-sly-test="${!hamburgerModel.hamburgerFullyHidden}">
+      <div
+        data-sly-unwrap="${!hamburgerModel.hamburgermenuHiddenOnDesktop || hamburgerModel.insideAgendaVariation}"
+        class="hiddenOnDesktop"
+      >
+        <a
+          class="menuLink"
+          aria-expanded="false"
+          href="javascript:void(0)"
+          id="mobile"
+          role="navigation"
+          title="${'Ouverture ou fermeture du menu de navigation' @ i18n}"
+        >
+          <div class="burgerLine"></div>
+          <div class="burgerLine"></div>
+          <div class="burgerLine"></div>
+        </a>
+      </div>
+    </sly>
+  </div>
+</sly>

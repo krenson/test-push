@@ -1,0 +1,16 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+
+<section class="bottom2">
+    <div class="aem linkLists">
+        <div class="linkLists-container">
+            <sly data-sly-resource="${'listeAccesDirect1' @ resourceType='leforemhe/components/site/footer/listeAccesDirect'}"
+                 data-sly-unwrap="${!author}"></sly>
+            <sly data-sly-resource="${'listeAccesDirect2' @ resourceType='leforemhe/components/site/footer/listeAccesDirect'}"
+                 data-sly-unwrap="${!author}"></sly>
+            <sly data-sly-resource="${'listeAccesDirect3' @ resourceType='leforemhe/components/site/footer/listeAccesDirect'}"
+                 data-sly-unwrap="${!author}"></sly>
+            <sly data-sly-resource="${'listeAccesDirect4' @ resourceType='leforemhe/components/site/footer/listeAccesDirectSocialMedia'}"
+                 data-sly-unwrap="${!author}"></sly>
+        </div>
+    </div>
+</section>

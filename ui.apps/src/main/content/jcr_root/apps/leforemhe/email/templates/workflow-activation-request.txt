@@ -1,0 +1,20 @@
+Content-Type: text/html; charset="utf-8"
+Subject: Activation de contenu
+
+<main>
+    <p>
+        Bonjour,
+    </p>
+    <p>${wfInitiator}, utilisateur ayant déclenché l’événement</p>
+    <p>Worklow démarré ${wfModelTitle} pour la page ${jcr:title}.</p>
+    <p>Aller à la page sur l'author / éditer la page / vérifier la page: ${authorLink}</p>
+</main>
+<footer>
+    <p>
+        Cordialement,<br/>
+        leforemhe
+    </p>
+    <hr/>
+    <p>Ce message est généré automatiquement. Merci de ne pas y répondre.</p>
+
+</footer>

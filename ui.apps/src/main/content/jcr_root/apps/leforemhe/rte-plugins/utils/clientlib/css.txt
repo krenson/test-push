@@ -1,0 +1,2 @@
+#base=less
+dialog.less

@@ -1,0 +1,53 @@
+{
+  "myef": {
+    "jcr:primaryType": "sling:OrderedFolder",
+    "default": {
+      "jcr:primaryType": "cq:Page",
+      "master": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "jcr:title": "Demo Page",
+          "jcr:description": "Demo Page: a page to test the features.",
+          "navTitle": "Demo Page",
+          "exportFolder": "folder",
+          "exportFilename": "filename",
+          "exportPrependHTML": "<p>head</p>",
+          "exportAppendHTML": "<p>footer</p>",
+          "exportNavigationActivePage": "<p>navigation</p>",
+          "hideHamburgermenuOnDesktop": "true",
+          "enableAPI": "true",
+          "enableSFTP": "true"
+        }
+      }
+    }
+  },
+  "header":{
+    "jcr:primaryType": "sling:OrderedFolder",
+    "default": {
+      "jcr:primaryType": "cq:Page",
+      "master": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "jcr:title": "Demo Page",
+          "jcr:description": "Demo Page: a page to test the features.",
+          "navTitle": "Demo Page",
+          "exportFolder": "folder",
+          "exportFilename": "filename",
+          "exportPrependHTML": "<p>head</p>",
+          "exportAppendHTML": "<p>footer</p>"
+        }
+      }
+    }
+  },
+  "footer":{
+    "jcr:primaryType": "sling:OrderedFolder",
+    "default": {
+      "jcr:primaryType": "cq:Page",
+      "master": {
+        "jcr:primaryType": "cq:Page"
+      }
+    }
+  }
+}

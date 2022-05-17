@@ -1,0 +1,16 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+
+<section class="top">
+    <header role="banner">
+        <div class="menuSup">
+            <!-- debut menu superieur, contact, recherche et connection -->
+            <nav role="navigation">
+                <div data-sly-resource="${'navigation' @ resourceType='leforemhe/components/site/header/navigation'}"
+                     data-sly-unwrap="${!author}"></div>
+            </nav>
+        </div>
+
+        <div data-sly-resource="${'hamburgermenu' @ resourceType='leforemhe/components/site/header/hamburgermenu'}"
+             data-sly-unwrap="${!author}"></div>
+    </header>
+</section>

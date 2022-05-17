@@ -1,0 +1,149 @@
+<div class="login">
+    <div class="loginsection">
+        <img
+                class="loginimage rounded mx-auto d-block"
+                src="/content/dam/leforemhe/fr/images/FOREM-Logo.svg"
+                alt="leforemhe Logo"
+        />
+        <div class="formInput">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" />
+        </div>
+        <div class="formInput">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" />
+        </div>
+        <button
+                type="submit"
+                onClick="submitCred()"
+                class="loginButton btn btn-primary"
+        >
+            Login
+        </button>
+        <div
+                id="errorMessage"
+                class="alert alert-danger"
+                style="display: none"
+                role="alert"
+        >
+            Processing the request...
+        </div>
+    </div>
+</div>
+<style>
+    .login {
+        padding: 0 15px;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .loginsection {
+        display: flex;
+        background: #fbf5eb;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        border-radius: 20px;
+        gap: 30px;
+    }
+    .loginimage {
+        max-width: 200px;
+        padding-bottom: 20px;
+    }
+    .formInput {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .formInput input {
+        flex-grow: 1;
+        border: 2px solid #dbc2a4;
+        border-radius: 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-weight: 400;
+        font-size: 18px;
+        height: 44px;
+        padding: 0 10px;
+    }
+    .formInput input:focus-visible {
+        border: 2px solid #dbc2a4;
+        outline: none;
+    }
+    .formInput label {
+        min-width: 82.5px;
+        margin-right: 10px;
+    }
+    .loginButton {
+        width: 100%;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif !important;
+        font-weight: 500;
+        border-radius: 10px;
+        font-size: 20px;
+        color: #2f3a48;
+        padding: 0 24px;
+        min-height: 60px;
+        border: 2px solid #ff8e97;
+        box-sizing: border-box;
+        text-decoration: none;
+        background-color: #ff8e97;
+        display: inline-flex;
+        align-items: center;
+        transition: background-color 0.2s linear, border-color 0.2s linear;
+        justify-content: center;
+    }
+    .loginButton:hover {
+        background-color: #ffbcc1;
+        border-color: #ffbcc1;
+    }
+    .loginButton:focus-visible {
+        outline: none;
+        border-color: #bf1329;
+    }
+    @media screen and (max-width: 1200px) {
+        .loginsection {
+            padding: 50px 20px;
+        }
+        .loginButton {
+            min-height: 50px;
+            font-size: 18px;
+        }
+    }
+</style>
+<script>
+    function submitCred() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectResource = urlParams.get('resource');
+
+        var formData = new FormData();
+
+        formData.append("username", username);
+        formData.append("password", password);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = checkResponse;
+        request.open("POST", '/content/leforemhe/authenticate.leforemhe.json');
+        request.send(formData);
+
+        function checkResponse() {
+            if (request.status === 200) {
+                if (redirectResource) {
+                    console.log(origin + redirectResource);
+                    window.location.replace(origin + redirectResource);
+                } else {
+                    window.location.replace(origin + '/index.html');
+                }
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    }
+</script>

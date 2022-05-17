@@ -1,0 +1,16 @@
+<nav data-sly-use.breadcrumb="com.leforemhe.aem.site.core.models.BreadcrumbModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.isConfig="${breadcrumb.items && breadcrumb.items.size > 0}"
+     id="filAriane" class="aem">
+    <div class="filArianeContainer">
+        <sly data-sly-repeat.item="${breadcrumb.items}">
+            <a title="${item.description}" href="${item.uRL}" data-sly-unwrap="${item.active}">
+                    <span data-sly-unwrap="${!item.active}">
+                        <sly data-sly-test="${itemList.first && properties.premierNiveau && breadcrumb.visible}">${properties.premierNiveau} - </sly>${item.title}
+                    </span>
+            </a>
+            <sly data-sly-test="${!itemList.last}">&gt;&nbsp;</sly>
+        </sly>
+    </div>
+</nav>
+<sly data-sly-call="${template.placeholder @ isEmpty=!isConfig, classAppend='cmp-breadcrumb'}"></sly>

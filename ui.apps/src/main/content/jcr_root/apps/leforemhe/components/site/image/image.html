@@ -1,0 +1,39 @@
+<sly
+  data-sly-use.image="com.adobe.cq.wcm.core.components.models.Image"
+  data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+  data-sly-test.author="${wcmmode.edit || wcmmode.design}"
+></sly>
+<sly
+  data-sly-test="${image.src && author}"
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+>
+  <sly
+    data-sly-call="${clientlib.all @ categories='granite.ui.coral.foundation, coralui3'}"
+  ></sly>
+  <button is="coral-button" icon="image" iconsize="M" block>
+    ${"Éditer l'image" @ i18n}
+  </button>
+</sly>
+<a
+  data-sly-test="${image.src}"
+  data-sly-unwrap="${!image.link}"
+  class="cmp-image__link"
+  href="${image.link}"
+  data-cmp-clickable="${image.data ? true : false}"
+  data-cmp-hook-image="link"
+>
+  <div class="aem image_component">
+    <div class="aem img_container">
+      <div class="image">
+        <img
+          src="${image.src}"
+          alt="${image.alt}"
+          title="${image.displayPopupTitle && image.title}"
+        />
+      </div>
+    </div>
+  </div>
+</a>
+<sly
+  data-sly-call="${template.placeholder @ isEmpty = !image.src, classAppend='forem-image' }"
+></sly>

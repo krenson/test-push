@@ -1,0 +1,16 @@
+/*** Scss Document ***/
+@import "src/main/webpack/dependencies/site/scss/normalize";
+@import "src/main/webpack/dependencies/site/scss/fonts";
+
+.header-footer-app {
+	article,aside,details,section,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display: block;}
+	button,input,optgroup,select,textarea{font:inherit;}
+	img{border:0;}
+	svg:not(:root){overflow:hidden;}		
+	legend{border:0;}
+	table{border-collapse:collapse;border-spacing:0;}
+	td,th{padding:0;}
+
+	@import "src/main/webpack/dependencies/site/scss/common";
+	@import "src/main/webpack/dependencies/site/scss/menu";
+}

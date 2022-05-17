@@ -1,0 +1,10 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${templates.placeholder @ isEmpty=true}"></sly>
+<sly data-sly-use.includeAide="com.leforemhe.aem.site.core.models.IncludeAideModel"></sly>
+<security:authorize access="!hasRole('ROLE_FORMAPASS_USER')">
+    <c:set var="HELPURL" value="${includeAide.helpUrl}"/>
+</security:authorize>
+
+<security:authorize access="hasRole('ROLE_FORMAPASS_USER')">
+    <c:set var="HELPURL" value="${includeAide.helpUrlSecured}"/>
+</security:authorize>

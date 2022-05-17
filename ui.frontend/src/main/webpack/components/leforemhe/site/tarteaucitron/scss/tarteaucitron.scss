@@ -1,0 +1,105 @@
+#tarteaucitronRoot #tarteaucitronAlertBig.tarteaucitronAlertBigBottom,
+#tarteaucitronRoot #tarteaucitronAlertBig.tarteaucitronAlertBigTop {
+  margin: 0;
+  max-width: 110rem;
+  width: calc(100% - 15rem);
+  right: 4rem;
+  bottom: 6rem;
+  top: initial;
+  background-color: white;
+  box-shadow: 0px 3px 6px #00000029;
+  left: initial;
+  font-family: $ffRegularV2;
+  color: $primary-font-colorV2;
+  padding: 3rem 2.5rem 3.7rem 4.5rem;
+  justify-content: flex-end;
+  display: flex !important;
+
+  text-align: end;
+  flex-wrap: wrap;
+  &[style="display: none; opacity: 0;"],
+  &[style="opacity: 0; display: none;"] {
+    display: none !important;
+  }
+  #tarteaucitronDisclaimerAlert {
+    font-family: $ffRegularV2;
+    font-size: 1.6rem;
+    color: $primary-font-colorV2;
+    font-weight: 400;
+    text-align: left;
+    padding: 0;
+    padding-bottom: 3rem;
+    order: 1;
+    button#tarteaucitronPrivacyUrl {
+      @include links;
+      text-decoration: underline;
+      font-weight: 500;
+      font-size: 1.6rem;
+      padding: 0;
+      &:hover {
+        text-decoration: none;
+      }
+      &:focus {
+        text-decoration: underline;
+      }
+      &:active {
+        text-decoration: none;
+      }
+      &:visited {
+        color: $link-font-color;
+      }
+    }
+  }
+
+  #tarteaucitronPersonalize2,
+  #tarteaucitronCloseAlert {
+    font-family: $ffRegularV2;
+    color: $primary-font-colorV2;
+    font-weight: 500;
+  }
+
+  button#tarteaucitronPersonalize2 {
+    @include button;
+    @include button-mobile;
+    @include primary-button;
+    display: inline-flex !important;
+    font-size: 1.8rem !important;
+
+    order: 3;
+    margin-left: 2rem;
+  }
+
+  button#tarteaucitronCloseAlert {
+    @include button;
+    @include button-mobile;
+    @include tertiary-button;
+    display: inline-flex !important;
+    font-size: 1.8rem !important;
+
+    order: 2;
+    margin: 0;
+  }
+  .tarteaucitronCheck {
+    display: none;
+  }
+  > button#tarteaucitronPrivacyUrl {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  #tarteaucitronRoot #tarteaucitronAlertBig.tarteaucitronAlertBigBottom,
+  #tarteaucitronRoot #tarteaucitronAlertBig.tarteaucitronAlertBigTop {
+    text-align: center;
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    width: calc(100% - 5rem);
+    padding: 1.5rem;
+    justify-content: center;
+    button#tarteaucitronPersonalize2 {
+      margin: 0;
+      margin-top: 1.5rem;
+    }
+  }
+}

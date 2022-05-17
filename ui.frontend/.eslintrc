@@ -1,0 +1,192 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": false,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"]
+      }
+    }
+  },
+  "rules": {
+    /* Overwriten rules from recommended extended eslint rules */
+    "quotes": [
+      2,
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    // https://eslint.org/docs/rules/quotes
+    "eol-last": [
+      2,
+      "never"
+    ],
+    // https://eslint.org/docs/rules/eol-last
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ],
+    // https://eslint.org/docs/rules/jsx-quotes
+    "no-alert": 2,
+    // https://eslint.org/docs/rules/no-alert
+    "no-console": 2,
+    // https://eslint.org/docs/rules/no-console
+    "no-debugger": 2,
+    // https://eslint.org/docs/rules/no-debugger
+    "no-lone-blocks": 2,
+    // https://eslint.org/docs/rules/no-lone-blocks
+    "no-trailing-spaces": [
+      2,
+      {
+        "skipBlankLines": true
+      }
+    ],
+    // https://eslint.org/docs/rules/no-trailing-spaces
+    "no-underscore-dangle": 0,
+    // https://eslint.org/docs/rules/no-underscore-dangle
+    "no-unused-vars": [
+      2,
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    // https://eslint.org/docs/rules/no-unused-vars
+    "no-var": 2,
+    // https://eslint.org/docs/rules/no-var
+    "semi": [
+      1,
+      "always"
+    ],
+    // https://eslint.org/docs/rules/semi
+
+    /* extra rules */
+    "prefer-const": 1,
+    // https://eslint.org/docs/rules/prefer-const
+    "no-extra-parens": 2,
+    // https://eslint.org/docs/rules/no-extra-parens
+    "curly": [
+      2,
+      "all"
+    ],
+    // https://eslint.org/docs/rules/curly
+    "dot-notation": 2,
+    // https://eslint.org/docs/rules/dot-notation
+    "eqeqeq": [
+      2,
+      "always"
+    ],
+    // https://eslint.org/docs/rules/eqeqeq
+    "no-eval": 2,
+    // https://eslint.org/docs/rules/no-eval
+    "no-extra-bind": 2,
+    // https://eslint.org/docs/rules/no-extra-bind
+    "no-magic-numbers": [
+      2,
+      {
+        "ignoreArrayIndexes": true,
+        "ignore": [
+          -1,
+          0,
+          1
+        ]
+      }
+    ],
+    // https://eslint.org/docs/rules/no-magic-numbers
+    "no-unused-expressions": 0,
+    // https://eslint.org/docs/rules/no-unused-expressions
+    "block-spacing": [
+      2,
+      "always"
+    ],
+    // https://eslint.org/docs/rules/block-spacing
+    "brace-style": [
+      0,
+      "stroustrup"
+    ],
+    // https://eslint.org/docs/rules/brace-style
+    "comma-spacing": [
+      2,
+      {
+        "after": true
+      }
+    ],
+    // https://eslint.org/docs/rules/comma-spacing
+    "comma-style": [
+      2,
+      "last"
+    ],
+    // https://eslint.org/docs/rules/comma-styleik
+    "func-call-spacing": [
+      2,
+      "never"
+    ],
+    // https://eslint.org/docs/rules/func-call-spacing
+    //"func-style": [2, "expression"], // https://eslint.org/docs/rules/func-style
+    // it is ignored use space instead of tab (IntelliJ use spaces and not tabs)
+    "indent": [
+      0,
+      "tab",
+      {
+        "SwitchCase": 1
+      }
+    ],
+    // https://eslint.org/docs/rules/indent
+    "key-spacing": [
+      2,
+      {
+        "beforeColon": false
+      }
+    ],
+    // https://eslint.org/docs/rules/key-spacing
+    "keyword-spacing": [
+      2
+    ],
+    // https://eslint.org/docs/rules/keyword-spacing
+    "newline-per-chained-call": 0,
+    // https://eslint.org/docs/rules/newline-per-chained-call
+    "max-len": [
+      1,
+      {
+        "code": 250,
+        "ignoreComments": true
+      }
+    ],
+    "no-mixed-spaces-and-tabs": [
+      "warn",
+      "smart-tabs"
+    ],
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 1,
+        "maxEOF": 0,
+        "maxBOF": 1
+      }
+    ],
+    "no-multi-spaces": 1,
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ]
+  },
+  "parser": "babel-eslint"
+}

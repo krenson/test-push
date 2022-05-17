@@ -1,0 +1,40 @@
+<sly data-sly-use.referenceMultiModel="com.leforemhe.aem.site.core.models.NavigationModel"></sly>
+<section class="aem multiComponent">
+    <div class="multi-content">
+        <h1 data-sly-test="${properties.jcr:title}">${properties.jcr:title}</h1>
+        <ul data-sly-test="${referenceMultiModel.items && referenceMultiModel.items.size>0}">
+            <sly data-sly-repeat.reference="${referenceMultiModel.items}">
+                <li class="${reference.document ? 'multi-icone' : ''}">
+                    <sly data-sly-test.internalUrl="${reference.linkReference @ context='uri', extension='html'}"
+                         data-sly-test.externalUrl="${reference.linkReference @ context='uri'}"
+                         data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"></sly>
+                    <a data-sly-test="${!reference.document}"
+                       class="link-icone"
+                       data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, reference.description ? reference.description : reference.title]}"
+                       href="${reference.internal ? internalUrl : externalUrl}"
+                       title="${reference.opensNewTab ? newTabTitle : (reference.description ? reference.description : reference.title)}"
+                       data-sly-attribute.target="${reference.target}">
+                        <div class="icone"></div>
+                        <span data-sly-text="${reference.label}"></span>
+                    </a>
+                    <a data-sly-test="${reference.document}"
+                       data-sly-test.documentUrl="${reference.linkReference @ context='uri'}"
+                       data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, reference.documentTitleFromDam]}"
+                       class="link-icone"
+                       href="${reference.internal ? internalUrl : externalUrl}"
+                       title="${reference.opensNewTab ? newTabTitle : reference.documentTitleFromDam}"
+                       data-sly-attribute.target="${reference.target}"
+                       onclick="javascript:ga('send','event','document','download','${documentUrl @ context='scriptString'}')">
+                        <div class="icone">
+                            <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/icons/Icon-file-download.svg">
+                        </div>
+                        <span data-sly-text="${reference.documentLabel}"></span>
+                    </a>
+                </li>
+            </sly>
+        </ul>
+    </div>
+</section>
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
+    <sly data-sly-call="${templates.placeholder @ isEmpty = !properties.jcr:title}"></sly>
+</sly>

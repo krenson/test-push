@@ -1,0 +1,15 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.dynamicJs="com.leforemhe.aem.site.core.models.DynamicJsModel"
+     data-sly-test.placeholderLabel="${'({0})' @ format=[dynamicJs.size]}"
+     data-sly-test.author="${wcmmode.edit || wcmmode.design}"></sly>
+
+
+<!-- List of JS injected via dynamicjs/dynamicjs.html-->
+<sly data-sly-repeat.jsPath="${dynamicJs.javascriptFilePaths}" data-activePage="${currentPage.properties}">
+    <script src="${jsPath}"></script>
+</sly>
+
+<script data-sly-test.jsPath="${properties.fileReference}"
+        type="text/javascript"
+        data-sly-attribute.src="${jsPath @ context='attribute'}"></script>
+<sly data-sly-call="${template.placeholder @ isEmpty=true, classAppend='forem-dynamicjs', emptyTextAppend=placeholderLabel}"></sly>

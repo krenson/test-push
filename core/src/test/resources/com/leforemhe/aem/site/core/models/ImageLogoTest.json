@@ -1,0 +1,15 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "image": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhev1/components/site/header/image",
+      "fileReferenceDesktop": "/content/dam/leforemhe/image.png",
+      "fileReferenceMobile": "/content/dam/leforemhe/image2.png"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div data-sly-use.layout="com.leforemhe.aem.site.core.models.RemarqueLayoutFirstRowModel"
+     data-sly-repeat.columnsGroup="${layout.groups}">
+    <div data-sly-repeat.column="${columnsGroup}" class="${(column.items.size > 1 || !wcmmode.disabled) ? 'colonne' : ''}">
+        <sly data-sly-resource="${column.path @ decoration=false}"/>
+    </div>
+    <div data-sly-test="${!wcmmode.disabled && columnsGroup.size < 2}">
+        <sly data-sly-resource="${resource.path @ resourceType='leforemhe/components/site/remarquelayout/firstrow/column', appendPath=layout.newColumnName, decoration=false, cssClassName='new section'}"/>
+    </div>
+</div>
+<div data-sly-test="${!wcmmode.disabled && layout.lastContainerFull && layout.columns.size < 4}">
+    <div>
+        <sly data-sly-resource="${resource.path @ resourceType='leforemhe/components/site/remarquelayout/firstrow/column', appendPath=layout.newColumnName, decoration=false, cssClassName='new section'}"/>
+    </div>
+</div>

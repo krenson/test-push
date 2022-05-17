@@ -1,0 +1,52 @@
+<sly data-sly-use.hamburgerModel="com.leforemhe.aem.site.core.models.HamburgerMenuModel"
+     data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"
+     data-sly-unwrap="${!author}"></sly>
+
+<section class="aem topV2">
+    <header role="banner">
+        <ul class="partSup">
+            <li class="menuSupItem" id="foremLogo">
+                <sly data-sly-resource="${'logo' @resourceType='leforemhe/components/site/header/logo'}"
+                     data-sly-unwrap="${!wcmmode.edit}"></sly>
+            </li>
+            <li class="menuSupItem" id="foremJeunes">
+                <sly data-sly-resource="${'foremjeunes' @ resourceType='leforemhe/components/site/header/foremjeunes'}"
+                     data-sly-unwrap="${!author}"></sly>
+            </li>
+            <li class="menuSupItem" id="contact">
+                <sly data-sly-resource="${'hautcontact' @ resourceType='leforemhe/components/site/header/hautcontact'}"
+                     data-sly-unwrap="${!author}"></sly>
+            </li>
+            <li class="menuSupItem" id="searchTop">
+                <div data-sly-resource="${'rechercheButton' @ resourceType='leforemhe/components/site/header/recherche'}"
+                     data-sly-unwrap="${!author}"></div>
+            </li>
+            <li class="menuSupItem" id="searchTopMobile">
+                <svg id="search-light-mobile" xmlns="http://www.w3.org/2000/svg" width="29.438" height="29.438" viewBox="0 0 29.438 29.438">
+                    <path id="search-light-2" data-name="search-light" d="M29.235,27.688l-7.417-7.417a.682.682,0,0,0-.489-.2h-.592a11.838,11.838,0,1,0-.667.673v.586a.707.707,0,0,0,.2.489l7.417,7.417a.691.691,0,0,0,.977,0l.569-.569A.691.691,0,0,0,29.235,27.688ZM11.958,22.077A10.119,10.119,0,1,1,22.077,11.958,10.111,10.111,0,0,1,11.958,22.077Z" fill="#2f3a48"></path>
+                </svg>
+            </li>
+            <li class="menuSupItem" id="connectButton">
+                <div data-sly-resource="${'connexion' @ resourceType='leforemhe/components/site/header/connexion'}"
+                     data-sly-unwrap="${!author}"></div>
+            </li>
+        </ul>
+
+        <div data-sly-test="${!author}" data-sly-resource="${ 'rechercheButton' @  selectors=['mobile']}"></div>
+
+        <div class="partInf">
+            <div class="partInfContainer">
+                <div class="leftPart">
+                    <sly data-sly-resource="${'hamburgermenu' @ resourceType='leforemhe/components/site/header/hamburgermenu'}"
+                         data-sly-unwrap="${!author}"></sly>
+                    <sly data-sly-resource="${'navigation' @ resourceType='leforemhe/components/site/header/navigation'}"
+                         data-sly-unwrap="${!author}"></sly>
+                </div>
+                <sly data-sly-resource="${'navigationschool' @ resourceType='leforemhe/components/site/header/naveducation'}"
+                     data-sly-unwrap="${!author}"></sly>
+            </div>
+            <sly data-sly-resource="${'hamburgermenuNavigation' @ resourceType='leforemhe/components/site/header/hamburgermenu', selectors=['navigation']}"
+                 data-sly-unwrap="${!author}"></sly>
+        </div>
+    </header>
+</section>

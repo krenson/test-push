@@ -1,0 +1,56 @@
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Formulaire"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+             sling:resourceType="granite/ui/components/coral/foundation/container"
+             maximized="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+            <fields jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <action jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            required="{Boolean}true"
+                            name="./action"
+                            fieldLabel="Action"
+                            fieldDescription="URL de destination du formulaire"/>
+                    <method jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Méthode"
+                            fieldDescription="Méthode d'envoi du formulaire"
+                            name="./method">
+                        <items jcr:primaryType="nt:unstructured">
+                            <post jcr:primaryType="nt:unstructured"
+                                  text="POST" value="post"
+                                  selected="{Boolean}true"/>
+                            <get jcr:primaryType="nt:unstructured"
+                                 text="GET" value="get"/>
+                        </items>
+                    </method>
+                    <multipart jcr:primaryType="nt:unstructured"
+                               sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                               name="./multipart"
+                               value="{Boolean}true"
+                               uncheckedValue="{Boolean}false"
+                               text="Multipart"
+                               fieldDescription="Ajoute l'attribut enctype=multipart/form-data au formulaire. Cocher si le formulaire envoie des fichiers."/>
+                    <id jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        name="./id"
+                        fieldLabel="ID"
+                        fieldDescription="Identifiant HTML du formulaire"/>
+                    <name jcr:primaryType="nt:unstructured"
+                          sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                          name="./name"
+                          fieldLabel="Name"
+                          fieldDescription="Nom HTML du formulaire"/>
+                </items>
+            </fields>
+        </items>
+    </content>
+</jcr:root>

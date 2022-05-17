@@ -1,0 +1,49 @@
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          cq:dialogMode="floating"
+          cq:layout="editbar"
+          jcr:primaryType="cq:EditConfig">
+    <cq:inplaceEditing
+            jcr:primaryType="cq:InplaceEditingConfig"
+            active="{Boolean}true"
+            configPath="inplaceEditingConfig"
+            editorType="hybrid">
+        <cq:childEditors jcr:primaryType="nt:unstructured">
+            <title
+                    jcr:primaryType="cq:ChildEditorConfig"
+                    title="Titre"
+                    type="plaintext"/>
+            <corps_ban
+                    jcr:primaryType="cq:ChildEditorConfig"
+                    title="Corps de la bannière"
+                    type="text"/>
+            <label
+                    jcr:primaryType="cq:ChildEditorConfig"
+                    title="Label (lien externe)"
+                    type="plaintext"/>
+        </cq:childEditors>
+        <inplaceEditingConfig
+                jcr:primaryType="nt:unstructured">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    name="Titre"
+                    editElementQuery="h1"
+                    textPropertyName="./title"/>
+            <corps_ban
+                    jcr:primaryType="nt:unstructured"
+                    name="Corps de la bannière"
+                    editElementQuery="p"
+                    textPropertyName="./body"/>
+            <label
+                    jcr:primaryType="nt:unstructured"
+                    name="Label (lien externe)"
+                    editElementQuery="a"
+                    textPropertyName="./reference/label"/>
+        </inplaceEditingConfig>
+    </cq:inplaceEditing>
+    <cq:dropTargets jcr:primaryType="nt:unstructured">
+        <image jcr:primaryType="cq:DropTargetConfig"
+               accept="[image/*]"
+               groups="[media]"
+               propertyName="./fileReference"/>
+    </cq:dropTargets>
+</jcr:root>

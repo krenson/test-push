@@ -1,0 +1,17 @@
+<section class="taf aem" id="taf">
+  <div class="taf-container">
+    <div class="alert-image"></div>
+    <div class="taf-content">
+      <p>
+        Nos bureaux et notre centre de contact sont fermés ce 3 janvier
+        après-midi. Nous vous souhaitons une excellente année 2022 !
+      </p>
+    </div>
+    <button id="closeTAF" role="button" type="button" value="FERMER"></button>
+  </div>
+</section>
+<script type="text/javascript">
+  document.getElementById("closeTAF").addEventListener("click", function (e) {
+    document.getElementById("taf").remove();
+  });
+</script>

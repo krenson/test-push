@@ -1,0 +1,35 @@
+<sly data-sly-use.listeAccesDirectImage="com.leforemhe.aem.site.core.models.NavigationImageModel"></sly>
+<section class="aem bottom1b">
+    <div class="linkLists containerRSR mobDispFlexDirCol">
+        <div class="socialNetwork dispFlexDirCol justifyContentStart">
+            <p class="titleResSoc marginNull" data-sly-test="${properties.titleSocialNetwork}">${properties.titleSocialNetwork}</p>
+            <ul class="marginNull paddingLRNull">
+                <li data-sly-repeat.item="${listeAccesDirectImage.items}"
+                    data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}">
+                    <a data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, item.description ? item.description :  item.title]}"
+                       data-sly-test.urlTitle="${item.opensNewTab ? newTabTitle : (item.description ? item.description :  item.title) }"
+                       title="${item.description? item.description : urlTitle}"
+                       href="${item.linkReference}"
+                       data-sly-attribute.target="${item.target}">
+                        <img alt="leforemhe" src="${item.fileReferenceDesktop}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="liste containerResSocReg">
+            <p class="titleResSoc" data-sly-test="${properties.titleListeAccesDirect}">${properties.titleListeAccesDirect}</p>
+            <ul class="resSocReg marginNull">
+                <li data-sly-repeat.item="${listeAccesDirectImage.itemsListeAccesDirect}"
+                    data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}">
+                    <a data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, item.description ? item.description :  item.title]}"
+                       data-sly-test.urlTitle="${item.opensNewTab ? newTabTitle : (item.description ? item.description :  item.title) }"
+                       title="${item.description? item.description : urlTitle}"
+                       href="${item.linkReference}"
+                       data-sly-attribute.target="${item.target}">
+                        ${item.label}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

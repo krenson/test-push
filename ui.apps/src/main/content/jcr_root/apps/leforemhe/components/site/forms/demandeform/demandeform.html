@@ -1,0 +1,165 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.localDate="com.leforemhe.aem.site.core.models.LocalDateCustomModel"></sly>
+<form class="aem forms"
+      data-sly-test="${properties.action}"
+      data-sly-attribute.action="${properties.action}"
+      data-sly-attribute.method="${properties.method}"
+      data-sly-attribute.name="${properties.name}"
+      data-sly-attribute.id="${properties.id}"
+      data-sly-attribute.enctype="${properties.multipart ? 'multipart/form-data':''}">
+    <fieldset>
+        <legend>
+            ${'Signalétique' @ i18n}
+        </legend>
+        <div>
+            <label for="nom">
+                ${'Nom' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="nom" name="nom" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text"
+                   value="">
+        </div>
+        <div>
+            <label for="prenom">
+                ${'Prénom' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="prenom" name="prenom" placeholder="${'Champ obligatoire' @ i18n}" required=""
+                   type="text" value="">
+        </div>
+        <div>
+            <label for="date">
+                ${'Date de naissance' @ i18n} <span>(${'jj/mm/aaaa' @ i18n})</span>
+                <acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <div class="date">
+                <input aria-required="true" id="date" name="date" data-sly-attribute.max="${localDate.now}" data-sly-attribute.min="${localDate.dateHundredYearsAgo}"
+                       pattern="[0-9]{2}[-/]{1}[0-9]{2}[-/]{1}[0-9]{4}" placeholder="Champ obligatoire" required="" type="date">
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            ${'Contact' @ i18n}
+        </legend>
+        <div>
+            <label for="tel">
+                ${'Téléphone' @ i18n}&nbsp;/&nbsp;${'GSM' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="tel" name="tel" pattern="[0]{1}([0-9]{8,20})"
+                   placeholder="${'Champ obligatoire' @ i18n}" required="" type="tel" value="">
+        </div>
+        <div>
+            <label for="email">
+                ${'Adresse e-mail' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="email" name="email" placeholder="${'Champ obligatoire' @ i18n}" required="" type="email"
+                   value="">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            ${'Adresse' @ i18n}
+        </legend>
+        <div>
+            <label for="rue">
+                ${'Rue' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="rue" name="rue" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text">
+        </div>
+        <div>
+            <label for="numero">
+                ${'Numéro' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="numero" name="numero" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text">
+        </div>
+        <div>
+            <label for="code">
+                ${'Code Postal' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="code" maxlength="4" name="code" placeholder="${'Champ obligatoire' @ i18n}" required=""
+                   type="text">
+        </div>
+        <div>
+            <label for="ville">
+                ${'Ville' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="ville" name="ville" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            ${'Statut' @ i18n}
+        </legend>
+        <div>
+            <label for="statut">
+                ${'Statut' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <select aria-required="true" id="statut" name="statut" required="">
+                <option selected="selected" value="">
+                    ${'Choisissez un statut' @ i18n}
+                </option>
+                <option value="Demandeur Emploi">
+                    ${'Demandeur d\'emploi' @ i18n}
+                </option>
+                <option value="Travailleur">
+                    ${'Travailleur' @ i18n}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label aria-describedby="descriptionNumForem">
+                ${'Numéro Forem' @ i18n}<br>
+                <span id="descriptionNumForem">${'Ce numéro est indiqué sur votre carte JobPass' @ i18n}</span>
+            </label>
+            <input aria-required="false" id="inscription" maxlength="11" name="inscription" pattern="[0-9]{11}"
+                   title="11 ${'chiffres' @ i18n}" type="text" size="11" value="">
+        </div>
+    </fieldset>
+
+    <div class="tree-col">
+        <label for="region">
+            ${'Choisir votre région' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym></label>
+        <div class="select">
+            <select aria-required="true" id="region" name="region" required="">
+                <option value="" selected="selected">
+                    ${'Choisissez votre région' @ i18n}
+                </option>
+                <option value="1">
+                    ${'Brabant wallon' @ i18n}
+                </option>
+                <option value="2">
+                    ${'Charleroi' @ i18n}
+                </option>
+                <option value="3">
+                    ${'Huy' @ i18n}
+                </option>
+                <option value="4">
+                    ${'La Louvière' @ i18n}
+                </option>
+                <option value="5">
+                    ${'Liège' @ i18n}
+                </option>
+                <option value="6">
+                    ${'Luxembourg' @ i18n}
+                </option>
+                <option value="7">
+                    ${'Mons' @ i18n}
+                </option>
+                <option value="8">
+                    ${'Namur' @ i18n}
+                </option>
+                <option value="9">
+                    ${'Verviers' @ i18n}
+                </option>
+                <option value="10">
+                    ${'Wallonie picarde' @ i18n}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <label for="formation">
+            ${'Formation envisagée' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+        <div class="textarea two-col">
+            <textarea aria-required="true" id="formation" name="formation" placeholder="${'Champ obligatoire' @ i18n}"
+                      required=""></textarea>
+        </div>
+    </div>
+
+    <div class="form-Button">
+        <button id="boutonFormulaireFormation" name="boutonFormulaireFormation" type="submit" value="Envoyer" class="btn btn-primary">
+            ${'envoyer' @ i18n}
+        </button>
+    </div>
+
+</form>
+<sly data-sly-call="${template.placeholder @ isEmpty = !properties.action, classAppend='forem-form' }"></sly>

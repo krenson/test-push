@@ -1,0 +1,66 @@
+.aem.multiComponent {
+  @include max-width;
+
+  margin: 2rem auto;
+  .multi-content {
+    background-color: #d9eff0;
+    padding: 2rem 3rem;
+    border-radius: 2rem;
+    width: fit-content;
+    max-width: 96rem;
+    box-sizing: border-box;
+    li {
+      padding-bottom: 1rem;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+
+  & li:not(.multi-icone) {
+    .link-icone {
+      align-items: flex-start;
+      .icone {
+        margin-top: 0.6rem;
+        min-width: 1.4rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        background-color: #fcdbad;
+        border-color: #fcdbad;
+        img {
+          display: none;
+        }
+      }
+      span {
+        padding: 0;
+      }
+    }
+    .multi-content {
+      li {
+        padding-bottom: 1.5rem;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.multiComponent {
+    .multi-content {
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  }
+}

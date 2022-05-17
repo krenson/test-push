@@ -1,0 +1,30 @@
+<section class="fcs" data-sly-use.rechercheEmploi="com.leforemhe.aem.site.core.models.RechercheEmploiModel">
+    <forem-offer-search
+            id="exempleOfferSearch"
+            offercount=""
+            databind=""
+            arbolink="https://leforemhe.be/recherche-offres-emploi/jsp/index.jsp#arborescence-search"
+            advancedlink="https://leforemhe.be/recherche-offres-emploi/jsp/index.jsp#advanced-search"
+            aidelink="${rechercheEmploi.helpUrl @ selectors='html'}"
+            usenatifsinputs=""
+            url="${rechercheEmploi.jobSearchRequestPath @ context='attribute'}"
+            data-link="${rechercheEmploi.jobCountUrl}"
+    >
+        <forem-popup
+                class="
+              refPopup
+              modal-bg-secondary modal modal-scroll-body modal-auto
+            "
+                size="auto"
+                label='<i class="fal fa-info-circle mr-1" aria-hidden="true"></i> Information'
+                idtag="popupContent-1643805243081-4081067"
+                is="div"
+                aria-hidden="true"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="323865"
+                aria-describedby="408640"
+                hidden="hidden"
+        ></forem-popup>
+    </forem-offer-search>
+</section>

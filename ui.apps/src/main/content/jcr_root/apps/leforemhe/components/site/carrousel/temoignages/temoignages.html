@@ -1,0 +1,27 @@
+
+<sly data-sly-use.carrousel="com.adobe.cq.wcm.core.components.models.Carousel"
+     data-sly-test.author="${wcmmode.edit || wcmmode.design}"></sly>
+
+<div id="testimony" aria-label="${carrousel.accessibilityLabel}">
+    <div data-sly-test="${!author}" class="zoneFlecheG">
+        <div class="flecheG">
+        </div>
+    </div>
+    <div class="testimonyContainer${author ? '-author':''}">
+        <sly data-sly-repeat.slide="${carrousel.items}">
+            <div class="slide cmp-banniere-temoignage" data-sly-resource="${slide.path}"></div>
+        </sly>
+        <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section  aem-Grid-newComponent'}"
+             data-sly-test="${(wcmmode.edit || wcmmode.preview) && carrousel.items.size < 1}"></sly>
+    </div>
+    <div data-sly-test="${!author}" class="zoneFlecheD">
+        <div class="flecheD">
+        </div>
+    </div>
+</div>
+<div data-sly-test="${carrousel.items.size > 1}"
+     class="containerNavSlider">
+    <!-- commandes du diaporama -->
+    <ul class="navSlider">
+    </ul>
+</div>

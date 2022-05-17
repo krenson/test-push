@@ -1,0 +1,7 @@
+<div data-sly-use.textModel="com.leforemhe.aem.site.core.models.TextModelImpl"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.text="${textModel.text}"
+     class="aem rte ${textModel.backgroundCssClass}">
+    <p data-sly-unwrap="${textModel.richText}">${text @ context = textModel.richText ? 'unsafe' : 'text'}</p>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !text, classAppend='cmp-text'}"></sly>

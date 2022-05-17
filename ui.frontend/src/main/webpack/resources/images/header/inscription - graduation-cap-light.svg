@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="se_former_-_graduation-cap-light"
+   data-name="se former - graduation-cap-light"
+   width="60"
+   height="60"
+   viewBox="0 0 59.999999 60.000002"
+   version="1.1"
+   sodipodi:docname="inscription - graduation-cap-light.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="36.791px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:lockguides="true"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="30.49398"
+     inkscape:cy="-0.61871843"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="4472"
+     inkscape:window-y="243"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="se_former_-_graduation-cap-light" />
+  <path
+     id="graduation-cap-light"
+     d="m 46.793311,24.135442 -15.233973,-4.926 a 5.038991,5.039 0 0 0 -3.121995,0 l -15.234972,4.926 a 2.2919959,2.292 0 0 0 0,4.37 l 1.707997,0.552 a 4.5689918,4.569 0 0 0 -0.421,1.138 1.8139968,1.814 0 0 0 0.006,3.292 l -1.037998,6.43 c -0.093,0.574 0.225,1.119 0.651999,1.119 h 2.342996 c 0.426999,0 0.744999,-0.545 0.651999,-1.119 l -1.036998,-6.43 a 1.8289967,1.829 0 0 0 1.053998,-1.648 1.8069968,1.807 0 0 0 -0.771999,-1.458 2.7299951,2.73 0 0 1 0.377999,-0.736 l 3.073995,0.994 -0.839999,6.72 c 0,2.032 4.941992,3.679 11.036981,3.679 6.094989,0 11.03698,-1.647 11.03698,-3.679 l -0.839999,-6.72 6.599989,-2.133 a 2.2909959,2.291 0 0 0 0,-4.37 z m -7.626987,13.1 c -0.618999,0.651 -3.761993,1.963 -9.167983,1.963 -5.405991,0 -8.549985,-1.312 -9.167984,-1.964 l 0.751999,-6.02 6.854987,2.216 a 5.029991,5.03 0 0 0 3.121995,0 l 6.854988,-2.216 z m 7.058988,-10.479 -15.233973,4.925 a 3.2059943,3.206 0 0 1 -1.986997,0 l -10.101982,-3.265 11.26498,-2.112 a 0.91916822,0.91916987 0 1 0 -0.337999,-1.807 l -11.714979,2.2 a 4.5629918,4.563 0 0 0 -1.899997,0.853 l -2.442995,-0.79 a 0.45199919,0.452 0 0 1 0,-0.871 l 15.230972,-4.93 a 3.2199942,3.22 0 0 1 1.986997,0 l 15.234973,4.925 a 0.45299919,0.453 0 0 1 0.001,0.872 z"
+     fill="#2f3a48" />
+</svg>

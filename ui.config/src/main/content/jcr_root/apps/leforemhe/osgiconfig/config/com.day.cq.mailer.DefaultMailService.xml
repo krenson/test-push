@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    debug.email="{Boolean}true"
+    smtp.host="smtp.gmail.com"
+    smtp.port="465"
+    smtp.starttls="{Boolean}true"
+    smtp.requiretls="{Boolean}true"
+    smtp.ssl="{Boolean}true"
+    smtp.user="realdolmen.inetum@gmail.com"
+    from.address="realdolmen.inetum@gmail.com"
+    oauth.flow="{Boolean}true"
+/>

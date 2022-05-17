@@ -1,0 +1,9 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+<section class="groupPaves aem">
+    <div>
+            <div class="cmp-pave" data-sly-resource="${'pave_1' @ resourceType='leforemhe/components/site/pave'}"
+                 data-sly-unwrap="${!author}"></div>
+            <div class="cmp-pave" data-sly-resource="${'pave_2' @ resourceType='leforemhe/components/site/pave'}"
+                 data-sly-unwrap="${!author}"></div>
+    </div>
+</section>

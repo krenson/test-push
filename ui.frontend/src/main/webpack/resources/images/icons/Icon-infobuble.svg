@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Icon-infobuble" transform="translate(-1843 -1023)">
+    <g id="Icon-close-menu" transform="translate(155)">
+      <g id="Group_160979" data-name="Group 160979" transform="translate(455)">
+        <g id="Group_160971" data-name="Group 160971" transform="translate(433)">
+          <g id="Group_160965" data-name="Group 160965" transform="translate(84)">
+            <g id="Group_160963" data-name="Group 160963" transform="translate(84)">
+              <g id="Form-chev-down" transform="translate(168 92)">
+                <g id="Group_160974" data-name="Group 160974">
+                  <path id="Path_83191" data-name="Path 83191" d="M0,0H60V60H0Z" transform="translate(464 931)" fill="none"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path id="Path_83218" data-name="Path 83218" d="M12.42,0A12.42,12.42,0,1,0,24.84,12.42,12.419,12.419,0,0,0,12.42,0Zm0,23.288A10.868,10.868,0,1,1,23.288,12.42,10.881,10.881,0,0,1,12.42,23.288Zm0-14.361a1.164,1.164,0,1,0-1.164-1.164A1.164,1.164,0,0,0,12.42,8.927Zm2.329,8.151H13.2V11.644a.779.779,0,0,0-.776-.776H10.867a.776.776,0,1,0,0,1.552h.776v4.657H10.091a.776.776,0,1,0,0,1.552h4.657a.776.776,0,1,0,0-1.552Z" transform="translate(1861 1040.58)" fill="#313a47"/>
+  </g>
+</svg>

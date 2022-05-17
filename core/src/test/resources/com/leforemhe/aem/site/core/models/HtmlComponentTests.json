@@ -1,0 +1,15 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "htmlcomponent": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/htmlcomponent",
+      "html": "<p>&nbsp;</p>\n<div class=\"searchBandJobsCV\"><div class=\"rechercheProfil\"><p>Repérez vos futurs collaborateurs!</p>\n<div><a class=\"btBleu2196F3\" title=\"Chercher un candidat parmis les profils encodés sur le site\" href=\"/entreprises/chercher-un-candidat.html\">Chercher un candidat</a><img alt=\"loupe candidat\" src=\"/content/dam/leforemhe/fr/loupe-candidat.png\"></div>\n</div>\n</div>\n<p>&nbsp;</p>",
+      "textIsRich": "true"
+    }
+  }
+}

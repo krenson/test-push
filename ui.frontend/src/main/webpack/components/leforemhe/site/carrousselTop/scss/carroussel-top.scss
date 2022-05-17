@@ -1,0 +1,227 @@
+.aem.sliderTop {
+  position: relative;
+
+  .slider-container {
+    overflow: hidden;
+    min-width: 100%;
+    display: flex;
+
+    align-items: stretch;
+
+    .slide {
+      min-width: 100%;
+      order: 0;
+
+      .cmp-banniere-standard {
+        min-width: 100%;
+        display: flex;
+        position: relative;
+        height: 100%;
+        flex-direction: row-reverse;
+        .espaceImage,
+        .textBanner {
+          width: 50%;
+          max-height: 75rem;
+          height: 75rem;
+        }
+        .espaceImage img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .textBanner {
+          box-sizing: border-box;
+          padding-top: 5rem;
+          padding-bottom: 5rem;
+          /*  padding-left: 7rem;
+          padding-right: 20rem; */
+          padding-right: 7rem;
+          padding-left: 20rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-color: $six-color;
+          h1 {
+            margin-top: 0;
+            margin-bottom: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    /* .slide:nth-child(2n) .cmp-banniere-standard {
+      flex-direction: row-reverse;
+      .textBanner {
+        padding-right: 7rem;
+        padding-left: 20rem;
+      }
+    } */
+    .slide.element-invisible {
+      order: 10;
+    }
+    .zoneFlecheG,
+    .zoneFlecheD {
+      position: absolute;
+      top: 0;
+
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      box-sizing: border-box;
+      .flecheD,
+      .flecheG {
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+        border: 0.2rem solid white;
+        box-shadow: 0.3rem 0.3rem 0.6rem #00000029;
+        width: 10rem;
+        height: 10rem;
+        background-image: url($resourcePath + "/images/header/chevron-right-regular.svg");
+
+        background-size: 20%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+    .zoneFlecheG {
+      left: 5rem;
+      .flecheG {
+        transform: rotate(180deg);
+        box-shadow: -0.3rem -0.3rem 0.6rem #00000029;
+        margin-right: 0.1rem;
+      }
+    }
+    .zoneFlecheD {
+      right: 5rem;
+      .flecheD {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  .containerNavSlider {
+    position: absolute;
+    bottom: calc(0px - 5.3rem);
+    left: 0;
+    width: 100%;
+    .navSlider {
+      pointer-events: none;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+      align-items: center;
+      li {
+        margin: 0 1.4rem;
+        min-width: 1.4rem;
+        height: 1.4rem;
+        background: #2f3a48;
+        border-radius: 50%;
+        transition: background-color $transitiontime $transitionmode,
+          border-color $transitiontime $transitionmode,
+          box-shadow $transitiontime $transitionmode;
+        &.displayed {
+          margin: 0 1.05rem;
+          min-width: 2.1rem;
+          height: 2.1rem;
+          background: $tercary-color;
+          &:hover {
+            background: $tercary-color;
+          }
+        }
+        &.playPause {
+          display: none;
+        }
+        & a:focus-visible {
+          background-color: $tercary-color;
+          border-radius: 50%;
+          outline: none;
+        }
+        &:hover {
+          background-color: #969ca3;
+        }
+        &:active {
+          margin: 0 1.05rem;
+          min-width: 2.1rem;
+          height: 2.1rem;
+          background: $tercary-color;
+        }
+      }
+
+      a {
+        display: block;
+
+        pointer-events: all;
+        width: 100%;
+        height: 100%;
+        > span {
+          display: none;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+.cq-Editable-dom .aem.sliderTop {
+  .containerNavSlider {
+    display: none;
+  }
+  .slider-container {
+    .zoneFlecheG,
+    .zoneFlecheD {
+      display: none;
+    }
+    overflow: initial;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.sliderTop {
+    .slider-container {
+      .zoneFlecheG,
+      .zoneFlecheD {
+        display: none;
+      }
+      .slide .cmp-banniere-standard,
+      .slide:nth-child(2n) .cmp-banniere-standard {
+        flex-direction: column;
+        .espaceImage,
+        .textBanner {
+          width: 100%;
+          max-height: initial;
+          height: initial;
+        }
+
+        .textBanner {
+          padding: 4.85rem 2.5rem 4.85rem 2.5rem;
+
+          height: 100%;
+          h1 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+          }
+          p {
+            font-size: 1.6rem;
+          }
+          .btn {
+            align-self: center;
+          }
+        }
+      }
+    }
+    .containerNavSlider {
+      position: initial;
+      background-color: #d9eff0;
+
+      ul {
+        margin: 0;
+        padding: 1.5rem 0 3rem 0;
+      }
+    }
+  }
+}

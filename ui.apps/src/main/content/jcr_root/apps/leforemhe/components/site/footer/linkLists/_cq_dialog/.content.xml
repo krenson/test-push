@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Listes d'accès direct"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <columns
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                margin="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <fields
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <facebook
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="URL de la page facebook."
+                                fieldLabel="Facebook"
+                                name="./facebook"
+                                required="{Boolean}true"/>
+                            <twitter
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="URL de la page twitter."
+                                fieldLabel="Twitter"
+                                name="./twitter"
+                                required="{Boolean}true"/>
+                            <youtube
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="URL de la page youtube."
+                                fieldLabel="Youtube"
+                                name="./youtube"
+                                required="{Boolean}true"/>
+                            <linkedin
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="URL de la page linkedin."
+                                fieldLabel="Linkedin"
+                                name="./linkedin"
+                                required="{Boolean}true"/>
+                            <instagram
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="URL de la page instagram."
+                                fieldLabel="Instagram"
+                                name="./instagram"
+                                required="{Boolean}true"/>
+                        </items>
+                    </fields>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>

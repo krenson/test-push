@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19.135" height="20.608" version="1.1" viewBox="0 0 19.135 20.608" xmlns="http://www.w3.org/2000/svg">
+ <g id="Icon-double-arrow-right" transform="translate(-1170 -1043)">
+  <g transform="translate(686,-1)" data-name="Group 160962">
+   <g id="Form-chev-down" transform="translate(0,92)">
+    <rect transform="translate(464,932)" width="60" height="60" fill="none" data-name="Rectangle 1219"/>
+   </g>
+  </g>
+  <g id="chevrons-right-regular" transform="translate(1170,1043)">
+   <path transform="translate(-16.01,-31.96)" d="m25.035 33.2 8.331 9.067-8.331 9.068a0.7363 0.7363 0 0 0 1.081 1l8.832-9.568a0.734 0.734 0 0 0 0-1l-8.832-9.567a0.737 0.737 0 0 0-1.081 1zm1.086 9.57a0.734 0.734 0 0 0 0-1l-8.833-9.57a0.7363 0.7363 0 0 0-1.081 1l8.331 9.067-8.333 9.067a0.7363 0.7363 0 0 0 1.081 1z" fill="#2f3a48" data-name="Path 83209"/>
+  </g>
+ </g>
+</svg>

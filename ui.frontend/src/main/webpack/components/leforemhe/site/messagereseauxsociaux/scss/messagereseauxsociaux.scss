@@ -1,0 +1,33 @@
+.aem.bottom1c {
+  background-color: #ff8e97;
+  color: #2b3e50;
+  margin: 0;
+
+  box-sizing: border-box;
+  height: 11.4rem;
+  .centerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      a,
+      a:link {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.bottom1c .centerContent h2 {
+    font-size: 2rem;
+  }
+}

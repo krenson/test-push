@@ -1,0 +1,198 @@
+<sly data-sly-template.script="${@ properties}">
+    <script>
+    // JavaScript Document
+    var detectstringentr = 'AuthFedHandler=Entr-';
+    var detectstringentr1 = '"AuthFedHandler=Entr-';
+    var detectstringpers = '"AuthFedHandler=Pers-';
+    var detectstringpers1 = 'AuthFedHandler=Pers-';
+    var indexpers = -1;
+    var indexentr = -1;
+    var connected = false;
+    var name = null;
+
+    var blocCRC = document.querySelector('.CRC ul');
+    var blocCRCrecherche = document.querySelector('li.CRCrecherche');
+    var blocCRContact = document.querySelector('li.CRCcontact');
+    var blocCRCconnexion = document.querySelector('li.CRCconnexion');
+
+    var searchBand = document.querySelector('#searchBand');
+    var blocContact = document.querySelector('#blocContact');
+    var blocLinkConnect = document.querySelector('#blocLinkConnect');
+    var menu = document.querySelector('#mobile');
+    var mynav = document.querySelector('#myNav');
+
+    var pathPers = '${properties.pathPers @ context='unsafe'}';
+    var pathEntr = '${properties.pathEntr @ context='unsafe'}';
+    var pathPart = '${properties.pathPart @ context='unsafe'}';
+    var pathConnect = '${properties.pathConnect @ context='unsafe'}';
+    var pathDisconnect = '${properties.pathDisconnect @ context='unsafe'}';
+
+    ${properties.pathEntrGuest ? 'var pathEntrGuest = \'{0}\';':'' @ context='unsafe', format=[properties.pathEntrGuest]}
+
+
+        var eventLOADConnect = function() {
+        blocCRC.removeChild(blocCRCconnexion);
+        if (connected) {
+        blocCRC.insertAdjacentHTML("beforeend", getHTMLConnected());
+        } else {
+        blocCRC.insertAdjacentHTML("beforeend", getHTMLNotConnected());
+        }
+        };
+
+
+        var eventCLICKCRCrecherche = function(e) {
+        if (e.target.getAttribute("href") == null) {
+        e.preventDefault();
+        }
+        searchBand.classList.toggle("element-invisible");
+        if (! blocContact.classList.contains("element-invisible")) {
+        blocContact.classList.toggle("element-invisible")
+        }
+        if (! document.getElementById("blocLinkConnect").classList.contains("element-invisible")) {
+        document.getElementById("blocLinkConnect").classList.toggle("element-invisible");
+        }
+
+        if (menu != null && menu.classList.contains("change")) {
+        mynav.style.width = "0%";
+        menu.classList.toggle("change");
+        }
+
+        e.stopPropagation();
+        };
+
+        var eventCLICKCRCcontact = function(e) {
+        if (e.target.getAttribute("href") == null) {
+        e.preventDefault();
+        }
+        blocContact.classList.toggle("element-invisible");
+        if (! searchBand.classList.contains("element-invisible")) {
+        searchBand.classList.toggle("element-invisible")
+        }
+
+        if (! document.getElementById("blocLinkConnect").classList.contains("element-invisible")) {
+        document.getElementById("blocLinkConnect").classList.toggle("element-invisible");
+        }
+
+        if (menu != null && menu.classList.contains("change")) {
+        mynav.style.width = "0%";
+        menu.classList.toggle("change");
+        }
+
+        e.stopPropagation();
+        };
+
+        var eventCLICKCRCconnection = function(e) {
+        if (e.target.getAttribute("href") == null) {
+        e.preventDefault();
+        }
+        document.getElementById("blocLinkConnect").classList.toggle("element-invisible");
+        if (! searchBand.classList.contains("element-invisible")) {
+        searchBand.classList.toggle("element-invisible")
+        }
+
+        if (! blocContact.classList.contains("element-invisible")) {
+        blocContact.classList.toggle("element-invisible")
+        }
+
+        if (menu != null && menu.classList.contains("change")) {
+        mynav.style.width = "0%";
+        menu.classList.toggle("change");
+        }
+
+        e.stopPropagation();
+        };
+
+        indexpers = getAuthFedHandlerPers();
+        indexentr = getAuthFedHandlerEntr();
+        name = getName();
+
+        if ( blocCRC != null ) {
+            if(document.querySelector('forem-header')){
+                eventLOADConnect();
+            } else{
+                document.addEventListener('DOMContentLoaded', eventLOADConnect);
+            }
+            blocCRCrecherche.addEventListener('click', eventCLICKCRCrecherche);
+            blocCRContact.addEventListener('click', eventCLICKCRCcontact);
+            blocCRC.addEventListener('click', eventCLICKCRCconnection);
+        }
+
+        function getHTMLConnected() {
+        var html = '';
+        html = "<li aria-haspopup=\"true\" class=\"CRCconnected widthEP\"><a href=\"#\" id=\"PCorMob\" title=\"Acc&eacute;der ou d&eacute;connectez-vous de votre espace personnel\"><svg version=\"1.1\" id=\"Calque_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"	viewBox=\"0 0 76.8 77\" style=\"enable-background:new 0 0 76.8 77;\" xml:space=\"preserve\"><g><title>Acc&eacute;der ou d&eacute;connectez-vous de l&apos;espace personnel</title><desc>pictogramme illustrant un acc&egrave;s &agrave; l'espace personnel</desc><path class=\"st0\" d=\"M38.5,0.5C17.4,0.5,0.3,17.6,0.3,38.8S17.4,77,38.5,77s38.3-17.1,38.3-38.3S59.6,0.5,38.5,0.5z M22.8,56c0-5.3,5.3-9.7,12.3-10.7v-5.5c-4.1-1.4-7.1-5.3-7.1-9.9c0-5.8,4.7-10.4,10.4-10.4S48.8,24,48.8,29.8c0,4.6-3,8.5-7.1,9.9v5.5C48.7,46.3,54,50.7,54,56H22.8z\"/></g></svg>";
+        html+= "<img alt=\"pictogramme de d&eacute;connexion\" src=\"/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/picto-connecte.png\" />&nbsp;<span id=\"prenomNom\">" + name +"</span></a>";
+        html += "<ul id=\"blocLinkConnect\" class=\"element-invisible\"><a href=\"#\" title=\"fermeture menu de connexion\">";
+            html += "<div class=\"croix\"><span class=\"offScreen\">fermeture du popup de connexion</span></div></a></li><li class=\"titleMenuCRCmobile\">connexion</li>";
+            html += "<form id=\"form1\" name=\"connect\" method=\"post\" action=\"" + pathConnect + "\">";
+            html += "<input name=\"action\" value=\"connect\" type=\"hidden\"/>";
+            html += "<input name=\"nextUrl\" value=\"\" type=\"hidden\"/>";
+            html += "<input type=\"hidden\" value=\"true\" name=\"connected\" id=\"connected\" />";
+
+            if (indexentr !== -1) {
+            html+= "<li><span class=\"monCompteEntrep\"><a title=\"Mon espace entreprise\" href=\"" + pathEntr + "\">Mon espace entreprise</a></span></li>";
+
+            html+= "<li><span class=\"gerer\"><a title=\"G&eacute;rer mes donn&eacute;es\" href=\"" + pathEntrGuest + "\">G&eacute;rer mes donn&eacute;es</a></span></li>";
+
+            html+= "<li><span class=\"deconnexion\"><a title=\"D&eacute;connectez-vous de votre espace entreprise\" href=\"" + pathDisconnect + "\">D&eacute;connexion</a></span></li></ul></li>";
+        } else if (indexpers !== -1) {
+        html+= "<li><span class=\"monCompte\"><a title=\"Acc&eacute;der &agrave; votre espace personnel\" href=\"" + pathPers + "\">Mon espace personnel</a></span></li>";
+        html+= "<li><span class=\"deconnexion\"><a title=\"D&eacute;connectez-vous de votre espace personnel\" href=\"" + pathDisconnect + "\">D&eacute;connexion</a></span></li></ul></li>";
+        }
+
+
+        html+= "</form>";
+
+        return html;
+        }
+
+        function getHTMLNotConnected() {
+        var html = '';
+        html = "<li aria-haspopup=\"true\" class=\"CRCconnexion widthEP\">";
+        html += "<a href=\"#\" title=\"Connectez-vous &agrave; votre espace personnel et s&eacute;curis&eacute; sur le site\">";
+        html += "<svg version=\"1.1\" id=\"pictoConnexion\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 76.8 77\" style=\"enable-background:new 0 0 76.8 77;\" xml:space=\"preserve\"><g><title>Connectez-vous &agrave; votre espace personnel et s&eacute;curis&eacute; sur le site</title><desc>pictogramme illustrant un acc&egrave;s &agrave; l'espace personnel</desc><path class=\"st0\" d=\"M38.5,0.5C17.4,0.5,0.3,17.6,0.3,38.8S17.4,77,38.5,77s38.3-17.1,38.3-38.3S59.6,0.5,38.5,0.5z M22.8,56 c0-5.3,5.3-9.7,12.3-10.7v-5.5c-4.1-1.4-7.1-5.3-7.1-9.9c0-5.8,4.7-10.4,10.4-10.4S48.8,24,48.8,29.8c0,4.6-3,8.5-7.1,9.9v5.5 C48.7,46.3,54,50.7,54,56H22.8z\"/></g></svg><span>Connexion</span></a>";
+        html += "<ul class=\"element-invisible\" id=\"blocLinkConnect\">";
+            html += "<li class=\"closePopup\" id=\"ClosePopupConnect\"><a href=\"#\" title=\"fermeture menu de connexion\"><div class=\"croix\"><span class=\"offScreen\">fermeture du popup de connexion</span></div></a></li>";
+            html += "<li class=\"titleMenuCRCmobile\">connexion</li><li><span><a href=\"" + pathPers +"\" title=\"Acc&eacute;der &agrave; l&apos;espace personnel Citoyens\">Citoyens</a></span></li><li><span><a href=\"" + pathEntr + "\" title=\"Acc&eacute;der &agrave; l&apos;espace personnel Entreprises\">Entreprises</a></span></li><li><span><a href=\"" + pathEntr +"\" title=\"Acc&eacute;der &agrave; l&apos;espace personnel Partenaires\">Partenaires</a></span></li></ul></li>";
+
+        return html;
+        }
+
+        function getName() {
+        if (indexpers !== -1) {
+        lastindex = document.cookie.length;
+        name = readCookie("AuthFedHandler");
+        name = name.replace("+", " ");
+        if (name !== null) {
+        name = name.substring(name.indexOf('-') + 1 , name.length );
+        }
+        connected = true;
+        } else if (indexentr !== -1) {
+        lastindex = document.cookie.length;
+        name = readCookie("AuthFedHandler");
+        if (name !== null) {
+        name = name.substring(name.indexOf('-') + 1 , name.length );
+        }
+        connected = true;
+        }
+            return decodeURIComponent(name).replace(/\+/g, ' ');
+        }
+
+        function getAuthFedHandlerPers() {
+        if (document.cookie.indexOf(detectstringpers) >= 0 ) {
+        indexpers = document.cookie.indexOf(detectstringpers);
+        } else if (document.cookie.indexOf(detectstringpers1) >= 0 ) {
+        indexpers = document.cookie.indexOf(detectstringpers1);
+        }
+        return indexpers;
+        }
+
+        function getAuthFedHandlerEntr() {
+        if (document.cookie.indexOf(detectstringentr) >= 0 ) {
+        indexentr = document.cookie.indexOf(detectstringentr);
+        } else if (document.cookie.indexOf(detectstringentr1) >= 0 ) {
+        indexentr = document.cookie.indexOf(detectstringentr1);
+        }
+        return indexentr;
+        }
+    </script>
+</sly>

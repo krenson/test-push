@@ -1,0 +1,25 @@
+<sly data-sly-use.navigation="com.leforemhe.aem.site.core.models.NavigationModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.navTemplates="templates/templates.html">
+    <nav role="navigation" id="mainNav">
+        <ul data-sly-test="${navigation.items}">
+            <li data-sly-repeat.navigationItem="${navigation.items}" data-activePage="${currentPage.properties}"
+                data-fullpath="${navigationItem.fullPath}"
+                class="${navigationItem.active || (currentPage.properties.navigationActivePage && currentPage.properties.navigationActivePage == navigationItem.fullPath) ? 'current' : ''}">
+                <a data-sly-test.internalUrl="${navigationItem.linkReference @ context='uri', extension='html'}"
+                   data-sly-test.externalUrl="${navigationItem.linkReference @ context='uri'}"
+                   data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+                   data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, navigationItem.description ? navigationItem.description : navigationItem.title]}"
+                   class="menuLink"
+                   href="${navigationItem.internal ? internalUrl : externalUrl}"
+                   title="${navigationItem.opensNewTab ? newTabTitle : (navigationItem.description ? navigationItem.description : navigationItem.title) @ context='attribute'}"
+                   data-sly-attribute.target="${navigationItem.target}">
+                    ${navigationItem.label}
+                    <sly data-sly-test="${!navigationItem.internal}"
+                         data-sly-call="${navTemplates.externalIcon @ title=navigationItem.title, desc=navigationItem.description}"></sly>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <sly data-sly-call="${template.placeholder @ isEmpty = !navigation.items || navigation.items.empty, classAppend='forem-navigation' }"></sly>
+</sly>

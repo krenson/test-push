@@ -1,0 +1,24 @@
+<sly data-sly-template.socialMedia="${@facebook, twitter,youtube, linkedin, instagram}">
+    <ul class="contact contentBas socialNetwork">
+        <li>
+            <a href="${facebook @ context='uri'}" target="_blank" title="${'Nouvelle fenêtre vers page facebook du forem'@ i18n}"><img alt="facebook" src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/socialmedia/facebook-logo.png">
+            </a>
+        </li>
+        <li>
+            <a href="${twitter @ context='uri'}" target="_blank" title="${'Nouvelle fenêtre vers page twitter du forem' @ i18n}"><img alt="twitter" src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/socialmedia/twitter-social-logotype.png">
+            </a>
+        </li>
+        <li>
+            <a href="${youtube @ context='uri'}" target="_blank" title="${'Nouvelle fenêtre vers page youtube du forem' @ i18n}"><img alt="youtube" src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/socialmedia/youtube-logotype.png">
+            </a>
+        </li>
+        <li>
+            <a href="${linkedin @ context='uri'}" target="_blank" title="${'Nouvelle fenêtre vers page linkedin du forem' @ i18n}"><img alt="linkedin" src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/socialmedia/linkedin-logo.png">
+            </a>
+        </li>
+        <li>
+            <a href="${instagram @ context='uri'}" target="_blank" title="${'Nouvelle fenêtre vers page instagram du forem' @ i18n}"><img alt="Instagram" src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/socialmedia/instagram-logo.png">
+            </a>
+        </li>
+    </ul>
+</sly>

@@ -1,0 +1,13 @@
+{
+    "sftpHost": "flux-acc.leforemhe.be",
+    "sftpPort":"22",
+    "sftpUsername":"aaem",
+    "sftpPassword": "",
+    "sftpBasePath": "in",
+    "sftpPrivateKey": "/mnt/crx/aem_sftp_stage",
+    "sftpAuthMethod": "publickey",
+    "sftpPassphrase": "UE--B]kSP!ZfV99x",
+    "sftpActionPut": "ADD",
+    "sftpActionRemove": "REMOVE",
+    "sftpFilelockName": "file.lock"
+}

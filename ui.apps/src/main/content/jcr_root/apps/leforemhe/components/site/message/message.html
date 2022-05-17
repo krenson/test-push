@@ -1,0 +1,8 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
+    <div class="alert-container aem">
+        <section class="alert-warning red" data-sly-test="${properties.text}">
+            <div class="close-warning"></div>
+            <p>${properties.text}</p></section>
+    </div>
+    <sly data-sly-call="${templates.placeholder @ isEmpty = !properties.text}"></sly>
+</sly>

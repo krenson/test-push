@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ |  ***********************************************************************
+ |  leforemhe CONFIDENTIAL
+ |  ___________________
+ |
+ |  Copyright 2019 leforemhe
+ |  All Rights Reserved.
+ |
+ |  NOTICE:  All information contained herein is, and remains the property
+ |  of leforemhe and its suppliers, if any. The intellectual and
+ |  technical concepts contained herein are proprietary to leforemhe
+ |  and its suppliers and are protected by trade secret or copyright law.
+ |  Dissemination of this information or reproduction of this material
+ |  is strictly forbidden unless prior written permission is obtained
+ |  from leforemhe.
+ |  ***********************************************************************
+-->
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Demo Component"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+   <content jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+      <items jcr:primaryType="nt:unstructured">
+         <tabs jcr:primaryType="nt:unstructured"
+               sling:resourceType="granite/ui/components/coral/foundation/tabs">
+            <items jcr:primaryType="nt:unstructured">
+               <tab-1 jcr:primaryType="nt:unstructured"
+                      jcr:title="Tab 1"
+                      sling:resourceType="granite/ui/components/coral/foundation/container">
+                  <layout jcr:primaryType="nt:unstructured"
+                          sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"/>
+                  <items jcr:primaryType="nt:unstructured">
+                     <column jcr:primaryType="nt:unstructured"
+                             sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                           <textfieldTest cq-msm-lockable="./textfieldTest"
+                                          fieldDescription="Adds a fieldDescription tooltip"
+                                          fieldLabel="Textfield Test"
+                                          jcr:primaryType="nt:unstructured"
+                                          name="./textfieldTest"
+                                          sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                           <checkTest cq-msm-lockable="./checkTest"
+                                      jcr:primaryType="nt:unstructured"
+                                      name="./checkTest"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                      text="Checkbox Test"
+                                      value="{Boolean}true"/>
+                           <pathfieldTest cq-msm-lockable="./pathfieldTest"
+                                          fieldLabel="Pathfield Test"
+                                          jcr:primaryType="nt:unstructured"
+                                          name="./pathfieldTest"
+                                          rootPath="/content"
+                                          sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"/>
+                           <pagefieldTest cq-msm-lockable="./pagefieldTest"
+                                          fieldLabel="Pagefield Test"
+                                          jcr:primaryType="nt:unstructured"
+                                          name="./pagefieldTest"
+                                          rootPath="/content"
+                                          sling:resourceType="cq/gui/components/coral/common/form/pagefield"/>
+                           <tagfieldTest cq-msm-lockable="./tagfieldTest"
+                                         fieldLabel="Tags Test"
+                                         jcr:primaryType="nt:unstructured"
+                                         multiple="{Boolean}true"
+                                         name="./tagfieldTest"
+                                         sling:resourceType="cq/gui/components/coral/common/form/tagfield"/>
+                           <textareaTest cq-msm-lockable="./textareaTest"
+                                         fieldLabel="Textarea Test"
+                                         jcr:primaryType="nt:unstructured"
+                                         name="./textareaTest"
+                                         sling:resourceType="granite/ui/components/coral/foundation/form/textarea"/>
+                           <dateTest cq-msm-lockable="./dateTest"
+                                     displayedFormat="MM/DD/YYYY"
+                                     fieldDescription="Infobulle contextuelle pour les auteurs."
+                                     fieldLabel="Select Date"
+                                     jcr:primaryType="nt:unstructured"
+                                     name="./dateTest"
+                                     sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"/>
+                           <selectTest cq-msm-lockable="./selectTest"
+                                       defaultValue="opt1"
+                                       fieldLabel="Sélectionner Test"
+                                       jcr:primaryType="nt:unstructured"
+                                       name="./selectTest"
+                                       sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                       value="opt1">
+                              <items jcr:primaryType="nt:unstructured">
+                                 <option1 jcr:primaryType="nt:unstructured"
+                                          selected="true"
+                                          text="Option 1"
+                                          value="opt1"/>
+                                 <option2 jcr:primaryType="nt:unstructured" text="Option 2" value="opt2"/>
+                              </items>
+                           </selectTest>
+                           <radioTest cq-msm-lockable="./radioTest"
+                                      fieldLabel="Radio Test"
+                                      jcr:primaryType="nt:unstructured"
+                                      name="./radioTest"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                      vertical="{Boolean}false">
+                              <items jcr:primaryType="nt:unstructured">
+                                 <radio1 checked="{Boolean}true"
+                                         jcr:primaryType="nt:unstructured"
+                                         name="radioTest"
+                                         sling:resourceType="granite/ui/components/coral/foundation/form/radio"
+                                         text="Radio 1"
+                                         value="rad1"/>
+                                 <radio2 checked="{Boolean}true"
+                                         jcr:primaryType="nt:unstructured"
+                                         name="radioTest"
+                                         sling:resourceType="granite/ui/components/coral/foundation/form/radio"
+                                         text="Radio 2"
+                                         value="rad2"/>
+                              </items>
+                           </radioTest>
+                           <hiddenTest cq-msm-lockable="./hiddenTest"
+                                       jcr:primaryType="nt:unstructured"
+                                       name="./hiddenTest"
+                                       sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                       value="hidden value"/>
+                           <numberfieldTest cq-msm-lockable="./numberfieldTest"
+                                            fieldLabel="Numberfield Test"
+                                            jcr:primaryType="nt:unstructured"
+                                            max="{Double}20"
+                                            min="{Double}0"
+                                            name="./numberfieldTest"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                            step="1"
+                                            value="{Long}20"/>
+                        </items>
+                     </column>
+                  </items>
+               </tab-1>
+               <tab-2 jcr:primaryType="nt:unstructured"
+                      jcr:title="Tab 2"
+                      sling:resourceType="granite/ui/components/coral/foundation/container">
+                  <layout jcr:primaryType="nt:unstructured"
+                          sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"/>
+                  <items jcr:primaryType="nt:unstructured">
+                     <column jcr:primaryType="nt:unstructured"
+                             sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                           <imageTest allowUpload="{Boolean}false"
+                                      autoStart="{Boolean}false"
+                                      class="cq-droptarget"
+                                      cq-msm-lockable="./imageTest/file"
+                                      fieldLabel="Image Test"
+                                      fileReferenceParameter="./imageTest/fileReference"
+                                      jcr:primaryType="nt:unstructured"
+                                      mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff,image/svg+xml]"
+                                      multiple="{Boolean}false"
+                                      name="./imageTest/file"
+                                      sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                      title="Faites glisser pour sélectionner l'image"
+                                      uploadUrl="${suffix.path}"
+                                      useHTML5="{Boolean}true"/>
+                           <imageTestResType jcr:primaryType="nt:unstructured"
+                                             name="./imageTest/sling:resourceType"
+                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                             value="core/wcm/components/image/v2/image"/>
+                           <headingTest jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                        text="Heading Test"/>
+                           <colors fieldLabel="Colors"
+                                   jcr:primaryType="nt:unstructured"
+                                   sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                              <field cq-msm-lockable="./colors"
+                                     jcr:primaryType="nt:unstructured"
+                                     name="./colors"
+                                     sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                 <layout jcr:primaryType="nt:unstructured"
+                                         method="absolute"
+                                         sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                 <items jcr:primaryType="nt:unstructured">
+                                    <column jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                       <items jcr:primaryType="nt:unstructured">
+                                          <field cq-msm-lockable="./colors"
+                                                 fieldLabel="Couleur"
+                                                 jcr:primaryType="nt:unstructured"
+                                                 name="./colors"
+                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                                       </items>
+                                    </column>
+                                 </items>
+                              </field>
+                           </colors>
+                           <links composite="{Boolean}true"
+                                  fieldLabel="Liens"
+                                  jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                              <field cq-msm-lockable="./links"
+                                     jcr:primaryType="nt:unstructured"
+                                     name="./links"
+                                     sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                 <items jcr:primaryType="nt:unstructured">
+                                    <path fieldDescription="Chemin d'accès vers la page"
+                                          fieldLabel="Path"
+                                          jcr:primaryType="nt:unstructured"
+                                          name="./path"
+                                          sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"/>
+                                    <label fieldDescription="Label à afficher sur le lien"
+                                           fieldLabel="Libellé"
+                                           jcr:primaryType="nt:unstructured"
+                                           name="./label"
+                                           sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                                 </items>
+                              </field>
+                           </links>
+                        </items>
+                     </column>
+                  </items>
+               </tab-2>
+            </items>
+         </tabs>
+      </items>
+   </content>
+</jcr:root>

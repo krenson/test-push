@@ -1,0 +1,34 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+<section class="top">
+    <header role="banner">
+        <div class="menuSup">
+            <!-- debut menu superieur, contact, recherche et connection -->
+            <nav role="navigation">
+                <div data-sly-resource="${'navigation' @ resourceType='leforemhe/components/site/header/navigation'}"
+                     data-sly-unwrap="${!author}"></div>
+            </nav>
+            <div class="CRC">
+                <ul>
+                    <li aria-haspopup="true" class="CRCcontact">
+                        <div data-sly-resource="${'hautcontact' @ resourceType='leforemhe/components/site/header/hautcontact'}"
+                             data-sly-unwrap="${!author}"></div>
+                    </li>
+                    <li aria-haspopup="true" class="CRCrecherche">
+                        <div data-sly-resource="${'rechercheButton' @ resourceType='leforemhe/components/site/header/recherche/button'}"
+                             data-sly-unwrap="${!author}"></div>
+                    </li>
+                    <li aria-haspopup="true" class="CRCconnexion widthEP">
+                        <div data-sly-resource="${'connexion' @ resourceType='leforemhe/components/site/header/connexion'}"
+                             data-sly-unwrap="${!author}"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-sly-resource="${ 'rechercheBar' @ resourceType='leforemhe/components/site/header/recherche/bar/v2'}"
+             data-sly-unwrap="${!author}"></div>
+
+        <div data-sly-resource="${'hamburgermenu' @ resourceType='leforemhe/components/site/formapass/header/hamburgermenu'}"
+             data-sly-unwrap="${!author}"></div>
+    </header>
+</section>

@@ -1,0 +1,149 @@
+/* .cmp-banniere-standard {
+    &,
+    & [id^=experiencefragment] {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        .espaceImage {
+            margin: 0;
+            height: 22.063rem;
+            overflow: hidden;
+            padding: 0;
+            width: 57%;
+        }
+        .textBanner {
+            color: #FFF;
+            height: 100%;
+            height: 22.063rem;
+            padding: 0 5%;
+            text-align: center;
+            width: 43%;
+            h1 {
+                border-bottom: none;
+                display: block;
+                display: -webkit-box;
+                font-size: 1.8rem;
+                height: 4.32rem;
+                line-height: 1.2;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                text-shadow: 1px 1.73px 1px rgba(0, 0, 0, 0.77);
+            }
+            p {
+                display: block;
+                display: -webkit-box;
+                height: 5.295rem;
+                font-size: 1rem;
+                line-height: 1.765;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                margin-bottom: 2rem;
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+            }
+            a {
+                &:link,
+                &:visited {
+                    color: #FFF;
+                }
+                &.styleBouton {
+                    display: block;
+                    font-size: 1.25rem;
+                    line-height: 2.6;
+                    padding: .75rem;
+                    width: auto;
+                    max-height: 2.6rem;
+                    overflow: hidden;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    word-wrap: break-word;
+                }
+            }
+        }
+        // color variants
+        .bleuNuit {
+            background-color: #2C3E50;
+            a {
+                background-color: #FF8E97;
+            }
+        }
+        .rouge {
+            background-color: #890A05;
+            a {
+                background-color: #E23926;
+            }
+        }
+        .violet {
+            background-color: #310A30;
+            a {
+                background-color: #f6892A;
+            }
+        }
+        .vert {
+            background-color: #1F3E27;
+            a {
+                background-color: #5BAC6C;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .cmp-banniere-standard {
+        .textBanner h1 {
+            font-size: 1.5rem;
+            height: 5.313rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .cmp-banniere-standard {
+        &,
+        & [id^=experiencefragment] {
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 0;
+            position: relative;
+            z-index: 0;
+            .espaceImage {
+                display: none;
+            }
+            .textBanner {
+                height: 100%;
+                padding: 1rem;
+                width: 92%;
+                h1 {
+                    font-size: 1.1rem;
+                    height: 4rem;
+                    margin: 0;
+                    padding: 0;
+                }
+                p {
+                    margin: 1rem;
+                }
+                a.styleBouton {
+                    font-size: 1.1rem;
+                    line-height: 2;
+                    padding: .5rem;
+                    max-height: 2rem;
+                }
+            }
+        }
+    }
+} */

@@ -1,0 +1,21 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "youtube-video": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/youtube",
+      "embedType": "video",
+      "videoID": "video-id"
+    },
+    "youtube-playlist": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/youtube",
+      "embedType": "playlist",
+      "playlistID": "playlist-id"
+    }
+  }
+}

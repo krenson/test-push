@@ -1,0 +1,6 @@
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Component"
+          jcr:title="Listes d'accès direct Experience fragment"
+          jcr:description="Référence vers un fragment d'expérience.Si aucun n'est configuré, un fragment d'expérience d'une page parente sera récupérée."
+          sling:resourceSuperType="leforemhe/components/site/inheritedexperiencefragment"
+          componentGroup="LeForem HE - Site"/>

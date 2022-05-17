@@ -1,0 +1,12 @@
+<div class="aem">
+    <section class="groupTuilesHaut">
+        <div class="haut-container">
+            <sly data-sly-resource="${'{0}/firstrow' @ resourceType='leforemhe/components/site/remarquelayout/firstrow', format=[resource.path]}"/>
+        </div>
+    </section>
+    <section class="groupTuilesBas ${properties.applyStyling ? 'new-design' : 'old-design'}">
+        <div class="bas-container">
+            <sly data-sly-resource="${'{0}/secondrow' @ resourceType='leforemhe/components/site/remarquelayout/secondrow', format=[resource.path]}"/>
+        </div>
+    </section>
+</div>

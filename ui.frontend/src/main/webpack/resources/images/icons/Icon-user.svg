@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22.816" height="22.816" version="1.1" viewBox="0 0 22.816 22.816" xmlns="http://www.w3.org/2000/svg">
+ <g id="Icon-user" transform="translate(-734.59 -1041.6)">
+  <g transform="translate(84)" data-name="Group 160963">
+   <g id="Form-chev-down" transform="translate(168,92)">
+    <rect transform="translate(464,931)" width="60" height="60" fill="none" data-name="Rectangle 1219"/>
+    <g id="user-circle-light" transform="translate(482.59 949.59)">
+     <path transform="translate(0,-8)" d="m11.408 8a11.408 11.408 0 1 0 11.408 11.408 11.406 11.406 0 0 0-11.408-11.408zm5.892 19.394a9.863 9.863 0 0 1-11.776 0v-0.626a2.947 2.947 0 0 1 2.944-2.944 13.382 13.382 0 0 0 2.944 0.524 13.382 13.382 0 0 0 2.944-0.524 2.947 2.947 0 0 1 2.944 2.944zm1.4-1.265a4.4 4.4 0 0 0-4.352-3.777c-0.943 0-1.4 0.524-2.944 0.524s-2-0.524-2.944-0.524a4.4 4.4 0 0 0-4.352 3.777 9.936 9.936 0 1 1 14.591 0zm-7.3-12.977a4.048 4.048 0 1 0 4.056 4.048 4.048 4.048 0 0 0-4.048-4.048zm0 6.624a2.576 2.576 0 1 1 2.584-2.576 2.578 2.578 0 0 1-2.576 2.576z" fill="#2f3a48" data-name="user-circle-light"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

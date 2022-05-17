@@ -1,0 +1,52 @@
+/* ==========================================================================
+   leforemhe CONFIDENTIAL
+   ___________________
+
+   Copyright 2019 leforemhe
+   All Rights Reserved.
+
+   NOTICE:  All information contained herein is, and remains the property
+   of leforemhe and its suppliers, if any. The intellectual and
+   technical concepts contained herein are proprietary to leforemhe
+   and its suppliers and are protected by trade secret or copyright law.
+   Dissemination of this information or reproduction of this material
+   is strictly forbidden unless prior written permission is obtained
+   from leforemhe.
+   ========================================================================== */
+
+.cq-placeholder {
+
+  &-container {
+    &.forem {
+      &-navigation {
+        width: 633.325px;
+      }
+    }
+  }
+
+  &.forem {
+    &-navigation {
+      width: 633.325px;
+    }
+
+    &-recherche {
+      width:450px;
+    }
+
+    &-hautcontact {
+      width: 137.68px;
+    }
+
+    &-connexion {
+      width: 157.15px;
+    }
+
+    &-logo {
+      max-width: 586px;
+    }
+  }
+}
+
+.space-left {
+  margin-left: 586px;
+}

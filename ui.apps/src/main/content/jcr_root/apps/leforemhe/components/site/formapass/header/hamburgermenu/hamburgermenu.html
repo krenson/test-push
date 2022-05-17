@@ -1,0 +1,62 @@
+<sly data-sly-use.templates="templates/templates.html"
+     data-sly-use.hamburgerModel="com.leforemhe.aem.site.core.models.HamburgerMenuModel"
+     data-sly-test.firstLevelPage="${hamburgerModel.firstLevelPage}"
+     data-sly-test.firstLevelTitle="${firstLevelPage.navigationTitle ? firstLevelPage.navigationTitle : firstLevelPage.pageTitle}"></sly>
+<div class="partInf">
+    <!-- Partie du header affichante le menu burger et les logos -->
+    <sly data-sly-call="${templates.hamburgerIcon @ hamburgermenuHiddenOnDesktop=hamburgerModel.hamburgermenuHiddenOnDesktop, hamburgerFullyHidden=hamburgerModel.hamburgerFullyHidden, insideAgenda=hamburgerModel.insideAgendaVariation}"></sly>
+    <sly data-sly-resource="${'logo' @resourceType='leforemhe/components/site/header/logo', decorationTagName=wcmmode.edit?'div':'', cssClassName=wcmmode.edit?'space-left':''}"
+         data-sly-unwrap="${!wcmmode.edit}"></sly>
+    <nav data-sly-test="${hamburgerModel.navigationReady && !hamburgerModel.hamburgerFullyHidden}" class="overlay" id="myNav" role="navigation">
+        <div class="overlay-content">
+            <sly data-sly-repeat.navigationItemChild="${firstLevelPage.listChildren}"
+                 data-sly-repeat.navigationItemTitle="${navigationItemChild.navigationTitle ? navigationItemChild.navigationTitle : navigationItemChild.pageTitle}">
+                <sly data-sly-test="${!navigationItemChild.hideInNav && !hamburgerModel.hamburgermenuHiddenOnDesktop}">
+                    <security:authorize data-sly-test="${!navigationItemChild.hideInNav && !hamburgerModel.hamburgermenuHiddenOnDesktop}" data-sly-unwrap="${!navigationItemChild.properties.roles}" access="hasAnyRole('${navigationItemChild.properties.roles @ join ='\',\'', context='html'}')">
+                        <button aria-haspopup="true" class="collapsible"
+                                title="${'Ouverture du sous-menu'@i18n} ${navigationItemTitle}">
+                            ${navigationItemTitle}
+                        </button>
+                    </security:authorize>
+                    <ul class="content">
+                        <security:authorize data-sly-test.vanityUrl="${navigationItemChild.vanityUrl}" data-sly-unwrap="${!navigationItemChild.properties.roles}" access="hasAnyRole('${navigationItemChild.properties.roles @ join ='\',\'', context='html'}')">
+                            <li class="n2">
+                                <a data-sly-test="${!vanityUrl}" title="${navigationItemChild.description}"
+                                href="${navigationItemChild.vanityUrl ? navigationItemChild.vanityUrl : navigationItemChild.path @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                                <a data-sly-test="${vanityUrl}" title="${navigationItemChild.description}"
+                                href="${vanityUrl @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                            </li>
+                        </security:authorize>
+                        <sly data-sly-repeat.navigationItemChildPage="${navigationItemChild.listChildren}"
+                             data-sly-repeat.navigationItemTitle="${navigationItemChildPage.navigationTitle ? navigationItemChildPage.navigationTitle : navigationItemChildPage.pageTitle}">
+                            <security:authorize data-sly-test="${!navigationItemChildPage.hideInNav}"
+                                                data-sly-test.childVanityUrl="${navigationItemChildPage.vanityUrl}"
+                                                data-sly-unwrap="${!navigationItemChildPage.properties.roles}"
+                                                access="hasAnyRole('${navigationItemChildPage.properties.roles @ join ='\',\'', context='html'}')">
+                                <li>
+                                    <a data-sly-test="${!childVanityUrl}" title="${navigationItemChildPage.description}"
+                                       href="${navigationItemChildPage.vanityUrl ? navigationItemChildPage.vanityUrl : navigationItemChildPage.path @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                                    <a data-sly-test="${childVanityUrl}" title="${navigationItemChildPage.description}"
+                                       href="${childVanityUrl @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                                </li>
+                            </security:authorize>
+                        </sly>
+                    </ul>
+                </sly>
+            </sly>
+            <button data-sly-repeat.inactiveNavigationItem="${hamburgerModel.inactiveNavigationItems}" class="c2"
+                    role="link"
+                    type="button">
+                <a data-sly-test.internalUrl="${inactiveNavigationItem.linkReference @ context='uri', extension='html'}"
+                   data-sly-test.externalUrl="${inactiveNavigationItem.linkReference @ context='uri'}"
+                   data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+                   data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, inactiveNavigationItem.description ? inactiveNavigationItem.description : inactiveNavigationItem.title]}"
+                   href="${inactiveNavigationItem.internal ? internalUrl : externalUrl}"
+                   title="${inactiveNavigationItem.opensNewTab ? newTabTitle : (inactiveNavigationItem.description ? inactiveNavigationItem.description : inactiveNavigationItem.title) @ context='attribute'}">
+                    ${inactiveNavigationItem.internal? hamburgerModel.firstLevelPrefix : ''}${inactiveNavigationItem.label}</a>
+            </button>
+        </div>
+    </nav>
+    <sly data-sly-test="${!hamburgerModel.navigationReady}"
+         data-sly-call="${templates.hamburgerIcon @ hamburgermenuHiddenOnDesktop=hamburgerModel.hamburgermenuHiddenOnDesktop, hamburgerFullyHidden=hamburgerModel.hamburgerFullyHidden, insideAgenda=hamburgerModel.insideAgendaVariation}"></sly>
+</div>

@@ -1,0 +1,49 @@
+<sly
+  data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+  data-sly-use.youtubeModel="com.leforemhe.aem.site.core.models.YoutubeModel"
+  data-sly-test.author="${wcmmode.edit || wcmmode.design}"
+></sly>
+<sly
+  data-sly-test="${youtubeModel.playlistID && author}"
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+>
+  <sly
+    data-sly-call="${clientlib.all @ categories='granite.ui.coral.foundation, coralui3'}"
+  ></sly>
+  <button is="coral-button" icon="youTube" iconsize="M" block>
+    ${"Éditer la vidéo" @ i18n}
+  </button>
+</sly>
+<div class="aem youtube_component">
+  <div class="aem youtube_container">
+    <div
+      class="youtube_player"
+      data-sly-attribute.videoID="${youtubeModel.videoID}"
+      data-sly-attribute.playlistID="${youtubeModel.playlistID ? youtubeModel.playlistID : ''}"
+      autoplay="0"
+      controls="1"
+    >
+      <sly data-sly-test="${youtubeModel.videoID}">
+        <sly data-sly-test="${youtubeModel.playlistID}">
+          <iframe
+            width="null"
+            height="null"
+            src="${'https://www.youtube.com/embed/{0}?listType=playlist&list={1}' @ format=[youtubeModel.videoID, youtubeModel.playlistID]}"
+            allowfullscreen
+          ></iframe>
+        </sly>
+        <sly data-sly-test="${!youtubeModel.playlistID}">
+          <iframe
+            width="null"
+            height="null"
+            src="${'https://www.youtube.com/embed/{0}' @ format=[youtubeModel.videoID]}"
+            allowfullscreen
+          ></iframe>
+        </sly>
+      </sly>
+    </div>
+  </div>
+</div>
+<sly
+  data-sly-call="${template.placeholder @ isEmpty= !youtubeModel.embedType}"
+></sly>

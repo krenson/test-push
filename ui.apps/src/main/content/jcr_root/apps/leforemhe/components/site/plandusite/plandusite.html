@@ -1,0 +1,16 @@
+<div class="cmp-plandusite" data-sly-use.navigation="com.adobe.cq.wcm.core.components.models.Navigation">
+    <sly data-sly-repeat.item="${navigation.items}">
+        <h2>${item.title}</h2>
+        <div>
+            <ul data-sly-repeat.child="${item.children}">
+                <li>
+                    <a title="${child.description}" href="${child.uRL}">${child.title}</a>
+                </li>
+                <li data-sly-repeat.subchild="${child.children}">
+                    <a title="${subchild.description}" href="${subchild.uRL}">${subchild.title}</a>
+                </li>
+            </ul>
+        </div>
+    </sly>
+
+</div>

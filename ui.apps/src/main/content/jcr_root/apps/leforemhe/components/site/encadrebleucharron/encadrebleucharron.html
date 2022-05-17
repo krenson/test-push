@@ -1,0 +1,16 @@
+<sly data-sly-use.encadreBleuCharron="com.leforemhe.aem.site.core.models.EncadreBleuCharronModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<aside data-sly-test="${encadreBleuCharron.text}">
+    <section class="encadreBleuCharron">
+        <div data-sly-test="${encadreBleuCharron.title}">
+            <div class="centre">
+                <p class="bigFont">${encadreBleuCharron.title}</p>
+            </div>
+        </div>
+        <hr data-sly-test="${encadreBleuCharron.title}">
+        <div class="${wcmmode.disabled ? 'cmp-encadreBleuCharron-text' : ''}" data-sly-unwrap="${!encadreBleuCharron.title && wcmmode.disabled}">
+            <p data-sly-unwrap="${encadreBleuCharron.richText}">${encadreBleuCharron.text @ context = encadreBleuCharron.richText ? 'unsafe' : 'text'}</p>
+        </div>
+    </section>
+</aside>
+<sly data-sly-call="${template.placeholder @ isEmpty = !encadreBleuCharron.text}"></sly>

@@ -1,0 +1,28 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "footer": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/footer/footer",
+      "links": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/footer/liens",
+        "footerLinks": {
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "linkType": "internal-link",
+            "internalLinkReference": "/content/demo-page"
+          }
+        }
+      },
+      "linksFooterEmpty": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/footer/liens"
+      }
+    }
+  }
+}

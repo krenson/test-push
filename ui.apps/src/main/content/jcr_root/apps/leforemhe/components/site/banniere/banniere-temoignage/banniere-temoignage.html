@@ -1,0 +1,33 @@
+<sly data-sly-use.banniereCarrousel="com.leforemhe.aem.site.core.models.BanniereCarrouselModel"></sly>
+<sly data-sly-test="${banniereCarrousel.image && banniereCarrousel.title && banniereCarrousel.imageAlt}">
+        <figure>
+            <div>
+                <img src="${banniereCarrousel.image}" class="slideBanniere" alt="${banniereCarrousel.imageAlt}">
+            </div>
+            <figcaption>
+                <span>${banniereCarrousel.title}</span>
+                ${banniereCarrousel.description}
+            </figcaption>
+        </figure>
+        ${banniereCarrousel.body @ context='html'}
+        <sly data-sly-test="${banniereCarrousel.reference && banniereCarrousel.reference.link}"
+             data-sly-test.referenceUrl="${banniereCarrousel.reference.linkReference @ extension=banniereCarrousel.reference.internal ? 'html':''}"
+             data-sly-test.target="${banniereCarrousel.reference.target}">
+            <a data-sly-test="${banniereCarrousel.reference}"
+               data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+               data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, banniereCarrousel.reference.title ? banniereCarrousel.reference.title : banniereCarrousel.title]}"
+               class="styleBouton"
+               target="${target}"
+               id="${resource.path.hashCode}"
+               href="${referenceUrl @ context='unsafe'}"
+               title="${banniereCarrousel.reference.opensNewTab ? newTabTitle : banniereCarrousel.reference.title}">${banniereCarrousel.reference.label}</a>
+        </sly>
+</sly>
+<sly data-sly-test="${wcmmode.edit}">
+    <sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+         data-sly-call="${templates.placeholder @
+             isEmpty = !banniereCarrousel.title,
+             emptyTextAppend= banniereCarrousel.title ? banniereCarrousel.title : '',
+              classAppend='forem-banniere'}"></sly>
+
+</sly>

@@ -1,0 +1,13 @@
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          cq:actions="[edit,delete,insert,copymove]"
+          cq:dialogMode="floating"
+          cq:layout="editbar"
+          jcr:primaryType="cq:EditConfig">
+    <cq:dropTargets jcr:primaryType="nt:unstructured">
+        <linkTo
+                jcr:primaryType="cq:DropTargetConfig"
+                accept="[*]"
+                groups="[page]"
+                propertyName="./linkTo"/>
+    </cq:dropTargets>
+</jcr:root>

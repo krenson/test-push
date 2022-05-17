@@ -1,0 +1,45 @@
+/*
+!**
+ * Fixing the styling when a experience fragment is dragged and dropped inside the layout
+ *!
+.cmp-experiencefragment {
+
+  .middle .centrePage main .groupTuilesHaut &, .middle .centrePage main .groupTuilesBas & {
+
+    width: 100%;
+    margin: 0;
+
+    &:last-of-type {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .middle .centrePage main .groupTuilesHaut .colonne & {
+
+    justify-content: flex-start;
+
+    &:last-of-type {
+      justify-content: flex-end;
+    }
+
+  }
+
+}
+
+.experiencefragment {
+
+  @extend .cmp-experiencefragment;
+
+  .middle .centrePage main .groupTuilesHaut .colonne & {
+
+    .cmp-experiencefragment {
+      justify-content: flex-start;
+    }
+
+    &:last-of-type .cmp-experiencefragment {
+      justify-content: flex-end;
+    }
+  };
+
+}*/

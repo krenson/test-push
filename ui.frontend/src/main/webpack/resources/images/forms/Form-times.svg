@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Form-times" transform="translate(-550 -934)">
+    <g id="Group_160934" data-name="Group 160934">
+      <path id="Path_83167" data-name="Path 83167" d="M0,0H60V60H0Z" transform="translate(550 934)" fill="none"/>
+      <g id="xmark-regular" transform="translate(572.641 956.621)">
+        <path id="xmark-regular-2" data-name="xmark-regular" d="M14.357,108.007a1.1,1.1,0,1,1-1.561,1.561L7.36,104.092l-5.474,5.474A1.1,1.1,0,0,1,.325,108L5.8,102.533.323,97.017a1.1,1.1,0,0,1,1.561-1.561l5.475,5.517L12.834,95.5A1.1,1.1,0,1,1,14.4,97.061L8.92,102.533Z" transform="translate(0 -95.133)" fill="#313a47"/>
+      </g>
+    </g>
+  </g>
+</svg>

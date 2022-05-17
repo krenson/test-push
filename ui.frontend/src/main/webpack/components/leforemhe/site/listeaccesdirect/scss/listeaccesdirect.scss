@@ -1,0 +1,106 @@
+$title-color: $secondary-colorV2;
+
+.aem.linkLists {
+  /* margin-top: 5rem;
+ */
+
+  .linkLists-container {
+    @include max-width;
+    margin: 0 auto;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  min-height: 63rem;
+  background-color: $primary-colorV2;
+  color: white;
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  h1 {
+    color: $title-color;
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .collapsibleBas {
+    background-color: transparent;
+    border: none;
+    color: $title-color;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  a,
+  a:link {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: white;
+    }
+  }
+  .liste ul li {
+    padding: 1.1rem 0;
+  }
+  .liste:last-child > .contentBas > li:last-child a[href^="tel:"] {
+    font-weight: 600;
+    color: $title-color;
+    font-size: 4.4rem;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.linkLists {
+    min-height: initial;
+    .linkLists-container {
+      flex-direction: column;
+      padding: 3.5rem 0 3.5rem $min-padding;
+    }
+    .liste ul {
+      overflow: hidden;
+      max-height: 0px;
+      transition: max-height 0.2s linear;
+      margin: 0 2.5rem;
+      li {
+        padding: 0.8rem 0;
+      }
+      > li:first-child {
+        padding-top: 0;
+      }
+
+      > li:last-child {
+        margin-bottom: 3rem;
+      }
+    }
+    .collapsibleBas {
+      font-size: 1.8rem;
+      padding: 1.5rem 0;
+      &::after {
+        content: "";
+        mask-image: url($resourcePath + "/images/forms/Form-chev-down.svg");
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        background-color: white;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: transform 0.2s linear;
+        display: inline-flex;
+
+        margin-left: 1rem;
+      }
+      &.activeBas::after {
+        transform: rotate(180deg);
+      }
+    }
+    .liste:last-child > .contentBas > li:last-child a[href^="tel:"] {
+      font-size: 3rem;
+    }
+  }
+}

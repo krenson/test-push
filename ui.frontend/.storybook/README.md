@@ -1,0 +1,1 @@
+The dynamic JS is copied from PROD into dynamic-js just for development purposes for Storybook.

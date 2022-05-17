@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root jcr:title="Message" sling:resourceType="cq/gui/components/authoring/dialog" jcr:primaryType="nt:unstructured" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0">
+    <content sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" jcr:primaryType="nt:unstructured">
+        <items jcr:primaryType="nt:unstructured">
+            <column sling:resourceType="granite/ui/components/coral/foundation/container" jcr:primaryType="nt:unstructured">
+                <items jcr:primaryType="nt:unstructured">
+                    <text sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                          jcr:primaryType="nt:unstructured"
+                          name="./text"
+                          maxlength="255"
+                          fieldLabel="Message"/>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

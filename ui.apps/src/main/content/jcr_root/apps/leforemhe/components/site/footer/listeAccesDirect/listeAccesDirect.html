@@ -1,0 +1,38 @@
+<sly
+        data-sly-use.listeAccesDirect="com.leforemhe.aem.site.core.models.NavigationModel"
+        data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<div class="liste">
+    <div class="notForMobile">
+        <h1>${properties.jcr:title}</h1>
+    </div>
+    <button aria-haspopup="true" class="collapsibleBas notForPC" role="menu" title="${'Ouverture du sous-menu' @ i18n} ${properties.jcr:title @ context='attribute'}">
+        ${properties.jcr:title}
+    </button>
+    <ul class="contentBas">
+        <li data-sly-repeat.item="${listeAccesDirect.items}"
+            data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}">
+            <span>
+                <a data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, item.description ? item.description :  item.title]}"
+                   data-sly-test.urlTitle="${item.opensNewTab ? newTabTitle : (item.description ? item.description :  item.title) }"
+                   title="${item.description? item.description : urlTitle}"
+                   href="${item.linkReference}"
+                   data-sly-attribute.target="${item.target}">
+                    ${item.label}
+                </a>
+            </span>
+        </li>
+        <li data-sly-test="${properties.phoneNumber}">
+            <span>
+                <a class="numContact" href="tel:${properties.phoneNumber @ context='attribute'}">
+                    ${properties.phoneNumber}
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>
+
+<sly data-sly-test.listEmpty="${!listeAccesDirect.items || listeAccesDirect.items.empty}"
+        data-sly-test.titleNotSet="${!properties.jcr:title}"
+        data-sly-test.phoneNotSet="${!properties.phoneNumber}"></sly>
+<div data-sly-call="${template.placeholder @ isEmpty = phoneNotSet && titleNotSet && listEmpty,
+ classAppend='forem-liste-acces-direct' }"></div>

@@ -1,0 +1,8 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.foremJeunes="com.leforemhe.aem.site.core.models.NavigationImageItemModel"></sly>
+<a href="${foremJeunes.linkReference}" data-sly-attribute.target="${foremJeunes.target}">
+    <img alt="leforemhe" src="${foremJeunes.fileReferenceDesktop}">
+    <span> ${foremJeunes.label}</span>
+</a>
+
+<sly data-sly-call="${template.placeholder @ isEmpty = !foremJeunes || foremJeunes.empty, classAppend='forem-navigation' }"></sly>

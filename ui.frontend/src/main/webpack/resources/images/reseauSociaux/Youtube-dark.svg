@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="60"
+   height="60"
+   viewBox="0 0 60.000001 59.999999"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="Youtube-dark.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="60px"
+     inkscape:zoom="34.04025"
+     inkscape:cx="5.713824"
+     inkscape:cy="11.207321"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <g
+     id="Youtube-dark"
+     transform="translate(-244.782,-153.12)">
+    <path
+       id="Exclusion_2"
+       data-name="Exclusion 2"
+       d="m 15.2,21.416 c -0.095,0 -9.538,-0.008 -11.879,-0.64 A 3.81,3.81 0 0 1 0.637,18.07 40.219,40.219 0 0 1 0,10.706 40.178,40.178 0 0 1 0.637,3.346 3.819,3.819 0 0 1 3.325,0.637 C 5.667,0.008 15.109,0 15.2,0 c 0.091,0 9.54,0.008 11.878,0.637 a 3.819,3.819 0 0 1 2.689,2.709 40.178,40.178 0 0 1 0.637,7.36 40.219,40.219 0 0 1 -0.637,7.364 3.807,3.807 0 0 1 -2.689,2.706 C 24.741,21.408 15.3,21.416 15.2,21.416 Z M 12.093,6.188 v 0 9.039 l 7.945,-4.521 z"
+       transform="translate(259.58,172.412)"
+       fill="#2f3a48"
+       stroke="rgba(0,0,0,0)"
+       stroke-miterlimit="10"
+       stroke-width="1" />
+  </g>
+</svg>

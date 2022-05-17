@@ -1,0 +1,54 @@
+/*This scss is an adaptation of plan.css as it's only used for "Plan du site" and should be only used on this page.
+  - Adding plan.css to dependencies won't be ok as it will be applied to every page
+  - The AEM solution would be to reuse plan.css and limit its scope to plandusite component by changing its selectors
+  - A less AEM solution would implies creating another clientlib category for plan.css, create a new template that use a new page component. The new page component include the plan.css clientlib category.
+*/
+.cmp-plandusite {
+  a {
+    &:link {
+      color: #212121;
+      text-decoration: none
+    }
+
+    &:hover {
+      color: #105CB7;
+      text-decoration: underline
+    }
+  }
+
+  div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+
+    ul {
+      list-style: none;
+      margin: 0 4rem 3.75rem 0;
+      padding: 0;
+
+      li {
+        line-height: 1;
+        margin: .313rem 0;
+        padding: 0;
+
+        &:first-of-type {
+          a {
+            font-family: "robotobold";
+          }
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+  }
+}

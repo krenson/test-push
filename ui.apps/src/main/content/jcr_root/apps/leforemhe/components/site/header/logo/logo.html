@@ -1,0 +1,5 @@
+<sly data-sly-use.logo="com.leforemhe.aem.site.core.models.LogoModel"
+     data-sly-test.link="${logo.link}"></sly>
+<a href="${logo.link @ context='uri', extension='html'}">
+    <img alt="leforemhe" src="${logo.imageSrc}">
+</a>

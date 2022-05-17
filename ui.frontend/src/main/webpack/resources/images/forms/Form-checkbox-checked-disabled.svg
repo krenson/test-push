@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Form-checkbox-checked-disabled" transform="translate(-1523 -933)">
+    <g id="Form-checkbox-checked-disabled-2" data-name="Form-checkbox-checked-disabled" transform="translate(388 -1)">
+      <g id="Group_160947" data-name="Group 160947" transform="translate(178)">
+        <g id="Group_160944" data-name="Group 160944" transform="translate(83)">
+          <g id="Group_160942" data-name="Group 160942" transform="translate(324)">
+            <g id="Group_160934" data-name="Group 160934">
+              <path id="Path_83167" data-name="Path 83167" d="M0,0H60V60H0Z" transform="translate(550 934)" fill="none"/>
+              <g id="Rectangle_1152" data-name="Rectangle 1152" transform="translate(570 954)" fill="#cacdd1" stroke="#cacdd1" stroke-width="1.5">
+                <rect width="20" height="20" rx="4" stroke="none"/>
+                <rect x="0.75" y="0.75" width="18.5" height="18.5" rx="3.25" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Group_160959" data-name="Group 160959" transform="translate(325)">
+      <path id="check-solid" d="M44.031,96.859a.856.856,0,0,1-.252.607L36.9,104.341a.859.859,0,0,1-1.215,0L32.252,100.9a.859.859,0,1,1,1.215-1.215l2.83,2.831,6.268-6.268a.858.858,0,0,1,1.466.607Z" transform="translate(1189.984 862.704)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

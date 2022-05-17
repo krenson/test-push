@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Icon-file-download" transform="translate(-1233 -1023)">
+    <g id="Group_160971" data-name="Group 160971" transform="translate(433)">
+      <g id="Group_160965" data-name="Group 160965" transform="translate(84)">
+        <g id="Group_160963" data-name="Group 160963" transform="translate(84)">
+          <g id="Form-chev-down" transform="translate(168 92)">
+            <g id="Group_160974" data-name="Group 160974">
+              <path id="Path_83191" data-name="Path 83191" d="M0,0H60V60H0Z" transform="translate(464 931)" fill="none"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path id="Path_83210" data-name="Path 83210" d="M16.8,5.764,11.9.865A2.946,2.946,0,0,0,9.821,0H2.944A2.944,2.944,0,0,0,0,2.944V20.608a2.944,2.944,0,0,0,2.944,2.944H14.72a2.944,2.944,0,0,0,2.944-2.944V7.843A2.934,2.934,0,0,0,16.8,5.764Zm-6.5-4.2a1.45,1.45,0,0,1,.558.336l4.9,4.9a1.38,1.38,0,0,1,.335.558H11.04a.738.738,0,0,1-.736-.736Zm5.888,19.04A1.474,1.474,0,0,1,14.72,22.08H2.944a1.474,1.474,0,0,1-1.472-1.472V2.944A1.474,1.474,0,0,1,2.944,1.472H8.832V6.624A2.209,2.209,0,0,0,11.04,8.832h5.152ZM9.568,11.04a.736.736,0,1,0-1.472,0v5.584L5.672,14.2a.735.735,0,0,0-1.04,1.041l3.68,3.68a.735.735,0,0,0,1.041,0l3.68-3.68A.736.736,0,0,0,11.992,14.2L9.568,16.624Z" transform="translate(1254.168 1041.224)" fill="#2f3a48"/>
+  </g>
+</svg>

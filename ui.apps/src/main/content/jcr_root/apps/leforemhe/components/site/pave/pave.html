@@ -1,0 +1,47 @@
+<sly
+  data-sly-use.pave="com.leforemhe.aem.site.core.models.PaveModel"
+  data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+  data-sly-test.isConfig="${pave.title || pave.accroche ||  pave.reference.linkReference}"
+>
+  <div class="paveContainer">
+    <div data-sly-test="${pave.imageSrc}" class="img_container">
+      <div class="image">
+        <img src="${pave.imageSrc}" />
+      </div>
+    </div>
+    <h2 data-sly-test="${pave.title}">${pave.title}</h2>
+    <p data-sly-test="${pave.accroche}">${pave.accroche}</p>
+    <sly
+      data-sly-test.internalLink="${pave.reference.linkReference @ extension='html'}"
+      data-sly-test.externalLink="${pave.reference.linkReference}"
+      data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+    ></sly>
+    <a
+      data-sly-test="${!pave.reference.document}"
+      class="${pave.color}"
+      data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, pave.reference.title ? pave.reference.title : pave.description]}"
+      target="${pave.reference.target}"
+      href="${pave.reference.internal ? internalLink : externalLink}"
+      title="${pave.reference.opensNewTab ? newTabTitle : (pave.description ? pave.description : pave.reference.title) @context='attribute'}"
+    >
+      ${pave.reference.label}
+      <div data-sly-test="${pave.color == 'arrowLink'}"></div>
+    </a>
+    <a
+      data-sly-test="${pave.reference.document}"
+      data-sly-test.documentTitle="${pave.reference.documentTitleFromDam}"
+      data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, documentTitle ? documentTitle : pave.description]}"
+      class="${pave.color}"
+      target="${pave.reference.target}"
+      href="${pave.reference.linkReference @ context='attribute'}"
+      onclick="javascript:ga('send','event','document','download','${pave.reference.linkReference @ context='scriptString'}')"
+      title="${pave.reference.opensNewTab ? newTabTitle : (documentTitle ? documentTitle  : pave.description) @context='attribute'}"
+    >
+      <span> ${pave.reference.label} (${pave.reference.extension}) </span>
+      <div data-sly-test="${pave.color == 'arrowLink'}"></div>
+    </a>
+  </div>
+</sly>
+<sly
+  data-sly-call="${template.placeholder @ isEmpty= !isConfig, classAppend='forem-pave'}"
+></sly>

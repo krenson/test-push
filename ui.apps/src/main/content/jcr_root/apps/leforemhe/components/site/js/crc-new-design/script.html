@@ -1,0 +1,171 @@
+<sly data-sly-template.script="${@ properties}">
+  <script>
+    // JavaScript Document
+    var detectstringentr = 'AuthFedHandler=Entr-';
+    var detectstringentr1 = '"AuthFedHandler=Entr-';
+    var detectstringpers = '"AuthFedHandler=Pers-';
+    var detectstringpers1 = 'AuthFedHandler=Pers-';
+    var indexpers = -1;
+    var indexentr = -1;
+    var connected = false;
+    var name = null;
+
+    var blocCRC = document.querySelector('.CRC ul');
+    var blocCRCrecherche = document.querySelector('li.CRCrecherche');
+    var blocCRContact = document.querySelector('li.CRCcontact');
+    var blocCRCconnexion = document.querySelector('li.CRCconnexion');
+
+    var pathPers = '${properties.pathPers @ context='unsafe'}';
+    var pathEntr = '${properties.pathEntr @ context='unsafe'}';
+    var pathPart = '${properties.pathPart @ context='unsafe'}';
+    var pathConnect = '${properties.pathConnect @ context='unsafe'}';
+    var pathDisconnect = '${properties.pathDisconnect @ context='unsafe'}';
+
+    var connectionMenu = document.getElementById("connectionMenu");
+    var connectionCitoyen = document.getElementById("connectionCitoyen");
+    var connectionEntreprise = document.getElementById("connectionEntreprise");
+    var connectionPartenaire = document.getElementById("connectionPartenaire");
+    var connectionButton = document.getElementById("connectButton");
+
+    ${properties.pathEntrGuest ? 'var pathEntrGuest = \'{0}\';':'' @ context='unsafe', format=[properties.pathEntrGuest]}
+
+
+        var eventLOADConnect = function() {
+          connectionMenu.querySelector("li:nth-child(1) a").href = pathPers;
+          connectionMenu.querySelector("li:nth-child(2) a").href = pathEntr;
+          connectionMenu.querySelector("li:nth-child(3) a").href = pathPart;
+          connectionCitoyen.querySelector("li:nth-child(1) a").href = pathPers;
+          connectionEntreprise.querySelector("li:nth-child(1) a").href = pathEntr;
+          connectionEntreprise.querySelector("li:nth-child(2) a").href = pathEntrGuest;
+          connectionPartenaire.querySelector("li:nth-child(1) a").href = pathPart;
+          connectionPartenaire.querySelector("li:nth-child(2) a").href = pathEntrGuest;
+
+          var form = document.createElement("form");
+          form.setAttribute("id", "form1");
+          form.setAttribute("name", "connect");
+          form.setAttribute("method", "post");
+          form.setAttribute("action", '"' + pathConnect + '"')
+          var html = '';
+          html += "<input name=\"action\" value=\"connect\" type=\"hidden\"/>";
+          html += "<input name=\"nextUrl\" value=\"\" type=\"hidden\"/>";
+          html += "<input type=\"hidden\" value=\"true\" name=\"connected\" id=\"connected\" />";
+
+          var htmlCitoyen = form.cloneNode(true);
+
+          var button = document.createElement("a");
+          button.href = pathDisconnect;
+          button.classList.add("btn");
+          button.classList.add("btn-primary");
+          var buttonToRemoveCitoyen = connectionCitoyen.querySelector("button.btn.btn-primary");
+          button.innerHTML = buttonToRemoveCitoyen.innerHTML;
+          buttonToRemoveCitoyen.remove();
+          connectionCitoyen.append(button.cloneNode(true));
+          htmlCitoyen.innerHTML += html + connectionCitoyen.innerHTML;
+          connectionCitoyen.innerHTML = "";
+          connectionCitoyen.append(htmlCitoyen);
+
+          var htmlEntreprise = form.cloneNode(true);
+          var buttonToRemoveEntreprise = connectionEntreprise.querySelector("button.btn.btn-primary");
+          button.innerHTML = "";
+          button.innerHTML = buttonToRemoveEntreprise.innerHTML;
+          buttonToRemoveEntreprise.remove();
+          connectionEntreprise.append(button.cloneNode(true));
+          htmlEntreprise.innerHTML += html + connectionEntreprise.innerHTML;
+          connectionEntreprise.innerHTML = "";
+
+          connectionEntreprise.append(htmlEntreprise);
+
+          var htmlPartenaire = form;
+          var buttonToRemovePartenaire = connectionPartenaire.querySelector("button.btn.btn-primary");
+          button.innerHTML = "";
+          button.innerHTML = buttonToRemovePartenaire.innerHTML;
+          buttonToRemovePartenaire.remove();
+          connectionPartenaire.append(button);
+          htmlPartenaire.innerHTML += html + connectionPartenaire.innerHTML;
+          connectionPartenaire.innerHTML = "";
+
+          connectionPartenaire.append(htmlPartenaire);
+
+        }
+
+        indexpers = getAuthFedHandlerPers();
+        indexentr = getAuthFedHandlerEntr();
+        name = getName();
+        if (connected) {
+            connectionButton.classList.add("connected");
+            var user = connectionButton.querySelector("#user");
+            user.innerHTML="";
+            user.innerHTML = name;
+            if (indexpers !== -1) {
+                connectionButton.classList.add("citoyen");
+                connectionMenu.remove();
+                connectionEntreprise.remove();
+                connectionPartenaire.remove();
+
+            }
+            else if (indexentr!== -1) {
+                connectionButton.classList.add("entreprise");
+                connectionMenu.remove();
+                connectionCitoyen.remove();
+                connectionPartenaire.remove();
+            }
+        }
+        else {
+            connectionButton.classList.remove("connected");
+            connectionButton.classList.remove("citoyen");
+            connectionButton.classList.remove("entreprise");
+            connectionButton.classList.remove("partenaire");
+            connectionPartenaire.remove();
+            connectionCitoyen.remove();
+            connectionPartenaire.remove();
+        }
+
+
+        if ( connectionButton != null ) {
+            if(document.querySelector('forem-header')){
+                eventLOADConnect();
+            } else{
+                document.addEventListener('DOMContentLoaded', eventLOADConnect);
+            }
+
+        }
+
+        function getName() {
+          if (indexpers !== -1) {
+              lastindex = document.cookie.length;
+              name = readCookie("AuthFedHandler");
+              name = name.replace("+", " ");
+              if (name !== null) {
+                  name = name.substring(name.indexOf('-') + 1 , name.length );
+              }
+              connected = true;
+          } else if (indexentr !== -1) {
+              lastindex = document.cookie.length;
+              name = readCookie("AuthFedHandler");
+              if (name !== null) {
+                  name = name.substring(name.indexOf('-') + 1 , name.length );
+              }
+              connected = true;
+          }
+          return decodeURIComponent(name).replace(/\+/g, ' ');
+        }
+
+        function getAuthFedHandlerPers() {
+          if (document.cookie.indexOf(detectstringpers) >= 0 ) {
+            indexpers = document.cookie.indexOf(detectstringpers);
+          } else if (document.cookie.indexOf(detectstringpers1) >= 0 ) {
+            indexpers = document.cookie.indexOf(detectstringpers1);
+          }
+          return indexpers;
+        }
+
+        function getAuthFedHandlerEntr() {
+          if (document.cookie.indexOf(detectstringentr) >= 0 ) {
+            indexentr = document.cookie.indexOf(detectstringentr);
+          } else if (document.cookie.indexOf(detectstringentr1) >= 0 ) {
+            indexentr = document.cookie.indexOf(detectstringentr1);
+          }
+          return indexentr;
+        }
+  </script>
+</sly>

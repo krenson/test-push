@@ -1,0 +1,83 @@
+.groupTuilesHaut {
+  background-color: #fcf9f4;
+  padding-top: 10rem;
+  > div {
+    @include max-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    .cmp-experiencefragment {
+      max-width: 24rem;
+    }
+  }
+}
+
+.groupTuilesBas {
+  background-color: #fcf9f4;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  > div {
+    @include max-width;
+    margin: 0 auto;
+    display: flex;
+
+    .cmp-experiencefragment {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      border-right: 1px solid #dbcaaf;
+      border-left: 1px solid #dbcaaf;
+      height: 15rem;
+      align-items: center;
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+      h2 {
+        font-size: 2.4rem;
+        font-family: $ffSemiBoldV2;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .groupTuilesHaut {
+    padding-top: 5rem;
+    > div {
+      width: 100%;
+      flex-wrap: wrap;
+
+      .cmp-experiencefragment {
+        max-width: 50%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .groupTuilesBas {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    > div {
+      flex-direction: column;
+      .cmp-experiencefragment {
+        width: 100%;
+        border-bottom: 1px solid #dbcaaf;
+        border-left: none;
+        border-right: none;
+        height: 8rem;
+
+        &:last-child {
+          border-bottom: none;
+        }
+        h2 {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

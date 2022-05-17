@@ -1,0 +1,16 @@
+<sly data-sly-use.listeAccesDirectImage="com.leforemhe.aem.site.core.models.NavigationImageModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<div class="icone-link">
+    <ul>
+        <li data-sly-repeat.item="${listeAccesDirectImage.items}">
+            <a href="${item.linkReference}" class="link-icone link-icone-special" id="inscription">
+                <div class="icone">
+                    <img alt="leforemhe" src="${item.fileReferenceDesktop}">
+                </div>
+                <span>${item.label}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<sly data-sly-call="${template.placeholder @ isEmpty = !listeAccesDirectImage.items || listeAccesDirectImage.items.empty, classAppend='forem-navigation' }"></sly>

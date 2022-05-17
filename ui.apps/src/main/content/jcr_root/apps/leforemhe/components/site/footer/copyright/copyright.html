@@ -1,0 +1,6 @@
+<sly data-sly-use.copyrightModel="com.leforemhe.aem.site.core.models.CopyrightModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<span data-sly-test="${copyrightModel.label}">
+    ©&nbsp;${copyrightModel.label} ${copyrightModel.year}
+</span>
+<sly data-sly-call="${template.placeholder @ isEmpty = !copyrightModel.label, classAppend='forem-copyright' }"></sly>

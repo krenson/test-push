@@ -1,0 +1,190 @@
+.aem {
+  .groupTuilesHaut {
+    background-color: #fcf9f4;
+    padding-top: 15rem;
+
+    .haut-container {
+      @include max-width;
+      display: flex;
+
+      margin: 0 auto;
+
+      > div {
+        display: flex;
+        width: 50%;
+
+        > div {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+
+          &.cq-Editable-dom--container {
+            padding-top: 0;
+          }
+
+          .newpar {
+            width: calc(100% - 2rem);
+            height: calc(100% - 2rem);
+            min-height: 10em;
+          }
+
+          .experiencefragment.cq-Editable-dom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 1rem;
+          }
+        }
+
+        .cmp-experiencefragment {
+          max-width: 24rem;
+        }
+      }
+    }
+  }
+
+  .groupTuilesBas {
+    background-color: #fcf9f4;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    .bas-container {
+      @include max-width;
+      margin: 0 auto;
+      display: flex;
+
+      > div {
+        display: flex;
+        width: 50%;
+        box-sizing: border-box;
+
+        &:first-child {
+          border-right: 1px solid #dbcaaf;
+        }
+
+        &:last-child {
+          border-left: 1px solid #dbcaaf;
+        }
+
+        > div {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          border-right: 1px solid #dbcaaf;
+          border-left: 1px solid #dbcaaf;
+          height: 15rem;
+          align-items: center;
+
+          .cmp-experiencefragment {
+            display: flex;
+
+            h2 {
+              margin: 0;
+            }
+          }
+
+          .newpar {
+            width: 100%;
+            height: 100%;
+          }
+
+          .icone {
+            display: none;
+          }
+
+          &:first-child {
+            border-left: none;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+
+          h2 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .remarque {
+    /*Styling for when the remarque is used in a experience fragment*/
+    .xf-web-container & {
+      display: flex;
+      width: 17rem;
+      margin: auto;
+
+      a div {
+        width: 97.5%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem {
+    .groupTuilesHaut {
+      padding-top: 5rem;
+
+      .haut-container {
+        flex-wrap: wrap;
+
+        > div {
+          width: 100%;
+          flex-wrap: wrap;
+
+          .cmp-experiencefragment {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .groupTuilesBas {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .bas-container {
+        flex-direction: column;
+
+        > div {
+          flex-direction: column;
+          width: 100%;
+
+          &:first-child {
+            border-bottom: 1px solid #dbcaaf;
+            border-right: none;
+          }
+
+          &:last-child {
+            border-left: none;
+          }
+
+          > div {
+            width: 100%;
+            border-bottom: 1px solid #dbcaaf;
+            border-left: none;
+            border-right: none;
+            height: 8rem;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            h2 {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

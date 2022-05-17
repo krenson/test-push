@@ -1,0 +1,27 @@
+<sly data-sly-use.carrousel="com.adobe.cq.wcm.core.components.models.Carousel"
+     data-sly-test.author="${wcmmode.edit || wcmmode.design}"
+     data-sly-test.banniereClass="${author ? 'cmp-banniere-standard': ''}"
+     data-sly-test.banniereTag="${author ? 'div' : ''}"></sly>
+<aside class="${!author ? 'slider': ''} sliderTop aem" role="complementary"
+       aria-label="${carrousel.accessibilityLabel}">
+    <div class="slider-container">
+        <div class="zoneFlecheG">
+            <div class="flecheG"></div>
+        </div>
+        <div class="zoneFlecheD">
+            <div class="flecheD"></div>
+        </div>
+        <sly data-sly-list.slide="${carrousel.items}">
+            <div class="slide" id="slide-${slideList.count}">
+                <sly data-sly-resource="${slide.path @ decorationTagName=banniereTag, cssClassName=banniereClass}" data-sly-unwrap="${!author}"></sly>
+            </div>
+        </sly>
+    </div>
+    <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+         data-sly-test="${(wcmmode.edit || wcmmode.preview) && carrousel.items.size < 1}"></sly>
+    <div data-sly-test="${carrousel.items.size > 1}"
+         class="containerNavSlider">
+        <ul class="navSlider">
+        </ul>
+    </div>
+</aside>

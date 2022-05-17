@@ -1,0 +1,121 @@
+.aem.MDElist {
+  @include max-width;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  a,
+  a:link {
+    text-decoration: none;
+  }
+  a:hover,
+  a:link:hover,
+  a:visited,
+  a:link:visited,
+  a:focus,
+  a:link:focus {
+    text-decoration: none;
+  }
+
+  .multiCombo-container {
+    border-radius: 1rem;
+    width: 50%;
+    max-width: 96rem;
+    box-shadow: 0px 0.4rem 0.4rem #00000033;
+    transition: box-shadow 0.2s linear;
+    a.buttonPseudoSelect,
+    a.buttonPseudoSelect:link {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      height: 6rem;
+      padding: 0 2.6rem;
+      box-sizing: border-box;
+      justify-content: space-between;
+      &::after {
+        display: inline-flex;
+        height: 0.8rem;
+        width: 1.5rem;
+        background-size: contain;
+        content: "";
+        mask-image: url($resourcePath + "/images/forms/Form-chev-down.svg");
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        background-color: $primary-colorV2;
+      }
+    }
+    .listeMDE {
+      height: 0px;
+      overflow: hidden;
+      transition: height 0.2s linear;
+      ul {
+        padding-left: 0;
+        list-style: none;
+        padding-bottom: 2rem;
+        margin: 0;
+
+        li {
+          padding: 1rem 2.6rem;
+          box-sizing: border-box;
+          transition: background-color $transitiontime $transitionmode,
+            border-color $transitiontime $transitionmode,
+            box-shadow $transitiontime $transitionmode;
+        }
+      }
+    }
+
+    &.element-invisible {
+      box-shadow: none;
+    }
+  }
+  &:last-child {
+    padding-bottom: 5rem;
+  }
+  .multiCombo-container {
+    background-color: $fourth-color;
+    transition: background-color $transitiontime $transitionmode,
+      border-color $transitiontime $transitionmode,
+      box-shadow $transitiontime $transitionmode;
+
+    &:hover {
+      background-color: $fourth-color;
+    }
+    &.element-invisible {
+      background-color: $secondary-colorV2;
+      &:hover {
+        background-color: $fourth-color;
+      }
+    }
+    li:hover {
+      background-color: $secondary-colorV2;
+    }
+  }
+  &.primary {
+    .multiCombo-container {
+      background-color: $seven-color;
+      &:hover {
+        background-color: $seven-color;
+      }
+      &.element-invisible {
+        background-color: $tercary-color;
+        &:hover {
+          background-color: $seven-color;
+        }
+      }
+      li:hover {
+        background-color: $tercary-color;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpointMobile) {
+  .aem.MDElist {
+    .multiCombo-container {
+      min-width: 100%;
+      a.buttonPseudoSelect,
+      a.buttonPseudoSelect:link {
+        height: 5rem;
+      }
+    }
+  }
+}

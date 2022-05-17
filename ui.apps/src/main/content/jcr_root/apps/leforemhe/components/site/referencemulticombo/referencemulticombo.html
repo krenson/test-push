@@ -1,0 +1,20 @@
+<sly data-sly-use.referenceMultiCombo="com.leforemhe.aem.site.core.models.ReferenceMultiComboModel"
+     data-sly-test.componentId="${referenceMultiCombo.id ? referenceMultiCombo.id : resource.path.hashCode}"></sly>
+<section class="MDElist aem">
+    <div class="multiCombo-container element-invisible">
+        <sly data-sly-test="${referenceMultiCombo.title}">
+            <a data-sly-attribute.title="${referenceMultiCombo.description? referenceMultiCombo.description : ''}"
+               class="buttonPseudoSelect" href="#${componentId}">${referenceMultiCombo.title}</a>
+            <div class="listeMDE element-invisible" id="${componentId}">
+                <ul>
+                    <li data-sly-repeat.reference="${referenceMultiCombo.references}">
+                        <a href="${reference.uRL@context='uri', extension='html'}">${reference.title}</a>
+                    </li>
+                </ul>
+            </div>
+        </sly>
+    </div>
+    <sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
+        <sly data-sly-call="${templates.placeholder @ isEmpty = !properties.jcr:title}"></sly>
+    </sly>
+</section>

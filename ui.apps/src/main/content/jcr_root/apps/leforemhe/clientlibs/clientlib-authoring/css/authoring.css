@@ -1,0 +1,13 @@
+div[title="Conteneur Flex"] {
+    width: 100% !important;
+}
+
+div[title="Conteneur Flex"] > div[title="Paragraph System - HTL"]:last-child {
+    width: 30% !important;
+}
+
+div[title="Conteneur Flex"] > div[title="Paragraph System - HTL"]:last-child .cq-Overlay {
+    width: 100% !important;
+}
+
+.cq-FileUpload-thumbnail {background-color: darkgrey;}

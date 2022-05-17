@@ -1,0 +1,29 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "header": {
+    "jcr:primaryType": "nt:folder",
+    "experiencefragment": {
+      "jcr:primaryType": "cq:Page",
+      "page1": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "jcr:title": "Demo Page",
+          "jcr:description": "Demo Page: a page to test the features.",
+          "navTitle": "Demo Page",
+          "exportFolder": "folder"
+        }
+      },
+      "page2": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "jcr:title": "Demo Page",
+          "jcr:description": "Demo Page: a page to test the features.",
+          "navTitle": "Demo Page",
+          "exportFolder": "folder"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+/* @font-face {
+  font-family: "poppinsregular";
+  src: url($resourcePath + "/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinslight";
+  src: url($resourcePath + "/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsmedium";
+  src: url($resourcePath + "/fonts/Poppins-Medium.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsthin";
+  src: url($resourcePath + "/fonts/Poppins-Thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinssemibold";
+  src: url($resourcePath + "/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsbold";
+  src: url($resourcePath + "/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsextrabold";
+  src: url($resourcePath + "/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: "poppinsblack";
+  src: url($resourceFonts + "/fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url($resourceFonts + "/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "forem-icons";
+  src: url($resourceFonts + "/fonts/forem-icons.ttf") format("truetype"),
+    url($resourceFonts + "/fonts/forem-icons.woff") format("woff"),
+    url($resourceFonts + "/fonts/forem-icons.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+//FontAwesome
+
+//V1
+@font-face {
+  font-family: "robotoregular";
+  src: url($resourceFonts + "/fonts/Roboto-Regular-webfont.eot");
+  src: url($resourceFonts + "/fonts/Roboto-Regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($resourceFonts + "/fonts/Roboto-Regular-webfont.woff") format("woff"),
+    url($resourceFonts + "/fonts/Roboto-Regular-webfont.ttf") format("truetype"),
+    url($resourceFonts + "/Roboto-Regular-webfont.ttf"),
+    url($resourceFonts + "/fonts/Roboto-Regular-webfont.svg#robotoregular")
+      format("svg");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "robotoblack";
+  src: url($resourceFonts + "/fonts/Roboto-Black-webfont.eot");
+  src: url($resourceFonts + "/fonts/Roboto-Black-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($resourceFonts + "/fonts/Roboto-Black-webfont.woff") format("woff"),
+    url($resourceFonts + "/fonts/Roboto-Black.ttf") format("truetype"),
+    url($resourceFonts + "/fonts/Roboto-Black.ttf"),
+    url($resourceFonts + "/Roboto-Black-webfont.svg#robotoblack") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "robotobold";
+  src: url($resourceFonts + "/fonts/Roboto-Bold-webfont.eot");
+  src: url($resourceFonts + "/fonts/Roboto-Bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($resourceFonts + "/fonts/Roboto-Bold-webfont.woff") format("woff"),
+    url($resourceFonts + "/resources/fonts/Roboto-Bold.ttf") format("truetype"),
+    url($resourceFonts + "/fonts/Roboto-Bold.ttf"),
+    url($resourceFonts + "/fonts/Roboto-Bold-webfont.svg#robotobold")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "robotomedium";
+  src: url($resourceFonts + "/fonts/Roboto-Medium-webfont.eot");
+  src: url($resourceFonts + "/fonts/Roboto-Medium-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url($resourceFonts + "/fonts/Roboto-Medium-webfont.woff") format("woff"),
+    url($resourceFonts + "/fonts/Roboto-Medium.ttf") format("truetype"),
+    url($resourceFonts + "/fonts/Roboto-Medium.ttf"),
+    url($resourceFonts + "/fonts/Roboto-Medium-webfont.svg#robotomedium")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "robotolight";
+  src: url($resourceFonts + "/fonts/Roboto-Light.ttf") format("truetype"),
+    url($resourceFonts + "/fonts/Roboto-Light.ttf");
+  font-weight: normal;
+  font-style: normal;
+}

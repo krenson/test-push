@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Liens"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <columns
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                margin="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <fields
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <configurableLinks
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Liens configurables"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <footerLinks
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldDescription="Liens utilisé dans le footer"
+                                        fieldLabel="Liens footer">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerLinks">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <item
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linkType
+                                                            granite:class="cq-dialog-dropdown-showhide-multi"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            deleteHint="{Boolean}true"
+                                                            fieldLabel="Type de lien"
+                                                            name="./linkType">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <internal
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    icon="graphPathing"
+                                                                    selected="{Boolean}true"
+                                                                    text="Lien interne"
+                                                                    value="internal-link"/>
+                                                                <external
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    icon="globe"
+                                                                    text="Lien externe"
+                                                                    value="external-link"/>
+                                                            </items>
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cqdialogdropdownshowhidetarget=".link-type-showhide-target"/>
+                                                        </linkType>
+                                                        <internalLink
+                                                            granite:class="hide link-type-showhide-target"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            margin="{Boolean}true">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                showhidetargetvalue="internal-link"/>
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <internal-label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Entrer le libellé affiché par ce lien. Laisser vide pour récupérer la propriété sur la page."
+                                                                    fieldLabel="Libellé"
+                                                                    name="./internalLabel"/>
+                                                                <linkReference
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                    fieldDescription="Sélectionner la page vers laquelle ce lien référencera."
+                                                                    fieldLabel="Lien interne"
+                                                                    name="./internalLinkReference"
+                                                                    rootPath="/content/leforemhe"/>
+                                                            </items>
+                                                        </internalLink>
+                                                        <externalLink
+                                                            granite:class="hide link-type-showhide-target"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            margin="{Boolean}true">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                showhidetargetvalue="external-link"/>
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <externalLinkTitle
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Titre"
+                                                                        fieldDescription="Entrer le titre de ce lien externe."
+                                                                        name="./title"/>
+                                                                <label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Entrer le libellé affiché par ce lien."
+                                                                    fieldLabel="Libellé"
+                                                                    name="./externalLabel"/>
+                                                                <linkReference
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Entrer l'URL de ce lien."
+                                                                    fieldLabel="Lien externe"
+                                                                    name="./externalLinkReference">
+                                                                    <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            should-start-with-http-or-empty="{Boolean}true">
+                                                                    </granite:data>
+                                                                </linkReference>
+                                                            </items>
+                                                        </externalLink>
+                                                    </items>
+                                                </item>
+                                            </items>
+                                        </field>
+                                    </footerLinks>
+                                </items>
+                            </configurableLinks>
+                        </items>
+                    </fields>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>

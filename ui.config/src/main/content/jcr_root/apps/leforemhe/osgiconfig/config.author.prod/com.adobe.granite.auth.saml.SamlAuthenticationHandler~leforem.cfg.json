@@ -1,0 +1,31 @@
+{
+  "identitySyncType":"default",
+  "keyStorePassword":"",
+  "service.ranking:Integer":5002,
+  "idpHttpRedirect":false,
+  "createUser":false,
+  "defaultRedirectUrl":"/",
+  "userIDAttribute":"uid",
+  "idpIdentifier":"",
+  "assertionConsumerServiceURL":"https://www.forem.be/saml_login",
+  "defaultGroups":[],
+  "storeSAMLResponse":false,
+  "signatureMethod":"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
+  "idpCertAlias":"certalias___1635505334168",
+  "addGroupMemberships":false,
+  "path":[
+    "/saml_login"
+  ],
+  "digestMethod":"http://www.w3.org/2001/04/xmlenc#sha256",
+  "synchronizeAttributes":[],
+  "clockTolerance:Integer":60,
+  "groupMembershipAttribute":"groupMembership",
+  "idpUrl":"https://fciam.b2clogin.com/fciam.onmicrosoft.com/B2C_1A_RP_SI_SAML_AEM/samlp/sso/login",
+  "serviceProviderEntityId":"https://www.forem.be",
+  "logoutUrl":"https://fciam.b2clogin.com/fciam.onmicrosoft.com/B2C_1A_RP_SI_SAML_AEM/samlp/sso/logout",
+  "handleLogout":true,
+  "userIntermediatePath":"end-users",
+  "spPrivateKeyAlias":"",
+  "useEncryption":false,
+  "nameIdFormat":"urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+}

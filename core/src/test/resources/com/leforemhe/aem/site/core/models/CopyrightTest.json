@@ -1,0 +1,14 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "copyright": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/footer/copyright",
+      "label": "Tests Copyright"
+    }
+  }
+}

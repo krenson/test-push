@@ -1,0 +1,166 @@
+<sly data-sly-template.script="${@ properties}">
+<script>
+    // Config cobrowse server
+    let cobrowseConfig = {
+        src:   "${properties.src @ context='uri'}",
+        cbUrl: "${properties.cbUrl @ context='uri'}"
+    };
+
+    // Content Messages
+    let cbContentMessages = {
+        label: "${properties.labelButton @ context='scriptString'}",
+        link: "${properties.labelLink @ context='scriptString'}",
+        step1: "${properties.step1 @ context='scriptString'}",
+        step2: "${properties.step2 @ context='scriptString'}",
+        share: "${properties.share @ context='scriptString'}",
+        session: "${properties.session @ context='scriptString'}",
+    }
+
+    // Config Message Ended
+    let cbEndedMessages = {
+        self: 'You exited Co-browse session. Co-browse terminated',
+        external: 'Co-browse session ended',
+        timeout: 'Co-browse session timed out',
+        inactivityTimeout: 'Agent did not join. Closing Co-browse session.',
+        serverUnavailable: 'Could not reach Co-browse server',
+        sessionsOverLimit: 'Agent is busy in another Co-browse session'
+    }
+
+    //for removing the dialog pop-up
+    let myPrimaryMedia = {
+        initializeAsync: function(done){ done();},
+        isAgentConnected: function(){ return true;},
+        sendCbSessionToken: function(token){}
+    };
+
+    //Genesys
+    (function(d, s, id, o) {
+        var fs = d.getElementsByTagName(s)[0], e;
+        if (d.getElementById(id)) return;
+        e = d.createElement(s); e.id = id; e.src = o.src;
+        e.setAttribute('data-gcb-url', o.cbUrl);
+        fs.parentNode.insertBefore(e, fs);
+    })(document, 'script', 'genesys-js', {
+        src: cobrowseConfig.src,
+        cbUrl: cobrowseConfig.cbUrl,
+    });
+
+    var _genesys = {
+        cobrowse: {
+            //disableBuiltInUI: true,
+            primaryMedia : myPrimaryMedia,
+            onReady: function(api) {
+
+                //Cobrowsing
+                var footer = document.querySelector("footer.aem");
+
+                if (footer != null) {
+                    var emplacement = footer.querySelector(".mentionsLegales ul");
+                    var coBrowsingLink = document.createElement("li");
+                    coBrowsingLink.classList.add("cobrowsing");
+                    coBrowsingLink.innerHTML = '<a href="" >' + cbContentMessages.link + '</a><div class="cobrowsing-container"></div>';
+
+                    coBrowsingLink.querySelector("a").addEventListener("click", function(e) {
+                        e.preventDefault();
+                        openCowbrowsing(e, this);
+                    });
+                    emplacement.append(coBrowsingLink);
+                }
+
+                function openCowbrowsing(events, element) {
+                    var popup = element.parentElement.querySelector(".cobrowsing-container");
+                    if (popup != null) {
+                        if (!popup.classList.contains("open")) {
+                            fillcobrowsing(cobrowsingNum);
+                        }
+                        popup.classList.toggle("open");
+                    }
+                }
+
+                var cobrowsingNum = null;
+
+                function fillcobrowsing(num) {
+                    var cowBrowsingContainer = document.querySelector(".cobrowsing-container");
+
+                    if (num == null && cobrowsingNum == null) {
+                        var popupText = '<div class="close-popup"></div><p>' + cbContentMessages.step1 + '</p><button class="btn btn-primary">' + cbContentMessages.label + '</button>';
+                        cowBrowsingContainer.innerHTML = popupText;
+                        var buttonCoBrowsing = cowBrowsingContainer.querySelector("button.btn");
+                        buttonCoBrowsing.addEventListener("click", function(e) {
+                            api.startSession();
+                        });
+                    } else {
+                        cobrowsingNum = num;
+                        var popupText = '<div class="close-popup"></div><p class="bold">' + cbContentMessages.share + '</p><p>' + cbContentMessages.step2 + '</p><p class="bold">' + cbContentMessages.session + ' : ' + cobrowsingNum + '</p>';
+                        cowBrowsingContainer.innerHTML = popupText;
+                    }
+
+                    var closeCobrowsing = cowBrowsingContainer.querySelector(".close-popup");
+
+                    closeCobrowsing.addEventListener("click", function(e) {
+                        e.preventDefault();
+
+                        var popup = coBrowsingLink.querySelector(".cobrowsing-container");
+                        popup.classList.remove("open");
+                    });
+
+                }
+
+                // return token session
+                const getToken = (session) => {
+                    let token = session.token;
+
+                    if (token.length != 9) {
+                        console.log("Token Length is wrong! Please contact support!");
+                    }
+                    return token.substring(0, 3) + " " + token.substring(3, 6) + " " + token.substring(6, 9);
+                }
+
+
+                // display token
+                let sessionStartedHandler = function(session) {
+                    fillcobrowsing(getToken(session));
+
+                    if(session.agents.length > 0){
+                        agentJoinedHandler();
+                    }
+                }
+
+                let agentJoinedHandler = function(agent, session) {
+
+                };
+
+                // When session is started - Clicking on share button
+                api.onSessionStarted.add(sessionStartedHandler);
+
+                // On page load - If there is a session
+                api.onInitialized.add(function(session) {
+                    if (session) {
+                        sessionStartedHandler(session);
+                    }
+                });
+
+                // When agent joins my session
+                api.onAgentJoined.add(agentJoinedHandler);
+
+                // End Session
+                api.onSessionEnded.add(function(details) {
+                    var popup = coBrowsingLink.querySelector(".cobrowsing-container");
+                    popup.classList.remove("open");
+
+                    console.log(cbEndedMessages[details.reason] || 'Something went wrong. Co-browse terminated.');
+                });
+            }
+        },
+        buttons: {
+            cobrowse: false
+        }
+    };
+</script>
+
+
+</sly>
+
+
+
+

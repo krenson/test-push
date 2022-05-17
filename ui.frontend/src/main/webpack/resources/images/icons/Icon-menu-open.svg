@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Icon-menu-open" transform="translate(-1773 -1023)">
+    <g id="Group_160980" data-name="Group 160980" transform="translate(540)">
+      <g id="Group_160971" data-name="Group 160971" transform="translate(433)">
+        <g id="Group_160965" data-name="Group 160965" transform="translate(84)">
+          <g id="Group_160963" data-name="Group 160963" transform="translate(84)">
+            <g id="Form-chev-down" transform="translate(168 92)">
+              <g id="Group_160974" data-name="Group 160974">
+                <path id="Path_83191" data-name="Path 83191" d="M0,0H60V60H0Z" transform="translate(464 931)" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="burger-menu" transform="translate(1590.5 910.746)">
+      <line id="Line_59" data-name="Line 59" x2="30" transform="translate(197.958 131.253)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.7"/>
+      <path id="Path_83211" data-name="Path 83211" d="M0,0H30.915" transform="translate(197.5 142.253)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.7"/>
+      <path id="Path_83212" data-name="Path 83212" d="M0,0H30.915" transform="translate(197.5 153.006)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.7"/>
+    </g>
+  </g>
+</svg>

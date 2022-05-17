@@ -1,0 +1,86 @@
+#
+# This file contains the filter ACL, and can be customized.
+#
+# By default, it includes the default filter ACL.
+#
+
+$include "./default_filters.any"
+
+# Allow components JSON model
+/0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
+
+# Allow manifest.webmanifest files located in the content
+/0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+
+
+## leforemhe - Allow the vanity URL to be called on Publish instance
+/0103 { /type "allow" /url "/libs/granite/dispatcher/content/vanityUrls.html" }
+/0104 { /type "allow" /method "GET" /extension "html" }
+
+## leforemhe - Allow the robots.txt to be called on Publish instance
+/0105 { /type "allow" /url "/content/dam/leforemhe/fr/seo/robots.txt" }
+
+## leforemhe - Export pages disabled
+/0106 { /type "deny" /url "/content/leforemhe/fr/particuliers/formations-et-stages/formations-forem/formations-langues/formations-langues-evaluer-niveau/positionnement-langue.html" }
+/0107 { /type "deny" /url "/content/leforemhe/fr/particuliers/formations-et-stages/formations-forem/formations-langues/formations-langues-evaluer-niveau/positionnement-langue-formulaire.html" }
+/0108 { /type "deny" /url "/content/leforemhe/fr/entreprises/aides-financieres-emploi-formation/aides-financieres-emploi/aides-financieres-aides-promotion-emploi-non-marchand/simulateur-reforme-aides-promotion-emploi.html" }
+
+/0109 { /type "deny" /url "/outils/positionnement-langue.html" }
+/0110 { /type "deny" /url "/outils/positionnement-langue-formulaire.html" }
+/0111 { /type "deny" /url "/outils/simulateur-reforme-aides-promotion-emploi.html" }
+
+## Add other documents extension
+/0112 { /type "allow" /extension '(tiff|csv|doc|docx|dotm|xls|xlsx|xlsm|png|jpeg|jpg|gif)' /path "/content/dam/leforemhe/fr/documents/*" }
+/0113 { /type "allow" /extension '(tiff|csv|doc|docx|dotm|xls|xlsx|xlsm|png|jpeg|jpg|gif)' /path "/documents/*" }
+
+## leforemhe - Allow url with the extension leforemhe.img and leforemhe.json for leforemhe servlets
+/0114 { /type "allow" /method "GET" /extension "leforemhe.img" }
+/0115 { /type "allow" /method "GET" /extension "leforemhe.json" }
+
+## Sitemap and robots.txt
+/0116 { /type "allow" /url "/content/leforemhe/fr.sitemap.xml" }
+/0117 { /type "allow" /url "/sitemap.xml" }
+/0118 { /type "allow" /url "/robots.xml" }
+
+## Deny to reach amp pages because is not required at Forem
+/0119 { /type "deny" /method "GET" /extension "amp.html" }
+
+## Security issue: User information was disclosed on the following URL
+/0120 { /type "deny" /url "/libs/cq/security/userinfo.json" }
+
+## To avoid duplicate content we can forbbiden to reach the AEM path via publish instance
+## The canonical metadata is not really required with this approach
+## Also, it is a way to force use vanityURL for all pages, which is good for SEO reason
+/0121 { /type "deny" /url "/content/leforemhe/fr/*" }
+
+## Image core component - servlet
+/0122 { /type "allow" /method "GET" /url "*/image.coreimg.*/*" }
+
+## Deny to reach the index page of page-non-paces
+/0123 { /type "deny" /method "GET" /url "/pages-non-places/index.html" }
+
+## Adobe Analytics
+/0124 { /type "allow" /method "GET" /url "*/analytics.config.js" }
+/0125 { /type "allow" /method "GET" /url "*/analytics.sitecatalyst.js" }
+
+## Azure AD B2C for end-users via SAML
+/0126 { /type "allow" /method "POST" /url "*/saml_login" }
+
+
+## leforemhe - Dispatcher security checklist
+## https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/getting-started/security-checklist.html?lang=en#use-the-latest-version-of-dispatcher
+/0127 { /type "deny" /url "/etc" }
+/0128 { /type "deny" /url "/libs" }
+
+/0129 { /type "allow" /url "/etc/designs/*" }
+/0130 { /type "allow" /url "/etc/clientlibs/*" }
+/0131 { /type "allow" /url "/etc/segmentation.segment.js" }
+/0132 { /type "allow" /url "/libs/cq/personalization/components/clickstreamcloud/content/config.json" }
+/0133 { /type "allow" /url "/libs/wcm/stats/tracker.js" }
+/0134 { /type "allow" /url "/libs/cq/personalization/*" }
+/0135 { /type "allow" /url "/libs/cq/security/userinfo.json" }
+/0136 { /type "allow" /url "/libs/granite/security/currentuser.json" }
+/0137 { /type "allow" /url "/libs/cq/i18n/*" }
+
+## Enable Authentication Servlet
+/0138 { /type "allow" /method "POST" /selectors "leforemhe" /path "/content/leforemhe/authenticate" /extension "json" }

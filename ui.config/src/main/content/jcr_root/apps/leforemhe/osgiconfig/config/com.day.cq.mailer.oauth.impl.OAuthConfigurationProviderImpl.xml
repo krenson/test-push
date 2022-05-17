@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+    authUrl="https://accounts.google.com/o/oauth2/auth"
+    tokenUrl="https://accounts.google.com/o/oauth2/token"
+    clientId="639030524363-0q22b6ege4igv4avf7qs7tvfm75kn1qf.apps.googleusercontent.com"
+    clientSecret="lpgIGcPd9Jpty10CM7_xcc5H"
+    scopes="[https://www.googleapis.com/auth/gmail.send,https://mail.google.com/]"
+    authCodeRedirectUrl="https://aem.realdolmen.com/services/mailer/oauth2/token"
+    refreshUrl="https://accounts.google.com/o/oauth2/token"
+/>

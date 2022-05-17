@@ -1,0 +1,153 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<form class="aem forms"
+      data-sly-test="${properties.action}"
+      data-sly-attribute.action="${properties.action}"
+      data-sly-attribute.method="${properties.method}"
+      data-sly-attribute.name="${properties.name}"
+      data-sly-attribute.id="${properties.id}"
+      data-sly-attribute.enctype="${properties.multipart ? 'multipart/form-data':''}">
+    <input id="typeForm" name="typeForm" type="hidden" value="1">
+    <fieldset>
+        <legend>
+            ${'Signalétique' @ i18n}
+        </legend>
+        <div class="tree-col">
+            <label for="nom">
+                ${'Nom' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="nom" name="nom" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text"
+                   value="">
+        </div>
+        <div class="tree-col">
+            <label for="prenom">
+                ${'Prénom' @ i18n}<acronym title="${'Obligatoire'}">*</acronym></label>
+            <input aria-required="true" id="prenom" name="prenom" placeholder="${'Champ obligatoire' @ i18n}" required=""
+                   type="text" value="">
+        </div>
+        <div class="tree-col">
+            <label>
+                ${'Numéro Forem' @ i18n}</label>
+            <p id="descriptionNJB">
+                ${'Ce numéro est indiqué sur votre carte JobPass' @ i18n}</p>
+            <input aria-describedby="descriptionNJB" aria-required="false" id="NF" maxlength="11" name="NF"
+                   pattern="[0-9]{11}" size="11" title="11 ${'chiffres' @ i18n}" type="text" value="">
+        </div>
+        <div class="tree-col">
+            <label for="resident">
+                ${'Résident en Belgique' @ i18n}<acronym title="${'Obligatoire'}'">*</acronym></label>
+            <div class="select">
+                <select aria-required="true" class="" id="resident" name="resident" size="1" required="">
+                    <option selected="selected" value="">
+                        ${'Faites un choix - Champ Obligatoire' @ i18n}
+                    </option>
+                    <option value="oui">
+                        ${'oui' @ i18n}
+                    </option>
+                    <option value="non">
+                        ${'non' @ i18n}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="tree-col">
+            <label for="niss">
+                ${'Numéro national (NISS)' @ i18n}<acronym
+                    title="${'Obligatoire si vous êtes un particulier résident en Belgique' @ i18n}">*</acronym></label>
+            <input id="niss" maxlength="11" name="niss" pattern="[0-9]{11}" size="11" title="11 ${'chiffres' @ i18n}" type="text"
+                   value="">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            ${'Contact' @ i18n}
+        </legend>
+        <div class="tree-col">
+            <label for="tel">
+                ${'Téléphone' @ i18n}&nbsp;/&nbsp;${'GSM' @ i18n} <span class="label-hint">(ex: +32499005511)</span><acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="tel" maxlength="16" name="tel" pattern="^\+\d*(( |\/|\.|-)*|\d*)*$"
+                   placeholder="${'Champ obligatoire' @ i18n}" required="" type="tel" value="">
+        </div>
+        <div class="tree-col">
+            <label for="email">
+                ${'Adresse e-mail' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="email" name="email" placeholder="${'Champ obligatoire' @ i18n}'" required="" type="email"
+                   value="">
+        </div>
+        <div class="tree-col">
+            <label for="confirmation">
+                ${'Confirmation e-mail' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="confirmation" name="confirmation" placeholder="${'Champ obligatoire' @ i18n}" required=""
+                   type="email" value="">
+        </div>
+    </fieldset>
+
+    <div class="tree-col">
+        <label for="objet">
+            ${'Votre demande concerne une des actions suivantes' @ i18n}&nbsp;<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+        <div class="select">
+            <select aria-required="true" id="objet" name="objet" required="">
+                <option selected="selected" value="">
+                    ${'Faites un choix - Champ Obligatoire' @ i18n}
+                </option>
+                <option value="p4">
+                    ${'Bénéficier d\'aides à l\'emploi et la formation' @ i18n}
+                </option>
+                <option value="p6">
+                    ${'Créer un compte sur le site leforemhe.be' @ i18n}
+                </option>
+                <option value="p5">
+                    ${'Introduire une réclamation' @ i18n}
+                </option>
+                <option value="p1">
+                    ${'Rechercher un emploi' @ i18n}
+                </option>
+                <option value="p2">
+                    ${'Se former, développer ses compétences' @ i18n}
+                </option>
+                <option value="p9">
+                    ${'Signaler des difficultés de compréhension de la langue française' @ i18n}
+                </option>
+                <option value="p10">
+                    ${'Signaler une situation de handicap' @ i18n}
+                </option>
+                <option value="p3">
+                    ${'Informations sur l\'inscription en ligne comme DE' @ i18n}
+                </option>
+                <option value="p8">
+                    ${'Une autre demande' @ i18n}
+                </option>
+                <option value="p7">
+                    ${'Utiliser des services en ligne' @ i18n}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <label for="motif">
+            ${'Veuillez décrire le motif de votre demande' @ i18n}&nbsp;<acronym title="Obligatoire">*</acronym><br>
+            <span id="descriptionProb">
+(${'Si vous signalez un problème technique, veuillez préciser le type de navigateur utilisé ainsi que le message d\'erreur obtenu' @ i18n})</span>
+        </label>
+        <div class="textarea two-col">
+            <textarea aria-describedby="descriptionProb" aria-required="true" id="motif" name="motif"
+                      placeholder="${'Champ obligatoire' @ i18n}" required=""></textarea>
+        </div>
+    </div>
+    <div class="inputFile tree-col empty">
+        <label for="fichier">
+            Vous pouvez joindre un document à votre demande<br>
+            <span id="descriptionFile">
+(${'Uniquement des documents de type word, pdf, images, taille maximum 5Mb' @ i18n})</span>
+            <div class="title">
+                ${'Sélectionner des fichiers' @ i18n}
+            </div>
+        </label>
+        <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
+        <input aria-describedby="descriptionFile" id="fichier" name="fichier" type="file">
+    </div>
+    <div class="form-Button">
+        <button id="boutonFormulaireContactParti" name="boutonFormulaireContactParti" type="submit" value="Envoyer" class="btn btn-primary">
+            ${'envoyer' @ i18n}
+        </button>
+    </div>
+</form>
+<sly data-sly-call="${template.placeholder @ isEmpty = !properties.action, classAppend='forem-form' }"></sly>

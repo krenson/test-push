@@ -1,0 +1,18 @@
+<div data-sly-use.layout="com.leforemhe.aem.site.core.models.RemarqueLayoutSecondRowModel" data-sly-repeat.secondRowGroup="${layout.groups}">
+    <sly data-sly-test="${wcmmode.edit}"
+         data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
+    <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
+         data-sly-test="${isAllowedApplicable}"
+         data-sly-use.allowedTemplate="allowedcomponents.html"
+         data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
+    <div data-sly-repeat.item="${secondRowGroup}">
+        <sly data-sly-test="${!isAllowedApplicable}"
+             data-sly-resource="${item.path @ decoration=false}"></sly>
+    </div>
+    <div data-sly-test="${!isAllowedApplicable && !wcmmode.disabled && (secondRowGroup.size < 2)}">
+        <sly data-sly-resource="${resource.path @ resourceType='leforemhe/components/site/remarquelayout/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"></sly>
+    </div>
+</div>
+<div data-sly-test="${!isAllowedApplicable && !wcmmode.disabled && (layout.lastContainerFull && layout.items.size < 4)}">
+    <sly data-sly-resource="${resource.path @ resourceType='leforemhe/components/site/remarquelayout/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
+</div>

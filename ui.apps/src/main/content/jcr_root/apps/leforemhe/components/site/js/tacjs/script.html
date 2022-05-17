@@ -1,0 +1,72 @@
+<sly data-sly-template.script="${@ properties}">
+    <script>
+    // JavaScript Document
+    tarteaucitron.init({
+    "privacyUrl": "${properties.PageTaf @ context='unsafe'}",
+
+    "hashtag": "#tarteaucitron", /* Ouvre le panel */
+    "cookieName": "tarteaucitron",
+
+    "orientation": "top",
+    "showAlertSmall": false,
+    "cookieslist": true,
+    "showIcon": false,
+
+    "adblocker": false,
+    "DenyAllCta" : false,
+    "AcceptAllCta" : true,
+    "highPrivacy": true,
+    "handleBrowserDNTRequest": false,
+
+    "cookieDomain": "${properties.domain @ context='unsafe'}",
+
+    "removeCredit": true,
+    "moreInfoLink": true,
+    });
+
+    //Google Analytics
+
+    ${properties.analytics ? 'tarteaucitron.user.analyticsUa = \'{0}\';' : '' @ format=[properties.analytics], context='unsafe'}
+    ${properties.analytics ? 'tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };' : ''@ context='unsafe'}
+    ${properties.analytics ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'analytics\');' : ''@ context='unsafe'}
+
+    //Google tag Manager
+    ${properties.googletagmanager ? 'tarteaucitron.user.googletagmanagerId = \'{0}\';' : '' @ format=[properties.googletagmanager], context='unsafe'}
+    ${properties.googletagmanager ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'googletagmanager\');' : ''@ context='unsafe'}
+
+
+    //Youtube
+    ${ properties.youtube ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'youtube\');' :'' @ context='unsafe' }
+
+    //Hotjar
+    ${properties.hotjar ? 'tarteaucitron.user.hotjarId = \'{0}\';':'' @ format=[properties.hotjar], context='unsafe' }
+    ${properties.hotjar ? 'tarteaucitron.user.HotjarSv = \'hjid:{0}\';':'' @ format=[properties.hotjar], context='unsafe'}
+    ${properties.hotjar ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'hotjar\');': ''@ context='unsafe'}
+
+
+    //tawkto
+    ${properties.tawkto ? 'tarteaucitron.user.tawktoId = \'{0}\';' : '' @ format=[properties.tawkto], context='unsafe'}
+    ${properties.tawkto ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'tawkto\');' : ''@ context='unsafe'}
+
+    //Google Analytics (gtag.js)
+    ${properties.gtagUa ? 'tarteaucitron.user.gtagUa = \'{0}\';' : '' @format=[properties.gtagUa], context='unsafe'}
+    ${properties.gtagUa ? 'tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };': '' @context='unsafe'}
+    ${properties.gtagUa ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'gtag\');' : '' @context='unsafe'}
+
+    //Adobe Analytics
+    ${properties.enableAdobeAnalytics ? 'tarteaucitron.user.adobeanalyticskey = \'{0}\';' : '' @ format=[properties.adobeAnalyticsKey], context='unsafe'}
+    ${properties.enableAdobeAnalytics ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'adobeanalytics\');' : '' @ context='unsafe'}
+
+    // Google Maps
+    ${properties.googlemapsKeys ? 'tarteaucitron.user.googlemapsKey = \'{0}\';' : '' @ format=[properties.googlemapsKeys], context='unsafe'}
+    ${properties.googlemapsKeys ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'googlemaps\');' : ''@ context='unsafe'}
+
+    // Google Maps (search query)
+    ${properties.googlemapssearch ? '(tarteaucitron.job = tarteaucitron.job || []).push(\'googlemapssearch\');' : ''@ context='unsafe'}
+
+    // For the applications
+    if(document.querySelector('forem-header')){
+        tarteaucitron.load();
+    }
+    </script>
+</sly>

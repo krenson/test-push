@@ -1,0 +1,20 @@
+<sly
+     data-sly-use.linksModel="com.leforemhe.aem.site.core.models.LinksModel"
+     data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"></sly>
+<div class="mentionsLegales">
+    <ul data-sly-test="${linksModel.footerLinks && !linksModel.footerLinks.empty}">
+        <li data-sly-repeat.linkModel="${linksModel.footerLinks}">
+            <a data-sly-test.externalTitle="${'{0}: {1}' @ format=[nouvFenetre, linkModel.title]}"
+               data-sly-test.urlTitle="${linkModel.internal ? linkModel.title : externalTitle }"
+               title="${linkModel.description ? linkModel.description : urlTitle}"
+               data-sly-test.internalUrl="${linkModel.linkReference @ extension='html'}"
+               data-sly-test.externalUrl="${linkModel.linkReference}"
+               target="${linkModel.internal ? '_self':'_blank'}"
+               href="${linkModel.internal ? internalUrl : externalUrl @ context='uri'}">${linkModel.label}</a>
+        </li>
+    </ul>
+</div>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.footerLinksEmpty="${!linksModel.footerLinks || linksModel.footerLinks.empty}">
+    <sly data-sly-call="${template.placeholder @ isEmpty = footerLinksEmpty, classAppend='forem-links' }"></sly>
+</sly>

@@ -1,0 +1,214 @@
+$primary-colorV2: #2f3a48;
+$secondary-colorV2: #fbe7cb;
+$tercary-color: #ff8e97;
+$fourth-color: #fbf5eb;
+$five-color: #faf5ec;
+$six-color: #d9eff0;
+$seven-color: #ffbcc1;
+
+$ffRegularV2: "Poppins", sans-serif !important;
+
+/* $ffMediumV2: "poppinsmedium";
+$ffBlackV2: "poppinsblack";
+$ffBoldV2: "poppinsbold";
+$ffSemiBoldV2: "poppinssemibold";
+$ffLightV2: "poppinslight"; */
+
+$primary-font-colorV2: $primary-colorV2;
+$breakpointMobile: 1200px;
+$min-padding: 1.5rem;
+
+$global-max-width: 140rem;
+
+$max-width: calc(#{$global-max-width} + calc(#{$min-padding} * 2));
+@mixin max-width {
+  max-width: $max-width;
+  padding-left: $min-padding;
+  padding-right: $min-padding;
+  box-sizing: border-box;
+}
+
+$transitiontime: 0.2s;
+$transitionmode: linear;
+
+//V1
+
+$body-background-color: #f8f8f8;
+$body-link-color: #0c4892;
+$body-link-colorVisited: #2a8aff;
+$body-link-colorHover: #105cb7;
+$body-link-colorFocus: #105cb7;
+
+$colorLink: #212121;
+$colorLinkVisited: #212121;
+$colorTxt: #212121;
+
+$alertWbgColor: #f36e30;
+$alertWtxtColor: #212121;
+
+$borderRadius: 0.25rem;
+$burgerWidth: 2.688rem;
+
+$bgcolorH1article: #437a8e;
+$paveColor: #2f3a48;
+
+$ffRegular: "robotoregular";
+$ffMedium: "robotomedium";
+$ffBlack: "robotoblack";
+$ffBold: "robotobold";
+$ffLight: "robotolight";
+
+$fontSizeH1: 1.5rem;
+
+$lineHeightH1: 1.7rem;
+
+$fontSizeH2: 1.2rem;
+$lineHeightH2: 1.9rem;
+
+$fontSizeH3: 1.1rem;
+$lineHeightH3: 1.7rem;
+
+$fontSizeP: 1rem;
+$lineHeightP: 1.7rem;
+
+$fontSizeAccroche: 1.1rem;
+$lineHeightAccroche: 1.7rem;
+
+$fontSizeLi: 1rem;
+$lineHeightLi: 1.7rem;
+
+/* encadres passer action, etc. */
+$fontSizeH1E: 1.375rem;
+$lineHeightH1E: 1.09;
+
+@mixin boxShadow {
+  -webkit-box-shadow: 0 2px 3px #333;
+  box-shadow: 0 2px 3px #333;
+}
+
+@mixin boxSizingBorderBox {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin displayGrid {
+  display: -ms-grid;
+  display: grid;
+}
+
+@mixin fontBurgerTxt {
+  color: #fff;
+  display: block;
+  font-size: 0.85rem;
+  left: 3.5rem;
+  position: relative;
+  width: 3rem;
+}
+
+@mixin hyphensTU {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin txtOverflowEllipsis {
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+@mixin transitionEaseIn {
+  -webkit-transition: all 0.2s ease-in 0s;
+  -o-transition: all 0.2s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
+}
+
+/* ** flex box ** */
+@mixin displayFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin displayInlineFlex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+/* *** */
+@mixin alignContentCenter {
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+@mixin alignContentStart {
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+/* *** */
+@mixin alignItemsStart {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+@mixin alignItemsCenter {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; /* centre verticalement */
+}
+@mixin alignItemsEnd {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+/* *** */
+@mixin flexDirectionColumn {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+@mixin flexDirectionRow {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+/* *** */
+@mixin flexFlowColumnReverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-flow: column-reverse;
+  flex-flow: column-reverse;
+}
+@mixin flexFlowNowrap {
+  -ms-flex-flow: nowrap;
+  flex-flow: nowrap;
+}
+@mixin flexFlowWrap {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* *** */
+@mixin flexGrowOne {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+/* *** */
+@mixin justifyContentAround {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+@mixin justifyContentCenter {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@mixin justifyContentBetween {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+@mixin justifyContentStart {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/global" mode="update"/>
+    <filter root="/conf/leforemhe" mode="update"/>
+    <filter root="/content/leforemhe" mode="update"/>
+    <filter root="/content/dam/leforemhe" mode="update"/>
+    <filter root="/content/dam/leforemhe/fr" mode="update"/>
+    <filter root="/content/dam/leforemhe/fr/javascript" mode="update"/>
+    <filter root="/content/dam/leforemhe/fr/javascript/static" mode="replace"/>
+    <filter root="/content/experience-fragments/leforemhe" mode="update"/>
+</workspaceFilter>

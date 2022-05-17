@@ -1,0 +1,11 @@
+<sly data-sly-use.column="com.leforemhe.aem.site.core.models.RemarqueLayoutColumnModel"
+     data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList">
+        <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
+             data-sly-test="${isAllowedApplicable}"
+             data-sly-use.allowedTemplate="allowedcomponents.html"
+             data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
+        <sly data-sly-test="${!isAllowedApplicable}"
+             data-sly-repeat="${column.items}" data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
+        <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled && column.items.size < 1}"
+             data-sly-resource="${resource.path @ resourceType='leforemhe/components/site/remarquelayout/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
+</sly>

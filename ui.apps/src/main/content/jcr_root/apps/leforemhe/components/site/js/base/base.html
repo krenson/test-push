@@ -1,0 +1,17 @@
+<sly data-sly-test="${!wcmmode.edit}" data-sly-use.templates="script.html"
+     data-sly-call="${templates.script @ properties=properties, context='unsafe'}"></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}"
+        data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='granite.ui.coral.foundation, coralui3'}"></sly>
+    <coral-card>
+        <coral-card-content>
+            <coral-alert size="L">
+                <coral-alert-header>INFO</coral-alert-header>
+                <coral-alert-content>
+                    ${"Ceci est un fichier javascript. Veuillez vérifier le résultat dans le CRX." @ i18n}<br/>
+                    ${"Ce composant est configurable dans l'onglet \"Javascript\" des propriétés de ce fragment d'expérience." @ i18n}
+                </coral-alert-content>
+            </coral-alert>
+        </coral-card-content>
+    </coral-card>
+</sly>

@@ -1,0 +1,83 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "pave-internal": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "internal-link",
+      "internalLinkReference": "/content/demo-page"
+    },
+    "pave-internal-label": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "internal-link",
+      "internalLinkReference": "/content/demo-page",
+      "internalLabel": "Custom label"
+    },
+    "pave-internal-label-empty": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "internal-link",
+      "internalLinkReference": "/content/demo-page",
+      "internalLabel": ""
+    },
+    "pave-internal-broken-link": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "internal-link",
+      "internalLinkReference": "/content/unexisting-page"
+    },
+    "pave-internal-implicit": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "",
+      "internalLinkReference": "/content/demo-page"
+    },
+    "pave-external": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "external-link",
+      "externalLinkReference": "http://www.google.be",
+      "externalLabel": "External link"
+    },
+    "pave-document": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "leforemhe/components/site/pave",
+      "title": "Pavé",
+      "description": "Description",
+      "accroche": "Accroche",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "referenceType": "document-link",
+      "documentReference": "/content/dam/asset.jpg",
+      "documentLabel": "Document"
+    }
+  }
+}

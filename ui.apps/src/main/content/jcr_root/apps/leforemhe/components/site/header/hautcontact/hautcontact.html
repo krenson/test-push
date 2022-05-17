@@ -1,0 +1,7 @@
+<sly data-sly-use.hautContact="com.leforemhe.aem.site.core.models.NavigationImageItemModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<a href="${hautContact.linkReference}">
+    <img alt="leforemhe" src="${hautContact.fileReferenceDesktop}">
+    <span>${hautContact.label}</span>
+</a>
+<sly data-sly-call="${template.placeholder @ isEmpty = !hautContact || hautContact.empty, classAppend='forem-navigation' }"></sly>

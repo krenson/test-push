@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23.553" height="20.608" version="1.1" viewBox="0 0 23.553 20.608" xmlns="http://www.w3.org/2000/svg">
+ <g id="Icon-login" transform="translate(-818.22 -1042.7)">
+  <g transform="translate(84)" data-name="Group 160965">
+   <g transform="translate(84)" data-name="Group 160963">
+    <g id="Form-chev-down" transform="translate(168,92)">
+     <path transform="translate(464,931)" d="m0 0h60v60h-60z" fill="none" data-name="Path 83191"/>
+     <path id="arrow-right-from-bracket-light" transform="translate(482.22 918.7)" d="m23.336 41.784-6.624-6.624a0.736 0.736 0 1 0-1.041 1.04l5.369 5.367h-12.94a0.736 0.736 0 0 0 0 1.472h12.94l-5.368 5.368a0.7361 0.7361 0 1 0 1.041 1.041l6.624-6.624a0.735 0.735 0 0 0 0-1.041zm-15.236 9.352h-4.42a2.209 2.209 0 0 1-2.208-2.208v-13.248a2.21 2.21 0 0 1 2.208-2.208h4.42a0.736 0.736 0 0 0 0-1.472h-4.42a3.684 3.684 0 0 0-3.68 3.68v13.248a3.684 3.684 0 0 0 3.68 3.68h4.42a0.736 0.736 0 0 0 0-1.472z" fill="#2f3a48"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

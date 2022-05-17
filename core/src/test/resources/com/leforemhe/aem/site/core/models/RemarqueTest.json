@@ -1,0 +1,35 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "remarque": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarque",
+      "color": "bleuPrusse34495E",
+      "fileReference": "/content/dam/leforemhe/image.png",
+      "jcr:title": "remarque title",
+      "reference": {
+        "jcr:primaryType": "nt:unstructured",
+        "linkType": "external-link",
+        "description": "remarque description",
+        "externalLinkReference": "https://agenda.leforemhe.be/"
+      }
+    },
+    "remarque2": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarque",
+      "color": "orangeCarotteD8733B",
+      "fileReference": "/content/dam/leforemhe/image2.png",
+      "jcr:title": "remarque title 2",
+      "reference" : {
+        "jcr:primaryType": "nt:unstructured",
+        "linkType": "internal-link",
+        "description": "remarque description 2",
+        "internalLinkReference": "/content/page2"
+      }
+    }
+  }
+}

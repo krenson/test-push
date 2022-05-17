@@ -1,0 +1,6 @@
+{
+  "mobile.resourceTypes": [
+    "leforemhe/components/site/page"
+  ],
+  "README": "Indicate which page resource types should display the mobile emulators."
+}

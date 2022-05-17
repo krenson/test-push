@@ -1,0 +1,11 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+
+<sly data-sly-use.footerTemplates="templates/templates.html">
+    <footer class="aem">
+        <sly data-sly-resource="${'liens' @ resourceType='leforemhe/components/site/footer/liens'}"
+             data-sly-unwrap="${!author}"></sly>
+        <sly data-sly-call="${footerTemplates.logos}"></sly>
+    </footer>
+    <sly data-sly-resource="${'javascript' @ resourceType='/apps/leforemhe/components/site/js/dynamicjs'}"
+         data-sly-unwrap="${!author}"></sly>
+</sly>

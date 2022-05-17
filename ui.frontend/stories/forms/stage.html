@@ -1,0 +1,391 @@
+<section class="middle">
+  <div class="centrePage">
+    <nav id="filAriane" class="aem">
+      <div class="aem filArianeContainer">
+        <a
+          title="Consultez les communiqués de presse du Forem, la charte graphique, les infos au sujet de l'organisation, les projets et partenariats de l'Office wallon de l'emploi et de la formation."
+          href="/a-propos-du-forem.html"
+        >
+          Accueil - A propos du Forem
+        </a>
+        &gt;&nbsp;
+
+        <a
+          title="Le Forem est souvent à la recherche de nouveaux collaborateurs qui veulent faire un métier passionnant, offrant de bonnes perspectives d’avenir."
+          href="/a-propos/travailler-au-forem.html"
+        >
+          Travailler au Forem
+        </a>
+        &gt;&nbsp;
+
+        <span> Formulaire de demande de stage </span>
+      </div>
+    </nav>
+
+    <main role="main">
+      <article>
+        <header>
+          <div class="aem title-container">
+            <h1>Formulaire de demande de stage au Forem</h1>
+          </div>
+        </header>
+
+        <div>
+          <form
+            enctype="multipart/form-data"
+            id="demande"
+            name="demande"
+            method="post"
+            action="/FOREM/leforemhe_BE/FORMULAIRES/FormulaireStage.php"
+            class="aem forms"
+          >
+            <fieldset>
+              <legend>
+                Références du/des stages <span> (Maximum 2 choix)</span>
+              </legend>
+              <div>
+                <label for="choix1">
+                  Choix numéro 1<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="choix1"
+                  name="choix1"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="choix2"> Choix numéro 2</label>
+                <input
+                  aria-required="false"
+                  id="choix2"
+                  name="choix2"
+                  type="text"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Signalétique de l'étudiant</legend>
+              <div>
+                <label for="nom">
+                  Nom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="nom"
+                  name="nom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="prenom">
+                  Prénom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="date">
+                  Date de naissance <span> (jj/mm/aaaa)</span>
+                  <acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="date">
+                  <input
+                    aria-required="true"
+                    id="date"
+                    name="date"
+                    pattern="[0-9]{2}[-/]{1}[0-9]{2}[-/]{1}[0-9]{4}"
+                    placeholder="Champ obligatoire"
+                    required=""
+                    type="date"
+                    min="1922-01-28"
+                    max="2022-01-28"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="annee"> Année d'étude :</label>
+                <input
+                  aria-required="false"
+                  id="annee"
+                  name="annee"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="option"> Option :</label>
+                <input
+                  aria-required="false"
+                  id="option"
+                  name="option"
+                  type="text"
+                />
+              </div>
+              <div class="inputFile two-col">
+                <label for="cv">
+                  CV à joindre<acronym title="obligatoire">*</acronym><br />
+                  <span id="descriptionFileCV">
+                    (Uniquement des documents de type word, pdf taille maximum
+                    5Mb)</span
+                  >
+                  <div class="title">Sélectionner des fichiers</div>
+                </label>
+                <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+                <input
+                  aria-describedby="descriptionFileCV"
+                  aria-required="true"
+                  id="cv"
+                  name="cv"
+                  type="file"
+                  required=""
+                />
+              </div>
+              <div class="inputFile two-col">
+                <label for="lettre">
+                  Lettre de motivation<acronym title="obligatoire">*</acronym
+                  ><br />
+                  <span id="descriptionFileLetter">
+                    (Uniquement des documents de type word, pdf taille maximum
+                    5Mb)</span
+                  >
+                  <div class="title">Sélectionner des fichiers</div>
+                </label>
+                <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+                <input
+                  aria-describedby="descriptionFileLetter"
+                  aria-required="true"
+                  id="lettre"
+                  name="lettre"
+                  type="file"
+                  required=""
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Contact</legend>
+              <div>
+                <label for="tel">
+                  Téléphone&nbsp;-&nbsp;GSM<acronym title="obligatoire"
+                    >*</acronym
+                  >:</label
+                >
+                <input
+                  aria-required="true"
+                  id="tel"
+                  name="tel"
+                  pattern="[0]{1}([0-9]{8,20})"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="tel"
+                />
+              </div>
+              <div>
+                <label for="email">
+                  E-mail<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="email"
+                  name="email"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="email"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Adresse</legend>
+              <div>
+                <label for="rue">
+                  Rue<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="rue"
+                  name="rue"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="numero">
+                  Numéro<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="numero"
+                  name="numero"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="code">
+                  Code postal<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="code"
+                  name="code"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="localite">
+                  Localité<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="localite"
+                  name="localite"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Coordonnées de l'établissement scolaire</legend>
+              <div>
+                <label for="etablissement">
+                  Etablissement scolaire<acronym title="obligatoire">*</acronym
+                  >:</label
+                >
+                <input
+                  aria-required="true"
+                  id="etablissement"
+                  name="etablissement"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="rue1">
+                  Rue<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="rue1"
+                  name="rue1"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="numero1">
+                  Numéro<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="numero1"
+                  name="numero1"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="code1">
+                  Code postal<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="code1"
+                  name="code1"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="localite1">
+                  Localité<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="localite1"
+                  name="localite1"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="one-col">
+                <label for="objectif"> Objectifs du stage :</label>
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="false"
+                    id="objectif"
+                    name="objectif"
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Travail de fin d'étude</legend>
+              <div>
+                <label for="memoire">
+                  TFE<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="memoire"
+                    name="memoire"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                  </select>
+                </div>
+              </div>
+              <div class="one-col">
+                <label for="sujet"> Si oui, sujet du TFE :</label>
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="false"
+                    id="sujet"
+                    name="sujet"
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-Button">
+              <button
+                id="boutonFormStgForem"
+                name="boutonFormStgForem"
+                type="submit"
+                value="Envoyer"
+                class="btn btn-primary"
+              >
+                envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
+<script
+  type="text/javascript"
+  src="http://publish.realdolmen.com/clientlib-site/resources/js/forms/forms.js"
+></script>

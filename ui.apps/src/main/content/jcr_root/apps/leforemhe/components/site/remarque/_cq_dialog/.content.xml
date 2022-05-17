@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Remarque"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <remarque
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            jcr:title="Remarque">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title jcr:primaryType="nt:unstructured"
+                                   sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                   fieldLabel="Titre"
+                                   fieldDescription="Titre de la Remarque"
+                                   name="./jcr:title"/>
+                            <file
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Image asset"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./fileReference"
+                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                    multiple="{Boolean}false"
+                                    name="./file"
+                                    title="Télécharger une Image"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <link jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/well">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <linkType jcr:primaryType="nt:unstructured"
+                                              sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                              deleteHint="{Boolean}true"
+                                              granite:class="cq-dialog-dropdown-showhide-multi"
+                                              fieldLabel="Type de lien de la remarque"
+                                              name="./linkType">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <internal
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Lien interne"
+                                                    selected="{Boolean}true"
+                                                    value="internal-link"
+                                                    icon="graphPathing"/>
+                                            <external
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Lien externe"
+                                                    value="external-link"
+                                                    icon="globe"/>
+                                        </items>
+                                        <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                cqdialogdropdownshowhidetarget=".link-type-showhide-target">
+                                        </granite:data>
+                                    </linkType>
+                                    <internalLink jcr:primaryType="nt:unstructured"
+                                                  sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                  margin="{Boolean}true"
+                                                  granite:class="hide link-type-showhide-target">
+                                        <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                showhidetargetvalue="internal-link"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <linkReference
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="Lien interne"
+                                                    fieldDescription="Sélectionner la page vers laquelle ce lien référencera."
+                                                    name="./reference/internalLinkReference"
+                                                    rootPath="/content/leforemhe"/>
+                                        </items>
+                                    </internalLink>
+                                    <externalLink jcr:primaryType="nt:unstructured"
+                                                  sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                  margin="{Boolean}true"
+                                                  granite:class="hide link-type-showhide-target">
+                                        <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                showhidetargetvalue="external-link">
+                                        </granite:data>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <linkReference
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Lien externe"
+                                                    fieldDescription="Entrer l'URL de ce lien."
+                                                    name="./reference/externalLinkReference">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        should-start-with-http-or-empty="{Boolean}true">
+                                                </granite:data>
+                                            </linkReference>
+                                        </items>
+                                    </externalLink>
+                                    <description jcr:primaryType="nt:unstructured"
+                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                 fieldLabel="Description"
+                                                 fieldDescription="Description du lien"
+                                                 name="./reference/description"/>
+                                </items>
+                            </link>
+                        </items>
+                    </remarque>
+                    <couleur jcr:primaryType="nt:unstructured"
+                             sling:resourceType="granite/ui/components/coral/foundation/container"
+                             jcr:title="Couleur">
+                        <items jcr:primaryType="nt:unstructured">
+                            <couleur jcr:primaryType="nt:unstructured"
+                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                     deleteHint="{Boolean}true"
+                                     name="./color">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <rose
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Rose"
+                                            selected="{Boolean}true"
+                                            value="roseD8457A"/>
+                                    <ocre
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Ocre"
+                                            value="ocreCorailC85141"/>
+                                    <bleuAzur
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Bleu Azur"
+                                            value="bleuAzur4792EA"/>
+                                    <bleuClair
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Bleu Clair"
+                                            value="bleuClair00BCD4"/>
+                                    <orange
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Orange"
+                                            value="orangeCarotteD8733B"/>
+                                    <vert
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Vert"
+                                            value="vertSauge50B2A2"/>
+                                    <bleuPrusse
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Bleu Prusse"
+                                        value="bleuPrusse34495E"/>
+
+                                    <poppyRedLight
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Poppy red light"
+                                            value="poppyRedLightFAF5EC"/>
+
+                                    <lightBlue
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Light blue"
+                                            value="lightBlueD9EFF0"/>
+
+                                    <lightGrey2
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Light grey 2"
+                                            value="lightGrey2-EFEFEF"/>
+                                </items>
+
+                            </couleur>
+                        </items>
+                    </couleur>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

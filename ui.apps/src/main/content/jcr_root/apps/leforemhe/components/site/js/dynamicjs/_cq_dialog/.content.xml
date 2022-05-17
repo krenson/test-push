@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Javascript dynamique"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        maximized="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+            <fields
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <javascript_list
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        fieldDescription="Liste des javascripts à inclure à ce template"
+                        fieldLabel="Javascripts dynamiques">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./javascripts">
+                            <items jcr:primaryType="nt:unstructured">
+                                <javascript
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    emptyText="Chemin vers la javascript à"
+                                    fieldLabel="Javascript"
+                                    name="./javascripts"
+                                    required="{Boolean}true"
+                                    filter="folder"
+                                    rootPath="/content/dam/leforemhe/fr/javascript"/>
+                            </items>
+                        </field>
+                    </javascript_list>
+                </items>
+            </fields>
+        </items>
+    </content>
+</jcr:root>

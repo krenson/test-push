@@ -1,0 +1,296 @@
+@import "src/main/webpack/dependencies/site/scss/variables";
+
+.input-error-message {
+	display: block;
+	color: #CC3300;
+	font-size: .875rem;
+	border-bottom: 3px solid #CC3300;
+	/* width: 50%; */
+}
+
+.middle .centrePage main form fieldset div input {margin: 0;}
+
+.bigFont {
+	font-size: 2rem;
+	line-height: 1.2;
+}
+
+.borderB1 {border: .063rem solid black;}
+
+.cell50 {
+	display: table-cell;
+	padding: 1.875rem .625rem 0 .625rem;
+	width: 50%;
+}
+
+.centre {text-align: center;}
+
+.cls-1 {
+
+	font-family: $ffRegular;
+	font-size: .02rem;
+}
+
+.cls-2 {
+	-webkit-transform: translate(0px,0.65px);
+		-ms-transform: translate(0px,0.65px);
+			transform: translate(0px,0.65px);
+}
+
+.encadreBleuCharron {	
+	ol {padding: 0 1.875rem;}
+	p {padding: 0 1.25rem;}
+}
+
+.floatLeft {float: left;}
+
+/* representation de la fraction */
+.fraction {
+	display: inline-block;	
+	margin: 0 0.2rem 0.4ex;
+	text-align: center;
+	vertical-align: middle; 
+}
+.fraction > span {
+	display: block;
+	padding-top: 0.15rem;
+}
+
+.fraction span.bar {display: none;}
+.fraction span.fdn {
+	border-top: thin solid black;
+	padding-bottom: 0.15rem;
+	max-width: 3.125rem;
+}
+.fraction span.fup {line-height: 1;}
+/* fin representation de la fraction */
+
+hr {
+	border-top: thin solid grey;
+	max-width: 98%;
+}
+
+.padding20 {padding: 1.25rem;}
+.paddingL20 {padding: 0 1.25rem 0 1.25rem;}
+
+.middle {
+	.centrePage {	
+		main {
+			div {
+				form {
+					
+					.volet1 {
+						float: left;
+						margin-right: 1rem;
+						width: 50%;
+					}
+
+					.volet2 {
+						border-left: 1px solid #212121;
+						padding-left: 1rem;
+					}
+
+					.resultFieldset {border-top: 1px solid #212121;}
+					
+					fieldset {
+						legend {font-size: 1rem;}
+						
+						div {
+							display: block;
+							
+							p {margin-top: 1.25rem;}
+
+							div {
+								float: left;
+								/* width: 50%; */
+
+								label {
+									display: block;
+									font-size: 1rem;
+								}
+								
+								input {margin: 1rem 0;}
+								
+								.listeChoix {					
+									background-color: #65ABD0;
+									border-radius: $borderRadius;							
+									margin: 0 .625rem 0 0;
+									min-height: 2.25rem;
+									overflow: hidden;
+									padding: 0;
+									position: relative;
+
+									select {
+										-webkit-appearance : none;
+											-moz-appearance: none;
+										   background-color: transparent; /* cache le select initial */
+										border: none; /* retire les bordures initiales */
+										color: #FFF;
+										cursor: pointer;
+										font-size: 1rem;
+										height: auto;
+										margin: 0;
+										padding: .625rem ;								
+										width: 100%;
+
+										&::-ms-expand {display: none;} /* pour permettre de styliser le select dans Internet Explorer */
+
+										option {
+											background-color: #65ABD0;
+											color: #000;
+										}
+									} /* end select */
+
+									&::after {
+										background-color: transparent;
+										border: 0 solid #FFF;
+										border-radius: 0;
+										border-width: 0 .125rem .125rem 0;
+										content: "";
+										cursor: pointer;
+										display: inline-block;
+										height: .375rem;
+										left: calc(100% - 1.875rem);
+										position: absolute;
+										top: calc(50% - .375rem);						
+										-webkit-transform: rotate(45deg);
+											-ms-transform: rotate(45deg);
+												transform: rotate(45deg);
+										width: .375rem;
+									} /* end &::after */
+								} /* end .listeChoix */
+							}
+							
+							.btDownload {
+								background: transparent;
+								border: .063rem solid #817e78;
+								color: rgb(33, 150, 243);
+							}
+							
+							button[type=reset] {
+								background-color: transparent;
+								box-shadow: none;
+								color: rgb(33, 150, 243);
+							}
+							
+							button[type=reset]:hover {color: rgb(9, 96, 165);}
+						}
+						
+						.displayTable {
+								display: table;
+								padding: .938rem;
+								width: 90%;
+							}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	.inputBgColor {background-color: #96D5EA;}		
+
+	.blockDisplay {display: block;}
+}
+
+@media only screen and (max-width: 640px) {
+	.bigFont {font-size: 1.3rem;}
+	
+	.cls-1 {font-size: .04rem;}
+	
+	rect {
+		width: .063rem;
+		y: 0.6;
+	}
+	
+	.cls-2 {
+		-webkit-transform: translate(0px,0.5px);
+			-ms-transform: translate(0px,0.5px);
+				transform: translate(0px,0.5px);
+	}
+	
+	
+	.fraction span.fdn {
+		max-width: 1.75rem;
+		padding-top: 0;
+	}
+	
+	.fraction span.fup {max-width: 1.75rem;}
+	
+	.specialeFraction {height: 1.125rem;}
+	
+	.middle {
+		.centrePage {
+			main {
+				article {					
+					div {
+						aside {
+							section.encadreBleuCharron {								
+								div {
+									div.bigFont {
+										font-size: 1rem;
+
+										div {display: inline-block;}
+										
+										div.fraction {
+											fupMQ640 {width: 1.25rem;}
+											fdnMQ640 {width: 1.25rem;}
+										}
+									}
+								}								
+							}
+						}
+						
+						form {
+							
+							fieldset {
+								div {
+									
+									label {width: 80vw;}
+									input {width: 80vw;}
+									div {
+										clear: both;									
+										.listeChoix {width: 80vw;}
+									}
+
+									p {
+										text-align: center;
+										width: 95vw;					
+									}
+								}
+							}
+							
+							.volet1 {
+								float: none;
+								margin-right: 0;
+								
+								input {
+									margin: -0.5rem 0 .8rem 0;
+									padding: .5rem;
+								}
+							}
+
+							.volet2 {
+								border-left: none;
+								padding-left: 0;
+								
+								input {padding: .5rem;}
+							}
+
+							.resultFieldset {
+								border-top: 1px solid #212121;
+							
+								input {padding: .5rem;}
+							}
+							
+							button {
+								margin: 1rem 0;
+								padding: .5rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

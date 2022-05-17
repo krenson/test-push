@@ -1,0 +1,9 @@
+<sly data-sly-use.secureModel="com.leforemhe.aem.site.core.models.SecureModel"></sly>
+<security:authorize data-sly-test="${secureModel.secured}" access="hasAnyRole(${secureModel.securityRoles @ join=',', context='html'})">
+    <h3 data-sly-test="${wcmmode.edit}">Secured</h3>
+    <sly data-sly-resource="${'secure' @ resourceType='leforemhe/components/site/container'}"></sly>
+</security:authorize>
+<security:authorize data-sly-test="${!secureModel.secured}" access="isAnonymous()">
+    <h3 data-sly-test="${wcmmode.edit}">Unsecured</h3>
+    <sly data-sly-resource="${'secure' @ resourceType='leforemhe/components/site/container'}"></sly>
+</security:authorize>

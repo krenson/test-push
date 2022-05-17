@@ -1,0 +1,313 @@
+@import "src/main/webpack/dependencies/site/scss/variables";
+#containerMobile {
+  display: none;
+}
+
+#myNav {
+  background-color: rgb(44, 62, 80);
+  background-color: rgba(44, 62, 80, 0.95);
+  display: block;
+  left: 0;
+  overflow-y: hidden;
+  position: absolute;
+  top: 7.375rem;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  width: 0;
+  z-index: 10000;
+
+  h1 {
+    border-bottom: 0.063rem solid #fff;
+    color: #68c2e3;
+    font-size: 1.4rem;
+    letter-spacing: 0.063rem;
+    line-height: normal;
+    margin: 0;
+    padding: 1.125rem 1rem;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+
+    .n2 {
+      padding-left: 0;
+    }
+
+    li {
+      padding: 0.5rem 0 0.5rem 1rem;
+
+      a {
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .c2 {
+    display: none;
+  }
+
+  .overlay {
+    background-color: rgb(20, 42, 51);
+    background-color: rgba(20, 42, 51, 0.949);
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+
+    a {
+      color: #fff;
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      padding: 1.563rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    a:hover,
+    a:focus {
+      color: #fff;
+    }
+  }
+
+  .overlay-content {
+    margin-top: 0;
+    position: relative;
+    text-align: left;
+    top: 0;
+    width: 100%;
+
+    button {
+      border-bottom: 0.063rem solid #bababa;
+      font-size: 1.1rem;
+      letter-spacing: 0.063rem;
+      margin: 0;
+
+      text-transform: uppercase;
+
+      a:link {
+        color: #fff;
+      }
+      a:visited {
+        color: #fff;
+      }
+    }
+  }
+} /* fin #myNav */
+
+/* ouverture/fermeture des menus */
+.collapsible {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.063rem solid #bababa;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.125rem;
+  outline: none;
+  padding: 1.125rem;
+  text-align: left;
+  width: 100%;
+}
+
+.collapsible::after {
+  content: "\005E";
+  content: "\003C";
+  color: #fff;
+  float: right;
+  font-family: Consolas, "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+  font-size: 2rem;
+  margin-left: 0.313rem;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.active::after {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.content {
+  background-color: transparent;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.125rem;
+  -webkit-transition: max-height 0.6s ease-out;
+  -o-transition: max-height 0.6s ease-out;
+  transition: max-height 0.6s ease-out;
+}
+/* fin ouverture/fermeture des menus */
+
+.containerBurger {
+  /* bloc burger <-> croix */
+  display: table;
+  left: 1rem;
+  position: absolute;
+  z-index: 1;
+
+  .container,
+  #mobile,
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  span {
+    color: #fff;
+    display: none;
+    font-size: 0.85rem;
+    left: 1rem;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    background-color: #fff;
+    border-radius: $borderRadius;
+    height: 0.25rem;
+    margin: 0.438rem 0;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    width: 2.375rem;
+  }
+
+  .change {
+    .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      -ms-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .bar2 {
+      opacity: 0;
+    }
+    .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      -ms-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+  }
+} /* bloc burger <-> croix */
+
+@media only screen and (max-width: 640px) {
+  #containerMobile {
+    display: block;
+  }
+
+  #myNav {
+    min-height: 10000px;
+    overflow-x: hidden;
+    top: 4.8rem;
+    width: 0%;
+
+    ul {
+      padding-left: 0.938rem;
+    }
+
+    .c2 {
+      background-color: #132025;
+      border: 0;
+      border-bottom: 0.063rem solid #bababa;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 1.125rem;
+      outline: none;
+      padding: 1.125rem;
+      text-align: left;
+      width: 100%;
+    }
+
+    .c2::after {
+      content: "\005E";
+      content: "\003C";
+      color: #bababa;
+      float: right;
+      font-family: Consolas, "Andale Mono", "Lucida Console",
+        "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+      margin-left: 0.313rem;
+      -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+    }
+
+    .overlay-content {
+      top: 0;
+    }
+  } /* fin #myNav */
+
+  /* ouverture/fermeture liens bas de page */
+  .collapsibleBas {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 0.063rem solid #bababa;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.125rem;
+    outline: none;
+    padding: 1.125rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .collapsibleBas::after {
+    content: "\005E";
+    content: "\003C";
+    color: #bababa;
+    float: right;
+    font-family: Consolas, "Andale Mono", "Lucida Console",
+      "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    margin-left: 0.313rem;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .activeBas::after {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .contentBas {
+    background-color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.125rem;
+    -webkit-transition: max-height 0.6s ease-out;
+    -o-transition: max-height 0.6s ease-out;
+    transition: max-height 0.6s ease-out;
+  } /* fin ouverture/fermeture liens bas de page */
+
+  /* bloc burger <-> croix */
+  .containerBurger {
+    position: absolute;
+    .container {
+      left: 0;
+      position: relative;
+    }
+
+    #screen {
+      display: none;
+    }
+    #mobile {
+      display: table-cell;
+
+      span {
+        display: none;
+      }
+    }
+    /* bloc burger <-> croix */
+  }
+}

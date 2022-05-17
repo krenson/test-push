@@ -1,0 +1,709 @@
+<section class="middle">
+  <div class="centrePage">
+    <nav id="filAriane" class="aem">
+      <div class="aem filArianeContainer">
+        <a
+          title="Retrouvez les offres d'emploi, les formations, les services et toutes les infos du Forem utiles et nécessaires pour les citoyens, demandeurs d'emploi et travailleurs"
+          href="/index.html"
+        >
+          Accueil - Citoyens
+        </a>
+        &gt;&nbsp;
+
+        <a
+          title="Formations et stages"
+          href="/particuliers/formations-et-stages.html"
+        >
+          Formations et stages
+        </a>
+        &gt;&nbsp;
+
+        <a
+          title="Améliorez vos connaissances en langues étrangères grâce aux immersions linguistiques en école de langues ou en entreprise. Découvrez les différentes formules et destinations proposées par le Forem."
+          href="/particuliers/immersion-langues.html"
+        >
+          Immersion linguistique
+        </a>
+        &gt;&nbsp;
+
+        <a
+          title="Immersion linguistique en entreprise : mettez les bouchées doubles en effectuant une immersion linguistique en entreprise. De cette manière, vous combinez deux apprentissages : celui d’un métier, et celui de la langue !"
+          href="/particuliers/immersion-langues-entreprise.html"
+        >
+          Immersion linguistique en entreprise
+        </a>
+        &gt;&nbsp;
+
+        <span> Formulaire d'inscription - Stages à l'étranger </span>
+      </div>
+    </nav>
+
+    <main role="main">
+      <article>
+        <header>
+          <div class="aem title-container">
+            <h1>Formulaire d'inscription - Stages à l'étranger</h1>
+          </div>
+        </header>
+
+        <div>
+          <form
+            enctype="multipart/form-data"
+            id="demande-stage-etranger"
+            name="demande-stage-etranger"
+            method="post"
+            action="/FOREM/leforemhe_BE/FORMULAIRES/FormulaireStageEtranger.php"
+            class="aem forms"
+          >
+            <fieldset>
+              <legend>Signalétique</legend>
+              <div>
+                <label for="nom">
+                  Nom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="nom"
+                  name="nom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="prenom">
+                  Prénom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="date">
+                  Date de naissance <span> (jj/mm/aaaa)</span>
+                  <acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="date">
+                  <input
+                    aria-required="true"
+                    id="date"
+                    name="date"
+                    pattern="[0-9]{2}[-/]{1}[0-9]{2}[-/]{1}[0-9]{4}"
+                    placeholder="Champ obligatoire"
+                    required=""
+                    type="date"
+                    min="1922-01-28"
+                    max="2022-01-28"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="sexe">
+                  Sexe<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="sexe"
+                    name="sexe"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Masculin">Masculin</option>
+                    <option value="Féminin">Féminin</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="nn"> Numéro national <span> (NISS)</span> </label>
+                <input
+                  aria-required="false"
+                  id="nn"
+                  maxlength="11"
+                  name="nn"
+                  pattern="[0-9]{11}"
+                  size="11"
+                  title="11 chiffres"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="inscription">
+                  Numéro Forem<acronym title="obligatoire">*</acronym><br />
+                  <span id="descriptionNumForem">
+                    (Ce numéro est indiqué sur votre carte JobPass)</span
+                  >
+                </label>
+                <input
+                  aria-describedby="descriptionNumForem"
+                  aria-required="true"
+                  id="inscription"
+                  maxlength="11"
+                  name="inscription"
+                  pattern="[0-9]{11}"
+                  required=""
+                  size="11"
+                  title="11 chiffres"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="libre">
+                  Libre sur le marché du travail<acronym title="obligatoire"
+                    >*</acronym
+                  >:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="libre"
+                    name="libre"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="etat">
+                  Si vous êtes libre, êtes-vous<acronym
+                    title="Obligatoire si vous êtes libre"
+                    >*</acronym
+                  >:</label
+                >
+                <div class="select">
+                  <select aria-required="true" id="etat" name="etat">
+                    <option selected="selected" value="">
+                      Faites un choix (obligatoire si vous êtes libre)
+                    </option>
+                    <option value="1">Indemnisé</option>
+                    <option value="2">En stage d'insertion</option>
+                  </select>
+                </div>
+              </div>
+              <div class="inputFile two-col">
+                <label for="cv">
+                  CV à joindre<acronym title="obligatoire">*</acronym><br />
+                  <span id="descriptionFile">
+                    (Uniquement des documents de type word, pdf taille maximum
+                    5Mb)</span
+                  >
+                  <div class="title">Sélectionner un fichier</div>
+                </label>
+                <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+                <input
+                  aria-describedby="descriptionFile"
+                  aria-required="true"
+                  id="cv"
+                  name="cv"
+                  required=""
+                  type="file"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Contact</legend>
+              <div>
+                <label for="tel">
+                  Téléphone&nbsp;/&nbsp;GSM<acronym title="Obligatoire"
+                    >*</acronym
+                  ></label
+                >
+                <input
+                  aria-required="true"
+                  id="tel"
+                  name="tel"
+                  pattern="[0]{1}([0-9]{8,20})"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="tel"
+                />
+              </div>
+              <div>
+                <label for="gsm"> GSM :</label>
+                <input
+                  aria-required="false"
+                  id="gsm"
+                  name="gsm"
+                  pattern="[0]{1}([0-9]{8,20})"
+                  type="tel"
+                />
+              </div>
+              <div>
+                <label for="email">
+                  E-mail<acronym title="obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="email"
+                  name="email"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="email"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Adresse</legend>
+              <div>
+                <label for="rue">
+                  Rue<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="rue"
+                  name="rue"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="numero">
+                  Numéro<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="numero"
+                  name="numero"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="code">
+                  Code Postal<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="code"
+                  maxlength="4"
+                  name="code"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="localite">
+                  Localité<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="localite"
+                  name="localite"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="region">
+                  Région<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="region"
+                    name="region"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="1">Arlon - Libramont - Marche</option>
+                    <option value="2">
+                      Brabant Wallon - Charleroi - La Louvière - Namur
+                    </option>
+                    <option value="3">Huy - Liège - Verviers</option>
+                    <option value="4">Mons - Mouscron - Tournai</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Formation - Niveau d'étude</legend>
+              <div>
+                <label for="formation">
+                  Formation - Niveau d'étude<acronym title="obligatoire"
+                    >*</acronym
+                  >:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="formation"
+                    name="formation"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Primaire">Primaire</option>
+                    <option value="Secondaire inférieur">
+                      Secondaire inférieur
+                    </option>
+                    <option value="Secondaire supérieur">
+                      Secondaire supérieur
+                    </option>
+                    <option value="Supérieur">Supérieur</option>
+                    <option value="Universitaire">Universitaire</option>
+                    <option value="Post-universitaire">
+                      Post-Universitaire
+                    </option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="diplome">
+                  Intitulé du diplôme<acronym title="obligatoire">*</acronym
+                  >:</label
+                >
+                <input
+                  aria-required="true"
+                  id="diplome"
+                  name="diplome"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Projet</legend>
+              <div class="one-col">
+                <label for="projetprof">
+                  Décrivez votre projet professionnel<acronym
+                    title="obligatoire"
+                    >*</acronym
+                  >:</label
+                >
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="true"
+                    id="projetprof"
+                    name="projetprof"
+                    placeholder="Champ obligatoire"
+                    required=""
+                  ></textarea>
+                </div>
+              </div>
+              <div class="one-col">
+                <label for="projetstage">
+                  Décrivez votre projet de stage à l'étranger<acronym
+                    title="obligatoire"
+                    >*</acronym
+                  >:</label
+                >
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="true"
+                    id="projetstage"
+                    name="projetstage"
+                    placeholder="Champ obligatoire"
+                    required=""
+                  ></textarea>
+                </div>
+              </div>
+              <div class="one-col">
+                <label for="projetsect">
+                  Dans quel secteur d'activité se déroulera votre stage
+                  ?<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="true"
+                    id="projetsect"
+                    name="projetsect"
+                    placeholder="Champ obligatoire"
+                    required=""
+                  ></textarea>
+                </div>
+              </div>
+              <div class="one-col">
+                <label for="plusvalue">
+                  Quelle plus-value pensez-vous qu'un stage à l'étranger puisse
+                  apporter à votre projet professionnel ?<br />
+
+                  Pourquoi vouloir développer vos compétences à l'étranger
+                  ?<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="true"
+                    id="plusvalue"
+                    name="plusvalue"
+                    placeholder="Champ obligatoire"
+                    required=""
+                  ></textarea>
+                </div>
+              </div>
+              <div>
+                <label for="pays">
+                  Dans quel pays de l'Espace Economique Européen (EEE) (par
+                  ordre de préférence) souhaitez-vous effectuer votre stage
+                  ?<acronym title="obligatoire">*</acronym>:</label
+                >
+                <input
+                  aria-required="true"
+                  id="pays"
+                  name="pays"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Connaissances en langues étrangères</legend>
+              <p>
+                Pour les stages de langue anglaise, néerlandaise, allemande, les
+                candidats devront passer un test ELAO (connaissances
+                linguistiques) auprès d'un conseiller en langues de Forem
+                Formation.
+              </p>
+              <div>
+                <label for="anglais">
+                  Anglais<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="anglais"
+                    name="anglais"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="neerlandais">
+                  Néerlandais<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="neerlandais"
+                    name="neerlandais"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="allemand">
+                  Allemand<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="allemand"
+                    name="allemand"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="espagnol">
+                  Espagnol<acronym title="obligatoire">*</acronym>:</label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="espagnol"
+                    name="espagnol"
+                    size="1"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="langue1"> Autre langue :</label>
+                <input
+                  aria-required="false"
+                  id="langue1"
+                  name="langue1"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="niveau1"> Niveau :</label>
+                <div class="select">
+                  <select
+                    aria-required="false"
+                    id="niveau1"
+                    name="niveau1"
+                    size="1"
+                  >
+                    <option selected="selected">Faites un choix</option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="langue2"> Autre langue :</label>
+                <input
+                  aria-required="false"
+                  id="langue2"
+                  name="langue2"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="niveau2"> Niveau :</label>
+                <div class="select">
+                  <select
+                    aria-required="false"
+                    id="niveau2"
+                    name="niveau2"
+                    size="1"
+                  >
+                    <option selected="selected">Faites un choix</option>
+                    <option value="Néant">Néant</option>
+                    <option value="Notions élémentaires">
+                      Notions élémentaires
+                    </option>
+                    <option value="Connaissance moyenne">
+                      Connaissance moyenne
+                    </option>
+                    <option value="Bonne connaissance">
+                      Bonne connaissance
+                    </option>
+                    <option value="Très bonne connaissance">
+                      Très bonne connaissance
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="one-col">
+                <label for="experience">
+                  Le cas échéant, décrivez vos expériences (professionnelles,
+                  programmes d'échange,...) à l'étranger&nbsp;?</label
+                >
+                <div class="textarea two-col">
+                  <textarea
+                    aria-required="false"
+                    id="experience"
+                    name="experience"
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <input id="accept" name="accept" type="hidden" value="true" />
+            <div class="form-Button">
+              <button
+                id="boutonFormulaireStageEtrg"
+                name="boutonFormulaireStageEtrg"
+                type="submit"
+                value="Envoyer"
+                class="btn btn-primary"
+              >
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
+<script
+  type="text/javascript"
+  src="http://publish.realdolmen.com/clientlib-site/resources/js/forms/forms.js"
+></script>

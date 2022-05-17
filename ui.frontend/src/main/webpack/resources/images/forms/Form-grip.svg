@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Form-grip" transform="translate(-957 -934)">
+    <g id="Group_160944" data-name="Group 160944" transform="translate(83)">
+      <g id="Group_160942" data-name="Group 160942" transform="translate(324)">
+        <g id="Group_160934" data-name="Group 160934">
+          <path id="Path_83167" data-name="Path 83167" d="M0,0H60V60H0Z" transform="translate(550 934)" fill="none"/>
+          <path id="Path_83189" data-name="Path 83189" d="M19.872,177.472H.736a.736.736,0,0,1,0-1.472H19.872a.736.736,0,1,1,0,1.472Zm0,5.888H.736a.736.736,0,0,1,0-1.472H19.872a.736.736,0,1,1,0,1.472Z" transform="translate(569.696 784.32)" fill="#2f3a48"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

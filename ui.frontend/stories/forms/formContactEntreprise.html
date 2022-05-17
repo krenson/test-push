@@ -1,0 +1,336 @@
+<section class="middle">
+  <div class="centrePage">
+    <nav id="filAriane" class="aem">
+      <div class="aem filArianeContainer">
+        <a
+          title="Besoin de contacter le Forem ? Retrouvez tous les contacts : conseillers, Maisons de l'Emploi, Carrefour Emploi Formation Orientation, centres de formations, ..."
+          href="/contact/index.html"
+        >
+          Accueil - Contact
+        </a>
+        &gt;&nbsp;
+
+        <span> Formulaire de contact pour les entreprises </span>
+      </div>
+    </nav>
+
+    <main role="main">
+      <article>
+        <header>
+          <div class="aem title-container">
+            <h1>Formulaire de contact pour les entreprises</h1>
+          </div>
+        </header>
+
+        <div>
+          <form
+            enctype="multipart/form-data"
+            id="demandeEntr"
+            name="demandeEntr"
+            method="post"
+            action="/FOREM/leforemhe_BE/FORMULAIRES/FormulaireDemandeBo.php"
+            class="aem forms"
+          >
+            <input id="typeForm" name="typeForm" type="hidden" value="2" />
+            <fieldset>
+              <legend>Signalétique</legend>
+              <div>
+                <label for="nomEntr">
+                  Nom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="nomEntr"
+                  name="nomEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="prenomEntr">
+                  Prénom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="prenomEntr"
+                  name="prenomEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="denominationEntr">
+                  Dénomination de l'entreprise<acronym title="Obligatoire"
+                    >*</acronym
+                  ></label
+                >
+                <input
+                  aria-required="true"
+                  id="denominationEntr"
+                  name="denominationEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="belge">
+                  Entreprise belge<acronym title="Obligatoire"
+                    >*</acronym
+                  ></label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    id="belge"
+                    name="belge"
+                    required=""
+                    size="1"
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix - Champ Obligatoire
+                    </option>
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                  </select>
+                </div>
+              </div>
+              <div id="entity">
+                <label for="entite" class="display-none">
+                  Entité<acronym title="Obligatoire">*</acronym></label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    class="display-none"
+                    id="entite"
+                    name="entite"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix
+                    </option>
+                    <option value="1">Unité d'établissement</option>
+                    <option value="2">Siège social</option>
+                  </select>
+                </div>
+              </div>
+              <div id="num_entre">
+                <label class="display-none" for="NE">
+                  Numéro d'entreprise (N° BCE)<acronym title="Obligatoire"
+                    >*</acronym
+                  ></label
+                >
+                <input
+                  aria-required="true"
+                  class="display-none"
+                  id="NE"
+                  name="NE"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div id="num_entre_etr">
+                <label class="display-none" for="NNE">
+                  Numéro d'entreprise</label
+                >
+                <input
+                  aria-required="false"
+                  class="display-none"
+                  id="NEE"
+                  name="NEE"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Contact</legend>
+              <div>
+                <label for="telEntr">
+                  Téléphone&nbsp;/&nbsp;GSM
+                  <span class="label-hint">(ex: +32499005511)</span
+                  ><acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="telEntr"
+                  maxlength="16"
+                  name="telEntr"
+                  pattern="^\+\d*(( |\/|\.|-)*|\d*)*$"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="emailEntr">
+                  Adresse e-mail<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="emailEntr"
+                  name="emailEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="confirmationEntr">
+                  Confirmation e-mail<acronym title="obligatoire">*</acronym
+                  >:</label
+                >
+                <input
+                  aria-required="true"
+                  id="confirmationEntr"
+                  name="confirmationEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div>
+                <label for="siteWeb">
+                  Site web (Veuillez commencer l'adresse par http(s):// )</label
+                >
+                <input id="siteWeb" name="siteWeb" type="url" value="" />
+              </div>
+            </fieldset>
+
+            <div class="tree-col">
+              <label for="objetEntr">
+                Votre demande concerne une des actions suivantes&nbsp;<acronym
+                  title="Obligatoire"
+                  >*</acronym
+                ></label
+              >
+              <div class="select">
+              <select
+                aria-required="true"
+                id="objetEntr"
+                name="objetEntr"
+                required=""
+              >
+                <option selected="selected" value="">
+                  Faites un choix - Champ Obligatoire
+                </option>
+                <option value="e3">Accueillir des stagiaires</option>
+                <option value="e2">
+                  Bénéficier d'aides à l'emploi et la formation
+                </option>
+                <option value="e5">
+                  Créer un compte sur le site leforemhe.be
+                </option>
+                <option value="e9">
+                  Demander un accès à la Plateforme Chèque Formation (traform)
+                </option>
+                <option value="e8">Former un collaborateur</option>
+                <option value="e4">Introduire une réclamation</option>
+                <option value="e1">Recruter un collaborateur</option>
+                <option value="e7">Une autre demande</option>
+                <option value="e6">Utiliser des services en ligne</option>
+              </select>
+            </div>
+            </div>
+            <div>
+              <label for="motifEntr">
+                Veuillez décrire le motif de votre demande&nbsp;<acronym
+                  title="Obligatoire"
+                  >*</acronym
+                ><br />
+                <span id="descriptionProb">
+                  (Si vous signalez un problème technique, veuillez préciser le
+                  type de navigateur utilisé ainsi que le message d'erreur
+                  obtenu)</span
+                >
+              </label>
+              <div class="textarea two-col">
+                <textarea
+                  aria-describedby="descriptionProb"
+                  aria-required="true"
+                  id="motifEntr"
+                  name="motifEntr"
+                  placeholder="Champ obligatoire"
+                  required=""
+                ></textarea>
+              </div>
+            </div>
+            <div class="inputFile tree-col">
+              <label for="fichierEntr">
+                Vous pouvez joindre un document à votre demande<br />
+                <span id="descriptionFile">
+                  (Uniquement des documents de type word, pdf, images, taille
+                  maximum 5Mb)</span
+                >
+                <div class="title">Sélectionner des fichiers</div>
+              </label>
+              <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+              <input
+                aria-describedby="descriptionFile"
+                aria-required="true"
+                id="fichierEntr"
+                name="fichierEntr"
+                type="file"
+              />
+            </div>
+            <div
+              id="condition-utilisation"
+              class="element-invisible form-checkbox"
+            >
+              <p>
+                <div class="checkbox">
+                <input
+                  type="checkbox"
+                  id="condition"
+                  name="condition"
+                  required=""
+                 
+                />
+                <label for="condition" class="checkbox-label">
+                  J'ai lu et j'accepte les conditions générales
+                  d'utilisation.</label
+                >
+                </div>
+              </p>
+              <p>
+                En cochant cette case, je déclare avoir lu, compris et accepté
+                les
+                <a
+                  href="/content/dam/leforemhe/fr/documents/conditions_utilisation_employeur_02-10-2020.pdf"
+                  onclick="javascript:ga('send','event','document','download','conditions utilisation employeur 02-10-2020.pdf');"
+                  target="_blank"
+                  >conditions&nbsp;générales d'utilisation&nbsp;(PDF)</a
+                >.<br />
+              </p>
+            </div>
+            <div class="form-Button">
+              <button
+                id="boutonFormulaireContactEntr"
+                name="boutonFormulaireContactEntr"
+                type="submit"
+                value="Envoyer"
+                class="btn btn-primary"
+              >
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
+<script
+  type="text/javascript"
+  src="http://publish.realdolmen.com/clientlib-site/resources/js/forms/forms.js"
+></script>

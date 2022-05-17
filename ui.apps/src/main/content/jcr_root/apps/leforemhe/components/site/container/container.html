@@ -1,0 +1,16 @@
+<!--/*<sly data-sly-resource="${ @path=resource.path, resourceType='wcm/foundation/components/parsys'}" />*/-->
+<sly data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer">
+    <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
+    <div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+         class="${wcmmode.edit ? 'cmp-container {0}': '' @ format=[allowed.cssClass]}"
+         style="${container.backgroundStyle @ context='styleString'}" data-sly-unwrap="${wcmmode.disabled && properties.layout == 'no'}">
+        <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
+             data-sly-test="${isAllowedApplicable}"
+             data-sly-use.allowedTemplate="allowedcomponents.html"
+             data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
+        <sly data-sly-test="${!isAllowedApplicable}"
+             data-sly-repeat="${container.items}" data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
+        <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
+             data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
+    </div>
+</sly>

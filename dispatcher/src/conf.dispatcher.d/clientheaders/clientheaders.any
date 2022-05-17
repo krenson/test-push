@@ -1,0 +1,10 @@
+#
+# This file contains the request headers, and can be customized.
+#
+# By default, it includes the default client headers.
+#
+
+$include "./default_clientheaders.any"
+
+# leforemhe - Added "X-Forwarded-SSL-Cipher" to see if "Weak cipher suites" issue is resolved
+"X-Forwarded-SSL-Cipher"

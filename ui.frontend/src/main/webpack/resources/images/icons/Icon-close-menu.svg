@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Icon-close-menu" transform="translate(-1688 -1023)">
+    <g id="Group_160979" data-name="Group 160979" transform="translate(455)">
+      <g id="Group_160971" data-name="Group 160971" transform="translate(433)">
+        <g id="Group_160965" data-name="Group 160965" transform="translate(84)">
+          <g id="Group_160963" data-name="Group 160963" transform="translate(84)">
+            <g id="Form-chev-down" transform="translate(168 92)">
+              <g id="Group_160974" data-name="Group 160974">
+                <path id="Path_83191" data-name="Path 83191" d="M0,0H60V60H0Z" transform="translate(464 931)" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Close-menu" transform="translate(1503.372 911.011)">
+      <path id="Path_67156" data-name="Path 67156" d="M0,0H29.392" transform="translate(204.237 152.019) rotate(-45)" fill="none" stroke="#28333f" stroke-linecap="round" stroke-width="1.7"/>
+      <line id="Line_60" data-name="Line 60" x2="29.392" transform="translate(204.237 131.236) rotate(45)" fill="none" stroke="#28333f" stroke-linecap="round" stroke-width="1.7"/>
+    </g>
+  </g>
+</svg>

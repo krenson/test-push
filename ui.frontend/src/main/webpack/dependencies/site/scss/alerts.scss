@@ -1,0 +1,143 @@
+@import "./_variables.scss";
+
+$close-animation-speed: 0.2s;
+
+.aem.alert-container {
+  margin: 0 auto;
+  @include max-width;
+  p:first-child {
+    /*  margin-top: 1.6rem; */
+  }
+  display: flex;
+}
+
+@mixin alert {
+  max-width: 96rem;
+  width: 96rem;
+  overflow: hidden;
+  position: relative;
+  padding: 3rem 4rem;
+  margin-bottom: 3rem;
+  border-radius: 0 0 2.4rem 0;
+  box-sizing: border-box;
+  transition: height $close-animation-speed linear,
+    padding $close-animation-speed linear,
+    margin-bottom $close-animation-speed linear;
+  &::before {
+    font-size: 2.8rem;
+  }
+  .close-warning {
+    position: absolute;
+    right: 2.4rem;
+    top: 2.5rem;
+    height: 1.45rem;
+    width: 1.45rem;
+    mask-image: url($resourcePath + "/images/Close.svg");
+
+    background-color: $primary-colorV2;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    cursor: pointer;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.aem.alert-container .alert-warning {
+  @include alert;
+  &::before {
+    /*  content: "Avertissement"; */
+  }
+}
+
+.aem.alert-container .alert-warning.red {
+  color: white;
+  background: #c44953;
+
+  &::before {
+    /*  content: "Avertissement"; */
+  }
+  .close-warning {
+    background-color: white;
+  }
+  p {
+    color: white;
+  }
+}
+
+.aem.alert-container .alert-warning.orange {
+  background: #f59a6d;
+  &::before {
+    /*  content: "Avertissement"; */
+  }
+}
+
+.aem.alert-container .alert-warning.green {
+  background: #a3ce8c;
+  &::before {
+    /*  content: "Avertissement"; */
+  }
+}
+
+.aem.alert-container .alert-warning.close-warning,
+.aem.alert-container .alert-info.close-warning {
+  height: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: 0 solid;
+  .close-warning {
+    cursor: initial;
+  }
+}
+
+.aem.alert-container .alert-info {
+  @include alert;
+  padding: 3rem 3.85rem;
+  border: 0.15rem solid #313a47;
+  transition: height $close-animation-speed linear,
+    padding $close-animation-speed linear, border $close-animation-speed linear;
+  &::before {
+    /*  content: "Info"; */
+  }
+}
+
+.aem.alert-container .alert-info.pink {
+  background-color: #faf5ec;
+  &::before {
+    /*  content: "Info"; */
+  }
+}
+
+.aem.alert-container .alert-info.beige {
+  background-color: #fbe7cb;
+  border-color: #fbe7cb;
+  &::before {
+    /* content: "Info"; */
+  }
+}
+
+.aem.alert-container .alert-info.blue {
+  background-color: #d9eff0;
+  border-color: #d9eff0;
+  &::before {
+    /* content: "Info"; */
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.alert-container {
+    .alert-warning {
+      padding: 1.5rem 3rem 1.5rem 2rem;
+    }
+    .alert-info {
+      padding: 1.5rem 1.85rem;
+    }
+    .alert-warning .close-warning,
+    .alert-info .close-warning {
+      top: initial;
+    }
+  }
+}

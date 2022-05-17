@@ -1,0 +1,160 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<form class="aem forms"
+      data-sly-test="${properties.action}"
+      data-sly-attribute.action="${properties.action}"
+      data-sly-attribute.method="${properties.method}"
+      data-sly-attribute.name="${properties.name}"
+      data-sly-attribute.id="${properties.id}"
+      data-sly-attribute.enctype="${properties.multipart ? 'multipart/form-data':''}">
+    <input id="typeForm" name="typeForm" type="hidden" value="2">
+    <fieldset>
+        <legend>
+            ${'Signalétique' @ i18n}</legend>
+        <div>
+            <label for="nomEntr">
+                ${'Nom' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="nomEntr" name="nomEntr" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text" value="">
+        </div>
+        <div>
+            <label for="prenomEntr">
+                ${'Prénom' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="prenomEntr" name="prenomEntr" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text" value="">
+        </div>
+        <div>
+            <label for="denominationEntr">
+                ${'Dénomination de l\'entreprise' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="denominationEntr" name="denominationEntr" placeholder="${'Champ obligatoire' @ i18n}" required="" type="text" value="">
+        </div>
+        <div>
+            <label for="belge">
+                ${'Entreprise belge' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <div class="select">
+                <select aria-required="true" id="belge" name="belge" required="" size="1">
+                    <option selected="selected" value="">
+                        ${'Faites un choix - Champ Obligatoire' @ i18n}</option>
+                    <option value="oui">
+                        ${'oui' @ i18n}</option>
+                    <option value="non">
+                        ${'non' @ i18n}</option>
+                </select>
+            </div>
+        </div>
+        <div id="entity">
+            <label for="entite" class="display-none">
+                ${'Entité' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <div class="select">
+                <select aria-required="true" class="display-none" id="entite" name="entite" required="">
+                    <option selected="selected" value="">
+                        ${'Faites un choix' @ i18n}</option>
+                    <option value="1">
+                        ${'Unité d\'établissement' @ i18n}</option>
+                    <option value="2">
+                        ${'Siège social' @ i18n}</option>
+                </select>
+            </div>
+        </div>
+        <div id="num_entre">
+            <label class="display-none" for="NE">
+                ${'Numéro d\'entreprise (N° BCE)' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" class="display-none" id="NE" name="NE" required="" type="text" value="">
+        </div>
+        <div id="num_entre_etr">
+            <label class="display-none" for="NEE">
+                ${'Numéro d\'entreprise' @ i18n}</label>
+            <input aria-required="false" class="display-none" id="NEE" name="NEE" type="text" value="">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            ${'Contact' @ i18n}</legend>
+        <div>
+            <label for="telEntr">
+                ${'Téléphone' @ i18n}&nbsp;/&nbsp;${'GSM' @ i18n} <span class="label-hint">(ex: +32499005511)</span><acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="telEntr" maxlength="16" name="telEntr" pattern="^\+\d*(( |\/|\.|-)*|\d*)*$" placeholder="${'Champ obligatoire' @ i18n}" required="" type="tel" value="">
+        </div>
+        <div>
+            <label for="emailEntr">
+                ${'Adresse e-mail' @ i18n}<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+            <input aria-required="true" id="emailEntr" name="emailEntr" placeholder="${'Champ obligatoire' @ i18n}" required="" type="email" value="">
+        </div>
+        <div>
+            <label for="confirmationEntr">
+                ${'Confirmation e-mail' @ i18n}<acronym title="${'obligatoire' @ i18n}">*</acronym>:</label>
+            <input aria-required="true" id="confirmationEntr" name="confirmationEntr" placeholder="${'Champ obligatoire' @ i18n}" required="" type="email" value="">
+        </div>
+        <div>
+            <label for="siteWeb">
+                ${'Site web (Veuillez commencer l\'adresse par http(s):// )' @ i18n}</label>
+            <input id="siteWeb" name="siteWeb" type="url" value="">
+        </div>
+    </fieldset>
+
+    <div class="tree-col">
+        <label for="objetEntr">
+            ${'Votre demande concerne une des actions suivantes' @ i18n}&nbsp;<acronym title="${'Obligatoire' @ i18n}">*</acronym></label>
+        <div class="select">
+            <select aria-required="true" id="objetEntr" name="objetEntr" required="">
+                <option selected="selected" value="">
+                    ${'Faites un choix - Champ Obligatoire' @ i18n}</option>
+                <option value="e3">
+                    ${'Accueillir des stagiaires' @ i18n}</option>
+                <option value="e2">
+                    ${'Bénéficier d\'aides à l\'emploi et la formation' @ i18n}</option>
+                <option value="e5">
+                    ${'Créer un compte sur le site leforemhe.be' @ i18n}</option>
+                <option value="e9">
+                    ${'Demander un accès à la Plateforme Chèque Formation (traform)' @ i18n}</option>
+                <option value="e8">
+                    ${'Former un collaborateur' @ i18n}</option>
+                <option value="e4">
+                    ${'Introduire une réclamation' @ i18n}</option>
+                <option value="e1">
+                    ${'Recruter un collaborateur' @ i18n}</option>
+                <option value="e7">
+                    ${'Une autre demande' @ i18n}</option>
+                <option value="e6">
+                    ${'Utiliser des services en ligne' @ i18n}</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <label for="motifEntr">
+            ${'Veuillez décrire le motif de votre demande' @ i18n}&nbsp;<acronym title="${'Obligatoire' @ i18n}">*</acronym><br>
+            <span id="descriptionProb">
+(${'Si vous signalez un problème technique, veuillez préciser le type de navigateur utilisé ainsi que le message d\'erreur obtenu' @ i18n})</span>
+        </label>
+        <div class="textarea two-col">
+            <textarea aria-describedby="descriptionProb" aria-required="true" id="motifEntr" name="motifEntr" placeholder="${'Champ obligatoire' @ i18n}" required=""></textarea>
+        </div>
+    </div>
+    <div class="inputFile tree-col empty">
+        <label for="fichierEntr">
+            ${'Vous pouvez joindre un document à votre demande' @ i18n}<br>
+            <span id="descriptionFile">
+(${'Uniquement des documents de type word, pdf, images, taille maximum 5Mb' @ i18n})</span>
+            <div class="title">
+                ${'Sélectionner des fichiers' @ i18n}
+            </div>
+        </label>
+        <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
+        <input aria-describedby="descriptionFile" aria-required="true" id="fichierEntr" name="fichierEntr" type="file">
+    </div>
+    <div id="condition-utilisation" class="element-invisible form-checkbox">
+        <div class="checkbox">
+            <input type="checkbox" id="condition" name="condition" required="">
+            <label for="condition" class="checkbox-label">
+                ${'J\'ai lu et j\'accepte les conditions générales d\'utilisation' @ i18n}.</label>
+        </div>
+        <p>
+            ${'En cochant cette case, je déclare avoir lu, compris et accepté les' @ i18n}
+            <a href="${'/content/dam/leforemhe/fr/documents/conditions_utilisation_employeur_02-10-2020.pdf' @ context='uri' }" onclick="javascript:ga('send','event','document','download','conditions utilisation employeur 02-10-2020.pdf');" target="_blank">conditions&nbsp;générales d'utilisation&nbsp;(PDF)</a>.<br>
+        </p>
+    </div>
+
+    <div class="form-Button">
+        <button id="boutonFormulaireContactEntr" name="boutonFormulaireContactEntr" type="submit" value="Envoyer" class="btn btn-primary">
+            ${'envoyer' @ i18n}</button>
+    </div>
+
+</form>
+<sly data-sly-call="${template.placeholder @ isEmpty = !properties.action, classAppend='forem-form' }"></sly>

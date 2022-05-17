@@ -1,0 +1,289 @@
+<section class="middle">
+  <div class="centrePage">
+    <nav id="filAriane" class="aem">
+      <div class="aem filArianeContainer">
+        <a
+          title="Besoin de contacter le Forem ? Retrouvez tous les contacts : conseillers, Maisons de l'Emploi, Carrefour Emploi Formation Orientation, centres de formations, ..."
+          href="/contact/index.html"
+        >
+          Accueil - Contact
+        </a>
+        &gt;&nbsp;
+
+        <span> Formulaire de contact pour les citoyens </span>
+      </div>
+    </nav>
+
+    <main role="main">
+      <article>
+        <header>
+          <div class="aem title-container">
+            <h1>Formulaire de contact pour les citoyens</h1>
+          </div>
+          <div class="aem accroche-container">
+            <p class="accroche">
+              Remplissez le formulaire ci-dessous et cliquez ensuite sur
+              "Envoyer" pour transmettre votre demande au Centre de contact.
+              Afin de nous permettre de traiter le plus efficacement possible
+              votre requête, veuillez nous donner un maximum d'informations. Les
+              champs marqués d'un astérisque (*) sont obligatoires.
+            </p>
+          </div>
+          <div></div>
+        </header>
+
+        <div>
+          <form
+            class="aem forms"
+            enctype="multipart/form-data"
+            id="demandePartic"
+            name="demandePartic"
+            method="post"
+            action="/FOREM/leforemhe_BE/FORMULAIRES/FormulaireDemandeBo.php"
+          >
+            <input id="typeForm" name="typeForm" type="hidden" value="1" />
+            <fieldset>
+              <legend>Signalétique</legend>
+              <div class="tree-col">
+                <label for="nom">
+                  Nom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="nom"
+                  name="nom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div class="tree-col">
+                <label for="prenom">
+                  Prénom<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div class="tree-col">
+                <label> Numéro Forem</label>
+                <p id="descriptionNJB">
+                  Ce numéro est indiqué sur votre carte JobPass
+                </p>
+                <input
+                  aria-describedby="descriptionNJB"
+                  aria-required="false"
+                  id="NF"
+                  maxlength="11"
+                  name="NF"
+                  pattern="[0-9]{11}"
+                  size="11"
+                  title="11 chiffres"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div class="tree-col">
+                <label for="resident">
+                  Résident en Belgique<acronym title="Obligatoire'"
+                    >*</acronym
+                  ></label
+                >
+                <div class="select">
+                  <select
+                    aria-required="true"
+                    class=""
+                    id="resident"
+                    name="resident"
+                    size="1"
+                    required=""
+                  >
+                    <option selected="selected" value="">
+                      Faites un choix - Champ Obligatoire
+                    </option>
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                  </select>
+                </div>
+              </div>
+              <div class="tree-col">
+                <label for="niss">
+                  Numéro national (NISS)<acronym
+                    title="Obligatoire si vous êtes un particulier résident en Belgique"
+                    >*</acronym
+                  ></label
+                >
+                <input
+                  id="niss"
+                  maxlength="11"
+                  name="niss"
+                  pattern="[0-9]{11}"
+                  size="11"
+                  title="11 chiffres"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Contact</legend>
+              <div class="tree-col">
+                <label for="tel">
+                  Téléphone&nbsp;/&nbsp;GSM
+                  <span class="label-hint">(ex: +32499005511)</span
+                  ><acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="tel"
+                  maxlength="16"
+                  name="tel"
+                  pattern="^\+\d*(( |\/|\.|-)*|\d*)*$"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div class="tree-col">
+                <label for="email">
+                  Adresse e-mail<acronym title="Obligatoire">*</acronym></label
+                >
+                <input
+                  aria-required="true"
+                  id="email"
+                  name="email"
+                  placeholder="Champ obligatoire'"
+                  required=""
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div class="tree-col">
+                <label for="confirmation">
+                  Confirmation e-mail<acronym title="obligatoire">*</acronym
+                  >:</label
+                >
+                <input
+                  aria-required="true"
+                  id="confirmation"
+                  name="confirmation"
+                  placeholder="Champ obligatoire"
+                  required=""
+                  type="email"
+                  value=""
+                />
+              </div>
+            </fieldset>
+
+            <div class="tree-col">
+              <label for="objet">
+                Votre demande concerne une des actions suivantes&nbsp;<acronym
+                  title="Obligatoire"
+                  >*</acronym
+                ></label
+              >
+              <div class="select">
+                <select
+                  aria-required="true"
+                  id="objet"
+                  name="objet"
+                  required=""
+                >
+                  <option selected="selected" value="">
+                    Faites un choix - Champ Obligatoire
+                  </option>
+                  <option value="p4">
+                    Bénéficier d'aides à l'emploi et la formation
+                  </option>
+                  <option value="p6">
+                    Créer un compte sur le site leforemhe.be
+                  </option>
+                  <option value="p5">Introduire une réclamation</option>
+                  <option value="p1">Rechercher un emploi</option>
+                  <option value="p2">
+                    Se former, développer ses compétences
+                  </option>
+                  <option value="p9">
+                    Signaler des difficultés de compréhension de la langue
+                    française
+                  </option>
+                  <option value="p10">
+                    Signaler une situation de handicap
+                  </option>
+                  <option value="p3">
+                    S'informer sur l'inscription comme demandeur d'emploi
+                  </option>
+                  <option value="p8">Une autre demande</option>
+                  <option value="p7">Utiliser des services en ligne</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="motif">
+                Veuillez décrire le motif de votre demande&nbsp;<acronym
+                  title="Obligatoire"
+                  >*</acronym
+                ><br />
+                <span id="descriptionProb">
+                  (Si vous signalez un problème technique, veuillez préciser le
+                  type de navigateur utilisé ainsi que le message d'erreur
+                  obtenu)</span
+                >
+              </label>
+              <div class="textarea two-col">
+                <textarea
+                  aria-describedby="descriptionProb"
+                  aria-required="true"
+                  id="motif"
+                  name="motif"
+                  placeholder="Champ obligatoire"
+                  required=""
+                ></textarea>
+              </div>
+            </div>
+            <div class="inputFile tree-col">
+              <label for="fichier">
+                Vous pouvez joindre un document à votre demande<br />
+                <span id="descriptionFile">
+                  (Uniquement des documents de type word, pdf, images, taille
+                  maximum 5Mb)</span
+                >
+                <div class="title">Sélectionner des fichiers</div>
+              </label>
+              <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+              <input
+                aria-describedby="descriptionFile"
+                id="fichier"
+                name="fichier"
+                type="file"
+              />
+            </div>
+            <div class="form-Button">
+              <button
+                id="boutonFormulaireContactParti"
+                name="boutonFormulaireContactParti"
+                type="submit"
+                value="Envoyer"
+                class="btn btn-primary"
+              >
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
+<script
+  type="text/javascript"
+  src="http://publish.realdolmen.com/clientlib-site/resources/js/forms/forms.js"
+></script>

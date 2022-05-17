@@ -1,0 +1,17 @@
+<sly data-sly-test.author="${(wcmmode.edit || wcmmode.design)}"></sly>
+<main role="main">
+<article>
+    <header>
+        <div data-sly-resource="${'title' @ resourceType='leforemhe/components/site/article/title'}"
+             data-sly-unwrap="${!author}"></div>
+        <div data-sly-resource="${'message' @ resourceType='leforemhe/components/site/article/message'}"
+             data-sly-unwrap="${!author}"></div>
+        <div data-sly-resource="${'accroche' @ resourceType='leforemhe/components/site/article/accroche'}"
+             data-sly-unwrap="${!author}"></div>
+    </header>
+    <div>
+        <div data-sly-resource="${'html' @ resourceType='leforemhe/components/site/htmlcomponent'}"
+             data-sly-unwrap="${!author}"></div>
+    </div>
+</article>
+</main>

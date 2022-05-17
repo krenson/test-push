@@ -1,0 +1,221 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "navigation": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/navigation",
+      "items": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "linkType": "internal-link",
+          "internalLinkReference": "/content/demo-page"
+        },
+        "item1": {
+          "linkType": "",
+          "internalLinkReference": "/content/demo-page/page-1"
+        },
+        "item2": {
+          "externalLabel": "label 2",
+          "linkType": "external-link",
+          "externalLinkReference": "https://www.inter.net"
+        }
+      }
+    },
+    "documentNavigation": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/navigation",
+      "items": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "linkType": "document-link",
+          "documentReference": "/content/dam/asset.jpg",
+          "documentLabel": "Dummy image"
+        },
+        "item1": {
+          "linkType": "document-link",
+          "documentReference": "/content/dam/asset.pdf",
+          "documentLabel": "Dummy pdf document"
+        },
+        "item2": {
+          "linkType": "document-link",
+          "documentReference": "/content/dam/asset.xls",
+          "documentLabel": "Dummy xls document"
+        },
+        "item3": {
+          "linkType": "document-link",
+          "documentReference": "/content/dam/asset.docx",
+          "documentLabel": "Dummy docx document"
+        }
+      }
+    },
+    "noLink": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/navigation",
+      "items": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "linkType": "no-link"
+        }
+      }
+    },
+    "internal-with-label": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/navigation",
+      "items": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "linkType": "internal-link",
+          "internalLinkReference": "/content/demo-page",
+          "internalLabel": "Custom label"
+
+        }
+      }
+    },
+    "internal-with-empty-label": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/navigation",
+      "items": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "linkType": "internal-link",
+          "internalLinkReference": "/content/demo-page",
+          "internalLabel": ""
+
+        }
+      }
+    },
+    "hamburgermenu": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/header/hamburgermenu",
+      "firstLevelPrefix": "Accueil"
+    }
+  },
+  "page-1": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:title": "Demo Page",
+      "jcr:description": "Demo Page: a page to test the features.",
+      "navTitle": "Demo Page",
+      "hamburgermenu": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/header/hamburgermenu"
+      },
+      "breadcrumb": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/filariane",
+        "showHidden": "false",
+        "hideCurrent": "false",
+        "startLevel": "1",
+        "premierNiveau": "Accueil"
+      },
+      "hideInBreadcrumb": "{Boolean}false"
+    },
+    "page-1-subpage": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:title": "Demo SubPage",
+        "jcr:description": "Demo SubPage: a subpage to test the features.",
+        "navTitle": "Demo SubPage",
+        "navigation": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/navigation"
+        },
+        "hamburgermenu": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/hamburgermenu",
+          "firstLevelPrefix": "Accueil"
+        },
+        "breadcrumb": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/filariane",
+          "showHidden": "false",
+          "hideCurrent": "false",
+          "startLevel": "1",
+          "premierNiveau": "Accueil"
+        }
+      }
+    }
+  },
+  "page-2": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:title": "Demo Page",
+      "jcr:description": "Demo Page: a page to test the features.",
+      "navTitle": "Demo Page",
+      "navigation": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/header/navigation"
+      },
+      "hamburgermenu": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/header/hamburgermenu",
+        "firstLevelPrefix": "Accueil"
+      },
+      "breadcrumb": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/filariane",
+        "showHidden": "false",
+        "hideCurrent": "false",
+        "startLevel": "1",
+        "premierNiveau": "Accueil"
+      },
+      "hideInBreadcrumb": "{Boolean}true"
+    },
+    "page-2-subpage": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:title": "Demo SubPage",
+        "jcr:description": "Demo SubPage: a subpage to test the features.",
+        "navTitle": "Demo SubPage",
+        "hideHamburgermenuOnDesktop": "false",
+        "navigation": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/navigation"
+        },
+        "hamburgermenu": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/hamburgermenu",
+          "firstLevelPrefix": "Accueil"
+        },
+        "breadcrumb": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/filariane",
+          "showHidden": "false",
+          "hideCurrent": "false",
+          "startLevel": "1",
+          "premierNiveau": "Accueil"
+        }
+      }
+    }
+  },
+  "pages-non-places": {
+    "jcr:primaryType": "cq:Page",
+    "page-3": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "jcr:title": "Page non placée",
+        "jcr:description": "Demo Page: a page to test the features for unplaced pages.",
+        "navTitle": "Demo Page (non placée)",
+        "hideHamburgermenuOnDesktop": "true",
+        "navigation": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/navigation"
+        },
+        "hamburgermenu": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/header/hamburgermenu",
+          "firstLevelPrefix": "Accueil"
+        }
+      }
+    }
+  }
+}

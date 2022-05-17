@@ -1,0 +1,404 @@
+$animation-time: 0.2s;
+
+.aem.search-google-header form.gsc-search-box.gsc-search-box-tools {
+  padding-top: 4rem;
+  @include max-width;
+
+  margin: 0 auto;
+  display: flex;
+  .gsc-search-box {
+    max-width: 96rem;
+  }
+  .gsib_b {
+    display: none;
+  }
+  .gsc-input {
+    padding: 0;
+    .gsc-input-box {
+      height: 4.4rem;
+      box-sizing: border-box;
+      box-sizing: border-box;
+      flex-grow: 1;
+
+      border-radius: 1rem 0 0 1rem;
+      border: 2px solid #dbc2a4;
+      border-right: none;
+      table {
+        height: 100%;
+      }
+    }
+    //FORMAPASS-CONFLICT
+    input {
+      padding-left: 1rem !important;
+
+      background-position-x: 1rem !important;
+      //FORMAPASS-CONFLICT
+      color: $primary-font-colorV2;
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  button {
+    @include button;
+    @include primary-button;
+    min-width: 4.4rem;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4.4rem;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0;
+    svg {
+      display: none;
+    }
+    &::before {
+      width: 2.4rem;
+      height: 2.4rem;
+      content: "";
+      mask-image: url($resourcePath + "/images/header/search-light.svg");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: $primary-colorV2;
+    }
+  }
+}
+
+.aem.googleSearch {
+  @include max-width;
+  margin: 0 auto;
+  padding-bottom: 10rem;
+  font-family: $ffRegularV2;
+  /* .gsc-search-box.gsc-search-box-tools {
+    display: none;
+  } */
+
+  .gsc-control-cse {
+    padding: 0;
+  }
+  .gsc-above-wrapper-area {
+    border-bottom: none;
+  }
+  .gsc-results-wrapper-nooverlay {
+    display: flex;
+    font-weight: 400;
+
+    .gsc-result-info-container,
+    .gsc-positioningWrapper {
+      display: none;
+    }
+    .gsc-wrapper {
+      order: -1;
+      max-width: 96rem;
+    }
+    .gs-webResult.gs-result a.gs-title:link,
+    .gs-webResult.gs-result a.gs-title:link b,
+    .gs-imageResult a.gs-title:link,
+    .gs-imageResult a.gs-title:link b,
+    .gs-webResult div.gs-visibleUrl,
+    .gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,
+    .gs-fileFormatType,
+    .gsc-control-cse .gsc-table-result,
+    .gs-webResult .gs-snippet,
+    .gs-fileFormatType,
+    .gs-fileFormat {
+      font-family: $ffRegularV2;
+      font-weight: 400;
+      color: $primary-font-colorV2;
+      font-size: 1.6rem;
+    }
+    .gs-no-results-result .gs-snippet {
+      background-color: transparent;
+      border: none;
+    }
+
+    .gs-webResult.gs-result a.gs-title:visited,
+    .gs-webResult.gs-result a.gs-title:visited b {
+      color: $primary-font-colorV2;
+    }
+
+    .gs-webResult.gs-result a.gs-title:link,
+    .gs-webResult.gs-result a.gs-title:link b,
+    .gs-imageResult a.gs-title:link,
+    .gs-imageResult a.gs-title:link b {
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 2.2rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .gs-webResult div.gs-visibleUrl {
+      text-decoration: underline;
+      font-weight: 500;
+      font-size: 1.8rem;
+    }
+    .gsc-webResult.gsc-result,
+    .gsc-results .gsc-imageResult {
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 0.1rem solid #e1dcd7;
+      padding: 3rem 0;
+
+      &:hover {
+        border: none;
+        border-color: transparent;
+        border-bottom: 0.1rem solid #e1dcd7;
+      }
+    }
+    .gsc-expansionArea > div:first-child {
+      padding-top: 0;
+    }
+
+    .gsc-expansionArea > div:nth-last-child(1),
+    .gsc-expansionArea > div:nth-last-child(1):hover {
+      border-bottom: none;
+      padding-bottom: 6rem;
+    }
+    .gsc-results .gsc-cursor-box .gsc-cursor-page {
+      height: 3.3rem;
+      min-width: 3.3rem;
+      border-radius: 50%;
+      background-color: $five-color;
+      color: $primary-font-colorV2;
+      font-family: $ffRegularV2;
+      font-weight: 500;
+      font-size: 1.6rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1.6rem;
+      transition: background-color $transitiontime $transitionmode,
+        border-color $transitiontime $transitionmode,
+        box-shadow $transitiontime $transitionmode;
+      &:hover {
+        text-decoration: none;
+        background-color: $secondary-colorV2;
+      }
+    }
+    .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+      background-color: $tercary-color;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $tercary-color;
+        font-weight: initial;
+      }
+    }
+    .gcsc-find-more-on-google {
+      color: $primary-font-colorV2;
+    }
+    .gcsc-find-more-on-google svg {
+      display: none;
+    }
+    .gsc-results .gsc-cursor-box {
+      padding-bottom: 5.5rem;
+    }
+    .gcsc-find-more-on-google-query {
+      font-weight: normal;
+    }
+  }
+  .gsc-orderby {
+    display: flex;
+  }
+  /* .gsc-option-menu {
+    position: initial;
+
+  } */
+  .gsc-control-cse .gsc-option-menu-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .gsc-option-menu-invisible {
+    display: block;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    max-height: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    /* padding: 0; */
+    border-radius: 0 0 1rem 1rem;
+    transition: max-height $animation-time linear,
+      padding $animation-time linear,
+      box-shadow $animation-time $animation-time linear;
+  }
+  .gsc-option-menu-container.gsc-inline-block {
+    border-radius: 1rem;
+    background-color: #fbe7cb;
+    font-weight: 400;
+    font-size: 1.6rem;
+
+    border-color: transparent;
+    box-sizing: border-box;
+    display: flex;
+    min-height: 60px;
+    min-width: 20rem;
+    padding: 1.65rem 0 0;
+    transition: border-radius 0.01s linear $animation-time,
+      box-shadow $animation-time linear,
+      background-color $transitiontime $transitionmode;
+
+    &:hover {
+      background-color: #fdf2e2;
+    }
+  }
+  .gsc-option-menu-container.gsc-inline-block.menuOpen {
+    background-color: #fcdbad;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0px 4px 4px #00000029;
+    transition: box-shadow $animation-time linear, border-radius 0.01s linear;
+
+    &:hover {
+      background-color: #fcdbad;
+    }
+  }
+  .gsc-selected-option-container {
+    background-color: transparent;
+    border: none;
+    font-family: $ffRegularV2;
+    width: 100%;
+    font-weight: 400;
+    color: $primary-font-colorV2;
+    font-size: 1.6rem;
+    font-weight: initial;
+    box-shadow: none;
+    box-sizing: border-box;
+    max-width: initial;
+    min-width: initial;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    .gsc-selected-option {
+      display: flex;
+      padding: 1.65rem 1.6rem;
+      align-items: center;
+      justify-content: space-between;
+      &::after {
+        content: "";
+        width: 2rem;
+        height: 2.3rem;
+        margin-left: 1rem;
+        mask-image: url($resourcePath + "/images/forms/Form-chev-mid.svg");
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        background-color: $primary-colorV2;
+      }
+    }
+  }
+  .gsc-option-menu-item {
+    padding: 0;
+    .gsc-option {
+      font-family: $ffRegularV2;
+      font-weight: 400;
+      color: $primary-font-colorV2;
+      font-size: 1.6rem;
+      font-weight: initial;
+      padding: 0 1.6rem;
+      min-height: 4.8rem;
+      display: flex;
+      align-items: center;
+      transition: background-color $transitiontime $transitionmode,
+        border-color $transitiontime $transitionmode,
+        box-shadow $transitiontime $transitionmode;
+      &:hover {
+        background-color: #fdf2e2;
+      }
+    }
+    &:first-child {
+      margin-top: 1rem;
+    }
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+  .gsc-option-menu-item-highlighted {
+    background-color: white;
+  }
+
+  .gsc-option-menu {
+    background-color: white;
+    font-weight: 400;
+    color: $primary-font-colorV2;
+    font-size: 1.6rem;
+    font-weight: initial;
+    border: none;
+    overflow: hidden;
+
+    box-shadow: none;
+    z-index: 1;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+    /* padding: 1rem 0 2rem 0; */
+    box-shadow: 0px 4px 4px #00000029;
+    transition: max-height $animation-time linear,
+      padding $animation-time linear, box-shadow $animation-time linear;
+  }
+
+  .gsc-option-selector {
+    display: none;
+  }
+  .gsc-orderby .gsc-orderby-label {
+    font-family: $ffRegularV2;
+    background-color: transparent;
+    border: none;
+    padding: 1.65rem 1.6rem 0;
+    width: 100%;
+    font-weight: 400;
+    color: $primary-font-colorV2;
+    font-size: 1.6rem;
+    font-weight: initial;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  .gcsc-more-maybe-branding-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .gcsc-branding {
+    padding: 0;
+  }
+  .gcsc-find-more-on-google {
+    margin-left: 0;
+  }
+  .gsc-results .gsc-cursor-box {
+    margin: 0;
+  }
+  .gsc-thumbnail-inside,
+  .gsc-url-top,
+  .gsc-table-result,
+  .gs-promotion-table {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .aem.googleSearch {
+    padding-bottom: 5rem;
+    .gsc-results-wrapper-nooverlay {
+      flex-direction: column-reverse;
+    }
+    .gsc-orderby .gsc-orderby-label {
+      width: auto;
+      padding-left: 0;
+    }
+    .gsc-orderby-container {
+      padding-bottom: 2rem;
+    }
+    .gsc-results-wrapper-nooverlay
+      .gsc-results
+      .gsc-cursor-box
+      .gsc-cursor-page {
+      margin-bottom: 1rem;
+    }
+  }
+}

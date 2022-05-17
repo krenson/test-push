@@ -1,0 +1,16 @@
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          cq:actions="[edit]"
+          cq:dialogMode="floating"
+          cq:layout="editbar"
+          jcr:primaryType="cq:EditConfig">
+    <cq:inplaceEditing
+            jcr:primaryType="cq:InplaceEditingConfig"
+            active="{Boolean}true"
+            configPath="inplaceEditingConfig"
+            editorType="title">
+        <inplaceEditingConfig
+                textPropertyName="title"
+                jcr:primaryType="nt:unstructured"
+                titleTag="[h2]"/>
+    </cq:inplaceEditing>
+</jcr:root>

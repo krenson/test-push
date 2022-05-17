@@ -1,0 +1,11 @@
+<a data-sly-use.remarque="com.leforemhe.aem.site.core.models.RemarqueModel"
+   data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+   data-sly-test.isConfig="${remarque.title && remarque.imageSrc && remarque.reference.description && remarque.reference.linkReference}"
+   title="${remarque.reference.description}" target="${remarque.reference.external ? '_blank' : '_self'}"
+   href="${remarque.reference.linkReference @ extension='html'}" class="link-big-icone">
+    <div class="icone">
+        <img src="${remarque.imageSrc}">
+    </div>
+    <h2>${remarque.title}</h2>
+</a>
+<sly data-sly-call="${template.placeholder @ isEmpty= !isConfig}"></sly>

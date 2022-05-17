@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/leforemhe"/>
+    <filter root="/apps/leforemhe/clientlibs"/>
+    <filter root="/apps/leforemhe/components"/>
+    <filter root="/apps/leforemhe/i18n"/>
+    <filter root="/apps/leforemhe/rte-plugins"/>
+    <filter root="/apps/leforemhe/email"/>
+    <filter root="/apps/sling"/>
+
+    <!-- Blueprint filter -->
+    <filter root="/apps/msm/leforemhe-blueprint" />
+
+    <!-- Email -->
+    <filter root="/apps/leforemhe/email" />
+
+    <!-- Spellchecker dictionaries -->
+    <filter root="/apps/cq/spellchecker"  mode="merge"/>
+    <filter root="/apps/cq/spellchecker/dictionaries"  mode="merge"/>
+    <filter root="/apps/cq/gui"  mode="merge"/>
+
+</workspaceFilter>

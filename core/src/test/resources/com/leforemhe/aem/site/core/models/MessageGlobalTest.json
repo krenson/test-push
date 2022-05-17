@@ -1,0 +1,13 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo",
+    "sling:resourceType": "leforemhe/components/site/js/warning",
+    "message": "This is my message !",
+    "dateEnd": "2021-03-28T00:00:00.000+01:00",
+    "dateStart": "2021-02-24T00:00:00.000+01:00"
+  }
+}

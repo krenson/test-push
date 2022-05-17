@@ -1,0 +1,59 @@
+<sly data-sly-use.hamburgerModel="com.leforemhe.aem.site.core.models.HamburgerMenuModel"
+     data-sly-use.foremJeunesTemp="../../foremjeunes/templates/templates.html"
+     data-sly-test.firstLevelPage="${hamburgerModel.firstLevelPage}"
+     data-sly-test.firstLevelTitle="${firstLevelPage.navigationTitle ? firstLevelPage.navigationTitle : firstLevelPage.pageTitle}"></sly>
+<nav data-sly-test="${hamburgerModel.navigationReady && !hamburgerModel.hamburgerFullyHidden}" class="overlay"
+     id="menuNav" role="navigation">
+    <div class="separator">
+        <div></div>
+    </div>
+    <div class="overlay-content col-${hamburgerModel.sizeFirstpageLevelChildren}">
+        <sly data-sly-repeat.navigationItemChild="${firstLevelPage.listChildren}"
+             data-sly-repeat.navigationItemTitle="${navigationItemChild.navigationTitle ? navigationItemChild.navigationTitle : navigationItemChild.pageTitle}">
+            <sly data-sly-test="${!navigationItemChild.hideInNav && !hamburgerModel.hamburgermenuHiddenOnDesktop}">
+                <div class="containerMenu">
+                    <button aria-haspopup="true" class="collaps"
+                            title="${'Ouverture du sous-menu'@i18n} ${navigationItemTitle}">
+                        ${navigationItemTitle}
+                    </button>
+                    <ul class="menuContent">
+                        <li data-sly-test.vanityUrl="${navigationItemChild.vanityUrl}">
+                            <a data-sly-test="${!vanityUrl}" title="${navigationItemChild.description}" class="menuLink"
+                               href="${navigationItemChild.vanityUrl ? navigationItemChild.vanityUrl : navigationItemChild.path @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                            <a data-sly-test="${vanityUrl}" title="${navigationItemChild.description}" class="menuLink"
+                               href="${vanityUrl @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                        </li>
+                        <sly data-sly-repeat.navigationItemChildPage="${navigationItemChild.listChildren}"
+                             data-sly-repeat.navigationItemTitle="${navigationItemChildPage.navigationTitle ? navigationItemChildPage.navigationTitle : navigationItemChildPage.pageTitle}">
+                            <li data-sly-test="${!navigationItemChildPage.hideInNav}"
+                                data-sly-test.childVanityUrl="${navigationItemChildPage.vanityUrl}">
+                                <a data-sly-test="${!childVanityUrl}" title="${navigationItemChildPage.description}"
+                                   class="menuLink"
+                                   href="${navigationItemChildPage.vanityUrl ? navigationItemChildPage.vanityUrl : navigationItemChildPage.path @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                                <a data-sly-test="${childVanityUrl}" title="${navigationItemChildPage.description}"
+                                   class="menuLink"
+                                   href="${childVanityUrl @ context='uri', extension='html'}">${navigationItemTitle}</a>
+                            </li>
+                        </sly>
+                    </ul>
+                </div>
+            </sly>
+        </sly>
+        <div class="menuExtraLinks">
+            <sly data-sly-repeat.inactiveNavigationItem="${hamburgerModel.inactiveNavigationItems}">
+                <a data-sly-test.internalUrl="${inactiveNavigationItem.linkReference @ context='uri', extension='html'}"
+                   data-sly-test.externalUrl="${inactiveNavigationItem.linkReference @ context='uri'}"
+                   data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+                   data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, inactiveNavigationItem.description ? inactiveNavigationItem.description : inactiveNavigationItem.title]}"
+                   href="${inactiveNavigationItem.internal ? internalUrl : externalUrl}"
+                   title="${inactiveNavigationItem.opensNewTab ? newTabTitle : (inactiveNavigationItem.description ? inactiveNavigationItem.description : inactiveNavigationItem.title) @ context='attribute'}">
+                    <span>${inactiveNavigationItem.internal? hamburgerModel.firstLevelPrefix :
+                    'test'}${inactiveNavigationItem.label}
+                    </span>
+
+                </a>
+            </sly>
+            <sly data-sly-call="${foremJeunesTemp.foremJeunesTemplate @ foremJeunesData=hamburgerModel.foremJeunesData}"></sly>
+        </div>
+    </div>
+</nav>

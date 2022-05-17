@@ -1,0 +1,105 @@
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="http://publish.realdolmen.com/clientlib-site/site.css"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="http://publish.realdolmen.com/clientlib-dependencies/dependencies.css"
+/>
+
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="http://publish.realdolmen.com/clientlib-layout/layout.css"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="http://publish.realdolmen.com/clientlib-phpapplication/phpapplication.css"
+/>
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="http://publish.realdolmen.com/clientlib-foremWebComponent/foremWebComponent.css"
+/>
+<script src="https://www.leforemhe.be/content/dam/leforemhe/fr/javascript/static/jquery-1-9-1/jquery-1-9-1.js"></script>
+<style>
+  .sb-main-padded.sb-show-main {
+    padding: 0;
+  }
+</style>
+<script
+  type="text/javascript"
+  src="http://publish.realdolmen.com/clientlib-site/resources/js/tarteaucitron/tarteaucitron.js"
+></script>
+<script type="text/javascript">
+  // JavaScript Document
+  tarteaucitron.init({
+    privacyUrl: "/vie-privee.html",
+
+    hashtag: "#tarteaucitron" /* Ouvre le panel */,
+    cookieName: "tarteaucitron",
+
+    orientation: "top",
+    showAlertSmall: false,
+    cookieslist: true,
+    showIcon: false,
+
+    adblocker: false,
+    DenyAllCta: false,
+    AcceptAllCta: true,
+    highPrivacy: true,
+    handleBrowserDNTRequest: false,
+
+    cookieDomain: ".leforemhe.be",
+
+    removeCredit: true,
+    moreInfoLink: true,
+    storybook: true,
+  });
+
+  //Google Analytics
+
+  tarteaucitron.user.analyticsUa = "UA-92595425-1";
+  tarteaucitron.user.analyticsMore = function () {
+    /* add here your optionnal ga.push() */
+  };
+  (tarteaucitron.job = tarteaucitron.job || []).push("analytics");
+
+  //Google tag Manager
+  tarteaucitron.user.googletagmanagerId = "GTM-TK8Z6LX";
+  (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
+
+  //Youtube
+  (tarteaucitron.job = tarteaucitron.job || []).push("youtube");
+
+  //Hotjar
+  tarteaucitron.user.hotjarId = "1837519";
+  tarteaucitron.user.HotjarSv = "hjid:1837519";
+  (tarteaucitron.job = tarteaucitron.job || []).push("hotjar");
+
+  //tawkto
+
+  //Google Analytics (gtag.js)
+  tarteaucitron.user.gtagUa = "UA-92595425-1";
+  tarteaucitron.user.gtagMore = function () {
+    /* add here your optionnal gtag() */
+  };
+  (tarteaucitron.job = tarteaucitron.job || []).push("gtag");
+
+  //Adobe Analytics
+  tarteaucitron.user.adobeanalyticskey =
+    "be164e091036/47e61ea4bbf9/launch-63de06e52494";
+  (tarteaucitron.job = tarteaucitron.job || []).push("adobeanalytics");
+
+  // Google Maps
+
+  // Google Maps (search query)
+
+  if (document.querySelector("forem-header")) {
+    tarteaucitron.load();
+  }
+</script>
+<script src="https://www.leforemhe.be/content/dam/leforemhe/fr/javascript/static/jquery-1-9-1/jquery-1-9-1.js"></script>

@@ -1,0 +1,214 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "remarqueLayoutEmpty": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow"
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow"
+      }
+    },
+    "remarqueLayoutFilledFirstRow": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow",
+        "column_0": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/master"
+          }
+        },
+        "column_1": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_1"
+          },
+          "experiencefragment2": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_2"
+          }
+        },
+        "column_2": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation2"
+          }
+        },
+        "column_3": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation3"
+          }
+        }
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow"
+      }
+    },
+    "remarqueLayoutFilledSecondRow": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow"
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow",
+        "experiencefragment": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/master"
+        },
+        "experiencefragment1": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1"
+        },
+        "experiencefragment2": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation2"
+        },
+        "experiencefragment3": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation3"
+        }
+      }
+    },
+    "remarqueLayoutNotFilledFirstRow": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow",
+        "column_0": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/master"
+          }
+        },
+        "column_1": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_1"
+          },
+          "experiencefragment2": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_2"
+          }
+        },
+        "column_2": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation2"
+          }
+        }
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow"
+      }
+    },
+    "remarqueLayoutFirstRowEmptyColumn": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow",
+        "column_0": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/master"
+          }
+        },
+        "column_1": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_1"
+          },
+          "experiencefragment2": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1_2"
+          }
+        },
+        "column_2": {
+          "jcr:primaryType": "nt:unstructured",
+          "experiencefragment": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+            "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation2"
+          }
+        },
+        "column_3": {
+          "jcr:primaryType": "nt:unstructured"
+        }
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow"
+      }
+    },
+    "remarqueLayoutNotFilledSecondRow": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/remarquelayout",
+      "firstrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/firstrow"
+      },
+      "secondrow": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/remarquelayout/secondrow",
+        "experiencefragment": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/master"
+        },
+        "experiencefragment1": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation1"
+        },
+        "experiencefragment2": {
+          "jcr:primaryType": "nt:unstructured",
+          "sling:resourceType": "leforemhe/components/site/remarquelayout/experiencefragment",
+          "fragmentVariationPath": "/content/experience-fragments/leforemhe/fr/site/remarques/s-inscrire-comme-demandeur-d-emploi/variation2"
+        }
+      }
+    }
+  }
+}

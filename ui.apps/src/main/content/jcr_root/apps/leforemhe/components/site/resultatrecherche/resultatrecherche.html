@@ -1,0 +1,17 @@
+<sly data-sly-use.resultatRechercheModel="com.leforemhe.aem.site.core.models.ResultatRechercheModel"
+data-sly-use.templates="core/wcm/components/commons/v1/templates.html"></sly>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<!-- Put the following javascript before the closing  tag. -->
+<script>
+  (function() {
+    var cx = '${resultatRechercheModel.GCSEKey @ context='scriptString'}'; // Insert your own Custom Search engine ID here
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = '${resultatRechercheModel.gCSESource @ context='scriptString'}?${resultatRechercheModel.gCSEKeyParameterName @ context='scriptString'}=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="googleSearch aem" id="results">
+<div class="gcse-search">
+</div>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=true}"></sly>

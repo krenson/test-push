@@ -1,0 +1,72 @@
+$link-font-color: $primary-font-colorV2;
+$link-font-family: $ffRegularV2;
+@mixin links {
+  color: $link-font-color;
+  font-weight: 400;
+  font-family: $link-font-family;
+}
+.aem {
+  a:link,
+  a {
+    @include links;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+    &:focus {
+      text-decoration: underline;
+    }
+    &:active {
+      text-decoration: none;
+    }
+    &:visited {
+      color: $link-font-color;
+    }
+  }
+
+  a:link.menuLink {
+    @include links;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      text-decoration: underline;
+    }
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  a:link.arrowLink {
+    text-decoration: underline;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+    }
+    &:focus {
+      text-decoration: underline;
+    }
+    &:active {
+      text-decoration: none;
+    }
+    &:visited {
+      color: $link-font-color;
+    }
+    &::after {
+      margin-left: 1.5rem;
+      display: inline-flex;
+      width: 0.8rem;
+      height: 1.5rem;
+      background-size: contain;
+      content: "";
+      mask-image: url($resourcePath + "/images/header/chevron-right-regular.svg");
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      background-color: $primary-colorV2;
+    }
+  }
+}

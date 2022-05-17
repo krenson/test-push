@@ -1,0 +1,10 @@
+<sly data-sly-template.script="${@ properties}">
+    <script>
+      // JavaScript Document
+      var messageDeroulant = "${properties.message @ context='scriptString'}";
+
+      if (typeof messageDeroulant !== 'undefined') {
+          document.querySelector('article header').insertAdjacentHTML('afterend', '<div class="alert-container aem"><section class="alert-warning"><div class="close-warning"></div><p>' + messageDeroulant + '</p></section></div>');
+      }
+    </script>
+</sly>

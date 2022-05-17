@@ -1,0 +1,158 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "dynamicjs": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+      "javascripts": ["/content/demo-page/dam/tacjs"]
+    },
+    "dynamicjs-empty": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs"
+    },
+    "dynamicjs-noEF": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+      "javascripts": ["/content/demo-page/ef/js/unexistingjs"]
+    },
+    "dynamicjs-noname": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+      "javascripts": ["/content/demo-page/ef/js/js3"]
+    },
+    "dynamicjs-included": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+      "javascripts": ["/content/demo-page/ef/js/js-restricted-included"]
+    },
+    "dynamicjs-excluded": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+      "javascripts": ["/content/demo-page/ef/js/js-restricted-excluded"]
+    }
+  },
+
+  "ef": {
+    "js": {
+      "jcr:content": {
+        "sling:resourceType": "cq/experience-fragments/components/experiencefragment"
+      },
+      "js1": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "filename": "javascript1",
+          "environment" : "test"
+        }
+      },
+      "js2": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "filename": "javascript2",
+          "environment": "all"
+        }
+      },
+      "js3": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "filename": "javascript3",
+          "environment": "test"
+        }
+      },
+      "js-restricted-excluded": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "environment": "test",
+          "filename": "javascript1",
+          "pagesRestrict": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "path": "/content/other-page",
+              "children": "false"
+            }
+          }
+        }
+      },
+      "js-restricted-included": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "jcr:primaryType": "cq:PageContent",
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "environment": "test",
+          "filename": "javascript1",
+          "pagesRestrict": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "path": "/content/other-page",
+              "children": "false"
+            },
+            "item1": {
+              "jcr:primaryType": "nt:unstructured",
+              "path": "/content/demo-page",
+              "children": "false"
+            }
+          }
+        }
+      },
+      "js-restricted-children": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:content": {
+          "sling:resourceType": "leforemhe/components/site/js/warning",
+          "jcr:primaryType": "cq:PageContent",
+          "environment": "test",
+          "filename": "javascript1",
+          "pagesRestrict": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "path": "/content/demo-page",
+              "children": "true"
+            }
+          }
+        }
+      }
+    }
+  },
+  "dam": {
+    "tacjs": {
+      "jcr:primaryType": "nt:folder",
+      "tacjs.js": {
+        "jcr:primaryType": "nt:file"
+      }
+    },
+    "js": {
+      "jcr:primaryType": "nt:folder",
+      "javascript1.test.js": {"jcr:primaryType": "nt:file"},
+      "javascript1.prod.js": {"jcr:primaryType": "nt:file"},
+      "javascript2.js": {"jcr:primaryType": "nt:file"},
+      "javascript2.test.js": {"jcr:primaryType": "nt:file"}
+    }
+  },
+  "child-page": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:title": "Child Page",
+      "jcr:description": "Child Page: a page to test the features.",
+      "navTitle": "Child Page",
+      "dynamicjs": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+        "javascripts": ["/content/demo-page/ef/js/js-restricted-excluded"]
+      },
+      "dynamicjs-inherited": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "leforemhe/components/site/js/dynamicjs",
+        "javascripts": ["/content/demo-page/ef/js/js-restricted-children"]
+      }
+    }
+  }
+}

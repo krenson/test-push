@@ -1,0 +1,10 @@
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<form data-sly-test="${properties.action}"
+      data-sly-attribute.action="${properties.action}"
+      data-sly-attribute.method="${properties.method}"
+      data-sly-attribute.name="${properties.name}"
+      data-sly-attribute.id="${properties.id}"
+      data-sly-attribute.enctype="${properties.multipart ? 'multipart/form-data':''}">
+    <!--/* Include the form HTL here */-->
+</form>
+<sly data-sly-call="${template.placeholder @ isEmpty = !properties.action, classAppend='forem-form' }"></sly>

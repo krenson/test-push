@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          debug.email="{Boolean}false"
+          smtp.host="smtp.office365.com"
+          smtp.password="$[secret:SMTP_PASSWORD]"
+          smtp.port="587"
+          smtp.starttls="{Boolean}true"
+          smtp.ssl="{Boolean}false"
+          smtp.user="svc_sendmail_adobe@leforemhe.onmicrosoft.com"
+          from.address="svc_sendmail_adobe@leforemhe.onmicrosoft.com"
+/>

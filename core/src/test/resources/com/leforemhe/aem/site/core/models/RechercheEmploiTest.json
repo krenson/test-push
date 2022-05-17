@@ -1,0 +1,18 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Demo Page",
+    "jcr:description": "Demo Page: a page to test the features.",
+    "navTitle": "Demo Page",
+    "rechercheEmploi": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "leforemhe/components/site/rechercheemploi",
+      "helpUrl": "/content/demo-page/help"
+    }
+  },
+  "count" : {
+    "jcr:primaryType": "cq:Page",
+    "count": "40000"
+  }
+}

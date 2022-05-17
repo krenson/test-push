@@ -1,0 +1,49 @@
+<sly
+  data-sly-use.banniereCarrousel="com.leforemhe.aem.site.core.models.BanniereCarrouselModel"
+  data-sly-test.author="${wcmmode.edit || wcmmode.design}"
+></sly>
+<sly
+  data-sly-test="${banniereCarrousel.image && banniereCarrousel.title && banniereCarrousel.imageAlt}"
+>
+  <div class="cmp-banniere-standard">
+    <div class="espaceImage">
+      <img
+        src="${banniereCarrousel.image}"
+        class="slideBanniere"
+        alt="${banniereCarrousel.imageAlt}"
+      />
+    </div>
+    <div class="textBanner bleuNuit">
+      <h1>${banniereCarrousel.title}</h1>
+      ${banniereCarrousel.body @ context='html'}
+      <div class="link-container">
+        <sly
+          data-sly-test="${banniereCarrousel.reference && banniereCarrousel.reference.link}"
+          data-sly-test.internalReferenceUrl="${banniereCarrousel.reference.linkReference @ extension='html'}"
+          data-sly-test.externalReferenceUrl="${banniereCarrousel.reference.linkReference}"
+        >
+          <a
+            data-sly-test.nouvFenetre="${'Nouvelle fenêtre vers' @ i18n}"
+            data-sly-test.newTabTitle="${'{0}: {1}' @ format=[nouvFenetre, banniereCarrousel.reference.title ? banniereCarrousel.reference.title : banniereCarrousel.title]}"
+            data-sly-test.urlTitle="${banniereCarrousel.reference.opensNewTab ? newTabTitle : banniereCarrousel.reference.title }"
+            class="btn btn-primary"
+            target="${banniereCarrousel.reference.target}"
+            id="${resource.path.hashCode}"
+            href="${banniereCarrousel.reference.internal ? internalReferenceUrl : externalReferenceUrl @ context='uri'}"
+            title="${urlTitle}"
+            >${banniereCarrousel.reference.label}</a
+          >
+        </sly>
+      </div>
+    </div>
+  </div>
+</sly>
+<sly data-sly-test="${wcmmode.edit}">
+  <sly
+    data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+    data-sly-call="${templates.placeholder @
+             isEmpty = !banniereCarrousel.title,
+             emptyTextAppend= banniereCarrousel.title ? banniereCarrousel.title : '',
+              classAppend='forem-banniere'}"
+  ></sly>
+</sly>

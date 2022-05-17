@@ -1,0 +1,8 @@
+<sly data-sly-use.fragment="com.leforemhe.aem.site.core.models.InheritedExperienceFragment"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test="${fragment.localizedFragmentVariationPath}"
+     data-sly-set.selector="content.${request.requestPathInfo.selectorString}"
+     data-sly-resource="${@path=fragment.localizedFragmentVariationPath, selectors=selector, wcmmode='disabled', decoration=!wcmmode.disabled}"
+     class="${'cmp-experiencefragment cmp-experiencefragment--{0}' @ format=[fragment.name]}">
+</sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=!fragment.localizedFragmentVariationPath, classAppend='cmp-dd-experiencefragment'}"></sly>

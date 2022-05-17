@@ -1,0 +1,33 @@
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          cq:actions="[edit,delete,copymove]"
+          cq:dialogMode="floating"
+          cq:layout="editbar"
+          jcr:primaryType="cq:EditConfig">
+    <cq:inplaceEditing
+            jcr:primaryType="cq:InplaceEditingConfig"
+            configPath="inplaceEditingConfig"
+            active="{Boolean}true"
+            editorType="hybrid">
+        <cq:childEditors jcr:primaryType="nt:unstructured">
+            <title jcr:primaryType="cq:ChildEditorConfig"
+                   title="Titre"
+                   type="plaintext"/>
+            <accroche jcr:primaryType="cq:ChildEditorConfig"
+                      title="Accroche"
+                      type="plaintext"/>
+        </cq:childEditors>
+        <inplaceEditingConfig jcr:primaryType="nt:unstructured">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    name="title"
+                    editElementQuery="h2"
+                    textPropertyName="./title">
+            </title>
+            <accroche jcr:primaryType="nt:unstructured"
+                      name="accroche"
+                      editElementQuery="p"
+                      textPropertyName="./accroche">
+            </accroche>
+        </inplaceEditingConfig>
+    </cq:inplaceEditing>
+</jcr:root>

@@ -1,0 +1,84 @@
+<form class="rechercher-offre rechercher-offre-extended refRechercherOffre px-1">
+
+  <div class="rechercher-offre-head mb-3">
+    <h2 class="rechercher-offre-title refTitle">Trouvez un emploi parmis  <strong><span class="rechercher-offre-title-number refTitleOfferNumber">12939</span> offres</strong></h2>    
+  </div>
+
+  <div class="rechercher-offre-help refHelpLinkContainer d-flex justify-content-end mb-05">
+    <a href="#" class="refHelpLink link-icon">
+      <i class="fal fa-life-ring"></i> 
+      <span class="link-icon-text">Besoin d'aide ?</span>
+    </a>
+  </div>
+
+  <div class="rechercher-offre-form">
+
+    <div class="rechercher-offre-form-contains-bg">
+
+      <div class="rechercher-offre-form-metier mb-1 mb-lg-0"> <!-- col-12 col-lg-5 pr-0 -->
+        <div class="form-group mb-0">
+          <label class="refInputLabel sr-only">Mot-clé de recherche (métier, finalité d'étude, référence de
+            l'offre)</label>
+          <forem-input-autocomplete class="refInputJob" placeholder="Rechercher par métier, mot clé, n° de référence" backendsearch nbrcharstartsearch="1">
+          </forem-input-autocomplete>
+          <div class="input-group">
+            <input type="text" class="refInputJobNatif form-control" placeholder="Rechercher par métier, mot clé, n° de référence" hidden>
+            <div class="input-group-append">
+              <button class="refInputJobNatifInfo rechercher-offre-form-metier-info btn" type="button" title='Pour rechercher une expression exacate, écrivez-la entre guillemets, par exemple "chef de cahntier".'>
+                <i class="fal fa-info-circle" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <forem-tags class="refJobTags mg-0" hidden></forem-tags>
+      </div>
+
+      <div class="rechercher-offre-form-lieu mb-1 mb-lg-0"> <!--  col-12 col-lg-4 pr-0 -->
+        <div class="form-group mb-0 d-flex flex-column justify-content-end">
+          <label class="refRegionLabel sr-only">Lieu de travail</label>
+          <forem-select-autocomplete class="refRegionSelect" placeholder="Ex: Charleroi" enablecontainfilter></forem-select-autocomplete>
+          <select class="refRegionSelectNatif form-control" placeholder="Ex: Charleroi" hidden></select>
+        </div>
+        <forem-tags class="refRegionTags filters-selected-primary mg-0" hidden></forem-tags>
+      </div>
+
+      <div class="rechercher-offre-form-submit-container"> <!-- col-12 col-lg -3 -->
+        <button class="rechercher-offre-form-submit-btn btn btn-primary mr-0 refSearchButton">
+          <i class="fal fa-search text-4xl"></i>   
+          <span class="visible-md">Rechercher</span>
+        </button>
+      </div>
+
+      <div class="rechercher-offre-form-checks w-100 d-flex mt-0 mt-lg-2 mb-1 mb-lg-0">
+        <div class="col-12 col-lg-6 px-0">
+          <div class="rechercher-offre-form-keywords-container">
+            <div class="form-check">
+              <input type="checkbox" name="checkbox" class="refPartialJobCheckbox form-check-input">
+              <label class="refPartialJobCheckboxLabel form-check-label">Afficher les offres qui ne contiennent pas tous les mots clés</label>
+            </div>
+          </div>
+          <div class="rechercher-offre-options refOptionContainer"></div> <!-- col-lg-6 -->
+        </div>
+        
+        <div class="refLinkContainer rechercher-offre-bottom-input rechercher-offre-bottom-input-in col-lg-6 px-0"> <!-- col-lg-5 mt-3 mt-lg-0 -->
+          <a href="#" class="refArboLink text-md link-primary-dark mb-1 link-icon"><i class="fal fa-sitemap"></i> <span class="link-icon-text">Recherche par arborescence</span></a>
+          <a href="#" class="refAdvancedLink text-md link-primary-dark link-icon"><i class="fal fa-search-plus"></i> <span class="link-icon-text">Recherche avancée</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="refLinkContainerOut rechercher-offre-bottom-input rechercher-offre-bottom-input-out mt-2"> <!-- col-lg-5 mt-3 mt-lg-0 -->
+      <a href="#" class="refArboLinkOut text-md link-primary-dark d-block mb-1 link-icon">
+        <i class="fal fa-sitemap"></i> <span class="link-icon-text">Recherche par arborescence</span>
+      </a>
+      <a href="#" class="refAdvancedLinkOut text-md link-primary-dark d-block link-icon"><i class="fal fa-search-plus"></i> <span class="link-icon-text">Recherche avancée</span></a>
+    </div>
+
+  </div>
+
+
+</form>
+<forem-popup class="refPopup modal-bg-terciary" size="auto" label="Tooltip">
+  <div class="refPopupContent"></div>
+</forem-popup>
