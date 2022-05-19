@@ -35,7 +35,7 @@
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-viewport": "^6.3.12",
     "@storybook/addons": "^6.3.12",
-    "@storybook/html": "^6.4.13",
+    "@storybook/html": "^6.5.0",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "acorn": "^6.1.0",
     "aem-clientlib-generator": "^1.8.0",
