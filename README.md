@@ -152,7 +152,7 @@ The specific URL, along with your credentials, will be provided to your by your 
 
 Just one time:
     
-    git remote add adobe https://git.cloudmanager.adobe.com/forem/forem/
+    git remote add adobe https://git.cloudmanager.adobe.com/realdolmenptrsd/RealdolmenGFIProgram-p33330/
     
 Then, for each deploy on stage is required to run:
 
