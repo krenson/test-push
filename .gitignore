@@ -1,7 +1,7 @@
 ### ui.content
-**/ui.content/**/dam/**
-**/ui.content/**/experience-fragments/**
-**/ui.content/**/leforemhev1/**
+# **/ui.content/**/dam/**
+# **/ui.content/**/experience-fragments/**
+# **/ui.content/**/leforemhev1/**
 
 ### Eclipse ###
 *.pydevproject

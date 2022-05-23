@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-03-21T11:13:05.588+01:00"
+        cq:lastModifiedBy="veronique.carli@forem.be"
+        cq:lastReplicated="{Date}2022-03-21T11:13:15.209+01:00"
+        cq:lastReplicatedBy="veronique.carli@forem.be"
+        cq:lastReplicationAction="Activate"
+        cq:tags="[]"
+        cq:template="/conf/leforemhe/settings/wcm/templates/reseausociaux-template"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Réseaux sociaux"
+        jcr:uuid="4712abc4-5927-4953-aa6c-1da30aead117"
+        sling:resourceType="leforemhe/components/site/xfpage"
+        hideHamburgermenuOnDesktop="false">
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+        <root
+            jcr:lastModified="{Date}2022-03-21T11:13:05.545+01:00"
+            jcr:lastModifiedBy="veronique.carli@forem.be"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="test"
+            sling:resourceType="leforemhe/components/site/reseauxsociaux"
+            title="test de mon titre"
+            titleListeAccesDirect="Envie d'information plus ciblées"
+            titleLs="Liste de brin"
+            titleSocialNetwork="Suivez le forem sur les réseaux sociaux">
+            <items jcr:primaryType="nt:unstructured">
+                <item0
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="facebook"
+                    externalLinkReference="https://www.facebook.com/LeForem"
+                    fileReferenceDesktop="/content/dam/leforemhe/fr/images/Facebook-dark.svg"
+                    linkType="external-link"
+                    target="_blank"
+                    title="facebook"/>
+                <item1
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Twitter"
+                    externalLinkReference="https://twitter.com/leforem"
+                    fileReferenceDesktop="/content/dam/leforemhe/fr/images/Twitter-dark.svg"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Twitter"/>
+                <item2
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Instagram"
+                    externalLinkReference="https://www.instagram.com/le_forem/?hl=fr"
+                    fileReferenceDesktop="/content/dam/leforemhe/fr/images/Instagram-dark.svg"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Instagram"/>
+                <item3
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Linkedin"
+                    externalLinkReference="https://be.linkedin.com/company/le-forem"
+                    fileReferenceDesktop="/content/dam/leforemhe/fr/images/Linkedin-dark.svg"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Linkedin"/>
+                <item4
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Youtube"
+                    externalLinkReference="https://www.youtube.com/channel/UCQjbmPr2dVx_z-nm9DUSCLw"
+                    fileReferenceDesktop="/content/dam/leforemhe/fr/images/Youtube-dark.svg"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Youtube"/>
+            </items>
+            <itemsListeAccesDirect jcr:primaryType="nt:unstructured">
+                <item0
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Facebook Hainaut"
+                    externalLinkReference="https://www.facebook.com/LeForemHainaut/"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Facebook Hainaut"/>
+                <item1
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Facebook Namur - Brabant Wallon"
+                    externalLinkReference="https://www.facebook.com/LeForemNamurBrabantwallon/"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Facebook Namur - Brabant Wallon"/>
+                <item2
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Facebook Luxembourg"
+                    externalLinkReference="https://www.facebook.com/LeForemLuxembourg/"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Facebook Luxembourg"/>
+                <item3
+                    jcr:primaryType="nt:unstructured"
+                    externalLabel="Facebook Liège"
+                    externalLinkReference="https://www.facebook.com/ForemLiegeHuyVerviers/"
+                    linkType="external-link"
+                    target="_blank"
+                    title="Facebook Liège"/>
+            </itemsListeAccesDirect>
+        </root>
+    </jcr:content>
+</jcr:root>
