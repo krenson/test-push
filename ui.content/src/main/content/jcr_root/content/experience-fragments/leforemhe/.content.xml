@@ -6,5 +6,4 @@
     jcr:primaryType="sling:OrderedFolder"
     jcr:title="Le Forem Horizons Emploi Site">
     <fr/>
-    <rep:policy/>
 </jcr:root>

@@ -5,5 +5,4 @@
     cq:lastReplicationAction="Activate"
     jcr:mixinTypes="[cq:ReplicationStatus,rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
 </jcr:root>

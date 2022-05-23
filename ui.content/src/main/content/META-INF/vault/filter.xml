@@ -3,6 +3,7 @@
     <filter root="/conf/global" mode="update"/>
     <filter root="/conf/leforemhe" mode="update"/>
     <filter root="/content/leforemhe" mode="update"/>
+    <filter root="/content/leforemhe/fr" mode="update"/>
     <filter root="/content/dam/leforemhe" mode="update"/>
     <filter root="/content/dam/leforemhe/fr" mode="update"/>
     <filter root="/content/dam/leforemhe/fr/javascript" mode="update"/>

@@ -17,5 +17,4 @@
         jcr:uuid="f49ef199-bcba-4c51-a218-efb809721897"
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
     <master/>
-    <rep:policy/>
 </jcr:root>

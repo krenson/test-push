@@ -19,5 +19,4 @@
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
     <warning-prod/>
     <warning-stage/>
-    <rep:policy/>
 </jcr:root>

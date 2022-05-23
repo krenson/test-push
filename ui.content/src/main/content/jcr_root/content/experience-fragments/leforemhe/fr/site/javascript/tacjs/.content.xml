@@ -19,5 +19,4 @@
         jcr:title="TACJS"
         jcr:uuid="95014d5c-335c-4b1f-8805-d1d8767eb850"
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
-    <rep:policy/>
 </jcr:root>
