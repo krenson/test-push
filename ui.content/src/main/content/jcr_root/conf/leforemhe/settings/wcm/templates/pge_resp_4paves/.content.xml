@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2021-04-06T15:19:27.254+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2022-03-18T17:59:15.926+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:templateType="/conf/leforemhe/settings/wcm/template-types/article-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="PGE_RESP_4Paves"
+        status="enabled"/>
+</jcr:root>
