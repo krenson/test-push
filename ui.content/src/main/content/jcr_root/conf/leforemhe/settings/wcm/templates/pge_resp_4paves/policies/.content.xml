@@ -48,7 +48,7 @@
                             cq:policy="leforemhe/components/site/leforemcontainers/asidecontainer/asidecontainer_pge_resp_4paves_policy"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping">
-                            <leforem jcr:primaryType="nt:unstructured">
+                            <leforemhe jcr:primaryType="nt:unstructured">
                                 <components jcr:primaryType="nt:unstructured">
                                     <site jcr:primaryType="nt:unstructured">
                                         <image

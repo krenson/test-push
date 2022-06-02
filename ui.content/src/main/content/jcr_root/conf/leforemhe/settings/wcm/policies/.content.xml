@@ -133,7 +133,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Conteneur - Template PHP (Application) - Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site]"/>
+                        components="[group:LeForem HE - Site]"/>
                     <xf_header_policy
                         jcr:description="Définit les composants autorisés sur un fragment d'expérience de Header."
                         jcr:primaryType="nt:unstructured"
@@ -147,7 +147,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Page Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -210,7 +210,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Page Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -325,7 +325,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="XF Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -507,7 +507,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Page Content"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"/>
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"/>
                     </pagebodycontainer>
                     <maincontainer jcr:primaryType="nt:unstructured">
                         <maincontainer_homepage_policy
@@ -525,7 +525,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Contenu Principale - Police de base"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"/>
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"/>
                         <maincontainer_formapass_policy
                             cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                             cq:lastReplicatedBy="admin"
@@ -709,7 +709,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"
+                    components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -1018,7 +1018,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Page Content"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components,group:LeForem - FORMAPass]">
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components,group:LeForem - FORMAPass]">
                             <jcr:content
                                 cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                                 cq:lastReplicatedBy="admin"
@@ -1053,7 +1053,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Page Content"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                             <jcr:content
                                 cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                                 cq:lastReplicatedBy="admin"
@@ -1101,7 +1101,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Page Root"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                             <jcr:content
                                 cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                                 cq:lastReplicatedBy="admin"
@@ -1154,7 +1154,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="XF Root"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                            components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                             <jcr:content
                                 cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                                 cq:lastReplicatedBy="admin"
@@ -1502,7 +1502,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Page Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -1540,7 +1540,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Page Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -1578,7 +1578,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="XF Root"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:LeForem - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
+                        components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
