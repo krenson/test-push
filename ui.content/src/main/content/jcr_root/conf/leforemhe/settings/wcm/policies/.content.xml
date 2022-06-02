@@ -5,7 +5,7 @@
     cq:lastReplicationAction="Activate"
     jcr:mixinTypes="[cq:ReplicationStatus,rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <leforem jcr:primaryType="nt:unstructured">
+    <leforemhe jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <site jcr:primaryType="nt:unstructured">
                 <text jcr:primaryType="nt:unstructured">
@@ -1606,5 +1606,5 @@
                 </simplecontainer>
             </layout>
         </components>
-    </leforem>
+    </leforemhe>
 </jcr:root>
