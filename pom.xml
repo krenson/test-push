@@ -66,7 +66,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.3.6698.20220318T233218Z-220400</aem.sdk.api>
+        <aem.sdk.api>2022.5.7575.20220530T152407Z-220500</aem.sdk.api>
         <aemanalyser.version>1.4.2</aemanalyser.version>
         <componentGroupName>Le Forem Horizons Emploi Site</componentGroupName>
 
