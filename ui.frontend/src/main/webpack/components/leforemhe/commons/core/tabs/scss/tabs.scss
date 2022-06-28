@@ -1,6 +1,90 @@
-.cmp-tabs {}
-.cmp-tabs__tablist {}
-.cmp-tabs__tab {}
-.cmp-tabs__tab--active {}
-.cmp-tabs__tabpanel {}
-.cmp-tabs__tabpanel--active {}
+.cmp-tabs {
+  @include max-width-two-colum;
+
+  padding-bottom: 1rem;
+  margin: 0;
+  position: relative;
+  .cmp-tabs-container {
+    overflow-y: hidden;
+    height: 6rem;
+  }
+  .cmp-tabs-scrollable {
+    padding-bottom: 1rem;
+    overflow-x: auto;
+  }
+  .cmp-tabs__tablist {
+    padding: 0 1rem;
+    min-width: fit-content;
+    margin: 0;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-bottom: 0.1rem solid $heigt-color;
+  }
+
+  &.mobile {
+    padding-left: 0;
+    padding-right: 0;
+    .cmp-tabs-container {
+      height: auto;
+      overflow-y: initial;
+    }
+  }
+}
+
+.cmp-tabs__tab {
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  height: 5.9rem;
+  border-bottom: 0.4rem solid transparent;
+  border-top: 0.4rem solid transparent;
+  white-space: nowrap;
+}
+.cmp-tabs__tab--active {
+  border-bottom: 0.4rem solid $tercary-color;
+  font-weight: 600;
+}
+.cmp-tabs.mobile .cmp-tabs__tabpanel {
+  padding-left: $min-padding;
+  padding-right: $min-padding;
+}
+.cmp-tabs__tabpanel--active {
+}
+.cmp-tabs.desktop {
+  .tabscrollBar {
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    height: 1rem;
+    padding: 0 1.5rem;
+
+    .scrollGizmo {
+      width: 10rem;
+      top: 0.3rem;
+      height: 0.3rem;
+      background-color: black;
+      opacity: 0.25;
+      border-radius: 0.15rem;
+      position: relative;
+    }
+  }
+  .tabscrollBar.hover {
+    cursor: grab;
+    opacity: 1;
+  }
+  .tabscrollBar.hover.grabbing,
+  .grabbing {
+    cursor: grabbing;
+  }
+}
+.grabbing {
+  cursor: grabbing !important;
+}
+@media screen and (max-width: $breakpointMobile) {
+  .cmp-tabs__tab {
+    font-size: 1.6rem;
+  }
+}

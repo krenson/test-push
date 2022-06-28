@@ -372,6 +372,14 @@ p > .btn {
   }
 }
 
+@mixin link-icone-mobile {
+  .icone {
+    height: $link-icone-size-mobile;
+    min-width: $link-icone-size-mobile;
+    width: $link-icone-size-mobile;
+  }
+}
+
 @mixin link-big-icone {
   display: flex;
   width: fit-content;

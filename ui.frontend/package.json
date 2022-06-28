@@ -10,7 +10,7 @@
   "main": "src/main/webpack/site/site.js",
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
-    "storybook": "start npm run startStory && start-storybook -p 4501",
+    "storybook": "start npm run startStory && start-storybook -p 4501 -s ./.storybook",
     "dev": "webpack --color --env dev --config ./webpack.dev.js --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
     "prod": "npm run replace && webpack --color --config ./webpack.prod.js --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
     "start": "webpack serve --open --config ./webpack.dev.js  --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
