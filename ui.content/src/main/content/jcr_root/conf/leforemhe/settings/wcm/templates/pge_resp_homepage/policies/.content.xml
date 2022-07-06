@@ -37,7 +37,7 @@
                                 </carrousel>
                             </site>
                         </components>
-                    </leforem>
+                    </leforemhe>
                 </container>
                 <maincontainer
                     cq:policy="leforemhe/components/site/leforemcontainers/maincontainer/maincontainer_homepage_policy"
@@ -52,7 +52,7 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </site>
                         </components>
-                    </leforem>
+                    </leforemhe>
                 </maincontainer>
             </pagebodycontainer>
         </root>
