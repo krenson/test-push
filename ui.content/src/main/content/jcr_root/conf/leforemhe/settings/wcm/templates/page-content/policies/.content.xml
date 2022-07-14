@@ -82,7 +82,7 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </site>
                         </components>
-                    </leforem>
+                    </leforemhe>
                 </container>
                 <title
                     cq:policy="leforemhe/components/commons/core/title/mainpage_policy"

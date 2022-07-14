@@ -65,7 +65,7 @@
                                             sling:resourceType="wcm/core/components/policies/mapping"/>
                                     </site>
                                 </components>
-                            </leforem>
+                            </leforemhe>
                         </asidecontainer>
                         <message-conteneur
                             cq:policy="leforemhe/components/site/container/message_conteneur_policy"
