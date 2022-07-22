@@ -2,11 +2,9 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.leforemhe.aem.site.core.models.pojo.ParseHTML;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.htmlparser.util.ParserException;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
@@ -33,7 +31,7 @@ public class ContentFragmentUtilService {
     private static final Logger LOG = LoggerFactory.getLogger(ContentFragmentUtilService.class);
 
     /**
-     * Parse relative path of CSS on absolute path
+     * Get asked content data from content fragment by ID
      *
      * @param contentFragmentId    String content
      * @param contentFragmentModel type of content fragment to be returned
