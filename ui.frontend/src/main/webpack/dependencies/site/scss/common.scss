@@ -213,6 +213,7 @@ strong {
   .filArianeContainer {
     @include max-width;
     margin: 0 auto;
+
     a {
       display: inline-block;
     }
@@ -220,7 +221,30 @@ strong {
 }
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
-    display: none;
+    .filArianeContainer {
+      font-size: 0;
+
+      > a:last-of-type {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+
+        &::before {
+          transform: rotate(180deg);
+          display: inline-flex;
+          width: 0.8rem;
+          height: 1.5rem;
+          background-size: contain;
+          content: "";
+          mask-image: url($resourcePath + "/images/header/chevron-right-regular.svg");
+          mask-position: center;
+          mask-repeat: no-repeat;
+          mask-size: contain;
+          background-color: $primary-colorV2;
+        }
+      }
+    }
   }
   .centrePage header,
   .centrePage article > article {
