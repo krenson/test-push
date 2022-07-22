@@ -46,7 +46,8 @@ public class ContentFragmentUtilService {
         Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
         List<ContentFragment> listActivities = getContentFragmentsWithKeyProfession(damContentFragments, contentFragmentId);
 
-        contentFragmentData = getDataFromListContentFragments(contentList, listActivities);
+
+        contentFragmentData = getDataFromContentFragment(contentList, listActivities.get(0));
 
         return contentFragmentData;
     }
@@ -75,15 +76,13 @@ public class ContentFragmentUtilService {
         return contentFragments;
     }
 
-    private Map<String, Object> getDataFromListContentFragments(String[] contentList, List<ContentFragment> listCF) {
+    private Map<String, Object> getDataFromContentFragment(String[] contentList, ContentFragment contentFragment) {
         Map<String, Object> contentFragmentData = new HashMap<>();
 
-        for (ContentFragment contentFragmentActivity : listCF) {
             for (String key : contentList) {
-                contentFragmentData.put(key,contentFragmentActivity.getElement(key).getValue().getValue());
+                contentFragmentData.put(key, contentFragment.getElement(key).getValue().getValue());
             }
-        }
-
+            
         return contentFragmentData;
     }
 
