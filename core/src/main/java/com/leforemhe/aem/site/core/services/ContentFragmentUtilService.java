@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 /**
- * Parser service to Parse HTML
+ * Content fragment utility service
  */
 @Component(service = ContentFragmentUtilService.class)
 public class ContentFragmentUtilService {
