@@ -19,7 +19,7 @@ import java.util.*;
 public class ContentFragmentUtilService {
 
     public static final String ELEMENT_TITLE = "titre";
-
+    
     @Reference
     private ResourceResolverFactory resolverFactory;
 
@@ -38,9 +38,12 @@ public class ContentFragmentUtilService {
      */
     public Map<String, Object> getContentFromContentFragment(String contentFragmentId, String contentFragmentModel, String[] contentList) {
         ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-
         Map<String, Object> contentFragmentData;
-
+        LOG.debug("Inside get content from content fragment.");
+        LOG.debug("System user: {}", globalConfigService.getConfig().systemUser());
+        LOG.debug("Resource resolver factory {}.", resolverFactory);
+        LOG.debug("Resource resolver {}.", resourceResolver);
+        LOG.debug("Content fragment model {}.", contentFragmentModel);
         Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
         List<ContentFragment> listActivities = getContentFragmentsWithKeyProfession(damContentFragments, contentFragmentId);
 
