@@ -19,8 +19,6 @@ import java.util.*;
 public class ContentFragmentUtilService {
 
     public static final String ELEMENT_TITLE = "titre";
-    public static final String METIER_MODEL_PATH = "/content/dam/leforemhe/fr/metiers";
-
 
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -82,8 +80,7 @@ public class ContentFragmentUtilService {
             for (String key : contentList) {
                 contentFragmentData.put(key, contentFragment.getElement(key).getValue().getValue());
             }
-            
+
         return contentFragmentData;
     }
-
 }
