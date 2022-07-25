@@ -38,19 +38,23 @@ public class ContentFragmentUtilService {
      * @return contentFragmentData Map
      */
     public Map<String, Object> getContentFromContentFragment(String contentFragmentId, String contentFragmentModel, String[] contentList) {
-        ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-        Map<String, Object> contentFragmentData;
-        LOG.debug("Inside get content from content fragment for ID {}.", contentFragmentId);
-        LOG.debug("System user: {}", globalConfigService.getConfig().systemUser());
-        LOG.debug("Resource resolver factory {}.", resolverFactory);
-        LOG.debug("Resource resolver {}.", resourceResolver);
-        LOG.debug("Content fragment model {}.", contentFragmentModel);
-        Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
-        LOG.debug("Parent content fragment folder: {}.", damContentFragments);
-        List<ContentFragment> listActivities = getContentFragmentsWithKeyProfession(damContentFragments, contentFragmentId);
+        Map<String, Object> contentFragmentData = null;
 
-
-        contentFragmentData = getDataFromContentFragment(contentList, listActivities.get(0));
+        try {
+            ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
+            LOG.debug("Inside get content from content fragment for ID {}.", contentFragmentId);
+            LOG.debug("System user: {}", globalConfigService.getConfig().systemUser());
+            LOG.debug("Resource resolver factory {}.", resolverFactory);
+            LOG.debug("Resource resolver {}.", resourceResolver);
+            LOG.debug("Content fragment model {}.", contentFragmentModel);
+            Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
+            LOG.debug("Parent content fragment folder: {}.", damContentFragments);
+            List<ContentFragment> listActivities = getContentFragmentsWithKeyProfession(damContentFragments, contentFragmentId);
+            contentFragmentData = getDataFromContentFragment(contentList, listActivities.get(0));
+        } catch (NullPointerException nullPointerException) {
+            LOG.debug("Error while getting content fragments");
+            LOG.debug(nullPointerException.getMessage());
+        }
 
         return contentFragmentData;
     }
