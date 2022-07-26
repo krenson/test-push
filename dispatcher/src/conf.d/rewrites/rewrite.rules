@@ -7,7 +7,7 @@ Include conf.d/rewrites/default_rewrite.rules
 # [L] It also will stop processing all the other rules L flag (Last) which means it won't have to traverse a huge list of rules.
 # [NC] NC flag (No Case-Sensitive)
 
-# RewriteRule ^/$ /index.html [PT,L,NC]
+RewriteRule ^/$ /content/leforemhe/fr/infos-metiers.html [PT,L,NC]
 
 # SEO rules
 RewriteRule ^/documents/(.*)$ /content/dam/leforemhe/fr/documents/$1 [PT,L,NC]
