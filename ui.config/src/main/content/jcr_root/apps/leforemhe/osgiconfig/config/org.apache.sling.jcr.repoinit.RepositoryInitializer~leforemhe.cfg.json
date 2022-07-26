@@ -1,5 +1,5 @@
 {
   "scripts": [
-    "set ACL for datawrite\n  allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end"
+    "set ACL for datawrite\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end"
   ]
 }
