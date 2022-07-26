@@ -1,4 +1,9 @@
 #verredevin {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 0.2rem solid #2f3a48;
+  border-radius: 1.4rem;
   .verredevincontainer {
     width: fit-content;
     display: flex;
@@ -9,9 +14,9 @@
     .verredevin {
       position: relative;
       .verredevinempty {
-        width: 8rem;
-        height: 8rem;
-        border: 0.3rem solid grey;
+        width: 3.4rem;
+        height: 3.4rem;
+        border: 0.1rem solid #969ca3;
         border-radius: 50%;
       }
       .verredevinmask {
@@ -25,17 +30,21 @@
           position: absolute;
           bottom: 0;
           left: 0;
-          width: 8rem;
-          height: 8rem;
-          border: 0.3rem solid black;
+          width: 3.4rem;
+          height: 3.4rem;
+          border: 0.1rem solid black;
           border-radius: 50%;
         }
       }
     }
     .text {
       display: flex;
+      font-size: 1.2rem;
       justify-content: center;
       text-align: center;
+      p {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
