@@ -1,0 +1,7 @@
+{
+  "scripts": [
+    "create service user datawrite with path system/leforemhe",
+    "set ACL for datawrite\n allow jcr:all on /content/experience-fragments/leforemhe/fr/site/javascript\n end",
+    "set ACL for datawrite\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end"
+  ]
+}
