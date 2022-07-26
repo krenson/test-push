@@ -46,7 +46,7 @@ if not exist %folder%\* (
 rem Verify docker file is available
 set repo=adobe
 set image=aem-ethos/dispatcher-publish
-set version=2.0.90
+set version=2.0.97
 set "imageurl=%repo%/%image%:%version%"
 
 for /F "tokens=* USEBACKQ" %%f in (`docker images -q %imageurl%`) do (
@@ -57,7 +57,7 @@ rem Load docker file
 if [%location%] equ [] (
     echo Required image not found, trying to load from archive...
     for %%F in (%0) do set dirname=%%~dpF
-    set file=!dirname!dispatcher-publish.tar.gz
+    set file=!dirname!dispatcher-publish-amd64.tar.gz
     if not exist !file! (
         echo ** error: unable to find archive at expected location: !file!
         exit /B 2
