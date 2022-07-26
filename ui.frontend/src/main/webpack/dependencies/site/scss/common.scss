@@ -231,6 +231,7 @@ strong {
         font-weight: 500;
 
         &::before {
+          padding-right: 1rem;
           transform: rotate(180deg);
           display: inline-flex;
           width: 0.8rem;
