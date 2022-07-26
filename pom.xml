@@ -38,9 +38,7 @@
         <module>ui.config</module>
         <module>ui.content</module>
         <module>it.tests</module>
-<!-- TODO - In order to avoid conflict with leforem-site project in AEMaaCS. So, any rules has to be add via the leforem-site project
         <module>dispatcher</module>
--->
         <module>ui.tests</module>
         <module>all</module>
     </modules>
