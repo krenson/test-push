@@ -2,7 +2,9 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.leforemhe.aem.site.core.models.pojo.ContentFragmentActivites;
 import com.sun.security.auth.module.LdapLoginModule;
+import org.apache.poi.ss.formula.functions.T;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -49,7 +51,7 @@ public class ContentFragmentUtilService {
             LOG.debug("Content fragment model {}.", contentFragmentModel);
             Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
             LOG.debug("Parent content fragment folder: {}.", damContentFragments);
-            List<ContentFragment> listActivities = getContentFragmentsWithKeyProfession(damContentFragments, contentFragmentId);
+            List<ContentFragment> listActivities = getContentFragmentsWithKeyProfessionFromList(damContentFragments, contentFragmentId);
             contentFragmentData = getDataFromContentFragment(contentList, listActivities.get(0));
         } catch (NullPointerException nullPointerException) {
             LOG.debug("Error while getting content fragments");
@@ -59,20 +61,29 @@ public class ContentFragmentUtilService {
         return contentFragmentData;
     }
 
-    private List<ContentFragment> getContentFragmentsWithKeyProfession(Iterator<Resource> initialList, String keyProfession) {
+    public List<ContentFragment> getContentFragmentsByIdAndModel(String contentFragmentId, String contentFragmentModel) {
+        ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
+        Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
+        return getContentFragmentsWithKeyProfessionFromList(damContentFragments, contentFragmentId);
+    }
+
+    public List<ContentFragmentActivites> convertLisContentFragmentToActivites(List<ContentFragment> contentFragments) {
+        List<ContentFragmentActivites> contentFragmentActivites = new ArrayList<>();
+        for (ContentFragment contentFragment : contentFragments) {
+            contentFragmentActivites.add(new ContentFragmentActivites(contentFragment));
+        }
+        return contentFragmentActivites;
+    }
+
+    private List<ContentFragment> getContentFragmentsWithKeyProfessionFromList(Iterator<Resource> initialList, String keyProfession) {
         List<ContentFragment> contentFragments = new ArrayList<ContentFragment>();
         LOG.debug("Inside get content from content fragment with ID.");
-
-
         if (initialList != null) {
             do {
-
                 Resource resource = initialList.next();
                 if (resource.getResourceType().equals("dam:Asset")) {
                     LOG.debug("Content fragment found in metier folder");
-
                     ContentFragment contentFragment = resource.adaptTo(ContentFragment.class);
-
                     Iterator<ContentElement> elementsIt = contentFragment.getElements();
                     do {
                         ContentElement contentElement = elementsIt.next();
@@ -82,7 +93,6 @@ public class ContentFragmentUtilService {
                         }
                     } while (elementsIt.hasNext());
                 }
-
             } while (initialList.hasNext());
         }
         return contentFragments;

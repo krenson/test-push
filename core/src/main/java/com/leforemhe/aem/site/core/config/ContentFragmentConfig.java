@@ -22,4 +22,14 @@ public @interface ContentFragmentConfig {
     )
     String modelMetierPath() default "/content/dam/leforemhe/fr/metiers";
 
+    /**
+     * Return the path were activites CF's are stored
+     * @return Model Activites path
+     */
+    @AttributeDefinition(
+            name = "Path CF model Activites in DAM",
+            type = AttributeType.STRING
+    )
+    String modelActivitesPath() default "/content/dam/leforemhe/fr/activites";
+
 }
