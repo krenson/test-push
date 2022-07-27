@@ -1,5 +1,57 @@
-.cmp-list {}
-.cmp-list__item {}
-.cmp-list__item-link {}
-.cmp-list__item-title {}
-.cmp-list__item-date {}
+.level2 {
+  .cmp-list > li {
+    margin-bottom: 1rem !important;
+    &::before {
+      top: 0.7rem;
+      left: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 0.2rem solid $primary-font-colorV2;
+      background-color: transparent;
+      box-sizing: border-box;
+    }
+    ul {
+      /*  margin-top: initial; */
+      /* padding: initial; */
+
+      > li {
+        padding-left: 2.5rem;
+      }
+      > li::before {
+        top: 0.9rem;
+        left: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+
+        background-color: $primary-font-colorV2;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.level3 {
+  .cmp-list {
+    li {
+      padding-left: 2.5rem;
+      margin-bottom: 1rem !important;
+    }
+    li::before {
+      top: 0.9rem;
+      left: 0;
+      width: 0.8rem;
+      height: 0.8rem;
+
+      background-color: $primary-font-colorV2;
+      box-sizing: border-box;
+    }
+  }
+}
+.cmp-list__item {
+}
+.cmp-list__item-link {
+}
+.cmp-list__item-title {
+}
+.cmp-list__item-date {
+}
