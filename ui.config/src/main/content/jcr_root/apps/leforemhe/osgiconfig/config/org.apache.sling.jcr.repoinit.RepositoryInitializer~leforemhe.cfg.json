@@ -3,6 +3,7 @@
     "create service user datawrite with path system/leforemhe",
     "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe\n end",
     "set ACL for datawrite\n allow jcr:all on /content/experience-fragments/leforemhe/fr/site/javascript\n end",
+    "set ACL for datawrite\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam\n end",
     "set ACL for datawrite\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end"
   ]
 }
