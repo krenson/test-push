@@ -289,3 +289,8 @@ strong {
 .aem-AuthorLayer-Edit .cmp-container .new.cq-Editable-dom {
   height: 2.875rem;
 }
+
+.contentCentered.he {
+  @include max-width;
+  margin: 0 auto;
+}

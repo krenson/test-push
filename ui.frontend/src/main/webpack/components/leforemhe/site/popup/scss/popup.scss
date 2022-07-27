@@ -1,0 +1,117 @@
+.popup.aem {
+  z-index: 600;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 1.5rem;
+  background-color: rgba(47, 58, 72, 0.8);
+  transition: opacity 0.2s ease-out;
+
+  .popup-container {
+    transition: transform 0.2s ease-out;
+    transform: translateY(5rem);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 2.4rem;
+    width: $global-two-colum-max-with;
+    max-width: $global-two-colum-max-with;
+    min-width: 32rem;
+    box-shadow: 0px -0.3rem 0.6rem #00000029;
+    max-height: calc(100vh - 5rem);
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .popup-title {
+      font-size: 2.3rem;
+      .icone {
+        margin-right: 1.5rem;
+        border: $link-icone-size-border-focus solid $link-icone-background-color;
+        height: 4.4rem;
+        min-width: 4.4rem;
+        width: 4.4rem;
+        border-radius: 50%;
+        background-color: $link-icone-background-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color $transitiontime $transitionmode,
+          border-color $transitiontime $transitionmode;
+
+        img {
+          height: 125%;
+          width: 125%;
+        }
+      }
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+    }
+  }
+  .popup-close {
+    height: 1.45rem;
+    width: 1.45rem;
+    mask-image: url($resourcePath + "/images/Close.svg");
+
+    background-color: $primary-colorV2;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    cursor: pointer;
+  }
+  .popup-content {
+    margin: 2.8rem 0;
+    overflow-y: auto;
+  }
+  .popup-subtitle {
+    background-color: #faf5ec;
+    width: 100%;
+    padding: 1.6rem;
+    border-radius: 1.4rem;
+    margin-bottom: 2.2rem;
+  }
+  .popup-button {
+    align-self: flex-end;
+  }
+}
+
+.popup.aem.open {
+  pointer-events: all;
+  opacity: 1;
+  .popup-container {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .popup.aem {
+    padding: 0;
+    .popup-container {
+      position: absolute;
+      padding: 2rem 1.5rem;
+      bottom: 0;
+      width: 100%;
+      max-width: none;
+      margin-top: 3rem;
+      border-radius: 2.4rem 2.4rem 0 0;
+    }
+  }
+  .popup-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+html.openPopup {
+  overflow-y: hidden;
+}
