@@ -84,3 +84,6 @@ $include "./default_filters.any"
 
 ## Enable Authentication Servlet
 /0138 { /type "allow" /method "POST" /selectors "leforemhe" /path "/content/leforemhe/authenticate" /extension "json" }
+
+## Enable EF
+/0139 { /type "allow" /url "/content/experience-fragments/leforemhe/fr/*" }
