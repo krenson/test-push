@@ -307,13 +307,23 @@ strong {
 
 .background-Yellow {
   background: $article-header-backgroud-color;
+  &.partial-background::after {
+    background: $article-header-backgroud-color;
+  }
 }
 
 .background-Yellow2 {
   background: #fcf9f4;
+
+  &.partial-background::after {
+    background: #fcf9f4;
+  }
 }
 .background-DarkBlue {
   background: $primary-colorV2;
+  &.partial-background::after {
+    background: $primary-colorV2;
+  }
 }
 
 .header-minHeight {
@@ -349,6 +359,41 @@ strong {
   .aem .groupTuilesBas,
   .aem.linkLists {
     background-color: transparent;
+  }
+}
+
+.partial-background {
+  min-height: initial !important;
+  margin-bottom: 0 !important;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20rem;
+    height: 20rem;
+    width: 100%;
+
+    z-index: -1;
+  }
+  .container-content {
+    padding-bottom: 0 !important;
+  }
+}
+
+.container .container-content {
+  .container
+    > .container-content
+    .aem.image_component:first-child
+    .img_container.aem,
+  .container
+    > .container-content
+    > div
+    > .aem.image_component
+    .img_container.aem,
+  .container > .container-content .aem.youtube_container:first-child,
+  .container > .container-content > div > .aem.youtube_container {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -393,5 +438,56 @@ header .container-content {
     > div:last-child {
       padding-bottom: 1.5rem;
     }
+  }
+  .partial-background {
+    &::after {
+      bottom: -10rem;
+      height: 10rem;
+    }
+  }
+}
+
+.container .container-content .container .container-content {
+  padding: 0;
+}
+.twoCol > .container-content {
+  display: flex;
+
+  gap: $gapSize;
+}
+
+.twoCol.smallRight > .container-content > .container:nth-child(2),
+.twoCol.smallLeft > .container-content > .container:nth-child(1) {
+  min-width: $colSize;
+  max-width: $colSize;
+}
+
+.twoCol.smallRight > .container-content > .container:nth-child(1),
+.twoCol.smallLeft > .container-content > .container:nth-child(2) {
+  max-width: calc(100% - #{$colSize} - #{$gapSize});
+  flex-grow: 1;
+}
+.offsetTop {
+  transform: translateY(-10rem);
+}
+@media screen and (max-width: $breakpointMobile) {
+  .twoCol.smallRight > .container-content > .container:nth-child(1) {
+    max-width: none;
+  }
+  .twoCol.smallRight > .container-content > .container:nth-child(2) {
+    min-width: 0;
+    margin-top: 2rem;
+  }
+  .twoCol > .container-content {
+    gap: 0;
+
+    flex-direction: column;
+    > .container {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+  .offsetTop {
+    transform: translateY(0);
   }
 }
