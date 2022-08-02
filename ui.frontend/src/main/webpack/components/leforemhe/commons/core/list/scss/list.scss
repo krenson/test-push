@@ -181,3 +181,26 @@
 }
 .cmp-list__item-date {
 }
+
+.activitéListContainer {
+  padding-left: 1.5rem;
+
+  & > div {
+    margin-bottom: 5rem;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .list ul {
+    margin: 0;
+  }
+
+  .list ol > li,
+  .list ul > li {
+    margin-bottom: 1rem;
+  }
+}
