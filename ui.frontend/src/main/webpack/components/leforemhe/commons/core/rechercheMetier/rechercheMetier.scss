@@ -1,0 +1,9 @@
+div#rechercheMetier {
+  display: flex;
+  justify-content: center;
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
