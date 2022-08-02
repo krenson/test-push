@@ -1,7 +1,6 @@
 .cmp-teaser {
-  padding: 0 0.6rem;
   display: flex;
-
+  padding-bottom: 1rem;
   font-family: $ffRegularV2;
   a {
     display: flex;
@@ -78,8 +77,14 @@
   flex-direction: column;
   justify-content: center;
 }
+.aem a.cmp-teaser__link,
+.aem a.cmp-teaser__link:link {
+  text-decoration: none;
+  align-items: center;
+}
 
-.cmp-teaser__title {
+.cmp-teaser__title,
+.aem .cmp-teaser__title {
   margin: 0;
   width: fit-content;
   font-weight: 500;
@@ -89,7 +94,8 @@
 }
 .cmp-teaser__title-link {
 }
-.cmp-teaser__description p {
+.cmp-teaser__description p,
+.aem .cmp-teaser__description p {
   margin: 0;
   color: #969ca3;
   font-weight: 400;
