@@ -1,7 +1,8 @@
 .cmp-tabs {
-  @include max-width-two-colum;
+  max-width: 100%;
   padding-bottom: 1rem;
   margin: 0;
+  padding: 0;
   position: relative;
 
   .cmp-tabs-container {
@@ -11,6 +12,8 @@
   .cmp-tabs-scrollable {
     padding-bottom: 1rem;
     overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
   }
   .cmp-tabs__tablist {
     /* padding: 0 1rem; */
@@ -67,8 +70,6 @@
   }
 }
 .cmp-tabs.mobile .cmp-tabs__tabpanel {
-  padding-left: $min-padding;
-  padding-right: $min-padding;
 }
 .cmp-tabs__tabpanel--active {
 }
@@ -81,7 +82,6 @@
     top: 6rem;
     left: 0;
     height: 1rem;
-    padding: 0 1.5rem;
 
     .scrollGizmo {
       width: 10rem;
@@ -106,7 +106,28 @@
   cursor: grabbing !important;
 }
 @media screen and (max-width: $breakpointMobile) {
+  .container .container-content .container .container-content {
+    .tabs {
+      margin-left: -$min-padding;
+      margin-right: -$min-padding;
+    }
+    .cmp-tabs .cmp-tabs-scrollable .cmp-tabs__tablist {
+      padding-left: $min-padding;
+      padding-right: $min-padding;
+    }
+  }
   .cmp-tabs__tab {
     font-size: 1.6rem;
   }
+  .cmp-tabs__tabpanel {
+    padding: 0 $min-padding;
+  }
+}
+.container
+  .container-content
+  .container
+  .container-content
+  .tabs
+  .cmp-tabs-container {
+  max-width: 100%;
 }

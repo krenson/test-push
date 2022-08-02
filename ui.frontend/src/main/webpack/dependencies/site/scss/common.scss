@@ -165,11 +165,15 @@ strong {
   }
 
   header {
-    min-height: 24.1rem;
     display: flex;
+    min-height: 24.1rem;
     flex-direction: column;
     margin-bottom: 3.4rem;
+
     p {
+      margin: 0;
+    }
+    .aem.title-container > * {
       margin: 0;
     }
     .aem.title-container,
@@ -178,25 +182,25 @@ strong {
     .cq-placeholder {
       background: $article-header-backgroud-color;
     }
-    //FORMAPASS-CONFLICT
-    .aem.title-container h1 {
-      background-color: transparent;
-    }
-    //FORMAPASS-CONFLICT
-    .aem.accroche-container p {
-      font-size: 1.8rem;
+    .aem.accroche-container {
+      padding: 1.5rem 0;
     }
 
+    .aem.accroche-container p {
+      font-size: 1.8rem;
+      padding-top: 1rem;
+      display: block;
+    }
     .aem.title-container h1,
     .aem.accroche-container p {
       margin: 0 auto;
       @include max-width;
     }
-
     > *:last-child {
       flex-grow: 1;
       background: $article-header-backgroud-color;
     }
+
     .aem.accroche-container p {
       padding-top: 1rem;
       display: block;
@@ -293,4 +297,197 @@ strong {
 .contentCentered.he {
   @include max-width;
   margin: 0 auto;
+}
+
+.maxWidth .container-content {
+  @include max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.background-Yellow {
+  background: $article-header-backgroud-color;
+  &.partial-background::after {
+    background: $article-header-backgroud-color;
+  }
+}
+
+.background-Yellow2 {
+  background: #fcf9f4;
+
+  &.partial-background::after {
+    background: #fcf9f4;
+  }
+}
+.background-DarkBlue {
+  background: $primary-colorV2;
+  &.partial-background::after {
+    background: $primary-colorV2;
+  }
+}
+
+.header-minHeight {
+  min-height: 32.6rem !important;
+}
+
+.padding-bottom {
+  padding-bottom: 2rem;
+}
+
+.container .container-content {
+  .aem.rte,
+  .aem.youtube_component,
+  .aem.image_component,
+  .groupPaves.aem > div,
+  .aem.forms,
+  .aem.search-google-header form.gsc-search-box.gsc-search-box-tools,
+  .aem.linkLists .linkLists-container,
+  .aem.multiComponent,
+  .aem.MDElist,
+  .aem.pave,
+  .aem.paveAuto,
+  .aem#filAriane .filArianeContainer,
+  .aem .groupTuilesHaut .haut-container,
+  .aem .groupTuilesBas .bas-container,
+  .aem.bottom1b .linkLists {
+    max-width: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+  .aem .groupTuilesHaut,
+  .aem .groupTuilesBas,
+  .aem.linkLists {
+    background-color: transparent;
+  }
+}
+
+.partial-background {
+  min-height: initial !important;
+  margin-bottom: 0 !important;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20rem;
+    height: 20rem;
+    width: 100%;
+
+    z-index: -1;
+  }
+  .container-content {
+    padding-bottom: 0 !important;
+  }
+}
+
+.container .container-content {
+  .container
+    > .container-content
+    .aem.image_component:first-child
+    .img_container.aem,
+  .container
+    > .container-content
+    > div
+    > .aem.image_component
+    .img_container.aem,
+  .container > .container-content .aem.youtube_container:first-child,
+  .container > .container-content > div > .aem.youtube_container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+header .container-content {
+  .aem#filAriane .filArianeContainer,
+  .aem#filAriane .filArianeContainer a,
+  .aem#filAriane .filArianeContainer span,
+  .aem.title-container,
+  .aem.title-container h1,
+  .aem.accroche-container {
+    padding-top: 0 !important;
+  }
+  .aem.accroche-container .accroche {
+    padding-top: 1rem !important;
+  }
+
+  .aem#filAriane .filArianeContainer,
+  .aem.title-container h1,
+  .aem.accroche-container .accroche {
+    max-width: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+  .aem#filAriane,
+  .aem.title-container,
+  .aem.accroche-container {
+    background-image: none;
+  }
+
+  background: transparent !important;
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .centrePage header {
+    min-height: initial !important;
+    .container-content {
+    }
+    > div.container-content:first-child {
+      padding-top: 0;
+    }
+    > div:last-child {
+      padding-bottom: 1.5rem;
+    }
+  }
+  .partial-background {
+    &::after {
+      bottom: -10rem;
+      height: 10rem;
+    }
+  }
+}
+
+.container .container-content .container .container-content {
+  padding: 0;
+}
+.twoCol > .container-content {
+  display: flex;
+
+  gap: $gapSize;
+}
+
+.twoCol.smallRight > .container-content > .container:nth-child(2),
+.twoCol.smallLeft > .container-content > .container:nth-child(1) {
+  min-width: $colSize;
+  max-width: $colSize;
+}
+
+.twoCol.smallRight > .container-content > .container:nth-child(1),
+.twoCol.smallLeft > .container-content > .container:nth-child(2) {
+  max-width: calc(100% - #{$colSize} - #{$gapSize});
+  flex-grow: 1;
+}
+.offsetTop {
+  transform: translateY(-10rem);
+}
+@media screen and (max-width: $breakpointMobile) {
+  .twoCol.smallRight > .container-content > .container:nth-child(1) {
+    max-width: none;
+  }
+  .twoCol.smallRight > .container-content > .container:nth-child(2) {
+    min-width: 0;
+    margin-top: 2rem;
+  }
+  .twoCol > .container-content {
+    gap: 0;
+
+    flex-direction: column;
+    > .container {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+  .offsetTop {
+    transform: translateY(0);
+  }
 }
