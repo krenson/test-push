@@ -1,0 +1,113 @@
+div#rechercheMetier {
+  & > div,
+  .title-container,
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .title-container {
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .searchContainer {
+    width: 80%;
+    margin-bottom: 5rem;
+
+    .searchbox {
+      position: relative;
+      width: 100%;
+
+      filter: drop-shadow(-2px 2px 1px #ebe0ce);
+
+      input {
+        width: 100%;
+        border: none;
+        padding: 1.5rem;
+        border-radius: 15px;
+        font-style: italic;
+        border: solid 0.05rem #dfcab0;
+
+        &:focus,
+        &:focus-visible {
+          outline-width: 0;
+        }
+      }
+    }
+
+    .searchSuggestions {
+      display: none;
+      width: 95%;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 15px;
+      border: solid 0.05rem #dfcab0;
+    }
+  }
+
+  input:focus + .searchSuggestions,
+  input:focus-visible + .searchSuggestions {
+    display: block;
+
+    div.chips.chips-secondary {
+      display: inline-flex;
+    }
+  }
+
+  div.aem.mobileSearchBtn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  div#rechercheMetier {
+    .title-container {
+      h1 {
+        display: none;
+      }
+
+      h5 {
+        text-align: center;
+        font-size: 1.8rem;
+      }
+    }
+
+    .searchContainer {
+      margin-bottom: 1rem;
+
+      input {
+        border: solid 0.05rem #dfcab0;
+
+        &:focus,
+        &:focus-visible {
+          outline-width: 0;
+        }
+      }
+    }
+
+    .aem {
+      width: 100%;
+      margin-top: 1.5rem;
+
+      button,
+      .icone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        color: #363d4a;
+        font-weight: 550;
+        width: 80%;
+      }
+    }
+  }
+}

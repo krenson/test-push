@@ -1,0 +1,20 @@
+{
+  "name": "aem-leforem-horizons-emploi",
+  "version": "1.0.0",
+  "description": "This is a project for AEM-based Le Forem Horizons Emploi Site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/realdolmen-gfi/aem-leforem-horizons-emploi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/realdolmen-gfi/aem-leforem-horizons-emploi/issues"
+  },
+  "homepage": "https://gitlab.com/realdolmen-gfi/aem-leforem-horizons-emploi#readme"
+}
