@@ -21,23 +21,55 @@ div#rechercheMetier {
     width: 80%;
     margin-bottom: 5rem;
 
-    .searchbox {
-      position: relative;
-      width: 100%;
+    .helpText {
+      display: flex;
+      align-items: center;
+      align-self: flex-end;
 
-      filter: drop-shadow(-2px 2px 1px #ebe0ce);
+      .icone {
+        display: flex;
+        width: 4.4rem;
+        height: 4.4rem;
+      }
+    }
+
+    .searchbox {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 1.4rem;
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fcf9f4 0% 0% no-repeat padding-box;
+      box-shadow: 0px 1px 3px #00000029;
 
       input {
         width: 100%;
-        border: none;
-        padding: 1.5rem;
-        border-radius: 15px;
-        font-style: italic;
-        border: solid 0.05rem #dfcab0;
+        height: 6rem;
 
+        padding: 1.5rem;
+        border-radius: 10px;
+        font-style: italic;
+        border: solid 0.1rem #dbc2a4;
+        background: #ffffff 0% 0% no-repeat padding-box;
         &:focus,
         &:focus-visible {
           outline-width: 0;
+        }
+      }
+
+      .desktopSearchBtn {
+        margin: 0;
+        width: fit-content;
+        display: flex;
+        justify-content: end;
+        button {
+          width: 6rem;
+          height: 6rem;
+
+          display: flex;
+          justify-content: center;
         }
       }
     }
