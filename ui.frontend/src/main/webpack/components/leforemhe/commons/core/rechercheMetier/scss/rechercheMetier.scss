@@ -1,4 +1,7 @@
 div#rechercheMetier {
+  .background-Yellow {
+    padding: 10rem 0rem;
+  }
   & > div,
   .title-container,
   .searchContainer {
@@ -24,7 +27,7 @@ div#rechercheMetier {
     .helpText {
       display: flex;
       align-items: center;
-      align-self: flex-end;
+      justify-content: end;
 
       .icone {
         display: flex;
@@ -59,7 +62,7 @@ div#rechercheMetier {
         }
       }
 
-      .desktopSearchBtn {
+      .searchBtn {
         margin: 0;
         width: fit-content;
         display: flex;
@@ -92,34 +95,47 @@ div#rechercheMetier {
       display: inline-flex;
     }
   }
-
-  div.aem.mobileSearchBtn {
-    display: none;
-  }
 }
 
 @media screen and (max-width: $breakpointMobile) {
   div#rechercheMetier {
-    .title-container {
-      h1 {
-        display: none;
-      }
+    margin-top: 12rem;
+    .background-Yellow {
+      padding: 1rem 2rem;
 
-      h5 {
-        text-align: center;
-        font-size: 1.8rem;
+      &::after {
+        content: "";
+        padding-bottom: 10rem;
       }
     }
 
+    position: relative;
     .searchContainer {
+      width: 100%;
       margin-bottom: 1rem;
+      position: absolute;
+      bottom: -10rem;
+      padding: 0rem 2rem;
 
-      input {
-        border: solid 0.05rem #dfcab0;
+      .searchbox {
+        gap: 1.5rem;
+        padding: 1.5rem;
+        flex-direction: column;
 
-        &:focus,
-        &:focus-visible {
-          outline-width: 0;
+        .searchBtn {
+          width: 100%;
+
+          button {
+            width: 100%;
+
+            img {
+              display: none;
+            }
+
+            &::after {
+              content: "Rechercher";
+            }
+          }
         }
       }
     }
