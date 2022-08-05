@@ -606,10 +606,27 @@
       </div>
 
       <div class="searchbox">
-        <input
-          type="text"
-          placeholder="Rechercher par mots-cles, métiers, numéro"
-        />
+        <div>
+          <input
+            onkeyup="getValue(this)"
+            id="searchInput"
+            type="text"
+            placeholder="Rechercher par mots-cles, métiers, numéro"
+          />
+
+          <div id="searchSuggestions" class="aem searchSuggestions">
+            <button
+              onclick="suggestionClick(this)"
+              id="suggeBtn"
+              class="chip-button"
+              style="background-color: #d9eff0"
+            >
+              Ajouter:
+            </button>
+          </div>
+
+          <div id="valueChips" class="aem valueChips"></div>
+        </div>
 
         <div class="aem searchBtn">
           <button class="btn btn-primary">
@@ -619,12 +636,10 @@
           </button>
         </div>
       </div>
-
-      <div class="aem searchSuggestions">
-        <div class="chips chips-secondary">Exemple</div>
-        <div class="chips chips-secondary">Exemple</div>
-        <div class="chips chips-secondary">Exemple</div>
-      </div>
     </div>
   </div>
 </div>
+<script
+  type="text/javascript"
+  src="http://dispatcher.realdolmen.com/clientlib-site/resources/js/rechercheMetier/rechercheMetier.js"
+></script>

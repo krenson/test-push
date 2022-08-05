@@ -24,6 +24,8 @@ div#rechercheMetier {
     width: 80%;
     margin-bottom: 5rem;
 
+    position: relative;
+
     .helpText {
       width: 100%;
       display: flex;
@@ -48,18 +50,48 @@ div#rechercheMetier {
       background: #fcf9f4 0% 0% no-repeat padding-box;
       box-shadow: 0px 1px 3px #00000029;
 
-      input {
+      div {
         width: 100%;
-        height: 6rem;
+        position: relative;
+        z-index: 1;
+        input {
+          width: 100%;
+          height: 6rem;
 
-        padding: 1.5rem;
-        border-radius: 10px;
-        font-style: italic;
-        border: solid 0.1rem #dbc2a4;
-        background: #ffffff 0% 0% no-repeat padding-box;
-        &:focus,
-        &:focus-visible {
-          outline-width: 0;
+          padding: 1.5rem;
+          border-radius: 10px;
+          font-style: italic;
+          border: solid 0.1rem #dbc2a4;
+          background: #ffffff 0% 0% no-repeat padding-box;
+          &:focus,
+          &:focus-visible {
+            outline-width: 0;
+          }
+        }
+
+        .searchSuggestions,
+        .valueChips {
+          display: none;
+          position: absolute;
+          z-index: -1;
+
+          top: 4rem;
+
+          background-color: white;
+          padding: 1rem;
+          padding-top: 3rem;
+          border-radius: 15px;
+          border: solid 0.05rem #dfcab0;
+
+          .chips,
+          button {
+            width: fit-content;
+            margin: 0.5rem;
+          }
+        }
+
+        .valueChips {
+          z-index: -2;
         }
       }
 
@@ -76,24 +108,6 @@ div#rechercheMetier {
           justify-content: center;
         }
       }
-    }
-
-    .searchSuggestions {
-      display: none;
-      width: 95%;
-      background-color: white;
-      padding: 1rem;
-      border-radius: 15px;
-      border: solid 0.05rem #dfcab0;
-    }
-  }
-
-  input:focus + .searchSuggestions,
-  input:focus-visible + .searchSuggestions {
-    display: block;
-
-    div.chips.chips-secondary {
-      display: inline-flex;
     }
   }
 }
@@ -122,6 +136,12 @@ div#rechercheMetier {
         gap: 1.5rem;
         padding: 1.5rem;
         flex-direction: column;
+
+        .searchSuggestions,
+        .valueChips {
+          padding-top: unset;
+          display: none !important;
+        }
 
         .searchBtn {
           width: 100%;
