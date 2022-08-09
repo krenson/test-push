@@ -2,9 +2,8 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.leforemhe.aem.site.core.models.pojo.ContentFragmentActivites;
-import com.sun.security.auth.module.LdapLoginModule;
-import org.apache.poi.ss.formula.functions.T;
+import com.leforemhe.aem.site.core.models.pojo.ContentFragmentModel;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -22,6 +21,7 @@ import java.util.*;
 public class ContentFragmentUtilService {
 
     public static final String ELEMENT_TITLE = "titre";
+    public static final String ELEMENT_SYNONYMES = "synonymes";
 
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -67,10 +67,10 @@ public class ContentFragmentUtilService {
         return getContentFragmentsWithKeyProfessionFromList(damContentFragments, contentFragmentId);
     }
 
-    public List<ContentFragmentActivites> convertLisContentFragmentToActivites(List<ContentFragment> contentFragments) {
-        List<ContentFragmentActivites> contentFragmentActivites = new ArrayList<>();
+    public List<ContentFragmentModel> convertLisContentFragmentToActivites(List<ContentFragment> contentFragments) {
+        List<ContentFragmentModel> contentFragmentActivites = new ArrayList<>();
         for (ContentFragment contentFragment : contentFragments) {
-            contentFragmentActivites.add(new ContentFragmentActivites(contentFragment));
+            contentFragmentActivites.add(new ContentFragmentModel(contentFragment));
         }
         return contentFragmentActivites;
     }
@@ -108,4 +108,5 @@ public class ContentFragmentUtilService {
 
         return contentFragmentData;
     }
+
 }

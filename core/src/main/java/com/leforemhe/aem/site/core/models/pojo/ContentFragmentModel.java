@@ -1,14 +1,13 @@
 package com.leforemhe.aem.site.core.models.pojo;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.adobe.cq.wcm.core.components.models.ListItem;
 
 import java.util.List;
 
 /**
  * Content Fragment Model Activites
  */
-public class ContentFragmentActivites implements ListItem {
+public class ContentFragmentModel {
 
 
     private String title;
@@ -19,18 +18,18 @@ public class ContentFragmentActivites implements ListItem {
     /**
      * Model for ContentFragment Activites
      */
-    public ContentFragmentActivites(ContentFragment contentFragment) {
+    public ContentFragmentModel(ContentFragment contentFragment) {
         this.title = contentFragment.getElement("description").getValue().getValue().toString();
         this.id = contentFragment.getElement("codeActivite").getValue().getValue().toString();
     }
 
-    @Override
+
     public String getId() {
         return this.id;
     }
 
-    @Override
     public String getTitle() {
         return this.title;
     }
+
 }
