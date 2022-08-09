@@ -1,11 +1,12 @@
 package com.leforemhe.aem.site.core.models;
 
-import com.adobe.cq.dam.cfm.ContentFragment;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
-import com.adobe.cq.wcm.core.components.models.Accordion;
+import com.adobe.cq.wcm.core.components.models.List;
+import com.adobe.cq.wcm.core.components.models.ListItem;
+import com.adobe.cq.wcm.core.components.models.Title;
 import com.day.cq.wcm.api.Page;
-import com.leforemhe.aem.site.core.models.pojo.ContentFragmentModel;
+import com.drew.lang.annotations.NotNull;
 import com.leforemhe.aem.site.core.services.ContentFragmentConfigService;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -17,18 +18,20 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
 
 import javax.inject.Inject;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
 
 @Model(
         adaptables = SlingHttpServletRequest.class,
-        adapters = { AccordionModelCF.class, ComponentExporter.class},
-        resourceType = AccordionModelCFImpl.RESOURCE_TYPE,
+        adapters = { ListModelCF.class, ComponentExporter.class},
+        resourceType = ListModelCFImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
-public class AccordionModelCFImpl implements AccordionModelCF {
+public class ListModelCFImpl implements ListModelCF {
 
-    static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/accordion";
+    static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/list";
 
     @Inject
     private ContentFragmentUtilService contentFragmentUtilService;
@@ -41,12 +44,15 @@ public class AccordionModelCFImpl implements AccordionModelCF {
 
     @Self
     @Via(type = ResourceSuperType.class)
-    private Accordion accordion;
+    private List list;
 
-    public List<ContentFragmentModel> getActivities() {
+    public String[] getSynonymes() {
         String cleMetier = currentPage.getProperties().get("clemetier").toString();
-        List<ContentFragment> contentFragments = contentFragmentUtilService.getContentFragmentsByIdAndModel(cleMetier, contentFragmentConfigService.getConfig().modelActivitesPath());
-        return contentFragmentUtilService.convertLisContentFragmentToActivites(contentFragments);
+        String[] contentElements = {ContentFragmentUtilService.ELEMENT_SYNONYMES};
+
+        Map<String, Object> dataFromCF = contentFragmentUtilService.getContentFromContentFragment(cleMetier, contentFragmentConfigService.getConfig().modelMetierPath(), contentElements);
+
+        return (String[]) dataFromCF.get(contentElements[0]);
     }
 
 }
