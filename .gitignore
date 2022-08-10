@@ -124,3 +124,6 @@ data
 dispatcher/out
 out
 err
+
+# Cache
+.cache
