@@ -34,16 +34,6 @@
                                         <items jcr:primaryType="nt:unstructured">
                                             <title
                                                     jcr:primaryType="nt:unstructured"/>
-                                            <types
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
-                                                    value="h1"
-                                                    name="./type"/>
-                                            <defaulttypes
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
-                                                    value="h1"
-                                            />
 
                                             <linkURL
                                                     jcr:primaryType="nt:unstructured"
