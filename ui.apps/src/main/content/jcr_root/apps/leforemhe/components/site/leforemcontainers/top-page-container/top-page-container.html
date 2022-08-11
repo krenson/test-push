@@ -8,7 +8,7 @@
              data-sly-test="${isAllowedApplicable}"
              data-sly-use.allowedTemplate="leforemhe/components/site/container/allowedcomponents.html"
              data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
-        <header data-sly-test="${!isAllowedApplicable}">
+        <header class="container maxWidth background-Yellow header-minHeight" data-sly-test="${!isAllowedApplicable}">
             <sly data-sly-test="${!isAllowedApplicable}"
                  data-sly-repeat="${container.items}"
                  data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
