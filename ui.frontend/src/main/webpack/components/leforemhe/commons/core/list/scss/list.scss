@@ -193,6 +193,7 @@
     font-weight: 600;
     font-size: 1.9rem;
     margin-bottom: 1rem;
+    margin-left: 1.6rem;
   }
 
   .list ul {
@@ -202,5 +203,14 @@
   .list ol > li,
   .list ul > li {
     margin-bottom: 1rem;
+    padding-left: 2.5rem;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .activitéListContainer {
+    h1 {
+      margin-left: 2.5rem;
+    }
   }
 }
