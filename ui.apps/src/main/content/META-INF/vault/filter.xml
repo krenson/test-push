@@ -19,4 +19,7 @@
     <filter root="/apps/cq/spellchecker/dictionaries"  mode="merge"/>
     <filter root="/apps/cq/gui"  mode="merge"/>
 
+    <!-- HE new tagging field -->
+    <filter root="/apps/cq/tagging"  mode="merge"/>
+
 </workspaceFilter>

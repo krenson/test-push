@@ -2,7 +2,9 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.day.cq.tagging.TagManager;
 import com.leforemhe.aem.site.core.models.pojo.ContentFragmentModel;
+import com.leforemhe.aem.site.core.models.pojo.Tag;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -12,7 +14,9 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * Content fragment utility service
@@ -23,6 +27,7 @@ public class ContentFragmentUtilService {
     public static final String ELEMENT_TITLE = "titre";
     public static final String ELEMENT_SYNONYMES = "synonymes";
     public static final String ELEMENT_ACCROCHE = "description";
+    public static final String ELEMENT_ETIQUETTES = "etiquettes";
 
     @Reference
     private ResourceResolverFactory resolverFactory;
@@ -74,6 +79,28 @@ public class ContentFragmentUtilService {
             contentFragmentActivites.add(new ContentFragmentModel(contentFragment));
         }
         return contentFragmentActivites;
+    }
+
+    public List<Tag> convertListTagsNamesToListTags(String[] tagNames) {
+        ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+
+        // get the tag resource from tagNames
+        List<Tag> tags = new ArrayList<>();
+
+        for (String tagName : tagNames) {
+            String[] pathParts = tagName.split(":");
+
+            String path = String.format("/content/cq:tags/%s/%s", pathParts[0], pathParts[1]);
+            Resource tagResource = resourceResolver.getResource(path);
+
+            String color = tagResource.getValueMap().get("backgroundColor") != null ? tagResource.getValueMap().get("backgroundColor").toString() : "#ffff00";
+            String title = tagResource.getValueMap().get("jcr:title").toString();
+
+            tags.add(new Tag(title, color));
+        }
+
+        return tags;
     }
 
     private List<ContentFragment> getContentFragmentsWithKeyProfessionFromList(Iterator<Resource> initialList, String keyProfession) {
