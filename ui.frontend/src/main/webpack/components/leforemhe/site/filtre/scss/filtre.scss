@@ -18,6 +18,8 @@
       }
 
       .cmp-teaser__image {
+        min-width: 4rem;
+        min-width: 4rem;
         width: 4rem;
         height: 4rem;
         margin: 0%;
@@ -84,10 +86,29 @@
   display: flex !important;
   gap: 1rem;
 
-  .cmp-teaser__image .cmp-image img {
-    height: unset;
-    width: unset;
+  .filter-container {
+    .filter-header {
+      justify-content: unset;
+
+      h1 {
+        font-weight: 600;
+        font-size: 2.4rem;
+      }
+
+      .cmp-teaser__image {
+        min-width: 4rem;
+        min-height: 4rem;
+        width: 4rem;
+        height: 4rem;
+
+        .cmp-image {
+          width: 1.88rem;
+          height: 1.7rem;
+        }
+      }
+    }
   }
+
   .contentCentered {
     display: none;
   }
