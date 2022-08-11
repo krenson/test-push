@@ -27,7 +27,7 @@ $max-width-two-colum: calc(
   #{$global-two-colum-max-with} + calc(#{$min-padding} * 2)
 );
 
-$colSize: 48rem;
+$colSize: 48.5rem;
 $gapSize: 10rem;
 @mixin max-width {
   max-width: $max-width;
