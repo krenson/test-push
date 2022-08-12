@@ -1,4 +1,4 @@
 <div class="aem accroche-container">
     <p class="accroche" data-sly-test="${properties.text}">${properties.text}</p>
 </div>
-<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-sly-call="${templates.placeholder @ isEmpty = !properties.text}"></div>
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" data-sly-call="${templates.placeholder @ isEmpty = !properties.text}"></sly>
