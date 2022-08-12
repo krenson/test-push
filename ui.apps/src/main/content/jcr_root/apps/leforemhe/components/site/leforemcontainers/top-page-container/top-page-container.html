@@ -19,6 +19,7 @@
       data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"
     ></sly>
     <header data-sly-test="${!isAllowedApplicable}">
+      <div class="container-content">
       <sly
         data-sly-test="${!isAllowedApplicable}"
         data-sly-repeat="${container.items}"
@@ -28,6 +29,7 @@
         data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
         data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"
       />
+      </div>
     </header>
   </div>
 </sly>
