@@ -371,6 +371,8 @@ strong {
     background-color: transparent;
   }
 
+  .aem.accroche-container {
+  }
   .chip-container {
     display: flex;
     .aem .chip-button,
@@ -448,6 +450,14 @@ header .container-content {
   .aem.title-container,
   .aem.accroche-container {
     background-image: none;
+  }
+
+  .aem.title-container {
+    margin-bottom: 1rem;
+  }
+
+  .aem.accroche-container {
+    padding: 0;
   }
 
   background: transparent !important;
