@@ -488,6 +488,16 @@ header .container-content {
     > .container-content
     > .container:nth-child(1) {
     max-width: none;
+
+    .container .container-content .container .container-content {
+      .chip-container {
+        display: block;
+
+        .chip-button {
+          margin: 0.5rem;
+        }
+      }
+    }
   }
 
   .twoCol.smallRight
