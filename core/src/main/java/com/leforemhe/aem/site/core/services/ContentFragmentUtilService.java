@@ -2,10 +2,8 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.day.cq.tagging.TagManager;
 import com.leforemhe.aem.site.core.models.pojo.ContentFragmentModel;
 import com.leforemhe.aem.site.core.models.pojo.Tag;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -14,7 +12,6 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
@@ -83,7 +80,7 @@ public class ContentFragmentUtilService {
 
     public List<Tag> convertListTagsNamesToListTags(String[] tagNames) {
         ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        LOG.debug("Inside get tags with resource resolver: {}", resourceResolver);
 
         // get the tag resource from tagNames
         List<Tag> tags = new ArrayList<>();
@@ -93,6 +90,8 @@ public class ContentFragmentUtilService {
 
             String path = String.format("/content/cq:tags/%s/%s", pathParts[0], pathParts[1]);
             Resource tagResource = resourceResolver.getResource(path);
+
+            LOG.debug("searching for tag {}, resource found: {}", path, tagResource);
 
             String color = tagResource.getValueMap().get("backgroundColor") != null ? tagResource.getValueMap().get("backgroundColor").toString() : "#ffff00";
             String title = tagResource.getValueMap().get("jcr:title").toString();

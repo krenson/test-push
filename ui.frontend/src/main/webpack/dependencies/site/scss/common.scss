@@ -501,20 +501,20 @@ header .container-content {
 .container .container-content .container .container-content {
   padding: 0;
 }
-.twoCol > .container-content {
+.twoCol > .cmp-container > .container-content {
   display: flex;
 
   gap: $gapSize;
 }
 
-.twoCol.smallRight > .container-content > .container:nth-child(2),
-.twoCol.smallLeft > .container-content > .container:nth-child(1) {
+.twoCol.smallRight > .cmp-container > .container-content > .container:nth-child(2),
+.twoCol.smallLeft > .cmp-container > .container-content > .container:nth-child(1) {
   min-width: $colSize;
   max-width: $colSize;
 }
 
-.twoCol.smallRight > .container-content > .container:nth-child(1),
-.twoCol.smallLeft > .container-content > .container:nth-child(2) {
+.twoCol.smallRight > .cmp-container > .container-content > .container:nth-child(1),
+.twoCol.smallLeft > .cmp-container > .container-content > .container:nth-child(2) {
   max-width: calc(100% - #{$colSize} - #{$gapSize});
   flex-grow: 1;
 }
@@ -535,11 +535,11 @@ header .container-content {
   .twoCol.smallRight > .container-content > .container:nth-child(1) {
     max-width: none;
   }
-  .twoCol.smallRight > .container-content > .container:nth-child(2) {
+  .twoCol.smallRight > .cmp-container > .container-content > .container:nth-child(2) {
     min-width: 0;
     margin-top: 2rem;
   }
-  .twoCol > .container-content {
+  .twoCol > .cmp-container > .container-content {
     gap: 0;
 
     flex-direction: column;

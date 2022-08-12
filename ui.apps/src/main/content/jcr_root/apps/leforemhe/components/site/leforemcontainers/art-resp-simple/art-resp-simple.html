@@ -11,7 +11,7 @@
         <article data-sly-test="${!isAllowedApplicable}">
             <sly data-sly-test="${!isAllowedApplicable}"
                  data-sly-repeat="${container.items}"
-                 data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
+                 data-sly-resource="${item.path @ decoration=true}"></sly>
             <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
                  data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
         </article>
