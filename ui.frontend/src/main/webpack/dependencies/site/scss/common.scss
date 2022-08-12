@@ -104,12 +104,15 @@ strong {
 .aem .img_container {
   max-width: 96rem;
   width: 100%;
-  margin: 3rem 0;
+  margin: 0;
+  margin-top: 4rem !important;
+  margin-bottom: 2rem;
   border-radius: 0px 0px 2.3rem 0px;
   overflow: hidden;
   .image {
-    width: 100%;
-    height: 100%;
+    min-width: 49rem;
+    max-width: 96rem;
+    height: 50rem;
     padding-bottom: 56.5%;
     position: relative;
 
@@ -176,6 +179,11 @@ strong {
     .aem.title-container > * {
       margin: 0;
     }
+
+    div.aem.title-container {
+      margin-bottom: 1rem;
+    }
+
     .aem.title-container,
     .aem.accroche-container,
     .aem.search-google-header,
@@ -225,6 +233,8 @@ strong {
 }
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
+    padding: 2rem 0rem;
+
     .filArianeContainer {
       font-size: 0;
 
@@ -360,6 +370,24 @@ strong {
   .aem.linkLists {
     background-color: transparent;
   }
+
+  .aem.accroche-container {
+  }
+  .chip-container {
+    display: flex;
+    .aem .chip-button,
+    .aem button.chip-button {
+      &:first-child {
+        margin-left: 0rem !important;
+      }
+    }
+  }
+
+  div.aem.rte {
+    p:first-child {
+      margin-top: 2rem;
+    }
+  }
 }
 
 .partial-background {
@@ -370,7 +398,7 @@ strong {
     content: "";
     position: absolute;
     bottom: -20rem;
-    height: 20rem;
+    height: 29rem;
     width: 100%;
 
     z-index: -1;
@@ -424,6 +452,14 @@ header .container-content {
     background-image: none;
   }
 
+  .aem.title-container {
+    margin-bottom: 1rem;
+  }
+
+  .aem.accroche-container {
+    padding: 0;
+  }
+
   background: transparent !important;
 }
 
@@ -439,10 +475,25 @@ header .container-content {
       padding-bottom: 1.5rem;
     }
   }
+
+  .container .container-content .container .container-content {
+    div.aem.rte {
+      p:first-child {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
   .partial-background {
     &::after {
       bottom: -10rem;
       height: 10rem;
+    }
+  }
+  div.image_component {
+    .img_container {
+      margin: 1rem 0rem !important;
     }
   }
 }
@@ -483,10 +534,24 @@ header .container-content {
   transform: translateY(-10rem);
 }
 @media screen and (max-width: $breakpointMobile) {
+
+  .container .container-content .container .container-content {
+    .chip-container {
+      display: block;
+
+      .chip-button {
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  
+
   .twoCol.smallRight
     > .cmp-container
     > .container-content
     > .container:nth-child(1) {
+
     max-width: none;
 
     .container .container-content .container .container-content {

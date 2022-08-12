@@ -28,6 +28,7 @@
     padding-left: 0;
     padding-right: 0;
     .cmp-tabs-container {
+      margin-bottom: 1rem;
       height: auto;
       overflow-y: initial;
     }
@@ -121,6 +122,14 @@
   }
   .cmp-tabs__tabpanel {
     padding: 0 $min-padding;
+  }
+  .cmp-tabs-container {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  div.tabs.panelcontainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 .container
