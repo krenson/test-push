@@ -9,11 +9,13 @@
              data-sly-use.allowedTemplate="leforemhe/components/site/container/allowedcomponents.html"
              data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
         <header class="container maxWidth background-Yellow header-minHeight" data-sly-test="${!isAllowedApplicable}">
-            <sly data-sly-test="${!isAllowedApplicable}"
-                 data-sly-repeat="${container.items}"
-                 data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
-            <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
-                 data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
+            <div class="container-content">
+                <sly data-sly-test="${!isAllowedApplicable}"
+                     data-sly-repeat="${container.items}"
+                     data-sly-resource="${item.path @ decoration=!wcmmode.disabled}"></sly>
+                <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
+                     data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}"/>
+            </div>
         </header>
     </div>
 </sly>
