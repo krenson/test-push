@@ -48,6 +48,7 @@ if (tabs != null) {
       scrollgizmo.style.width =
         (stylingList.offsetWidth * scrollLength) / 100 + "px";
       stylingList.addEventListener("wheel", function (e) {
+        e.preventDefault();
         stylingList.scrollLeft = stylingList.scrollLeft + e.deltaY / 2;
         var offsetPourcentage =
           (stylingList.scrollLeft * 100) /

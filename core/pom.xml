@@ -26,7 +26,7 @@
     <parent>
         <groupId>com.leforemhe.aem.site</groupId>
         <artifactId>leforemhe-site</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -268,5 +268,6 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
         </dependency>
+
     </dependencies>
 </project>

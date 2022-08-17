@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.leforemhe.aem.site.core.services.*;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.apache.sling.api.resource.Resource;
