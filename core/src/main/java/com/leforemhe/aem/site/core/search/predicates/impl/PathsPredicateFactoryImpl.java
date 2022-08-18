@@ -20,8 +20,8 @@ import java.util.Map;
 )
 public class PathsPredicateFactoryImpl implements PredicateFactory {
     public static final String PN_SEARCH_PATHS = "searchPaths";
-    public static final String DEFAULT_SEARCH_PATH = "/content";
-    public static final String SAFEGUARD_SEARCH_PATH = "/content";
+    public static final String DEFAULT_SEARCH_PATH = "/content/leforemhe";
+    public static final String SAFEGUARD_SEARCH_PATH = "/content/leforemhe";
     private static final Logger log = LoggerFactory.getLogger(PathsPredicateFactoryImpl.class);
 
     @Override

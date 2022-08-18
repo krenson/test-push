@@ -13,7 +13,6 @@ $(function() {
         var $form = $(this).closest('form'),
             $lists = $form.find('[data-quick-lists]'),
             $list = $form.find('[data-quick-suggestions]');
-        console.log("Running quick-suggestions...");
 
         if($form.data('quick-suggestions-enabled') === true) {
 
@@ -35,7 +34,7 @@ $(function() {
         var $form = $(this).closest('form'),
             $lists = $form.find('[data-quick-lists]'),
             $list = $form.find('[data-quick-results]');
-        console.log("Running quick-search-results...");
+
         if($form.data('quick-search-results-enabled') === true) {
         $.get($form.data('quick-search-results'), $form.serialize(), function(data) {
             $list.find('dd').remove();
@@ -54,7 +53,6 @@ $(function() {
         var $form = $(this).closest('form'),
             $searchField = $form.find('input[name=q]'),
             autoComplete = $(this).text();
-        console.log("Running search-field...");
 
         $searchField.val(autoComplete);
         $form.submit();
