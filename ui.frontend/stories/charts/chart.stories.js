@@ -1,6 +1,7 @@
 import chart from "./chart.html";
 import lineChartExample from "./lineChartExample.html";
 import barChartExample from "./barChartExample.html";
+import doughnutChartExample from "./doughnutChartExample.html";
 import { storiesOf } from "@storybook/html";
 
 storiesOf("AEM Components/chart", chart).add("Chart", () => chart);
@@ -13,4 +14,9 @@ storiesOf("AEM Components/chart", lineChartExample).add(
 storiesOf("AEM Components/chart", barChartExample).add(
   "Bar Chart Example",
   () => barChartExample
+);
+
+storiesOf("AEM Components/chart", doughnutChartExample).add(
+  "Doughnut Chart Example",
+  () => doughnutChartExample
 );

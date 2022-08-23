@@ -36,7 +36,8 @@ var lineChartConfig = {
         label: "My First Dataset",
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        backgroundColor: colors[0],
+        borderColor: colorBorders[0],
         tension: 0,
       },
     ],
@@ -44,3 +45,5 @@ var lineChartConfig = {
 };
 
 var lineChart = new Chart(myLineChart, lineChartConfig);
+Chart.defaults.font.family = "Poppins";
+Chart.defaults.font.size = 15;
