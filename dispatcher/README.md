@@ -21,7 +21,7 @@ If symlinks are not created you will get an error. In order to avoid it you need
  $ cmd /c mklink /d leforemhe.farm ..\available_farms\leforemhe.farm
    
  $ cd src\conf.d\enabled_vhosts
- $ del leforemhe_author.vhost leforemhe_publish.vhost
+ $ del *.vhost
  $ cmd /c mklink /d leforemhe_author.vhost ..\available_vhosts\leforemhe_author.vhost
  $ cmd /c mklink /d leforemhe_publish.vhost ..\available_vhosts\leforemhe_publish.vhost
  

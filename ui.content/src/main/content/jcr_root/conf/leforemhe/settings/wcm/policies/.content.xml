@@ -611,7 +611,7 @@
                         jcr:title="Page Content Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         ampMode="noAmp"
-                        clientlibs="[leforem.dependencies, leforem.site,leforem.offerSearch]">
+                        clientlibs="[leforemhe.dependencies,leforemhe.site,leforemhe.offerSearch]">
                         <jcr:content
                             cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                             cq:lastReplicatedBy="admin"
@@ -625,7 +625,7 @@
                         jcr:title="Page Article Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         ampMode="noAmp"
-                        clientlibs="[leforem.dependencies, leforem.site]">
+                        clientlibs="[leforemhe.dependencies,leforemhe.site]">
                         <jcr:content
                             cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                             cq:lastReplicatedBy="admin"
@@ -639,7 +639,7 @@
                         jcr:title="PGE_RESP_PHP_CorpsSousApplic Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         ampMode="noAmp"
-                        clientlibs="[leforem.dependencies,leforem.site,leforem.php.application]">
+                        clientlibs="[leforemhe.dependencies,leforemhe.site,leforemhe.php.application]">
                         <jcr:content
                             cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                             cq:lastReplicatedBy="admin"
@@ -653,7 +653,7 @@
                         jcr:title="FORMAPass - Page Content Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         ampMode="noAmp"
-                        clientlibs="[leforem.dependencies, leforem.site, leforem.formapass]">
+                        clientlibs="[leforemhe.dependencies,leforemhe.site,leforemhe.formapass]">
                         <jcr:content
                             cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                             cq:lastReplicatedBy="admin"
@@ -884,8 +884,8 @@
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
                     ampMode="noAmp"
-                    clientlibs="[leforem.dependencies,leforem.site,leforem.offerSearch]"
-                    clientlibsJsHead="leforem.dependencies">
+                    clientlibs="[leforemhe.dependencies,leforemhe.site,leforemhe.offerSearch]"
+                    clientlibsJsHead="leforemhe.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </default_policy>
             </page>
@@ -1326,7 +1326,7 @@
                             jcr:title="Generic Page"
                             sling:resourceType="wcm/core/components/policy/policy"
                             ampMode="noAmp"
-                            clientlibs="[leforem.dependencies,leforem.site,leforem.offerSearch]">
+                            clientlibs="[leforemhe.dependencies,leforemhe.site,leforemhe.offerSearch]">
                             <jcr:content
                                 cq:lastReplicated="{Date}2021-06-16T09:03:59.404+02:00"
                                 cq:lastReplicatedBy="admin"
