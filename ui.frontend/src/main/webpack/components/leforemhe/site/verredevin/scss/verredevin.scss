@@ -1,4 +1,5 @@
-#verredevin {
+#verredevin,
+#verredevin2 {
   display: inline-flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -46,6 +47,132 @@
       text-align: center;
       p {
         margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.verredevin-container {
+  padding: 2rem 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #faf5ec;
+  border-radius: 1rem;
+
+  h4 {
+    font-size: 3.3rem;
+    font-weight: 500;
+  }
+
+  #verredevin2 {
+    border: none;
+  }
+}
+
+div.cmp-accordion {
+  .cmp-accordion__item {
+    border-bottom: none;
+
+    .cmp-accordion__header {
+      .cmp-accordion__button,
+      .cmp-accordion__button .cmp-accordion__button--expanded {
+        justify-content: center;
+        margin: 1rem auto 2rem auto;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .icone {
+            margin-right: 1rem;
+            width: 24px;
+            height: 21px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .cmp-accordion__title {
+            text-decoration: underline;
+          }
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .cmp-accordion__panel,
+    .cmp-accordion__panel--expanded {
+      .text {
+        .chart-details {
+          padding: 1.5rem;
+
+          border-radius: 1rem;
+          background-color: #f7f7f7;
+          display: flex;
+
+          p {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 0;
+            margin: 1rem 0rem;
+          }
+
+          table {
+            width: fit-content;
+            overflow: hidden;
+            border-radius: 1rem;
+            border-collapse: separate;
+            border: solid rgb(222, 202, 173) 0.2rem;
+
+            tr {
+              &:nth-child(2n + 3) {
+                background: rgb(249, 245, 237);
+              }
+
+              th {
+                &:first-child {
+                  border-left: none;
+                }
+                text-align: left;
+                border-left: solid rgb(222, 202, 173) 0.2rem;
+                border-bottom: solid rgb(222, 202, 173) 0.2rem;
+              }
+
+              td,
+              th {
+                padding: 1rem 2rem;
+              }
+            }
+          }
+
+          .close-container {
+            width: 4.4rem;
+            height: 4.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .details-close {
+              height: 1.45rem;
+              width: 1.45rem;
+              mask-image: url($resourcePath + "/images/Close.svg");
+
+              background-color: $primary-colorV2;
+              mask-repeat: no-repeat;
+              mask-size: contain;
+
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
