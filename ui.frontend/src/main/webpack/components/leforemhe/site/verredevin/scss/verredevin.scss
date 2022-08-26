@@ -21,6 +21,7 @@
         height: 3.4rem;
         border: 0.1rem solid #969ca3;
         border-radius: 50%;
+        background-color: white;
       }
       .verredevinmask {
         position: absolute;
@@ -63,8 +64,10 @@
   border-radius: 1rem;
 
   h4 {
-    font-size: 3.3rem;
+    font-size: 3rem;
     font-weight: 500;
+    margin: 0;
+    text-align: center;
   }
 
   #verredevin2 {
@@ -133,6 +136,7 @@ div.cmp-accordion {
             border: solid rgb(222, 202, 173) 0.2rem;
 
             tr {
+              background-color: white;
               &:nth-child(2n + 3) {
                 background: rgb(249, 245, 237);
               }
