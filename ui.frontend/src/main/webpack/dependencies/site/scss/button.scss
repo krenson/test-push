@@ -234,6 +234,20 @@ p > .btn {
     background-color: $blue-button-color-disabled;
   }
 }
+
+@mixin chip-button {
+  border-radius: 1.6rem;
+  font-weight: 400;
+  border: none;
+  min-height: 3.2rem;
+  margin: 1rem 0.5rem;
+  font-size: 1.4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
 .aem {
   .btn,
   button.btn,
@@ -272,6 +286,11 @@ p > .btn {
   .btn-outline,
   button.btn-outline {
     @include outline-button;
+  }
+
+  .chip-button,
+  button.chip-button {
+    @include chip-button();
   }
 }
 @media screen and (max-width: $breakpointMobile) {
@@ -366,6 +385,14 @@ p > .btn {
 
 @media screen and (max-width: $breakpointMobile) {
   .aem .link-icone .icone {
+    height: $link-icone-size-mobile;
+    min-width: $link-icone-size-mobile;
+    width: $link-icone-size-mobile;
+  }
+}
+
+@mixin link-icone-mobile {
+  .icone {
     height: $link-icone-size-mobile;
     min-width: $link-icone-size-mobile;
     width: $link-icone-size-mobile;

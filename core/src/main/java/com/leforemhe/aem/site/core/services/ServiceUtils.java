@@ -1,7 +1,7 @@
 package com.leforemhe.aem.site.core.services;
 
 import com.day.cq.wcm.api.Page;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.Group;
 import org.apache.jackrabbit.api.security.user.UserManager;

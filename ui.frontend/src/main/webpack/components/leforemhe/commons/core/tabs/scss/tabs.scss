@@ -1,6 +1,142 @@
-.cmp-tabs {}
-.cmp-tabs__tablist {}
-.cmp-tabs__tab {}
-.cmp-tabs__tab--active {}
-.cmp-tabs__tabpanel {}
-.cmp-tabs__tabpanel--active {}
+.cmp-tabs {
+  max-width: 100%;
+  padding-bottom: 1rem;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  .cmp-tabs-container {
+    overflow-y: hidden;
+    height: 6.2rem;
+  }
+  .cmp-tabs-scrollable {
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  .cmp-tabs__tablist {
+    /* padding: 0 1rem; */
+    min-width: fit-content;
+    margin: 0;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-bottom: 0.2rem solid $heigt-color;
+  }
+
+  &.mobile {
+    padding-left: 0;
+    padding-right: 0;
+    .cmp-tabs-container {
+      margin-bottom: 1rem;
+      height: auto;
+      overflow-y: initial;
+    }
+  }
+}
+
+.cmp-tabs__tab {
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  height: 5.9rem;
+  border: none;
+  white-space: nowrap;
+  list-style-type: none;
+  counter-increment: none;
+  position: relative;
+  margin: 0;
+  transition: font-weight 0.2s ease-in-out;
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    bottom: -0.3rem;
+    border-radius: 0.2rem;
+    height: 0.4rem;
+  }
+}
+.cmp-tabs__tab--active {
+  /*  border-bottom: 0.4rem solid $tercary-color; */
+  border: none;
+  font-weight: 600;
+  &::after {
+    background-color: $tercary-color;
+  }
+}
+.cmp-tabs.mobile .cmp-tabs__tabpanel {
+}
+.cmp-tabs__tabpanel--active {
+}
+.cmp-tabs.desktop {
+  .tabscrollBar {
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    height: 1rem;
+
+    .scrollGizmo {
+      width: 10rem;
+      top: 0.3rem;
+      height: 0.3rem;
+      background-color: black;
+      opacity: 0.25;
+      border-radius: 0.15rem;
+      position: relative;
+    }
+  }
+  .tabscrollBar.hover {
+    cursor: grab;
+    opacity: 1;
+  }
+  .tabscrollBar.hover.grabbing,
+  .grabbing {
+    cursor: grabbing;
+  }
+}
+.grabbing {
+  cursor: grabbing !important;
+}
+@media screen and (max-width: $breakpointMobile) {
+  .container .container-content .container .container-content {
+    .tabs {
+      margin-left: -$min-padding;
+      margin-right: -$min-padding;
+    }
+    .cmp-tabs .cmp-tabs-scrollable .cmp-tabs__tablist {
+      padding-left: $min-padding;
+      padding-right: $min-padding;
+    }
+  }
+  .cmp-tabs__tab {
+    font-size: 1.6rem;
+  }
+  .cmp-tabs__tabpanel {
+    padding: 0 $min-padding;
+  }
+  .cmp-tabs-container {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  div.tabs.panelcontainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.container
+  .container-content
+  .container
+  .container-content
+  .tabs
+  .cmp-tabs-container {
+  max-width: 100%;
+}

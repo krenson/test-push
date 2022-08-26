@@ -1,0 +1,27 @@
+{
+  "scripts": [
+    "create service user datawrite with path system/leforemhe",
+    "create path /content/experience-fragments/leforemhe(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript(sling:OrderedFolder)",
+    "set ACL for datawrite\n allow jcr:all on /content/experience-fragments/leforemhe/fr/site/javascript\n end",
+    "create path /content/dam/leforemhe(sling:OrderedFolder)",
+    "set ACL for datawrite\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript/crc(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe/fr/site/javascript/crc\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript/message(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe/fr/site/javascript/message\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript/tacjs(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe/fr/site/javascript/tacjs\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript/tacjsTawkTwo(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe/fr/site/javascript/tacjsTawkTwo\n end",
+    "create path /content/experience-fragments/leforemhe/fr/site/javascript/warning(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe/fr/site/javascript/warning\n end",
+    "create path /content/experience-fragments/leforemhe(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe\n end",
+    "create path /content/leforemhe/fr(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/leforemhe/fr\n end",
+    "create path /content/leforemhe(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/leforemhe\n end"
+  ]
+}

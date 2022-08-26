@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-03-28T15:14:51.604+02:00"
+        cq:lastModifiedBy="coralie.rigaux@forem.be"
+        cq:lastReplicated="{Date}2022-03-28T15:14:55.846+02:00"
+        cq:lastReplicatedBy="coralie.rigaux@forem.be"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/leforemhe/settings/wcm/templates/listes-acces-direct"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="LAD - Transversal"
+        jcr:uuid="d8bfb26e-0e5e-48ee-a287-fa23f8e84e7a"
+        sling:resourceType="leforemhe/components/site/xfpage"
+        enableAPI="false"
+        enableSFTP="false"
+        hideHamburgermenuFully="false"
+        hideHamburgermenuOnDesktop="false">
+        <root
+            jcr:created="{Date}2021-03-03T09:43:15.957Z"
+            jcr:createdBy="pierreolivier.bourdon@forem.be"
+            jcr:lastModified="{Date}2021-06-18T10:59:02.288+02:00"
+            jcr:lastModifiedBy="coralie.rigaux@forem.be"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="leforemhe/components/site/footer/linkLists"
+            facebook="https://www.facebook.com/forem"
+            instagram="https://www.instagram.com/le_forem"
+            linkedin="https://www.linkedin.com/company/le-forem"
+            twitter="https://www.twitter.com/forem"
+            youtube="https://www.youtube.com/user/VideosLeForem">
+            <listeAccesDirect1
+                jcr:lastModified="{Date}2022-03-21T13:36:06.484+01:00"
+                jcr:lastModifiedBy="veronique.carli@forem.be"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Leforem.be"
+                sling:resourceType="leforemhe/components/site/footer/listeAccesDirect">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Citoyens"
+                        internalLinkReference="/content/leforemhe/fr/particuliers"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Entreprises"
+                        internalLinkReference="/content/leforemhe/fr/entreprises"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Partenaires"
+                        internalLinkReference="/content/leforemhe/fr/partenaires"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="A propos du Forem"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Chiffres et analyses"
+                        internalLinkReference="/content/leforemhe/fr/chiffres-et-analyses-du-marche-de-l-emploi"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Tous les contacts du Forem"
+                        internalLinkReference="/content/leforemhe/fr/contact"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item6
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Réseau des Centres de compétence"
+                        internalLinkReference="/content/leforemhe/fr/contact/formations/centres-de-competence"
+                        linkType="internal-link"
+                        target="_blank"/>
+                </items>
+            </listeAccesDirect1>
+            <listeAccesDirect2
+                jcr:lastModified="{Date}2022-03-28T14:39:27.949+02:00"
+                jcr:lastModifiedBy="pierreolivier.bourdon@forem.be"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Actualités"
+                sling:resourceType="leforemhe/components/site/footer/listeAccesDirect">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        externalLabel="Agenda des activités"
+                        externalLinkReference="https://agenda.leforem.be/"
+                        internalLabel="Agenda"
+                        internalLinkReference="https://agenda.leforem.be/"
+                        linkType="external-link"
+                        target="_self"
+                        title="Agenda des activités du Forem"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Chiffres et analyses"
+                        internalLinkReference="/content/leforemhe/fr/chiffres-et-analyses-du-marche-de-l-emploi"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Communiqués de presse"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem/presse/communiques-presse"
+                        linkType="internal-link"
+                        target="_blank"/>
+                </items>
+            </listeAccesDirect2>
+            <listeAccesDirect3
+                jcr:lastModified="{Date}2022-03-28T14:27:57.304+02:00"
+                jcr:lastModifiedBy="coralie.rigaux@forem.be"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Le Forem"
+                sling:resourceType="leforemhe/components/site/footer/listeAccesDirect">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="A propos du Forem"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Le Forem en détail"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem/le-forem-en-detail"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Espace presse"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem/presse"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Travailler au Forem"
+                        internalLinkReference="/content/leforemhe/fr/a-propos-du-forem/travailler-au-forem"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Centres de compétence"
+                        internalLinkReference="/content/leforemhe/fr/centres-de-competence"
+                        linkType="internal-link"
+                        target="_blank"/>
+                </items>
+            </listeAccesDirect3>
+            <listeAccesDirect4
+                jcr:lastModified="{Date}2022-03-28T15:14:51.516+02:00"
+                jcr:lastModifiedBy="coralie.rigaux@forem.be"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Contact"
+                sling:resourceType="leforemhe/components/site/footer/listeAccesDirectSocialMedia"
+                phoneNumber="0800/93 947">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Formulaire de contact pour les citoyens"
+                        internalLinkReference="/content/leforemhe/fr/contact/formulaire-contact"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Maisons de l'Emploi"
+                        internalLinkReference="/content/leforemhe/fr/contact/conseil-orientation/maisons-de-l-emploi"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Carrefours Emploi Formation Orientation"
+                        internalLinkReference="/content/leforemhe/fr/contact/conseil-orientation/carrefours-emploi-formation-orientation"
+                        linkType="internal-link"
+                        target="_blank"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        internalLabel="Services Clientèle"
+                        internalLinkReference="/content/leforemhe/fr/contact/conseil-orientation/services-clientele"
+                        linkType="internal-link"
+                        target="_blank"/>
+                </items>
+            </listeAccesDirect4>
+        </root>
+        <cq:metadata jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

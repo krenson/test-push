@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="com.leforemhe.aem.site.core.search.predicates.impl.NodeTypesPredicateFactoryImpl">
+        <implementation class="com.leforemhe.aem.site.core.search.predicates.impl.NodeTypesPredicateFactoryImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.leforemhe.aem.site.core.search.predicates.PredicateFactory"/>
+        </service>
+        <property name="service.pid" value="com.leforemhe.aem.site.core.search.predicates.impl.NodeTypesPredicateFactoryImpl"/>
+    </scr:component>
+</components>

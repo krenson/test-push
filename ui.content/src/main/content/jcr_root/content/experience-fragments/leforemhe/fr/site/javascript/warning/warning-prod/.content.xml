@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-06-17T15:10:05.404+02:00"
+        cq:lastModifiedBy="pierreolivier.bourdon@forem.be"
+        cq:lastReplicated="{Date}2022-03-18T18:00:06.994+01:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/leforemhe/settings/wcm/templates/xf-javascript/xf-warning"
+        cq:xfVariantType="web"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Warning Prod"
+        jcr:uuid="9a9cb95b-bfff-4a9b-bf1b-a6017c08ef5a"
+        sling:resourceType="leforemhe/components/site/js/warning"
+        authorinstance="false"
+        environment="prod"
+        filename="warning"
+        message="Pour votre sécurité et le respect des normes sanitaires, nos bureaux ne sont accessibles que sur rendez-vous. Privilégiez l'e-mail ou le téléphone pour nous contacter ou prendre rendez-vous, avant de vous rendre sur place. Si vous avez un rendez-vous, nous vous demandons d'arriver quelques minutes avant l'heure prévue et de venir avec votre masque."
+        pageTop="/content/leforemhe/fr/contact">
+        <root
+            jcr:lastModified="{Date}2020-10-27T15:27:26.198+01:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"/>
+        <pagesRestrict jcr:primaryType="nt:unstructured">
+            <item0
+                jcr:primaryType="nt:unstructured"
+                children="true"
+                path="/content/leforemhe/fr/contact"/>
+        </pagesRestrict>
+    </jcr:content>
+</jcr:root>

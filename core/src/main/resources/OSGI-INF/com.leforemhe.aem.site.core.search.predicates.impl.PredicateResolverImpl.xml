@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.leforemhe.aem.site.core.search.predicates.impl.PredicateResolverImpl">
+        <implementation class="com.leforemhe.aem.site.core.search.predicates.impl.PredicateResolverImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.leforemhe.aem.site.core.search.predicates.PredicateResolver"/>
+        </service>
+        <property name="service.pid" value="com.leforemhe.aem.site.core.search.predicates.impl.PredicateResolverImpl"/>
+        <reference interface="com.leforemhe.aem.site.core.search.predicates.PredicateFactory" cardinality="0..n" policy="dynamic" bind="bindPredicateFactory" unbind="unbindPredicateFactory"/>
+    </scr:component>
+</components>

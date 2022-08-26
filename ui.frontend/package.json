@@ -1,6 +1,6 @@
 {
   "name": "aem-maven-archetype",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generates an AEM Frontend project with Webpack",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "main": "src/main/webpack/site/site.js",
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
-    "storybook": "start npm run startStory && start-storybook -p 4501",
+    "storybook": "start npm run startStory && start-storybook -p 4500 -s ./.storybook",
     "dev": "webpack --color --env dev --config ./webpack.dev.js --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
     "prod": "npm run replace && webpack --color --config ./webpack.prod.js --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
     "start": "webpack serve --open --config ./webpack.dev.js  --env resourcePath='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-site/resources' resourceFonts='/etc\\.clientlibs/leforemhe/clientlibs/clientlib-foremWebComponent/resources'",
@@ -35,7 +35,7 @@
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-viewport": "^6.3.12",
     "@storybook/addons": "^6.3.12",
-    "@storybook/html": "^6.4.13",
+    "@storybook/html": "^6.5.0",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "acorn": "^6.1.0",
     "aem-clientlib-generator": "^1.8.0",
@@ -73,7 +73,9 @@
     "webpack-import-glob-loader": "^1.6.3",
     "webpack-merge": "^4.2.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  },
   "browserslist": [
     "last 2 version",
     "> 1%"

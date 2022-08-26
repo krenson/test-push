@@ -26,7 +26,7 @@
     <groupId>com.leforemhe.aem.site</groupId>
     <artifactId>leforemhe-site</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Le Forem Horizons Emploi Site</name>
     <description>Le Forem Horizons Emploi Site</description>
 
@@ -64,8 +64,8 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.3.6698.20220318T233218Z-220400</aem.sdk.api>
-        <aemanalyser.version>1.4.2</aemanalyser.version>
+        <aem.sdk.api>2022.8.8316.20220818T100409Z-220700</aem.sdk.api>
+        <aemanalyser.version>1.4.16</aemanalyser.version>
         <componentGroupName>Le Forem Horizons Emploi Site</componentGroupName>
 
         <sonar.version>3.4.0.905</sonar.version>

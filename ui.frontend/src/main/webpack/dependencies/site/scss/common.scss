@@ -104,12 +104,15 @@ strong {
 .aem .img_container {
   max-width: 96rem;
   width: 100%;
-  margin: 3rem 0;
+  margin: 0;
+  margin-top: 4rem !important;
+  margin-bottom: 2rem;
   border-radius: 0px 0px 2.3rem 0px;
   overflow: hidden;
   .image {
-    width: 100%;
-    height: 100%;
+    min-width: 49rem;
+    max-width: 96rem;
+    height: 50rem;
     padding-bottom: 56.5%;
     position: relative;
 
@@ -165,38 +168,47 @@ strong {
   }
 
   header {
-    min-height: 24.1rem;
     display: flex;
+    min-height: 24.1rem;
     flex-direction: column;
     margin-bottom: 3.4rem;
+
     p {
       margin: 0;
     }
+    .aem.title-container > * {
+      margin: 0;
+    }
+
+    div.aem.title-container {
+      margin-bottom: 1rem;
+    }
+
     .aem.title-container,
     .aem.accroche-container,
     .aem.search-google-header,
     .cq-placeholder {
       background: $article-header-backgroud-color;
     }
-    //FORMAPASS-CONFLICT
-    .aem.title-container h1 {
-      background-color: transparent;
-    }
-    //FORMAPASS-CONFLICT
-    .aem.accroche-container p {
-      font-size: 1.8rem;
+    .aem.accroche-container {
+      padding: 1.5rem 0;
     }
 
+    .aem.accroche-container p {
+      font-size: 1.8rem;
+      padding-top: 1rem;
+      display: block;
+    }
     .aem.title-container h1,
     .aem.accroche-container p {
       margin: 0 auto;
       @include max-width;
     }
-
     > *:last-child {
       flex-grow: 1;
       background: $article-header-backgroud-color;
     }
+
     .aem.accroche-container p {
       padding-top: 1rem;
       display: block;
@@ -213,6 +225,7 @@ strong {
   .filArianeContainer {
     @include max-width;
     margin: 0 auto;
+
     a {
       display: inline-block;
     }
@@ -220,7 +233,33 @@ strong {
 }
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
-    display: none;
+    padding: 2rem 0rem;
+
+    .filArianeContainer {
+      font-size: 0;
+
+      > a:last-of-type {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+
+        &::before {
+          padding-right: 1rem;
+          transform: rotate(180deg);
+          display: inline-flex;
+          width: 0.8rem;
+          height: 1.5rem;
+          background-size: contain;
+          content: "";
+          mask-image: url($resourcePath + "/images/header/chevron-right-regular.svg");
+          mask-position: center;
+          mask-repeat: no-repeat;
+          mask-size: contain;
+          background-color: $primary-colorV2;
+        }
+      }
+    }
   }
   .centrePage header,
   .centrePage article > article {
@@ -263,4 +302,286 @@ strong {
 .aem-AuthorLayer-Edit .cmp-container .cq-placeholder,
 .aem-AuthorLayer-Edit .cmp-container .new.cq-Editable-dom {
   height: 2.875rem;
+}
+
+.contentCentered.he {
+  @include max-width;
+  margin: 0 auto;
+}
+
+.maxWidth .container-content {
+  @include max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.background-Yellow {
+  background: $article-header-backgroud-color;
+  &.partial-background::after {
+    background: $article-header-backgroud-color;
+  }
+}
+
+.background-Yellow2 {
+  background: #fcf9f4;
+
+  &.partial-background::after {
+    background: #fcf9f4;
+  }
+}
+.background-DarkBlue {
+  background: $primary-colorV2;
+  &.partial-background::after {
+    background: $primary-colorV2;
+  }
+}
+
+.header-minHeight {
+  min-height: 32.6rem !important;
+}
+
+.padding-bottom {
+  padding-bottom: 2rem;
+}
+
+.container .container-content {
+  .aem.rte,
+  .aem.youtube_component,
+  .aem.image_component,
+  .groupPaves.aem > div,
+  .aem.forms,
+  .aem.search-google-header form.gsc-search-box.gsc-search-box-tools,
+  .aem.linkLists .linkLists-container,
+  .aem.multiComponent,
+  .aem.MDElist,
+  .aem.pave,
+  .aem.paveAuto,
+  .aem#filAriane .filArianeContainer,
+  .aem .groupTuilesHaut .haut-container,
+  .aem .groupTuilesBas .bas-container,
+  .aem.bottom1b .linkLists {
+    max-width: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+  .aem .groupTuilesHaut,
+  .aem .groupTuilesBas,
+  .aem.linkLists {
+    background-color: transparent;
+  }
+
+  .aem.accroche-container {
+  }
+  .chip-container {
+    display: flex;
+    .aem .chip-button,
+    .aem button.chip-button {
+      &:first-child {
+        margin-left: 0rem !important;
+      }
+    }
+  }
+
+  div.aem.rte {
+    p:first-child {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.partial-background {
+  min-height: initial !important;
+  margin-bottom: 0 !important;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20rem;
+    height: 29rem;
+    width: 100%;
+
+    z-index: -1;
+  }
+  .container-content {
+    padding-bottom: 0 !important;
+  }
+}
+
+.container .container-content {
+  .container
+    > .container-content
+    .aem.image_component:first-child
+    .img_container.aem,
+  .container
+    > .container-content
+    > div
+    > .aem.image_component
+    .img_container.aem,
+  .container > .container-content .aem.youtube_container:first-child,
+  .container > .container-content > div > .aem.youtube_container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+header .container-content {
+  .aem#filAriane .filArianeContainer,
+  .aem#filAriane .filArianeContainer a,
+  .aem#filAriane .filArianeContainer span,
+  .aem.title-container,
+  .aem.title-container h1,
+  .aem.accroche-container {
+    padding-top: 0 !important;
+  }
+  .aem.accroche-container .accroche {
+    padding-top: 1rem !important;
+  }
+
+  .aem#filAriane .filArianeContainer,
+  .aem.title-container h1,
+  .aem.accroche-container .accroche {
+    max-width: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+  .aem#filAriane,
+  .aem.title-container,
+  .aem.accroche-container {
+    background-image: none;
+  }
+
+  .aem.title-container {
+    margin-bottom: 1rem;
+  }
+
+  .aem.accroche-container {
+    padding: 0;
+  }
+
+  background: transparent !important;
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .centrePage header {
+    min-height: initial !important;
+    .container-content {
+    }
+    > div.container-content:first-child {
+      padding-top: 0;
+    }
+    > div:last-child {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .container .container-content .container .container-content {
+    div.aem.rte {
+      p:first-child {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .partial-background {
+    &::after {
+      bottom: -10rem;
+      height: 10rem;
+    }
+  }
+  div.image_component {
+    .img_container {
+      margin: 1rem 0rem !important;
+    }
+  }
+}
+
+.container .container-content .container .container-content {
+  padding: 0;
+}
+.twoCol > .cmp-container > .container-content {
+  display: flex;
+
+  gap: $gapSize;
+}
+
+.twoCol.smallRight
+  > .cmp-container
+  > .container-content
+  > .container:nth-child(2),
+.twoCol.smallLeft
+  > .cmp-container
+  > .container-content
+  > .container:nth-child(1) {
+  min-width: $colSize;
+  max-width: $colSize;
+}
+
+.twoCol.smallRight
+  > .cmp-container
+  > .container-content
+  > .container:nth-child(1),
+.twoCol.smallLeft
+  > .cmp-container
+  > .container-content
+  > .container:nth-child(2) {
+  max-width: calc(100% - #{$colSize} - #{$gapSize});
+  flex-grow: 1;
+}
+.offsetTop {
+  transform: translateY(-10rem);
+}
+@media screen and (max-width: $breakpointMobile) {
+
+  .container .container-content .container .container-content {
+    .chip-container {
+      display: block;
+
+      .chip-button {
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  
+
+  .twoCol.smallRight
+    > .cmp-container
+    > .container-content
+    > .container:nth-child(1) {
+
+    max-width: none;
+
+    .container .container-content .container .container-content {
+      .chip-container {
+        display: block;
+
+        .chip-button {
+          margin: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .twoCol.smallRight
+    > .cmp-container
+    > .container-content
+    > .container:nth-child(2) {
+    min-width: 0;
+    margin-top: 2rem;
+  }
+  .twoCol > .cmp-container > .container-content {
+    gap: 0;
+
+    flex-direction: column;
+    > .container {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+  .offsetTop {
+    transform: translateY(0);
+  }
 }

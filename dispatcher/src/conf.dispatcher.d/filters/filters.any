@@ -51,7 +51,7 @@ $include "./default_filters.any"
 ## To avoid duplicate content we can forbbiden to reach the AEM path via publish instance
 ## The canonical metadata is not really required with this approach
 ## Also, it is a way to force use vanityURL for all pages, which is good for SEO reason
-/0121 { /type "deny" /url "/content/leforemhe/fr/*" }
+/0121 { /type "allow" /url "/content/leforemhe/fr/*" }
 
 ## Image core component - servlet
 /0122 { /type "allow" /method "GET" /url "*/image.coreimg.*/*" }
@@ -84,3 +84,11 @@ $include "./default_filters.any"
 
 ## Enable Authentication Servlet
 /0138 { /type "allow" /method "POST" /selectors "leforemhe" /path "/content/leforemhe/authenticate" /extension "json" }
+
+## Enable EF
+/0139 { /type "allow" /url "/content/experience-fragments/leforemhe/fr/*" }
+
+## Enable Search
+/0140 { /type "allow" /method "GET" /selectors "results" /extension "json" }
+/0141 { /type "allow" /method "GET" /selectors "suggestions" /extension "json" }
+
