@@ -14,8 +14,10 @@
     align-items: center;
     max-width: 10rem;
     margin: 1rem;
+
     .verredevin {
       position: relative;
+
       .verredevinempty {
         width: 3.4rem;
         height: 3.4rem;
@@ -30,6 +32,7 @@
         width: 100%;
         transition: height 0.2s linear;
         overflow: hidden;
+
         .verredevinfull {
           position: absolute;
           bottom: 0;
@@ -46,6 +49,7 @@
       font-size: 1.2rem;
       justify-content: center;
       text-align: center;
+
       p {
         margin-bottom: 0.5rem;
       }
@@ -137,6 +141,7 @@ div.cmp-accordion {
 
             tr {
               background-color: white;
+
               &:nth-child(2n + 3) {
                 background: rgb(249, 245, 237);
               }
@@ -145,6 +150,7 @@ div.cmp-accordion {
                 &:first-child {
                   border-left: none;
                 }
+
                 text-align: left;
                 border-left: solid rgb(222, 202, 173) 0.2rem;
                 border-bottom: solid rgb(222, 202, 173) 0.2rem;
