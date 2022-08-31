@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="191b7187-11f3-49a3-8374-00181b8b0f23">
+    <jcr:content
+        jcr:description="CF is created through the API"
+        jcr:lastModified="{Date}2022-07-15T08:47:11.363Z"
+        jcr:lastModifiedBy="fe578d0b-5046-4705-8d3d-aaabbb8ec248@techacct.adobe.com"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Created through API"
+        contentFragment="{Boolean}true">
+        <data
+            cq:model="/conf/Horizons-Emploi-CF/settings/dam/cfm/models/metier"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                codeEsco_x0040_LastModified="{Date}2022-07-15T08:47:11.344Z"
+                codeMetier="A120301-1-API"
+                codeMetier_x0040_LastModified="{Date}2022-07-15T08:47:11.349Z"
+                description="Created through API"
+                description_x0040_LastModified="{Date}2022-07-15T08:47:11.347Z"
+                environnements="[,]"
+                environnements_x0040_LastModified="{Date}2022-07-15T08:47:11.351Z"
+                etiquettes="[he-metier:01]"
+                etiquettes_x0040_LastModified="{Date}2022-07-15T08:47:11.352Z"
+                metiersProches="[,]"
+                metiersProches_x0040_LastModified="{Date}2022-07-15T08:47:11.353Z"
+                refLibelleEsco_x0040_LastModified="{Date}2022-07-15T08:47:11.344Z"
+                structures="[,]"
+                structures_x0040_LastModified="{Date}2022-07-15T08:47:11.354Z"
+                synonymes="[Created through API]"
+                synonymes_x0040_LastModified="{Date}2022-07-15T08:47:11.355Z"
+                titre="Created through API"
+                titre_x0040_LastModified="{Date}2022-07-15T08:47:11.356Z"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            api="forem"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
