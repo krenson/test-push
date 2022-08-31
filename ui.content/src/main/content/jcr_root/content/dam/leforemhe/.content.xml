@@ -6,4 +6,6 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="Le Forem Horizons Emploi Site">
     </jcr:content>
+    <activities/>
+    <metiers/>
 </jcr:root>

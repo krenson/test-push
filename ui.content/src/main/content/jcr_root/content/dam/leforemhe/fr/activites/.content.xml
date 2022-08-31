@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:Folder">
+    <jcr:content
+        jcr:lastModified="{Date}2022-08-29T11:04:47.894+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Activites"
+        metadataSchema="System Default"
+        postProcessWF="System Default"
+        processingProfile="System Default"
+        sourcing="false">
+        <policies jcr:primaryType="nt:unstructured">
+            <cfm
+                jcr:primaryType="nt:unstructured"
+                policy-cfm-allowedModelsByPaths="[/conf/leforemhe/settings/dam/cfm/models/activite]"/>
+        </policies>
+    </jcr:content>
+</jcr:root>

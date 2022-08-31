@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
-    jcr:mixinTypes="[rep:AccessControllable]"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
     <jcr:content
-        cq:allowedTemplates="/conf/leforemhe/settings/wcm/templates/(pge_resp_*).*"
-        cq:cloudserviceconfigs="[/etc/cloudservices/sitecatalyst/etspubli-office-wallon/adobe-analytics---forem---rik]"
-        cq:conf="/conf/leforemhe"
-        cq:isLanguageRoot="true"
-        cq:redirectTarget="/index.html"
-        cq:template="/conf/leforemhe/settings/wcm/templates/pge_resp_corps"
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2022-08-26T06:09:38.981Z"
+        cq:lastModifiedBy="Stephane.Feusso@inetum-realdolmen.world"
+        cq:lastReplicated="{Date}2022-07-14T14:11:48.769Z"
+        cq:lastReplicated_publish="{Date}2022-07-14T14:11:48.769Z"
+        cq:lastReplicatedBy="Dirk.Gepts@inetum-realdolmen.world"
+        cq:lastReplicatedBy_publish="Dirk.Gepts@inetum-realdolmen.world"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/leforemhe/settings/wcm/templates/pge_resp_he_generique"
         jcr:isCheckedOut="{Boolean}true"
-        jcr:language="fr_be"
-        jcr:mixinTypes="[cq:metaMixin,mix:versionable]"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Français"
-        jcr:uuid="e8e83f6f-1074-4964-806a-9c6456e2ac4d"
-        sling:resourceType="leforemhe/components/site/homepage"
-        sling:vanityPath="/redirecthe-index.html"
+        jcr:title="Rechercher par mots clés"
+        jcr:uuid="874a557f-4bb5-4b8d-ac51-bb85f62af854"
+        sling:resourceType="leforemhe/components/site/page"
+        sling:vanityPath="/recherche.html"
         hideHamburgermenuOnDesktop="false"
-        hideInBreadcrumb="false">
+        hideInBreadcrumb="false"
+        navTitle="Rechercher par mots clés"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="leforemhe/components/site/container"
@@ -96,8 +101,27 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="leforemhe/components/site/leforemcontainers/asidecontainer"/>
+                        <message-conteneur
+                            jcr:created="{Date}2022-02-16T13:32:30.506+01:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2022-02-16T13:32:36.783+01:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="leforemhe/components/site/container">
+                            <search
+                                jcr:created="{Date}2022-06-01T13:12:35.668Z"
+                                jcr:createdBy="Dirk.Gepts@inetum-realdolmen.world"
+                                jcr:lastModified="{Date}2022-06-01T13:18:37.663Z"
+                                jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="leforemhe/components/commons/core/search"
+                                searchRoot="/content/leforemhe/fr"/>
+                        </message-conteneur>
                     </art_resp_simple>
                 </maincontainer>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="leforemhe/components/site/leforemcontainers/pagebodycontainer"/>
             </pagebodycontainer>
             <experiencefragment_liste_acces_direct
                 jcr:created="{Date}2020-12-07T15:18:28.890+01:00"
@@ -108,11 +132,11 @@
                 sling:resourceType="leforemhe/components/site/listesaccesdirectexperiencefragment"
                 fragmentPathRelativeToPage="root/experiencefragment_liste_acces_direct"/>
         </root>
-        <analytics
+        <cq:featuredimage
+            jcr:lastModified="{Date}2022-07-07T11:32:38.424Z"
+            jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="cq/analytics/components/sitecatalyst">
-            <reportConfigs jcr:primaryType="cq:meta"/>
-        </analytics>
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
-    <infos-metiers/>
 </jcr:root>
