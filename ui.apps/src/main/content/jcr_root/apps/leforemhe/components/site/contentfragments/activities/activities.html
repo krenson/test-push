@@ -1,4 +1,4 @@
-<div data-sly-use.accordion="com.leforemhe.aem.site.core.models.AccordionModelCF"
+<div data-sly-use.accordion="com.leforemhe.aem.site.core.models.horizonemploi.Activities"
      data-panelcontainer="${wcmmode.edit && 'accordion'}"
      id="${accordion.id}"
      class="cmp-accordion"
@@ -27,7 +27,16 @@
              id="${item.id}-panel"
              class="cmp-accordion__panel${item.name in accordion.expandedItems ? ' cmp-accordion__panel--expanded' : ' cmp-accordion__panel--hidden'}"
              role="region"
-             aria-labelledby="${item.id}-button"></div>
+             aria-labelledby="${item.id}-button">
+             <h4>${'Savoir' @ i18n}</h4>
+             <ul data-sly-list.savoirItem="${item.savoirFaire}">
+                  <li>${savoirItem}</li>
+             </ul>
+             <h4>${'Savoir Faire' @ i18n}</h4>
+             <ul data-sly-list.savoirFaireItem="${item.savoirFaire}">
+                  <li>${savoirFaireItem}</li>
+             </ul>
+          </div>
     </div>
 
     <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"

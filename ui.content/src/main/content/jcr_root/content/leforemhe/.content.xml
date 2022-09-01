@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
-    jcr:title="Le Forem Site Horizons Emploi">
     jcr:primaryType="cq:Page">
+    <rep:policy/>
     <jcr:content
-        cq:allowedTemplates="/conf/leforemhe/settings/wcm/templates/(pge_resp_*).*"
+        cq:allowedTemplates="/conf/leforemv1/settings/wcm/templates/(pge_resp_*).*"
         cq:conf="/conf/leforemhe"
-        cq:lastModified="{Date}2022-03-09T16:29:22.371+01:00"
+        cq:lastModified="{Date}2022-03-09T16:20:25.061+01:00"
         cq:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Le Forem Horizons Emploi Site"
+        jcr:title="Le Forem Horizons Emploi"
         sling:configRef="/conf/leforemhe"
         sling:redirect="true"
         sling:redirectStatus="{Long}302"

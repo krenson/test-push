@@ -7,29 +7,31 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 /**
  * Content Fragment configuration
  */
-@ObjectClassDefinition(name="leforemhe - Content Fragment config",
-        description = "Configuration for the content fragments and models")
+@ObjectClassDefinition(name = "leforemhe - Content Fragment config", description = "Configuration for the content fragments and models")
 public @interface ContentFragmentConfig {
 
+        /**
+         * Return the path were metier CF's are stored
+         * 
+         * @return Model Metier path
+         */
+        @AttributeDefinition(name = "Path CF model Metier in DAM", type = AttributeType.STRING)
+        String modelMetierPath() default "/content/leforemhe/fr/infos-metiers/metiers";
 
-    /**
-     * Return the path were metier CF's are stored
-     * @return Model Metier path
-     */
-    @AttributeDefinition(
-            name = "Path CF model Metier in DAM",
-            type = AttributeType.STRING
-    )
-    String modelMetierPath() default "/content/dam/leforemhe/fr/metiers";
+        /**
+         * Return the path were activites CF's are stored
+         * 
+         * @return Model Activites path
+         */
+        @AttributeDefinition(name = "Path CF model Activites in DAM", type = AttributeType.STRING)
+        String modelActivitesPath() default "/content/dam/leforemhe/fr/activites";
 
-    /**
-     * Return the path were activites CF's are stored
-     * @return Model Activites path
-     */
-    @AttributeDefinition(
-            name = "Path CF model Activites in DAM",
-            type = AttributeType.STRING
-    )
-    String modelActivitesPath() default "/content/dam/leforemhe/fr/activites";
+        /**
+         * Return the path were Tags are stored
+         * 
+         * @return Model Activites path
+         */
+        @AttributeDefinition(name = "Path of the Job Tags", type = AttributeType.STRING)
+        String jobTagsPath() default "/content/cq:tags/he-metier";
 
 }
