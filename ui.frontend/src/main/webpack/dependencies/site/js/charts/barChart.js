@@ -59,6 +59,7 @@ var barChartConfig = {
         beginAtZero: true,
         ticks: {
           stepSize: 100,
+          fontsize: 40,
         },
       },
       x: {
@@ -76,3 +77,15 @@ var barChartConfig = {
 var barChart = new Chart(myBarChart, barChartConfig);
 Chart.defaults.font.family = "Poppins";
 Chart.defaults.font.size = 15;
+
+// Chart details
+
+var detailsBtn = document.getElementById(
+  "accordion-2098845c33-item-ace86c638b-button"
+);
+
+var detailsCloseBtn = document.getElementById("close-container");
+
+detailsCloseBtn.addEventListener("click", () => {
+  detailsBtn.click();
+});

@@ -26,15 +26,15 @@ var chartConfig = {
   type: "bar",
   data: {
     labels: [
-      "Temps plein jour/continu",
-      "Temps plein à pauses/Nuit/W-E",
-      "Temps Partiel/4/5e",
-      "Autres ou inconnu",
+      "Temps plein&jour/continu",
+      "Temps plein à&pauses/Nuit/&W-E",
+      "Temps&Partiel/4/5e",
+      "Autres ou&inconnu",
     ],
     datasets: [
       {
         label: "Agent/Agente d’entretien des parcs et jardins",
-        data: [90, 0, 5, 1],
+        data: [90, 0.5, 5, 1],
         fill: false,
         backgroundColor: colors[0],
         borderColor: colorBorders[0],
@@ -51,9 +51,11 @@ var chartConfig = {
   options: {
     plugins: {
       legend: {
+        align: "start",
         labels: {
           font: {
             family: "Poppins",
+            size: 15,
           },
         },
       },
@@ -64,21 +66,30 @@ var chartConfig = {
         grid: {
           display: false,
           borderColor: "rgb(219, 202, 175)",
-          borderWidth: 3,
+          borderWidth: 2,
         },
         ticks: {
           font: {
-            size: 15,
+            family: "Poppins",
+            size: 13,
+          },
+          callback: function (value) {
+            var valueLegend = this.getLabelForValue(value);
+            console.log(valueLegend);
+            var arr = valueLegend.split("&");
+            return arr;
           },
         },
       },
       x: {
+        labelMaxWidth: 20,
         beginAtZero: true,
         grid: {
           color: "rgb(246, 241, 234)",
-          lineWidth: 2,
+          lineWidth: 1,
           borderColor: "rgb(219, 202, 175)",
-          borderWidth: 3,
+          borderWidth: 2,
+          borderRadius: "50%",
         },
         ticks: {
           stepSize: 20,
