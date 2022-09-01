@@ -72,6 +72,8 @@ div.chart-container {
               border: solid rgb(222, 202, 173) 0.2rem;
 
               tr {
+                background-color: white;
+
                 &:nth-child(2n + 3) {
                   background: rgb(249, 245, 237);
                 }
