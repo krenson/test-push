@@ -1,10 +1,7 @@
-import chart from "./chart.html";
 import lineChartExample from "./lineChartExample.html";
 import barChartExample from "./barChartExample.html";
 import doughnutChartExample from "./doughnutChartExample.html";
 import { storiesOf } from "@storybook/html";
-
-storiesOf("AEM Components/Graphs", chart).add("Chart", () => chart);
 
 storiesOf("AEM Components/Graphs", lineChartExample).add(
   "Line Chart Example",
