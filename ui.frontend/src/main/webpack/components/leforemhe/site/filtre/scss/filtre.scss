@@ -1,12 +1,17 @@
+.no-bottom {
+  margin-bottom: 0 !important;
+}
+
 .filter-container {
   min-width: 46.6rem;
-  width: 46.6rem !important;
+  width: 4.6rem !important;
   padding-left: 1.5rem;
 
   .filter-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 0.5rem;
 
     div {
       gap: 1rem;
@@ -43,7 +48,7 @@
 
     button {
       width: 100%;
-      justify-content: start !important;
+
       &.cmp-accordion__button::after,
       &.cmp-accordion__button--expanded::after {
         float: right;
@@ -67,7 +72,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
+      height: 4.1rem;
+      border-radius: 10px;
 
       &:hover {
         background-color: rgb(251, 231, 203);
@@ -148,6 +155,7 @@
 
       .filter-header {
         margin-bottom: 3rem;
+        padding-left: 0.5rem;
 
         .filter-popup-close {
           height: 1.45rem;
@@ -164,6 +172,7 @@
 
       h3.cmp-accordion__header {
         button {
+          justify-content: space-between !important;
           span {
             text-decoration: none;
             font-weight: 500;
@@ -174,7 +183,6 @@
 
       ul {
         li {
-          justify-content: unset;
           gap: 1rem;
         }
       }
@@ -218,5 +226,11 @@
 
   div.popup-content .filter-container {
     width: 100% !important;
+
+    h3 {
+      button {
+        justify-content: space-between !important;
+      }
+    }
   }
 }
