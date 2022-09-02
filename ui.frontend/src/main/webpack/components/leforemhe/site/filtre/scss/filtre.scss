@@ -53,6 +53,7 @@
         text-decoration: none;
         font-weight: 600;
         font-size: 1.8rem;
+        padding-left: 0.5rem;
       }
     }
   }
@@ -66,7 +67,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 0;
+      padding: 0.5rem;
 
       &:hover {
         background-color: rgb(251, 231, 203);
