@@ -20,18 +20,18 @@ var COLORBORDERS = [
 ];
 
 var MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "janvier",
+  "fevrier",
+  "mars",
+  "avril",
+  "mai",
+  "juin",
+  "julliet",
+  "août",
+  "septembre",
+  "octobre",
+  "novembre",
+  "decembre",
 ];
 
 function getMonths(count) {
@@ -53,8 +53,8 @@ var lineChartConfig = {
     datasets: [
       {
         lineTension: 0.3,
-        pointRadius: 8,
-        pointHoverRadius: 8,
+        pointRadius: 5,
+        pointHoverRadius: 5,
         pointHitRadius: 40,
         label: "My First Dataset",
         data: [65, 59, 80, 81, 56, 55, 40],
@@ -78,6 +78,7 @@ var lineChartConfig = {
 
     scales: {
       y: {
+        beginAtZero: true,
         grid: {
           color: "rgb(246, 241, 234)",
           lineWidth: 2,
@@ -86,13 +87,14 @@ var lineChartConfig = {
           borderRadius: "15px",
         },
         ticks: {
+          stepSize: 20,
           font: {
             size: 15,
+            family: "Poppins",
           },
         },
       },
       x: {
-        beginAtZero: true,
         grid: {
           color: "rgb(246, 241, 234)",
           lineWidth: 2,
@@ -100,9 +102,9 @@ var lineChartConfig = {
           borderWidth: 3,
         },
         ticks: {
-          stepSize: 20,
           font: {
             size: 15,
+            family: "Poppins",
           },
         },
       },

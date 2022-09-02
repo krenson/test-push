@@ -29,6 +29,7 @@ div.chart-container {
         .cmp-accordion__button,
         .cmp-accordion__button .cmp-accordion__button--expanded {
           margin-left: 0;
+          justify-content: start;
           div {
             display: flex;
             align-items: center;
