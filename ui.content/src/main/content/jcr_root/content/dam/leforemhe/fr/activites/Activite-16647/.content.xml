@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="91b5923b-900f-453e-a571-eb8bb2f9b8dd">
+    <jcr:content
+        cq:name="Activite-16647"
+        cq:parentPath="/content/dam/leforemhe/fr/activites"
+        jcr:lastModified="{Date}2022-07-14T14:59:20.609Z"
+        jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Préparer les sols par drainage, terrassements, ... et réaliser les semis ou les plantations"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-07-14T14:59:20.609Z">
+        <data
+            cq:model="/conf/leforemhe/settings/dam/cfm/models/activite"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                codeActivite="16647"
+                codeActivite_x0040_LastModified="{Date}2022-07-14T14:59:20.526Z"
+                codeMetier="A120301-1"
+                codeMetier_x0040_LastModified="{Date}2022-07-14T14:59:20.527Z"
+                description="Préparer les sols par drainage, terrassements, ... et réaliser les semis ou les plantations"
+                description_x0040_LastModified="{Date}2022-07-14T14:59:20.527Z"
+                savoir="[Caractéristiques des végétaux,Caractéristiques des sols,Techniques culturales]"
+                savoir_x0040_LastModified="{Date}2022-07-14T14:59:20.528Z"
+                savoirFaire="[Préserve les plantes à garder,Arrache la plantation existante et des éléments construits,Lit et interprète le devis,Installe des tuyaux et les connecte,Plante des arbustes\, haies\, plantes vivaces et arbres et apporte l'ancrage nécessaire (renforcement de la haie\, tuteurs\, ancrage d'arbre),Lit le plan de plantation et met les plantes en place,Étale l'engrais et/ou l'amendement et les incorpore (retourner le sol\, fraiser\, creuser),Porte un équipement de protection individuelle,Nivelle le sol en utilisant des piquets et des cordes (déblayer\, rehausser\, enlever des pierres\, combler des différences de niveau\, …),Lit le plan de base et le mesure sur le terrain (distances\, formes\, coins\, arches\, profondeurs\, hauteurs),Lit et interprète le plan de drainage,Mesure les services d'utilité publique (câbles\, tuyaux\, ...) et les cartographie,Enlève à la plantation les parties de plantes transformées et les taille]"
+                savoirFaire_x0040_LastModified="{Date}2022-07-14T14:59:20.528Z"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

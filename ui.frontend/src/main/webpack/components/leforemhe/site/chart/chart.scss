@@ -70,7 +70,6 @@ div.chart-container {
             p {
               font-size: 1.6rem;
               font-weight: 500;
-              margin: 0;
               margin: 1rem 0rem;
             }
 
@@ -83,6 +82,7 @@ div.chart-container {
 
               tr {
                 background-color: white;
+
                 &:nth-child(2n + 3) {
                   background: rgb(249, 245, 237);
                 }

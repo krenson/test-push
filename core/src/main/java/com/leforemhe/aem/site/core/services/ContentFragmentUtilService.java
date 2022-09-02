@@ -2,8 +2,16 @@ package com.leforemhe.aem.site.core.services;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.leforemhe.aem.site.core.models.pojo.ContentFragmentModel;
-import com.leforemhe.aem.site.core.models.pojo.Tag;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.SearchResult;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
+import com.leforemhe.aem.site.core.models.cfmodels.Activity;
+import com.leforemhe.aem.site.core.models.cfmodels.Job;
+import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -13,7 +21,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.List;
+
+import javax.jcr.Session;
 
 /**
  * Content fragment utility service
@@ -32,108 +41,86 @@ public class ContentFragmentUtilService {
     @Reference
     private GlobalConfigService globalConfigService;
 
+    @Reference
+    private ContentFragmentConfigService contentFragmentConfigService;
+
     private static final Logger LOG = LoggerFactory.getLogger(ContentFragmentUtilService.class);
 
-    /**
-     * Get asked content data from content fragment by ID
-     *
-     * @param contentFragmentId    String content
-     * @param contentFragmentModel type of content fragment to be returned
-     * @param contentList          elements that needs to be returned
-     * @return contentFragmentData Map
+    /*
+     * Returns a list of activities based on JobID
      */
-    public Map<String, Object> getContentFromContentFragment(String contentFragmentId, String contentFragmentModel, String[] contentList) {
-        Map<String, Object> contentFragmentData = null;
-
-        try {
-            ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-            LOG.debug("Inside get content from content fragment for ID {}.", contentFragmentId);
-            LOG.debug("System user: {}", globalConfigService.getConfig().systemUser());
-            LOG.debug("Resource resolver factory {}.", resolverFactory);
-            LOG.debug("Resource resolver {}.", resourceResolver);
-            LOG.debug("Content fragment model {}.", contentFragmentModel);
-            Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
-            LOG.debug("Parent content fragment folder: {}.", damContentFragments);
-            List<ContentFragment> listActivities = getContentFragmentsWithKeyProfessionFromList(damContentFragments, contentFragmentId);
-            contentFragmentData = getDataFromContentFragment(contentList, listActivities.get(0));
-        } catch (NullPointerException nullPointerException) {
-            LOG.debug("Error while getting content fragments");
-            LOG.debug(nullPointerException.getMessage());
+    public List<Activity> getActivitiesFromJobID(String jobID) {
+        SearchResult result = createQueryForContentFragments(
+                contentFragmentConfigService.getConfig().modelActivitesPath(), jobID,
+                Activity.CONTENT_FRAGMENT_MODEL_CONF);
+        if (!result.getHits().isEmpty()) {
+            List<Activity> activities = new ArrayList<>();
+            Iterator<Resource> iterator = result.getResources();
+            while (iterator.hasNext()) {
+                ContentFragment contentFragment = iterator.next().adaptTo(ContentFragment.class);
+                if (contentFragment != null) {
+                    activities.add(new Activity(contentFragment));
+                }
+            }
+            return activities;
         }
-
-        return contentFragmentData;
+        return Collections.EMPTY_LIST;
     }
 
-    public List<ContentFragment> getContentFragmentsByIdAndModel(String contentFragmentId, String contentFragmentModel) {
-        ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-        Iterator<Resource> damContentFragments = resourceResolver.getResource(contentFragmentModel).listChildren();
-        return getContentFragmentsWithKeyProfessionFromList(damContentFragments, contentFragmentId);
-    }
-
-    public List<ContentFragmentModel> convertLisContentFragmentToActivites(List<ContentFragment> contentFragments) {
-        List<ContentFragmentModel> contentFragmentActivites = new ArrayList<>();
-        for (ContentFragment contentFragment : contentFragments) {
-            contentFragmentActivites.add(new ContentFragmentModel(contentFragment));
+    /*
+     * Returns a job based on JobID
+     */
+    public Job getJobFromJobID(String jobID) {
+        SearchResult result = createQueryForContentFragments(
+                contentFragmentConfigService.getConfig().modelMetierPath(), jobID, Job.CONTENT_FRAGMENT_MODEL_CONF);
+        if (!result.getHits().isEmpty()) {
+            ContentFragment contentFragmentJob = result.getResources().next().adaptTo(ContentFragment.class);
+            if (contentFragmentJob != null) {
+                String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
+                        String.class);
+                return new Job(contentFragmentJob, resolveTags(tagListIds));
+            }
         }
-        return contentFragmentActivites;
+        return null;
     }
 
-    public List<Tag> convertListTagsNamesToListTags(String[] tagNames) {
-        ResourceResolver resourceResolver = ServiceUtils.getResourceResolver(resolverFactory, globalConfigService.getConfig().systemUser());
-        LOG.debug("Inside get tags with resource resolver: {}", resourceResolver);
+    /*
+     * Created query to search for Content Fragments based on JobID
+     */
+    private SearchResult createQueryForContentFragments(String path, String jobID, String contentFragmentType) {
+        Map<String, String> paramMap = new HashMap();
+        paramMap.put("path", path);
+        paramMap.put("type", "dam:Asset");
+        paramMap.put("1_property.property", "jcr:content/data/cq:model");
+        paramMap.put("1_property.value", contentFragmentType);
+        paramMap.put("2_property.property", "jcr:content/data/master/" + Activity.CODE_METIER_KEY);
+        paramMap.put("2_property.value", jobID);
 
-        // get the tag resource from tagNames
+        ResourceResolver resourceResolver = getResourceResolver();
+        QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
+
+        Query query = builder.createQuery(PredicateGroup.create(paramMap), resourceResolver.adaptTo(Session.class));
+        return query.getResult();
+
+    }
+
+    private List<Tag> resolveTags(String[] tagListIds) {
+        ResourceResolver resourceResolver = getResourceResolver();
         List<Tag> tags = new ArrayList<>();
-
-        for (String tagName : tagNames) {
-            String[] pathParts = tagName.split(":");
-
-            String path = String.format("/content/cq:tags/%s/%s", pathParts[0], pathParts[1]);
-            Resource tagResource = resourceResolver.getResource(path);
-
-            LOG.debug("searching for tag {}, resource found: {}", path, tagResource);
-
-            String color = tagResource.getValueMap().get("backgroundColor") != null ? tagResource.getValueMap().get("backgroundColor").toString() : "#ffff00";
-            String title = tagResource.getValueMap().get("jcr:title").toString();
-
-            tags.add(new Tag(title, color));
+        if (resourceResolver != null) {
+            TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+            for (String tagId : tagListIds) {
+                Tag resolvedTag = tagManager.resolve(tagId);
+                if (resolvedTag != null) {
+                    tags.add(resolvedTag);
+                }
+            }
         }
-
         return tags;
     }
 
-    private List<ContentFragment> getContentFragmentsWithKeyProfessionFromList(Iterator<Resource> initialList, String keyProfession) {
-        List<ContentFragment> contentFragments = new ArrayList<ContentFragment>();
-        LOG.debug("Inside get content from content fragment with ID.");
-        if (initialList != null) {
-            do {
-                Resource resource = initialList.next();
-                if (resource.getResourceType().equals("dam:Asset")) {
-                    LOG.debug("Content fragment found in metier folder");
-                    ContentFragment contentFragment = resource.adaptTo(ContentFragment.class);
-                    Iterator<ContentElement> elementsIt = contentFragment.getElements();
-                    do {
-                        ContentElement contentElement = elementsIt.next();
-                        if (contentElement.getName().equals("codeMetier") && contentElement.getValue().getValue().equals(keyProfession)) {
-                            LOG.debug("Content fragment found in metier folder with same key");
-                            contentFragments.add(contentFragment);
-                        }
-                    } while (elementsIt.hasNext());
-                }
-            } while (initialList.hasNext());
-        }
-        return contentFragments;
+    private ResourceResolver getResourceResolver() {
+        return ServiceUtils.getResourceResolver(resolverFactory,
+                globalConfigService.getConfig().systemUser());
     }
-
-    private Map<String, Object> getDataFromContentFragment(String[] contentList, ContentFragment contentFragment) {
-        Map<String, Object> contentFragmentData = new HashMap<>();
-
-            for (String key : contentList) {
-                LOG.debug("Getting {} from contentfragment from element {}", key, contentFragment.getElement(key));
-                contentFragmentData.put(key, contentFragment.getElement(key).getValue().getValue());
-            }
-
-        return contentFragmentData;
-    }
-
 }

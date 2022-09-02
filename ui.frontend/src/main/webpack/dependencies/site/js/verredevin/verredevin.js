@@ -7,5 +7,3 @@ var detailsCloseBtn = document.getElementById("close-container");
 detailsCloseBtn.addEventListener("click", () => {
   detailsBtn.click();
 });
-
-detailsBtn.click();
