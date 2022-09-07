@@ -534,7 +534,6 @@ header .container-content {
   transform: translateY(-10rem);
 }
 @media screen and (max-width: $breakpointMobile) {
-
   .container .container-content .container .container-content {
     .chip-container {
       display: block;
@@ -545,13 +544,10 @@ header .container-content {
     }
   }
 
-  
-
   .twoCol.smallRight
     > .cmp-container
     > .container-content
     > .container:nth-child(1) {
-
     max-width: none;
 
     .container .container-content .container .container-content {
