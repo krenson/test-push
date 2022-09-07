@@ -280,6 +280,9 @@ Bundle-DocURL:
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>2.22.1</version>
+                    <configuration>
+                        <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                    </configuration>
                 </plugin>
                 <!-- Maven Deploy Plugin -->
                 <plugin>

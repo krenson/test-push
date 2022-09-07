@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.models;
 
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.horizonemploi.JobTagsModel;
 import com.leforemhe.aem.site.core.services.GlobalConfigService;
 import org.apache.jackrabbit.spi.commons.iterator.Iterators;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -196,6 +197,4 @@ public class HamburgerMenuModel {
     public NavigationImageItemModel getForemJeunesData() {
         return currentResource.getParent().getChild("foremjeunes").adaptTo(NavigationImageItemModel.class);
     }
-
-
 }
