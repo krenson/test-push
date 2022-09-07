@@ -8,6 +8,107 @@
     <leforemhe jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <site jcr:primaryType="nt:unstructured">
+                <containerv2 jcr:primaryType="nt:unstructured">
+                    <policy_1659710267008
+                        jcr:lastModified="{Date}2022-08-05T16:39:32.201+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Top container policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/leforemhe/components/site/contentfragments/title,/apps/leforemhe/components/site/filariane]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Background"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="background-Yellow"
+                                        cq:styleId="1659710346177"
+                                        cq:styleLabel="Yellow"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1659710267008>
+                    <policy_708220390716800
+                        jcr:lastModified="{Date}2022-09-07T13:05:29.558+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Containerv2 policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/leforemhe/components/commons/core/tabs,/apps/leforemhe/components/site/contentfragments/text,/apps/leforemhe/components/site/contentfragments/tags,/apps/leforemhe/components/site/containerv2,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/linkicon,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube]"
+                        layoutDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Background"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="background-Yellow"
+                                        cq:styleId="1660225395138"
+                                        cq:styleLabel="Yellow header"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="background-Yellow2"
+                                        cq:styleId="1660225408237"
+                                        cq:styleLabel="Yellow remarque"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="background-BlackBlue"
+                                        cq:styleId="1660225438752"
+                                        cq:styleLabel="Black blue"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Two column layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="twoCol smallLeft"
+                                        cq:styleId="1660227783995"
+                                        cq:styleLabel="70 / 30"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="twoCol"
+                                        cq:styleId="1660226136145"
+                                        cq:styleLabel="50 / 50"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="twoCol smallRight"
+                                        cq:styleId="1660227729601"
+                                        cq:styleLabel="30 / 70"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+                            <item2
+                                cq:styleGroupLabel="Container layout"
+                                cq:styleGroupMultiple="true"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="maxWidth"
+                                        cq:styleId="1660228391393"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="padding-bottom"
+                                        cq:styleId="1660230385234"
+                                        cq:styleLabel="Spacing bottom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="offsetTop"
+                                        cq:styleId="1660230406246"
+                                        cq:styleLabel="Spacing top"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item2>
+                        </cq:styleGroups>
+                    </policy_708220390716800>
+                </containerv2>
                 <text jcr:primaryType="nt:unstructured">
                     <policy_1642765680781
                         jcr:lastModified="{Date}2022-01-21T16:31:04.331+01:00"
@@ -128,6 +229,24 @@
                     </policy_1642765680781>
                 </text>
                 <container jcr:primaryType="nt:unstructured">
+                    <policy_109595022051748
+                        jcr:lastModified="{Date}2022-07-15T17:06:18.845+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="HE - Content Container"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:AEM - Core Components,/apps/leforemhe/components/site/contentfragments/title,/apps/leforemhe/components/site/accroche,/apps/leforemhe/components/site/banniere/banniere-carrousel,/apps/leforemhe/components/site/banniere/banniere-temoignage,/apps/leforemhe/components/site/carrousel/standard,/apps/leforemhe/components/site/carrousel/temoignages,/apps/leforemhe/components/site/htmlcomponent,/apps/leforemhe/components/site/container,/apps/leforemhe/components/site/footer/copyright,/apps/leforemhe/components/site/experiencefragment,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/pave,/apps/leforemhe/components/site/referencemulticombo,/apps/leforemhe/components/site/referencemultivoiraussi,/apps/leforemhe/components/site/pavecontainer,/apps/leforemhe/components/site/text,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube]"
+                        layoutDisabled="false">
+                        <jcr:content
+                            cq:lastReplicated="{Date}2022-07-22T09:54:28.772Z"
+                            cq:lastReplicated_publish="{Date}2022-07-22T09:54:28.772Z"
+                            cq:lastReplicatedBy="Dirk.Gepts@inetum-realdolmen.world"
+                            cq:lastReplicatedBy_publish="Dirk.Gepts@inetum-realdolmen.world"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
+                    </policy_109595022051748>
                     <php_corpssousapplic_root_container_policy
                         jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
                         jcr:primaryType="nt:unstructured"
@@ -508,6 +627,24 @@
                             jcr:title="Page Content"
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="[group:LeForem HE - Site,group:AEM - Core Components,group:AEM - GSS Components,group:AEM - Form Components]"/>
+                        <policy_10091015442786
+                            jcr:lastModified="{Date}2022-07-07T07:27:59.996Z"
+                            jcr:lastModifiedBy="rik.vanbelle@realdolmen.com"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="HE - Corps de Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/apps/leforemhe/components/site/accroche,/apps/leforemhe/components/site/articlehtml,/apps/leforemhe/components/site/htmlcomponent,/apps/leforemhe/components/site/container,/apps/leforemhe/components/site/footer/copyright,/apps/leforemhe/components/site/experiencefragment,/apps/leforemhe/components/site/filariane,/apps/leforemhe/components/site/header/header,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/js/dynamicjs,/apps/leforemhe/components/site/footer/linkLists,/apps/leforemhe/components/site/pave,/apps/leforemhe/components/site/text,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube]"
+                            layoutDisabled="false">
+                            <jcr:content
+                                cq:lastReplicated="{Date}2022-07-22T09:54:28.772Z"
+                                cq:lastReplicated_publish="{Date}2022-07-22T09:54:28.772Z"
+                                cq:lastReplicatedBy="Dirk.Gepts@inetum-realdolmen.world"
+                                cq:lastReplicatedBy_publish="Dirk.Gepts@inetum-realdolmen.world"
+                                cq:lastReplicationAction="Activate"
+                                cq:lastReplicationAction_publish="Activate"
+                                jcr:mixinTypes="[cq:ReplicationStatus]"
+                                jcr:primaryType="nt:unstructured"/>
+                        </policy_10091015442786>
                     </pagebodycontainer>
                     <maincontainer jcr:primaryType="nt:unstructured">
                         <maincontainer_homepage_policy
@@ -605,6 +742,25 @@
                     </asidecontainer>
                 </leforemcontainers>
                 <page jcr:primaryType="nt:unstructured">
+                    <policy_10019681390930
+                        jcr:lastModified="{Date}2022-08-09T07:38:38.769Z"
+                        jcr:lastModifiedBy="jesus.perezfranco@inetum-realdolmen.world"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="HE - Page Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        ampMode="noAmp"
+                        clientlibs="leforemhe.site"
+                        clientlibsAsync="false">
+                        <jcr:content
+                            cq:lastReplicated="{Date}2022-08-09T07:41:37.632Z"
+                            cq:lastReplicated_publish="{Date}2022-08-09T07:41:37.632Z"
+                            cq:lastReplicatedBy="jesus.perezfranco@inetum-realdolmen.world"
+                            cq:lastReplicatedBy_publish="jesus.perezfranco@inetum-realdolmen.world"
+                            cq:lastReplicationAction="Activate"
+                            cq:lastReplicationAction_publish="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
+                    </policy_10019681390930>
                     <page_content_policy
                         jcr:description="Includes the required client libraries."
                         jcr:primaryType="nt:unstructured"
@@ -1013,6 +1169,24 @@
             <commons jcr:primaryType="nt:unstructured">
                 <core jcr:primaryType="nt:unstructured">
                     <container jcr:primaryType="nt:unstructured">
+                        <policy_202941761866154
+                            jcr:lastModified="{Date}2022-06-01T08:27:03.485Z"
+                            jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Container Core Components"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="group:AEM - Core Components"
+                            layoutDisabled="false">
+                            <jcr:content
+                                cq:lastReplicated="{Date}2022-08-09T07:41:37.632Z"
+                                cq:lastReplicated_publish="{Date}2022-08-09T07:41:37.632Z"
+                                cq:lastReplicatedBy="jesus.perezfranco@inetum-realdolmen.world"
+                                cq:lastReplicatedBy_publish="jesus.perezfranco@inetum-realdolmen.world"
+                                cq:lastReplicationAction="Activate"
+                                cq:lastReplicationAction_publish="Activate"
+                                jcr:mixinTypes="[cq:ReplicationStatus]"
+                                jcr:primaryType="nt:unstructured"/>
+                        </policy_202941761866154>
                         <page_formapass_policy
                             jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
                             jcr:primaryType="nt:unstructured"
