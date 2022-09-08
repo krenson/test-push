@@ -531,16 +531,10 @@ header .container-content {
 .container .container-content .container .container-content {
   padding: 0;
 }
-.twoCol > .cmp-container > .container-content,
-.twoCol > .container-content {
+.twoCol > .cmp-container > .container-content {
   display: flex;
 
   gap: $gapSize;
-
-  .cmp-container,
-  .cmp-container .container-content {
-    width: 48.5rem;
-  }
 }
 
 .twoCol.smallRight
