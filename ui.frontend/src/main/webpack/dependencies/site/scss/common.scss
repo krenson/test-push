@@ -21,8 +21,8 @@ header,
 
 .aem {
   h1 {
-    font-size: 4.4rem;
-
+    font-size: 4rem;
+    margin: 0;
     font-weight: 500;
   }
   h2 {
@@ -76,6 +76,16 @@ strong {
 .aem.youtube_component {
   @include max-width;
   margin: 0 auto;
+
+  .multiComponent {
+    margin-bottom: 1.5rem !important;
+
+    .multi-content {
+      background-color: #f4fafb;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
 }
 .aem.youtube_container,
 .aem .youtube_container {
@@ -190,6 +200,7 @@ strong {
     .cq-placeholder {
       background: $article-header-backgroud-color;
     }
+
     .aem.accroche-container {
       padding: 1.5rem 0;
     }
@@ -219,6 +230,16 @@ strong {
 
     .cmp-text {
       padding: 0 !important;
+    }
+
+    .aem.accroche-container.flex {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+
+      p:last-child {
+        font-size: 1.4rem;
+      }
     }
   }
 }
@@ -401,15 +422,16 @@ strong {
   min-height: initial !important;
   margin-bottom: 0 !important;
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
-    bottom: -20rem;
-    height: 29rem;
+    bottom: -39.5rem;
+    height: 39.5rem;
     width: 100%;
-
     z-index: -1;
   }
+
   .container-content {
     padding-bottom: 0 !important;
   }
