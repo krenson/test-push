@@ -196,7 +196,7 @@ strong {
 
     .aem.accroche-container p {
       font-size: 1.8rem;
-      padding-top: 1rem;
+      padding-top: 0rem !important;
       display: block;
     }
     .aem.title-container h1,
@@ -210,17 +210,21 @@ strong {
     }
 
     .aem.accroche-container p {
-      padding-top: 1rem;
+      padding-top: 0rem;
       display: block;
     }
     .aem.accroche-container p:last-child {
-      padding-bottom: 1rem;
+      padding-bottom: 0rem;
+    }
+
+    .cmp-text {
+      padding: 0 !important;
     }
   }
 }
 
 .aem#filAriane {
-  padding: 3rem 0;
+  padding: 3rem 0rem;
   background: $article-header-backgroud-color;
   .filArianeContainer {
     @include max-width;
@@ -231,6 +235,7 @@ strong {
     }
   }
 }
+
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
     padding: 2rem 0rem;
@@ -311,6 +316,7 @@ strong {
 
 .maxWidth .container-content {
   @include max-width;
+
   width: 100%;
   margin: 0 auto;
 }
@@ -373,6 +379,7 @@ strong {
 
   .aem.accroche-container {
   }
+
   .chip-container {
     display: flex;
     .aem .chip-button,
@@ -434,8 +441,9 @@ header .container-content {
   .aem.accroche-container {
     padding-top: 0 !important;
   }
-  .aem.accroche-container .accroche {
-    padding-top: 1rem !important;
+  .aem.accroche-container,
+  .aem.accroche-container .accroche .cmp-tex {
+    padding: 0rem !important;
   }
 
   .aem#filAriane .filArianeContainer,
@@ -501,10 +509,16 @@ header .container-content {
 .container .container-content .container .container-content {
   padding: 0;
 }
-.twoCol > .cmp-container > .container-content {
+.twoCol > .cmp-container > .container-content,
+.twoCol > .container-content {
   display: flex;
 
   gap: $gapSize;
+
+  .cmp-container,
+  .cmp-container .container-content {
+    width: 48.5rem;
+  }
 }
 
 .twoCol.smallRight
