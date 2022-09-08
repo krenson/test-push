@@ -21,8 +21,8 @@ header,
 
 .aem {
   h1 {
-    font-size: 4.4rem;
-
+    font-size: 4rem;
+    margin: 0;
     font-weight: 500;
   }
   h2 {
@@ -76,6 +76,16 @@ strong {
 .aem.youtube_component {
   @include max-width;
   margin: 0 auto;
+
+  .multiComponent {
+    margin-bottom: 1.5rem !important;
+
+    .multi-content {
+      background-color: #f4fafb;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
 }
 .aem.youtube_container,
 .aem .youtube_container {
@@ -190,13 +200,14 @@ strong {
     .cq-placeholder {
       background: $article-header-backgroud-color;
     }
+
     .aem.accroche-container {
       padding: 1.5rem 0;
     }
 
     .aem.accroche-container p {
       font-size: 1.8rem;
-      padding-top: 1rem;
+      padding-top: 0rem !important;
       display: block;
     }
     .aem.title-container h1,
@@ -210,17 +221,31 @@ strong {
     }
 
     .aem.accroche-container p {
-      padding-top: 1rem;
+      padding-top: 0rem;
       display: block;
     }
     .aem.accroche-container p:last-child {
-      padding-bottom: 1rem;
+      padding-bottom: 0rem;
+    }
+
+    .cmp-text {
+      padding: 0 !important;
+    }
+
+    .aem.accroche-container.flex {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+
+      p:last-child {
+        font-size: 1.4rem;
+      }
     }
   }
 }
 
 .aem#filAriane {
-  padding: 3rem 0;
+  padding: 3rem 0rem;
   background: $article-header-backgroud-color;
   .filArianeContainer {
     @include max-width;
@@ -231,6 +256,7 @@ strong {
     }
   }
 }
+
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
     padding: 2rem 0rem;
@@ -311,6 +337,7 @@ strong {
 
 .maxWidth .container-content {
   @include max-width;
+
   width: 100%;
   margin: 0 auto;
 }
@@ -373,6 +400,7 @@ strong {
 
   .aem.accroche-container {
   }
+
   .chip-container {
     display: flex;
     .aem .chip-button,
@@ -394,15 +422,16 @@ strong {
   min-height: initial !important;
   margin-bottom: 0 !important;
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
-    bottom: -20rem;
-    height: 29rem;
+    bottom: -39.5rem;
+    height: 39.5rem;
     width: 100%;
-
     z-index: -1;
   }
+
   .container-content {
     padding-bottom: 0 !important;
   }
@@ -434,8 +463,9 @@ header .container-content {
   .aem.accroche-container {
     padding-top: 0 !important;
   }
-  .aem.accroche-container .accroche {
-    padding-top: 1rem !important;
+  .aem.accroche-container,
+  .aem.accroche-container .accroche .cmp-tex {
+    padding: 0rem !important;
   }
 
   .aem#filAriane .filArianeContainer,
@@ -501,10 +531,16 @@ header .container-content {
 .container .container-content .container .container-content {
   padding: 0;
 }
-.twoCol > .cmp-container > .container-content {
+.twoCol > .cmp-container > .container-content,
+.twoCol > .container-content {
   display: flex;
 
   gap: $gapSize;
+
+  .cmp-container,
+  .cmp-container .container-content {
+    width: 48.5rem;
+  }
 }
 
 .twoCol.smallRight
