@@ -149,6 +149,20 @@
                                                 name="./clemetier"/>
                                         </items>
                                     </clemetier>
+                                    <date
+                                  jcr:primaryType="nt:unstructured"
+                                  jcr:title="Date mise à jour"
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <lastUpdatedDate
+                                      cq:showOnCreate="{Boolean}true"
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                      fieldDescription="Date mise à jour"
+                                      fieldLabel="Date"
+                                      name="./lastUpdatedDate"/>
+                                </items>
+                                </date>
                                 </items>
                             </column>
                         </items>
