@@ -160,7 +160,8 @@
                                       sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
                                       fieldDescription="Date mise à jour"
                                       fieldLabel="Date"
-                                      name="./lastUpdatedDate"/>
+                                      name="./lastUpdatedDate"
+                                      required="{Boolean}true"/>
                                 </items>
                                 </date>
                                 </items>
