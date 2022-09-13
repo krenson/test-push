@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured"
+          jcr:title="Texte CF" sling:resourceType="cq/gui/components/authoring/dialog" height="{Long}300">
+    <content jcr:primaryType="nt:unstructured"
+             sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+        <items jcr:primaryType="nt:unstructured">
+            <column jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <list jcr:primaryType="nt:unstructured"
+                          sling:resourceType="granite/ui/components/foundation/form/select"
+                          class="cq-dialog-dropdown-showhide"
+                          cq-dialog-dropdown-showhide-target=".activity-job-hide-show"
+                          fieldLabel="Content fragment model: " name="./contentFragmentModel">
+                        <items jcr:primaryType="nt:unstructured">
+                            <job jcr:primaryType="nt:unstructured" text="Metier" value="job" />
+                            <activity jcr:primaryType="nt:unstructured" text="Activité" value="activity" />
+                        </items>
+                    </list>
+                    <activityElement jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/container"
+                              class="hide activity-job-hide-show"
+                              showhidetargetvalue="activity">
+                        <items jcr:primaryType="nt:unstructured">
+                            <list jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/foundation/form/select"
+                                  fieldLabel="Content fragment model: " name="./selectedActivityElement">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <video jcr:primaryType="nt:unstructured" text="test" value="test" />
+                                    <image jcr:primaryType="nt:unstructured" text="test" value="test2" />
+                                </items>
+                            </list>
+                        </items>
+                    </activityElement>
+                    <jobElement jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/foundation/container"
+                              class="hide activity-job-hide-show"
+                              showhidetargetvalue="job">
+                        <items jcr:primaryType="nt:unstructured">
+                            <list jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/foundation/form/select"
+                                  fieldLabel="Content fragment model: " name="./selectedJobElement">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <video jcr:primaryType="nt:unstructured" text="Accroche" value="description" />
+                                    <image jcr:primaryType="nt:unstructured" text="Code Métier" value="codeMetier" />
+                                </items>
+                            </list>
+                        </items>
+                    </jobElement>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

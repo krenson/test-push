@@ -1,3 +1,5 @@
-<p data-sly-use.textModel="com.leforemhe.aem.site.core.models.horizonemploi.JobDescription" class="accroche">
+<p  data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.textModel="com.leforemhe.aem.site.core.models.horizonemploi.TextModel">
     ${textModel.text}
+    <sly data-sly-call="${templates.placeholder @ isEmpty = !textModel.text}"></sly>
 </p>

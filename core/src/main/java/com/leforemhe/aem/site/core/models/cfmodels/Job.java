@@ -6,6 +6,7 @@ import java.util.List;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.tagging.Tag;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class Job {
     public static final String CODE_METIER_KEY = "codeMetier";
@@ -86,5 +87,13 @@ public class Job {
 
     public String[] getEnvironments() {
         return environments;
+    }
+
+    public String getTextValueFromElement(String element) {
+        switch (element) {
+            case DESCRIPTION_KEY: return getDescription();
+            case CODE_METIER_KEY: return getCodeMetier();
+            default: return StringUtils.EMPTY;
+        }
     }
 }

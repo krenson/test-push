@@ -17,7 +17,7 @@ import javax.inject.Inject;
 @Model(adaptables = SlingHttpServletRequest.class, adapters = {
         JobDescription.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = JobDescriptionImpl.RESOURCE_TYPE)
 public class JobDescriptionImpl implements JobDescription {
-    public static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/text";
+    public static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/accroche";
 
     @Self
     @Via(type = ResourceSuperType.class)
