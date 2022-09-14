@@ -818,6 +818,36 @@
                             jcr:primaryType="nt:unstructured"/>
                     </page_formapass_policy>
                 </page>
+                <contentfragments jcr:primaryType="nt:unstructured">
+                    <list jcr:primaryType="nt:unstructured">
+                        <policy_1663167902725
+                            jcr:lastModified="{Date}2022-09-14T17:08:42.574+02:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="LIST_CF_STYLES"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Bullet styles"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="list level2"
+                                            cq:styleId="1663167960136"
+                                            cq:styleLabel="Level 2"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="list level3"
+                                            cq:styleId="1663167968504"
+                                            cq:styleLabel="Level 3"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1663167902725>
+                    </list>
+                </contentfragments>
             </site>
             <container jcr:primaryType="nt:unstructured">
                 <page_content_policy

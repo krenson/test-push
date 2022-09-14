@@ -59,6 +59,12 @@
                                             cq:policy="leforemhe/components/site/containerv2/policy_708220390716800"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="wcm/core/components/policies/mapping"/>
+                                        <contentfragments jcr:primaryType="nt:unstructured">
+                                            <list
+                                                cq:policy="leforemhe/components/site/contentfragments/list/policy_1663167902725"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                                        </contentfragments>
                                     </site>
                                 </components>
                             </leforemhe>

@@ -1,7 +1,6 @@
 package com.leforemhe.aem.site.core.models.horizonemploi;
 
 import com.day.cq.wcm.api.Page;
-import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
@@ -37,13 +36,29 @@ public class TextModel {
                 String cleMetier = currentPage.getProperties().get("clemetier").toString();
                 this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
-            text = getTextValueFromElementJob(selectedJobElement);
+            text = getSingleTextValueFromElementJob(selectedJobElement);
         }
         return text;
     }
 
-    private String getTextValueFromElementJob(String element) {
-        return this.job.getTextValueFromElement(element);
+    public String[] getTextList() {
+        String[] text = {};
+        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)) {
+            if (this.job == null) {
+                String cleMetier = currentPage.getProperties().get("clemetier").toString();
+                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            }
+            text = getMultiTextValueFromElementJob(selectedJobElement);
+        }
+        return text;
+    }
+
+    private String getSingleTextValueFromElementJob(String element) {
+        return this.job.getSingleTextValueFromElement(element);
+    }
+
+    private String[] getMultiTextValueFromElementJob(String element) {
+        return this.job.getMultiTextValueFromElement(element);
     }
 
     private String getContentFragmentModelType(String contentFragmentModel) {

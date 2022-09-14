@@ -148,31 +148,46 @@
                                             sling:resourceType="leforemhe/components/site/contentfragments/activities"/>
                                     </item_1>
                                     <item_2
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Accès au métier"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Accès au métier"
                                         sling:resourceType="leforemhe/components/commons/core/container">
+                                        <title
+                                            jcr:created="{Date}2022-09-14T17:18:31.070+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-14T17:18:59.185+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Atouts"
+                                            sling:resourceType="leforemhe/components/site/title"
+                                            type="h5"/>
+                                        <list
+                                            jcr:created="{Date}2022-09-14T17:15:05.272+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-14T17:18:10.276+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="leforemhe/components/site/contentfragments/list"
+                                            contentFragmentModel="job"
+                                            selectedActivityElement="test"
+                                            selectedJobElement="atouts"/>
                                     </item_2>
                                     <item_3
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Offres"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Offres"
-                                        sling:resourceType="leforemhe/components/commons/core/container">
-                                    </item_3>
+                                        sling:resourceType="leforemhe/components/commons/core/container"/>
                                     <item_4
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Études &amp; formations"
-                                        jcr:title="Études &amp; formations"
-                                        sling:resourceType="leforemhe/components/commons/core/container">
-                                    </item_4>
-                                    <item_5
                                         jcr:primaryType="nt:unstructured"
+                                        jcr:title="Études &amp; formations"
+                                        sling:resourceType="leforemhe/components/commons/core/container"/>
+                                    <item_5
                                         cq:panelTitle="Liens"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Liens"
-                                        sling:resourceType="leforemhe/components/commons/core/container">
-                                    </item_5>
+                                        sling:resourceType="leforemhe/components/commons/core/container"/>
                                 </tabs>
-                                
                             </containerv2>
                             <containerv2_1568383097
                                 jcr:created="{Date}2022-08-11T15:51:48.007Z"
@@ -192,19 +207,23 @@
                                 <title
                                     jcr:created="{Date}2022-08-11T15:52:41.228Z"
                                     jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
-                                    jcr:lastModified="{Date}2022-08-11T15:52:50.502Z"
-                                    jcr:lastModifiedBy="Dietger.Pieters@inetum-realdolmen.world"
+                                    jcr:lastModified="{Date}2022-09-12T09:57:16.119Z"
+                                    jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
                                     jcr:primaryType="nt:unstructured"
                                     jcr:title="Synonymes et autres appellations"
                                     sling:resourceType="leforemhe/components/site/title"
                                     type="h4"/>
-                                <synonymes
-                                    jcr:created="{Date}2022-08-11T15:52:57.221Z"
-                                    jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
-                                    jcr:lastModified="{Date}2022-08-11T15:52:57.221Z"
-                                    jcr:lastModifiedBy="Dietger.Pieters@inetum-realdolmen.world"
+                                <list
+                                    cq:styleIds="[1663167968504]"
+                                    jcr:created="{Date}2022-09-14T16:57:07.239+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2022-09-14T16:58:20.788+02:00"
+                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="leforemhe/components/site/contentfragments/synonymes"/>
+                                    sling:resourceType="leforemhe/components/site/contentfragments/list"
+                                    contentFragmentModel="job"
+                                    selectedActivityElement="test"
+                                    selectedJobElement="synonymes"/>
                                 <title_1480055539
                                     jcr:created="{Date}2022-09-14T11:43:01.461+02:00"
                                     jcr:createdBy="admin"
