@@ -32,14 +32,11 @@ public class TextModel {
 
     public String getText() {
         String text = StringUtils.EMPTY;
-        if (this.job == null) {
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
-            this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
-        }
-        if (contentFragmentModel == null) {
-            return StringUtils.EMPTY;
-        }
-        if (contentFragmentModel.equals("job")) {
+        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)) {
+            if (this.job == null) {
+                String cleMetier = currentPage.getProperties().get("clemetier").toString();
+                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            }
             text = getTextValueFromElementJob(selectedJobElement);
         }
         return text;
@@ -47,6 +44,17 @@ public class TextModel {
 
     private String getTextValueFromElementJob(String element) {
         return this.job.getTextValueFromElement(element);
+    }
+
+    private String getContentFragmentModelType(String contentFragmentModel) {
+        if (contentFragmentModel == null) {
+            return StringUtils.EMPTY;
+        }
+        // Other cases coming (Activity)
+        switch (contentFragmentModel) {
+            case Job.CONTENT_FRAGMENT_MODEL_TYPE: return contentFragmentModel;
+            default: return StringUtils.EMPTY;
+        }
     }
 }
 

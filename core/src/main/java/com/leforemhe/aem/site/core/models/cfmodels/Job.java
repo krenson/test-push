@@ -20,6 +20,7 @@ public class Job {
     public static final String STRUCTURES_KEY = "structures";
     public static final String ENVIRONMENTS_KEY = "environnements";
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
+    public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
     private String codeMetier;
     private String title;
