@@ -6,8 +6,8 @@
     <filter root="/content/cq:tags/he-metier" mode="update"/>
     <filter root="/content/leforemhe" mode="replace"/>
     <filter root="/content/leforemhe/fr" mode="replace"/>
-    <filter root="/content/dam/leforemhe" mode="update"/>
-    <filter root="/content/dam/leforemhe/fr" mode="update"/>
+    <filter root="/content/dam/leforemhe" mode="merge"/>
+    <filter root="/content/dam/leforemhe/fr" mode="merge"/>
     <filter root="/content/dam/leforemhe/fr/javascript" mode="update"/>
     <filter root="/content/dam/leforemhe/fr/javascript/static" mode="replace"/>
     <filter root="/content/experience-fragments/leforemhe" mode="update"/>
