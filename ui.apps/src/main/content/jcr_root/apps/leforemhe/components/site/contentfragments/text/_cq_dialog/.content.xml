@@ -31,8 +31,8 @@
                                   sling:resourceType="granite/ui/components/foundation/form/select"
                                   fieldLabel="Content fragment element: " name="./selectedActivityElement">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <video jcr:primaryType="nt:unstructured" text="test" value="test" />
-                                    <image jcr:primaryType="nt:unstructured" text="test" value="test2" />
+                                    <test jcr:primaryType="nt:unstructured" text="test" value="test" />
+                                    <test2 jcr:primaryType="nt:unstructured" text="test" value="test2" />
                                 </items>
                             </list>
                         </items>
@@ -46,8 +46,8 @@
                                   sling:resourceType="granite/ui/components/foundation/form/select"
                                   fieldLabel="Content fragment element: " name="./selectedJobElement">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <video jcr:primaryType="nt:unstructured" text="Description" value="description" />
-                                    <image jcr:primaryType="nt:unstructured" text="Code Métier" value="codeMetier" />
+                                    <description jcr:primaryType="nt:unstructured" text="Description" value="description" />
+                                    <codeMetier jcr:primaryType="nt:unstructured" text="Code Métier" value="codeMetier" />
                                 </items>
                             </list>
                         </items>
