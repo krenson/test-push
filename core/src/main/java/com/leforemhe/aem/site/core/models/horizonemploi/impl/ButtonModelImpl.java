@@ -1,6 +1,5 @@
 package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
-import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.models.Button;
 import com.leforemhe.aem.site.core.models.horizonemploi.ButtonModel;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -10,6 +9,8 @@ import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
+
+import javax.inject.Inject;
 
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = ButtonModel.class,
