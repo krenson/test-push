@@ -123,7 +123,7 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="leforemhe/components/site/js/dynamicjs"
-                javascripts="[/content/dam/leforemhe/fr/javascript/dynamic/warning,/content/dam/leforemhe/fr/javascript/static/temoignages]"/>
+                javascripts="[/content/dam/leforemhe/fr/javascript/dynamic/warning,/content/dam/leforemhe/fr/javascript/static/temoignages,/content/dam/leforemhe/fr/javascript/static/popup]"/>
         </root>
     </jcr:content>
 </jcr:root>
