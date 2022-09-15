@@ -1,5 +1,8 @@
 package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
+import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.cfmodels.Job;
+import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -8,10 +11,18 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.leforemhe.aem.site.core.models.horizonemploi.LinkModel;
 
+import javax.inject.Inject;
+
 @Model(adaptables = SlingHttpServletRequest.class, adapters = {
-        LinkModel.class }, resourceType = LinkModelImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+        LinkModel.class}, resourceType = LinkModelImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class LinkModelImpl implements LinkModel {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/linkicon";
+
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private ContentFragmentUtilService contentFragmentUtilService;
 
     @ValueMapValue
     private String title;
@@ -21,6 +32,11 @@ public class LinkModelImpl implements LinkModel {
 
     @ValueMapValue
     private String iconFileReference;
+
+    @ValueMapValue
+    private String popupReference;
+
+    private Job job;
 
     @Override
     public String getTitle() {
@@ -42,4 +58,17 @@ public class LinkModelImpl implements LinkModel {
         return StringUtils.isNotEmpty(title);
     }
 
+    @Override
+    public String popupReference() {
+        return popupReference;
+    }
+
+    @Override
+    public String getJobTitle() {
+        if (this.job == null) {
+            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+            job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+        }
+        return job.getTitle();
+    }
 }

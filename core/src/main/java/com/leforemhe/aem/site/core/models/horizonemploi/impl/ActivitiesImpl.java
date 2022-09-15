@@ -19,9 +19,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = { Activities.class,
-        ComponentExporter.class }, resourceType = ActivitiesImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+@Model(adaptables = SlingHttpServletRequest.class, adapters = Activities.class, resourceType = ActivitiesImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ActivitiesImpl implements Activities {
 
     static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/activities";

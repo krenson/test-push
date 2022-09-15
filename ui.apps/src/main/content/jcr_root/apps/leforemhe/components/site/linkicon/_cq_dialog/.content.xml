@@ -37,6 +37,13 @@
                            fieldLabel="Description"
                            fieldDescription="Description du lien pavé (pour le HTML)"
                            name="./description"/>
+                    <linkReference
+                      jcr:primaryType="nt:unstructured"
+                      sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                      fieldLabel="Popup content"
+                      name="./popupReference"
+                      rootPath="/content/experience-fragments"/>
+
                 </items>
             </column>
         </items>
