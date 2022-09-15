@@ -1,0 +1,10 @@
+<ul data-sly-use.textModel="com.leforemhe.aem.site.core.models.horizonemploi.TextModel"
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-list.item="${textModel.textList}"
+    id="${component.id}"
+    class="cmp-list">
+    <li class="cmp-list__item">
+        <span class="cmp-list__item-title">${item}</span>
+    </li>
+</ul>
+<sly data-sly-call="${template.placeholder @ isEmpty=!textModel.textList , classAppend='cmp-list'}"></sly>
