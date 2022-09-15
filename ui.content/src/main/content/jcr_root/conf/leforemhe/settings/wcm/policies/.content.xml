@@ -38,7 +38,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Containerv2 policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/leforemhe/components/commons/core/tabs,/apps/leforemhe/components/site/contentfragments/text,/apps/leforemhe/components/site/contentfragments/tags,/apps/leforemhe/components/site/containerv2,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/linkicon,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube]"
+                        components="[/apps/leforemhe/components/commons/core/tabs,/apps/leforemhe/components/site/contentfragments/text,/apps/leforemhe/components/site/contentfragments/tags,/apps/leforemhe/components/site/containerv2,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/linkicon,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube,/apps/leforemhe/components/site/lastupdateddate,/apps/leforemhe/components/site/banniere/liens-carrousel]"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:styleGroups jcr:primaryType="nt:unstructured">
