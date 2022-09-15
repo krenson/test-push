@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2022-08-29T10:38:30.483+02:00"
+        cq:lastModified="{Date}2022-09-15T16:24:10.942+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/leforemhe/settings/wcm/templates/pge_resp_he_metier"
         jcr:isCheckedOut="{Boolean}true"
@@ -104,12 +104,17 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="leforemhe/components/site/contentfragments/tags"/>
                                 <text
-                                    jcr:created="{Date}2022-08-11T15:52:23.003Z"
-                                    jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
-                                    jcr:lastModified="{Date}2022-08-11T15:52:23.003Z"
-                                    jcr:lastModifiedBy="Dietger.Pieters@inetum-realdolmen.world"
+                                    jcr:created="{Date}2022-09-13T16:56:58.307+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2022-09-14T11:50:56.662+02:00"
+                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="leforemhe/components/site/contentfragments/text"/>
+                                    sling:resourceType="leforemhe/components/site/contentfragments/text"
+                                    contentFragmentModel="job"
+                                    elementActivityCF="test"
+                                    elementJobCF="codeMetier"
+                                    selectedActivityElement="test"
+                                    selectedJobElement="description"/>
                                 <tabs
                                     jcr:created="{Date}2022-08-11T15:52:07.964Z"
                                     jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
@@ -118,22 +123,22 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="leforemhe/components/commons/core/tabs">
                                     <item_1
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Info"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Info"
                                         sling:resourceType="leforemhe/components/commons/core/container">
                                         <linkicon_0
                                             jcr:primaryType="nt:unstructured"
-                                            title="Activités"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Activités"/>
                                         <linkicon_1
                                             jcr:primaryType="nt:unstructured"
-                                            title="Métiers Proches"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Métiers Proches"/>
                                         <linkicon_2
                                             jcr:primaryType="nt:unstructured"
-                                            title="Conditions d’éxercice"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Conditions d’éxercice"/>
                                         <activities
                                             jcr:created="{Date}2022-08-11T15:52:31.575Z"
                                             jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
@@ -143,31 +148,63 @@
                                             sling:resourceType="leforemhe/components/site/contentfragments/activities"/>
                                     </item_1>
                                     <item_2
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Accès au métier"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Accès au métier"
                                         sling:resourceType="leforemhe/components/commons/core/container">
+                                        <title
+                                            jcr:created="{Date}2022-09-14T17:18:31.070+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-14T17:18:59.185+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Atouts"
+                                            sling:resourceType="leforemhe/components/site/title"
+                                            type="h5"/>
+                                        <list
+                                            jcr:created="{Date}2022-09-14T17:15:05.272+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-14T17:18:10.276+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="leforemhe/components/site/contentfragments/list"
+                                            contentFragmentModel="job"
+                                            selectedActivityElement="test"
+                                            selectedJobElement="atouts"/>
                                     </item_2>
                                     <item_3
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Offres"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Offres"
-                                        sling:resourceType="leforemhe/components/commons/core/container">
-                                    </item_3>
+                                        sling:resourceType="leforemhe/components/commons/core/container"/>
                                     <item_4
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Études &amp; formations"
-                                        jcr:title="Études &amp; formations"
-                                        sling:resourceType="leforemhe/components/commons/core/container">
-                                    </item_4>
-                                    <item_5
                                         jcr:primaryType="nt:unstructured"
+                                        jcr:title="Études &amp; formations"
+                                        sling:resourceType="leforemhe/components/commons/core/container"/>
+                                    <item_5
                                         cq:panelTitle="Liens"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Liens"
                                         sling:resourceType="leforemhe/components/commons/core/container">
+                                        <liens_carrousel
+                                            jcr:created="{Date}2022-09-15T15:06:09.604+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-15T16:24:10.930+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="leforemhe/components/site/banniere/liens-carrousel">
+                                            <linkReferences jcr:primaryType="nt:unstructured">
+                                                <item0
+                                                    jcr:primaryType="nt:unstructured"
+                                                    linkReference="/content/experience-fragments/leforemhe/fr/site/links/fbpe-link/master"/>
+                                                <item1
+                                                    jcr:primaryType="nt:unstructured"
+                                                    linkReference="/content/experience-fragments/leforemhe/fr/site/links/fwh-asbi/master"/>
+                                            </linkReferences>
+                                        </liens_carrousel>
                                     </item_5>
                                 </tabs>
-                                
                             </containerv2>
                             <containerv2_1568383097
                                 jcr:created="{Date}2022-08-11T15:51:48.007Z"
@@ -187,19 +224,42 @@
                                 <title
                                     jcr:created="{Date}2022-08-11T15:52:41.228Z"
                                     jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
-                                    jcr:lastModified="{Date}2022-08-11T15:52:50.502Z"
-                                    jcr:lastModifiedBy="Dietger.Pieters@inetum-realdolmen.world"
+                                    jcr:lastModified="{Date}2022-09-12T09:57:16.119Z"
+                                    jcr:lastModifiedBy="Dirk.Gepts@inetum-realdolmen.world"
                                     jcr:primaryType="nt:unstructured"
                                     jcr:title="Synonymes et autres appellations"
                                     sling:resourceType="leforemhe/components/site/title"
                                     type="h4"/>
-                                <synonymes
-                                    jcr:created="{Date}2022-08-11T15:52:57.221Z"
-                                    jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
-                                    jcr:lastModified="{Date}2022-08-11T15:52:57.221Z"
-                                    jcr:lastModifiedBy="Dietger.Pieters@inetum-realdolmen.world"
+                                <list
+                                    cq:styleIds="[1663167968504]"
+                                    jcr:created="{Date}2022-09-14T16:57:07.239+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2022-09-14T16:58:20.788+02:00"
+                                    jcr:lastModifiedBy="admin"
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="leforemhe/components/site/contentfragments/synonymes"/>
+                                    sling:resourceType="leforemhe/components/site/contentfragments/list"
+                                    contentFragmentModel="job"
+                                    selectedActivityElement="test"
+                                    selectedJobElement="synonymes"/>
+                                <title_1480055539
+                                    jcr:created="{Date}2022-09-14T11:43:01.461+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2022-09-14T11:46:57.814+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Code métier"
+                                    sling:resourceType="leforemhe/components/site/title"
+                                    type="h5"/>
+                                <text
+                                    jcr:created="{Date}2022-09-14T11:43:42.516+02:00"
+                                    jcr:createdBy="admin"
+                                    jcr:lastModified="{Date}2022-09-14T11:43:47.995+02:00"
+                                    jcr:lastModifiedBy="admin"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="leforemhe/components/site/contentfragments/text"
+                                    contentFragmentModel="job"
+                                    selectedActivityElement="test"
+                                    selectedJobElement="codeMetier"/>
                             </containerv2_1568383097>
                         </container>
                     </art_resp_simple>

@@ -6,6 +6,8 @@ import java.util.List;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.tagging.Tag;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class Job {
     public static final String CODE_METIER_KEY = "codeMetier";
@@ -17,8 +19,10 @@ public class Job {
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
     public static final String PROFESSIONS_NEARBY_KEY = "metiersProches";
     public static final String STRUCTURES_KEY = "structures";
+    public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
+    public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
     private String codeMetier;
     private String title;
@@ -30,6 +34,7 @@ public class Job {
     private String[] professionsNearby;
     private String[] structures;
     private String[] environments;
+    private String[] assets;
 
     public Job(ContentFragment contentFragment, List<Tag> labels) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
@@ -46,6 +51,7 @@ public class Job {
                 String.class);
         this.structures = ContentFragmentUtils.getMultifieldValue(contentFragment, STRUCTURES_KEY, String.class);
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
+        this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
     }
 
     public String getCodeMetier() {
@@ -86,5 +92,25 @@ public class Job {
 
     public String[] getEnvironments() {
         return environments;
+    }
+
+    public String[] getAssets() {
+        return assets;
+    }
+
+    public String getSingleTextValueFromElement(String element) {
+        switch (element) {
+            case DESCRIPTION_KEY: return getDescription();
+            case CODE_METIER_KEY: return getCodeMetier();
+            default: return StringUtils.EMPTY;
+        }
+    }
+
+    public String[] getMultiTextValueFromElement(String element) {
+        switch (element) {
+            case SYNONYMES_KEY: return getSynonymes();
+            case ASSETS_KEY: return getAssets();
+            default: return ArrayUtils.EMPTY_STRING_ARRAY;
+        }
     }
 }
