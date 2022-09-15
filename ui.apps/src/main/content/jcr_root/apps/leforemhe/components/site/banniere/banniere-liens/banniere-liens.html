@@ -1,15 +1,13 @@
 <sly
-  data-sly-use.model="com.leforemhe.aem.site.core.models.horizonemploi.ButtonModel"
-  data-sly-test.author="${wcmmode.edit || wcmmode.design}"
-></sly>
-  <div class="cmp-banniere-liens">
-    <span>${model.text}</span>
+  data-sly-use.model="com.leforemhe.aem.site.core.models.horizonemploi.ButtonModel"></sly>
+  <div class="cmp-banniere-liens links-onglet-container">
+    <div class="aem link-container">
+    <h3>${model.text}</h3>
     <a href="${model.urlLink}">${model.urlLink}</a>
+    </div>
   </div>
-<sly data-sly-test="${wcmmode.edit}">
-  <sly
+<sly
     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
     data-sly-call="${templates.placeholder @
-             isEmpty = !model.text && !model.urlLink}"
-  ></sly>
-</sly>
+             isEmpty = !model.text && !model.urlLink}"></sly>
+

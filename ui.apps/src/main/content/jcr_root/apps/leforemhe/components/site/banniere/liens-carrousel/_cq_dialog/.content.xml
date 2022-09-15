@@ -28,7 +28,7 @@
                                   sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                   fieldLabel="Lien"
                                   name="./lienLinkReference"
-                                  rootPath="/content/leforemhe"/>
+                                  rootPath="/content/experience-fragments"/>
                             </items>
                         </field>
                     </lienLinkReferences_list>
