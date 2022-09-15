@@ -1,0 +1,13 @@
+<sly
+  data-sly-use.model="com.leforemhe.aem.site.core.models.horizonemploi.LiensCarouselModel"
+  data-sly-test.author="${wcmmode.edit || wcmmode.design}"
+></sly>
+<sly data-sly-repeat.slide="${model.linkReferences}">
+  <div class="slide cmp-banniere-liens" data-sly-resource="${slide.linkReference}"></div>
+</sly>
+<sly data-sly-test="${wcmmode.edit}">
+  <sly
+    data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+    data-sly-call="${templates.placeholder @ isEmpty = !model.linkReferences}"
+  ></sly>
+</sly>
