@@ -8,5 +8,5 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public interface LiensLinkModel {
     @ValueMapValue
-    String getLienLinkReference();
+    String getLinkReference();
 }

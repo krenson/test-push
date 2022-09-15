@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2022-09-15T15:57:55.894+02:00"
+        cq:lastModified="{Date}2022-09-15T16:24:10.942+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/leforemhe/settings/wcm/templates/pge_resp_he_metier"
         jcr:isCheckedOut="{Boolean}true"
@@ -190,18 +190,18 @@
                                         <liens_carrousel
                                             jcr:created="{Date}2022-09-15T15:06:09.604+02:00"
                                             jcr:createdBy="admin"
-                                            jcr:lastModified="{Date}2022-09-15T15:57:55.841+02:00"
+                                            jcr:lastModified="{Date}2022-09-15T16:24:10.930+02:00"
                                             jcr:lastModifiedBy="admin"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="leforemhe/components/site/banniere/liens-carrousel">
-                                            <lienLinkReferences jcr:primaryType="nt:unstructured">
+                                            <linkReferences jcr:primaryType="nt:unstructured">
                                                 <item0
                                                     jcr:primaryType="nt:unstructured"
-                                                    lienLinkReference="/content/experience-fragments/leforemhe/fr/site/links/fbpe-link/master"/>
+                                                    linkReference="/content/experience-fragments/leforemhe/fr/site/links/fbpe-link/master"/>
                                                 <item1
                                                     jcr:primaryType="nt:unstructured"
-                                                    lienLinkReference="/content/experience-fragments/leforemhe/fr/site/links/fwh-asbi/master"/>
-                                            </lienLinkReferences>
+                                                    linkReference="/content/experience-fragments/leforemhe/fr/site/links/fwh-asbi/master"/>
+                                            </linkReferences>
                                         </liens_carrousel>
                                     </item_5>
                                 </tabs>

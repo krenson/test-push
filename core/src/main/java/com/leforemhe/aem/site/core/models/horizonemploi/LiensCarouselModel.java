@@ -11,5 +11,5 @@ import java.util.List;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public interface LiensCarouselModel {
     @ChildResource
-    List<LiensLinkModel> getLienLinkReferences();
+    List<LiensLinkModel> getLinkReferences();
 }
