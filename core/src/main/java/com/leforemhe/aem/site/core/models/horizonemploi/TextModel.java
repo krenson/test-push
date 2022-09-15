@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.models.horizonemploi;
 
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
@@ -31,9 +32,9 @@ public class TextModel {
 
     public String getText() {
         String text = StringUtils.EMPTY;
-        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)) {
+        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE) && !isInExperienceFragment()) {
             if (this.job == null) {
-                String cleMetier = currentPage.getProperties().get("clemetier").toString();
+                String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
                 this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
             text = getSingleTextValueFromElementJob(selectedJobElement);
@@ -43,9 +44,9 @@ public class TextModel {
 
     public String[] getTextList() {
         String[] text = {};
-        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)) {
+        if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)  && !isInExperienceFragment()) {
             if (this.job == null) {
-                String cleMetier = currentPage.getProperties().get("clemetier").toString();
+                String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
                 this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
             text = getMultiTextValueFromElementJob(selectedJobElement);
@@ -70,6 +71,10 @@ public class TextModel {
             case Job.CONTENT_FRAGMENT_MODEL_TYPE: return contentFragmentModel;
             default: return StringUtils.EMPTY;
         }
+    }
+
+    private Boolean isInExperienceFragment () {
+       return currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
     }
 }
 
