@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2022-08-29T10:38:30.483+02:00"
+        cq:lastModified="{Date}2022-09-15T15:57:55.894+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/leforemhe/settings/wcm/templates/pge_resp_he_metier"
         jcr:isCheckedOut="{Boolean}true"
@@ -123,22 +123,22 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="leforemhe/components/commons/core/tabs">
                                     <item_1
-                                        jcr:primaryType="nt:unstructured"
                                         cq:panelTitle="Info"
+                                        jcr:primaryType="nt:unstructured"
                                         jcr:title="Info"
                                         sling:resourceType="leforemhe/components/commons/core/container">
                                         <linkicon_0
                                             jcr:primaryType="nt:unstructured"
-                                            title="Activités"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Activités"/>
                                         <linkicon_1
                                             jcr:primaryType="nt:unstructured"
-                                            title="Métiers Proches"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Métiers Proches"/>
                                         <linkicon_2
                                             jcr:primaryType="nt:unstructured"
-                                            title="Conditions d’éxercice"
-                                            sling:resourceType="leforemhe/components/site/linkicon"/>
+                                            sling:resourceType="leforemhe/components/site/linkicon"
+                                            title="Conditions d’éxercice"/>
                                         <activities
                                             jcr:created="{Date}2022-08-11T15:52:31.575Z"
                                             jcr:createdBy="Dietger.Pieters@inetum-realdolmen.world"
@@ -186,7 +186,24 @@
                                         cq:panelTitle="Liens"
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Liens"
-                                        sling:resourceType="leforemhe/components/commons/core/container"/>
+                                        sling:resourceType="leforemhe/components/commons/core/container">
+                                        <liens_carrousel
+                                            jcr:created="{Date}2022-09-15T15:06:09.604+02:00"
+                                            jcr:createdBy="admin"
+                                            jcr:lastModified="{Date}2022-09-15T15:57:55.841+02:00"
+                                            jcr:lastModifiedBy="admin"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="leforemhe/components/site/banniere/liens-carrousel">
+                                            <lienLinkReferences jcr:primaryType="nt:unstructured">
+                                                <item0
+                                                    jcr:primaryType="nt:unstructured"
+                                                    lienLinkReference="/content/experience-fragments/leforemhe/fr/site/links/fbpe-link/master"/>
+                                                <item1
+                                                    jcr:primaryType="nt:unstructured"
+                                                    lienLinkReference="/content/experience-fragments/leforemhe/fr/site/links/fwh-asbi/master"/>
+                                            </lienLinkReferences>
+                                        </liens_carrousel>
+                                    </item_5>
                                 </tabs>
                             </containerv2>
                             <containerv2_1568383097
