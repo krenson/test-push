@@ -1,27 +1,23 @@
 <template data-sly-template.popup="${@ title, icon, jobTitle, popupReference}">
-<div class="popup aem" popup-id="19ec83d9-a0f2-4f3f-8a5a-35e215033f0f">
-  <div class="popup-container">
-    <div class="popup-header">
-      <div class="popup-title">
-        <div class="icone">
-          <img
-            src="${icon}"
-          />
+    <div class="popup aem" popup-id="19ec83d9-a0f2-4f3f-8a5a-35e215033f0f">
+        <div class="popup-container">
+            <div class="popup-header">
+                <div class="popup-title">
+                    <div class="icone">
+                        <img src="${icon}"/>
+                    </div>
+                    ${title}
+                </div>
+                <div class="popup-close"></div>
+            </div>
+            <div class="popup-content">
+                <div class="popup-subtitle">${jobTitle}</div>
+                <div class="accordion panelcontainer">
+                    <sly data-sly-resource="${popupReference}"></sly>
+                </div>
+            </div>
+            <div class="popup-button btn btn-tertiary closeButton">Fermer</div>
         </div>
-        ${title}
-      </div>
-      <div class="popup-close"></div>
     </div>
-    <div class="popup-content">
-      <div class="popup-subtitle">${jobTitle}</div>
-      <div class="accordion panelcontainer">
-        <sly data-sly-test="${!wcmmode.edit}">
-          <sly data-sly-resource="${popupReference}"></sly>
-        </sly>
-      </div>
-    </div>
-    <div class="popup-button btn btn-tertiary closeButton">Fermer</div>
-  </div>
-</div>
-</sly>
+    </sly>
 </template>
