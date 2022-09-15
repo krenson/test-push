@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
@@ -65,8 +66,9 @@ public class LinkModelImpl implements LinkModel {
 
     @Override
     public String getJobTitle() {
-        if (this.job == null) {
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+        boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
+        if (this.job == null && !inExperienceFragment) {
+            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             job = contentFragmentUtilService.getJobFromJobID(cleMetier);
         }
         return job.getTitle();

@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
 import com.adobe.cq.wcm.core.components.models.Text;
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.horizonemploi.JobDescription;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
@@ -33,8 +34,9 @@ public class JobDescriptionImpl implements JobDescription {
 
     @Override
     public String getText() {
-        if (this.job == null) {
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+        boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
+        if (this.job == null && !inExperienceFragment) {
+            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             job = contentFragmentUtilService.getJobFromJobID(cleMetier);
         }
         return job.getDescription();
