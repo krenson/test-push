@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.models.horizonemploi;
 
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
@@ -29,8 +30,9 @@ public class JobTagsModel {
     private Job job;
 
     public List<JobTag> getTagsCF() {
-        if (this.job == null) {
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+        boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
+        if (this.job == null && !inExperienceFragment) {
+            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
         }
         return job.getLabels();

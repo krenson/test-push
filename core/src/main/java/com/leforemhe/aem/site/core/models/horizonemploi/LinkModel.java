@@ -7,5 +7,7 @@ public interface LinkModel {
     String getTitle();
     String getDescription();
     String getIcon();
+    String popupReference();
+    String getJobTitle();
     boolean isConfigured();
 }

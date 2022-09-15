@@ -1,9 +1,8 @@
 package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
-import com.adobe.cq.export.json.ComponentExporter;
-import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.models.Accordion;
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.horizonemploi.Activities;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
@@ -19,9 +18,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = { Activities.class,
-        ComponentExporter.class }, resourceType = ActivitiesImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+@Model(adaptables = SlingHttpServletRequest.class, adapters = Activities.class, resourceType = ActivitiesImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ActivitiesImpl implements Activities {
 
     static final String RESOURCE_TYPE = "leforemhe/components/site/contentfragments/activities";
@@ -39,8 +36,9 @@ public class ActivitiesImpl implements Activities {
     private List<Activity> activities;
 
     public List<Activity> getActivities() {
-        if(activities == null){
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+        boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
+        if(activities == null && !inExperienceFragment){
+            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             this.activities = contentFragmentUtilService.getActivitiesFromJobID(cleMetier);
         }
         return this.activities;

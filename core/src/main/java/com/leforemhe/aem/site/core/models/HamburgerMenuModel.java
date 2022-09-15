@@ -1,17 +1,13 @@
 package com.leforemhe.aem.site.core.models;
 
 import com.day.cq.wcm.api.Page;
-import com.leforemhe.aem.site.core.models.horizonemploi.JobTagsModel;
 import com.leforemhe.aem.site.core.services.GlobalConfigService;
-import org.apache.jackrabbit.spi.commons.iterator.Iterators;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

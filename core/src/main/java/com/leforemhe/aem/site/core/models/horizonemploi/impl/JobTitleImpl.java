@@ -4,6 +4,7 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.models.Title;
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.horizonemploi.JobTitle;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
@@ -38,8 +39,9 @@ public class JobTitleImpl implements JobTitle {
 
     @Override
     public String getText() {
-        if (job == null) {
-            String cleMetier = currentPage.getProperties().get("clemetier").toString();
+        boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
+        if (job == null && !inExperienceFragment) {
+            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
         }
         return job.getTitle();
