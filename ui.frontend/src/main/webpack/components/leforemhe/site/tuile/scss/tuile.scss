@@ -98,8 +98,10 @@
 }
 
 @media screen and (max-width: $breakpointMobile) {
-  .tuileContainer,
-  .image_component {
+  .tuileContainer {
     width: 35rem !important;
+    .image_component {
+      width: 35rem !important;
+    }
   }
 }
