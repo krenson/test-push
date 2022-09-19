@@ -1,5 +1,5 @@
-<template data-sly-template.popup="${@ title, icon, jobTitle, popupReference}">
-    <div class="popup aem" popup-id="19ec83d9-a0f2-4f3f-8a5a-35e215033f0f">
+<template data-sly-template.popup="${@ id, title, icon, jobTitle, popupReference}">
+    <div class="popup aem" popup-id="${id}">
         <div class="popup-container">
             <div class="popup-header">
                 <div class="popup-title">
@@ -16,7 +16,7 @@
                     <sly data-sly-resource="${popupReference}"></sly>
                 </div>
             </div>
-            <div class="popup-button btn btn-tertiary closeButton">Fermer</div>
+            <div class="popup-button btn btn-tertiary closeButton">${'Fermer' @ i18n}</div>
         </div>
     </div>
     </sly>

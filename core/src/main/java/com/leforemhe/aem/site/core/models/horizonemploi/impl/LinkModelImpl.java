@@ -6,21 +6,27 @@ import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.leforemhe.aem.site.core.models.horizonemploi.LinkModel;
 
 import javax.inject.Inject;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = {
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, adapters = {
         LinkModel.class}, resourceType = LinkModelImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class LinkModelImpl implements LinkModel {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/linkicon";
 
     @Inject
     private Page currentPage;
+
+    @SlingObject
+    private Resource currentResource;
 
     @Inject
     private ContentFragmentUtilService contentFragmentUtilService;
@@ -62,6 +68,11 @@ public class LinkModelImpl implements LinkModel {
     @Override
     public String popupReference() {
         return popupReference;
+    }
+
+    @Override
+    public int getGeneratedId() {
+        return currentResource.getPath().hashCode();
     }
 
     @Override
