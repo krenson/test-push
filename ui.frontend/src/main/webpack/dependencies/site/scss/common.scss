@@ -317,9 +317,18 @@ strong {
   height: 0;
 }
 
-.cmp-container .new {
-  margin: 0;
-  height: 0;
+.cmp-container {
+  .new {
+    margin: 0;
+    height: 0;
+  }
+
+  p.accroche.cmp-text {
+    font-size: 1.4rem;
+    text-align: end;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .aem-AuthorLayer-Edit .cmp-container .new.cq-Editable-dom {
@@ -531,12 +540,20 @@ header .container-content {
 .container .container-content .container .container-content {
   padding: 0;
 }
-.twoCol > .cmp-container > .container-content {
+.twoCol > .cmp-container > .container-content,
+.twoCol > .container-content {
   display: flex;
 
   gap: $gapSize;
 }
 
+.twoCol .container-content {
+  .cmp-container {
+    min-width: $colSize !important;
+    max-width: $colSize !important;
+    width: $colSize !important;
+  }
+}
 .twoCol.smallRight
   > .cmp-container
   > .container-content
@@ -609,5 +626,20 @@ header .container-content {
   }
   .offsetTop {
     transform: translateY(0);
+  }
+
+  .twoCol > .cmp-container > .container-content,
+  .twoCol > .container-content {
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+  .twoCol .container-content {
+    .cmp-container {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
   }
 }
