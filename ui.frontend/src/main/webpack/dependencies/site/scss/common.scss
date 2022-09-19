@@ -627,4 +627,19 @@ header .container-content {
   .offsetTop {
     transform: translateY(0);
   }
+
+  .twoCol > .cmp-container > .container-content,
+  .twoCol > .container-content {
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+  .twoCol .container-content {
+    .cmp-container {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+  }
 }
