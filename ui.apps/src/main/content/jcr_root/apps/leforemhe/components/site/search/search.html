@@ -9,6 +9,7 @@
         data-quick-search-results="${resource.path}/quick-results.results.json"
 
         data-sly-use.searchResults="com.leforemhe.aem.site.core.search.SearchResults"
+        data-sly-use.searchResultsCf="com.leforemhe.aem.site.core.search.impl.SearchResultContentFragment"
         data-sly-use.facets="templates/facets.html"
         data-sly-use.searchField="templates/search-field.html"
         data-sly-use.results="templates/results.html"
@@ -24,6 +25,6 @@
     <section class="search-results" data-sly-call="${results.results @ searchResults = searchResults}"></section>
 
     <!-- Search Results Pagination -->
-    <section class="search-pagination" data-sly-test="${properties.showPagination == 'true'}" 
+    <section class="search-pagination" data-sly-test="${properties.showPagination == 'true'}"
     								   data-sly-call="${pagination.pagination @ searchResults = searchResults}"></section>
 </form>
