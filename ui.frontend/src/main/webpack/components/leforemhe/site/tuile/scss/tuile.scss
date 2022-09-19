@@ -9,11 +9,12 @@
     width: fit-content;
     margin: 0rem 0rem 1rem 0rem !important;
     padding: 0 !important;
+    max-width: 46.25rem;
 
     .img_container {
       margin: 0 !important;
       height: 15.8rem;
-      width: 45.25rem;
+      width: 100%;
       border-radius: 1.4rem 1.4rem 0rem 0;
 
       .cmp-image {
@@ -93,5 +94,12 @@
       padding: 0.6rem 1.2rem;
       margin: 0.5rem 0 !important;
     }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .tuileContainer,
+  .image_component {
+    width: 35rem !important;
   }
 }
