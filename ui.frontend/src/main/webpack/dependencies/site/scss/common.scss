@@ -87,6 +87,7 @@ strong {
     }
   }
 }
+
 .aem.youtube_container,
 .aem .youtube_container {
   max-width: 96rem;
@@ -106,10 +107,12 @@ strong {
     }
   }
 }
+
 .aem.image_component {
   @include max-width;
   margin: 0 auto;
 }
+
 .aem.img_container,
 .aem .img_container {
   max-width: 96rem;
@@ -191,7 +194,7 @@ strong {
     }
 
     div.aem.title-container {
-      margin-bottom: 1rem;
+      padding-bottom: 1rem;
     }
 
     .aem.title-container,
@@ -425,6 +428,10 @@ strong {
       margin-top: 2rem;
     }
   }
+
+  .panelcontainer .popupOpener {
+    padding: 0.75rem 0rem;
+  }
 }
 
 .partial-background {
@@ -492,7 +499,7 @@ header .container-content {
   }
 
   .aem.title-container {
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
 
   .aem.accroche-container {

@@ -3,7 +3,8 @@ if (popupOpener.length > 0) {
   [...popupOpener].forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      var popupId = element.nextElementSibling
+      var popupId = element
+        .querySelector("[popup-id]")
         .getAttribute("popup-id");
       if (popupId != null && popupId != "") {
         var popup = document.querySelector(`.popup[popup-id="${popupId}"]`);

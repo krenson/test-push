@@ -34,8 +34,8 @@
 
     .popup-title {
       font-size: 2.3rem;
+      gap: 1.5rem;
       .icone {
-        margin-right: 1.5rem;
         border: $link-icone-size-border-focus solid $link-icone-background-color;
         height: 4.4rem;
         min-width: 4.4rem;
@@ -49,8 +49,8 @@
           border-color $transitiontime $transitionmode;
 
         img {
-          height: 125%;
-          width: 125%;
+          height: 1.6rem;
+          width: 1.6rem;
         }
       }
       display: flex;
