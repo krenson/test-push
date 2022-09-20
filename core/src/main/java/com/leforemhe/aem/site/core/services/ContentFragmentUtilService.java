@@ -71,6 +71,10 @@ public class ContentFragmentUtilService {
      * Returns a job based on JobID
      */
     public Job getJobFromJobID(String jobID) {
+        return getJobFromJobID(jobID, true);
+    }
+
+    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs) {
         SearchResult result = createQueryForContentFragments(
                 contentFragmentConfigService.getConfig().modelMetierPath(), jobID, Job.CONTENT_FRAGMENT_MODEL_CONF);
         if (!result.getHits().isEmpty()) {
@@ -78,7 +82,13 @@ public class ContentFragmentUtilService {
             if (contentFragmentJob != null) {
                 String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
                         String.class);
-                return new Job(contentFragmentJob, resolveTags(tagListIds));
+                Job job = new Job(contentFragmentJob, resolveTags(tagListIds));
+                if (resolveRelatedJobs) {
+                    String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
+                            String.class);
+                    job.setRelatedJobs(resolveJobs(relatedJobIds));
+                }
+                return job;
             }
         }
         return null;
@@ -117,6 +127,17 @@ public class ContentFragmentUtilService {
             }
         }
         return tags;
+    }
+
+    private List<Job> resolveJobs(String[] jobIds) {
+        List<Job> jobs = new ArrayList<>();
+        for (String relatedJobID : jobIds) {
+            Job resolvedJob = getJobFromJobID(relatedJobID, false);
+            if (resolvedJob != null) {
+                jobs.add(resolvedJob);
+            }
+        }
+        return jobs;
     }
 
     private ResourceResolver getResourceResolver() {
