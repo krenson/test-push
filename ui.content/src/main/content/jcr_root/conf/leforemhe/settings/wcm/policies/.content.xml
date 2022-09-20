@@ -70,7 +70,7 @@
                                     <item0
                                         cq:styleClasses="twoCol smallLeft"
                                         cq:styleId="1660227783995"
-                                        cq:styleLabel="70 / 30"
+                                        cq:styleLabel="30 / 70"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="twoCol"
@@ -80,7 +80,7 @@
                                     <item2
                                         cq:styleClasses="twoCol smallRight"
                                         cq:styleId="1660227729601"
-                                        cq:styleLabel="30 / 70"
+                                        cq:styleLabel="70 / 30"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item1>

@@ -2,8 +2,10 @@ var popupOpener = document.getElementsByClassName("popupOpener");
 if (popupOpener.length > 0) {
   [...popupOpener].forEach((element) => {
     element.addEventListener("click", function (e) {
+      document.documentElement.scrollTop = document.body.scrollTop = 0;
       e.preventDefault();
-      var popupId = element.nextElementSibling
+      var popupId = element
+        .querySelector("[popup-id]")
         .getAttribute("popup-id");
       if (popupId != null && popupId != "") {
         var popup = document.querySelector(`.popup[popup-id="${popupId}"]`);
@@ -35,6 +37,6 @@ if (popups != null) {
 }
 
 function closePopup(element) {
-  document.querySelector("html").classList.remove("openPopup");
   element.classList.remove("open");
+  document.querySelector("html").classList.remove("openPopup");
 }
