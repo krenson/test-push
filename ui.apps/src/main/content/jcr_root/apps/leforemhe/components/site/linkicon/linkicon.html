@@ -16,6 +16,6 @@
         </span>
     </div>
   </button>
-  <sly data-sly-unwrap data-sly-test="${linkModel.popupReference}" data-sly-call="${popupTemplate.popup @ id=linkModel.generatedId, title=linkModel.title, icon=linkModel.icon, jobTitle=linkModel.jobTitle, popupReference=linkModel.popupReference}"></sly>
+  <sly data-sly-unwrap data-sly-test="${linkModel.popupReference && wcmmode.preview}" data-sly-call="${popupTemplate.popup @ id=linkModel.generatedId, title=linkModel.title, icon=linkModel.icon, jobTitle=linkModel.jobTitle, popupReference=linkModel.popupReference}"></sly>
 </div>
 <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-call="${template.placeholder @ isEmpty = !isConfigured}"></sly>
