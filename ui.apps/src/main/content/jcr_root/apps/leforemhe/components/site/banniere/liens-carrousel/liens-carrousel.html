@@ -3,7 +3,7 @@
   data-sly-test.author="${wcmmode.edit || wcmmode.design}"
 ></sly>
 <sly data-sly-repeat.slide="${model.linkReferences}">
-  <div class="slide cmp-banniere-liens" data-sly-resource="${slide.linkReference}"></div>
+  <div class="slide cmp-banniere-liens" data-sly-resource="${slide.linkReference @ wcmmode='disabled'}"></div>
 </sly>
 <sly data-sly-test="${wcmmode.edit}">
   <sly

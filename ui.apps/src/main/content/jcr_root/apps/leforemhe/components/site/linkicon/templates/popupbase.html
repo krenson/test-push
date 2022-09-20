@@ -13,7 +13,7 @@
             <div class="popup-content">
                 <div class="popup-subtitle">${jobTitle}</div>
                 <div class="accordion panelcontainer">
-                    <sly data-sly-resource="${popupReference}"></sly>
+                    <sly data-sly-resource="${popupReference @ wcmmode='disabled'}"></sly>
                 </div>
             </div>
             <div class="popup-button btn btn-tertiary closeButton">${'Fermer' @ i18n}</div>
