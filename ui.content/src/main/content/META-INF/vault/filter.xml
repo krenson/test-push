@@ -4,8 +4,8 @@
     <filter root="/conf/leforemhe" mode="update"/>
     <filter root="/content/cq:tags" mode="update"/>
     <filter root="/content/cq:tags/he-metier" mode="update"/>
-    <filter root="/content/leforemhe" mode="replace"/>
-    <filter root="/content/leforemhe/fr" mode="replace"/>
+    <filter root="/content/leforemhe" mode="merge"/>
+    <filter root="/content/leforemhe/fr" mode="merge"/>
     <filter root="/content/dam/leforemhe" mode="merge"/>
     <filter root="/content/dam/leforemhe/fr" mode="merge"/>
     <filter root="/content/dam/leforemhe/fr/javascript" mode="update"/>
