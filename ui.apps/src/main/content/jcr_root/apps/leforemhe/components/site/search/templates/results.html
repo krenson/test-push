@@ -1,4 +1,4 @@
-<template data-sly-template.results="${ @ searchResults}">
+<template data-sly-template.results="${ @ searchResults, searchResultsCf}">
 	<span data-sly-test="${searchResults.timeTaken >= 0}" class="search-stats">Time taken: <b>${searchResults.timeTaken} milliseconds</b></span>
 	<span data-sly-test="${searchResults.resultTotal}" class="search-stats">Total: <b>${searchResults.resultTotal}</b></span>
 	<h2>Search results</h2>
