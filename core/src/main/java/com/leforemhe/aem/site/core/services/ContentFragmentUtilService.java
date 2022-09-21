@@ -1,6 +1,5 @@
 package com.leforemhe.aem.site.core.services;
 
-import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -8,10 +7,13 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
+import com.leforemhe.aem.site.core.models.Constants;
+import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -22,6 +24,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 /**
@@ -75,6 +78,8 @@ public class ContentFragmentUtilService {
     }
 
     public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs) {
+        SearchResult resultPage = createQueryForPageWithLinkedContentFragment(
+                Constants.CONTENT_ROOT_PATH, jobID);
         SearchResult result = createQueryForContentFragments(
                 contentFragmentConfigService.getConfig().modelMetierPath(), jobID, Job.CONTENT_FRAGMENT_MODEL_CONF);
         if (!result.getHits().isEmpty()) {
@@ -82,7 +87,7 @@ public class ContentFragmentUtilService {
             if (contentFragmentJob != null) {
                 String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
                         String.class);
-                Job job = new Job(contentFragmentJob, resolveTags(tagListIds));
+                Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage));
                 if (resolveRelatedJobs) {
                     String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
                             String.class);
@@ -111,7 +116,23 @@ public class ContentFragmentUtilService {
 
         Query query = builder.createQuery(PredicateGroup.create(paramMap), resourceResolver.adaptTo(Session.class));
         return query.getResult();
+    }
 
+    /*
+     * Created query to search for Page with a linked content fragment through a JobID
+     */
+    private SearchResult createQueryForPageWithLinkedContentFragment(String path, String jobID) {
+        Map<String, String> paramMap = new HashMap();
+        paramMap.put("path", path);
+        paramMap.put("type", "cq:Page");
+        paramMap.put("1_property", "jcr:content/clemetier");
+        paramMap.put("1_property.value", jobID);
+
+        ResourceResolver resourceResolver = getResourceResolver();
+        QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
+
+        Query query = builder.createQuery(PredicateGroup.create(paramMap), resourceResolver.adaptTo(Session.class));
+        return query.getResult();
     }
 
     private List<Tag> resolveTags(String[] tagListIds) {
@@ -138,6 +159,19 @@ public class ContentFragmentUtilService {
             }
         }
         return jobs;
+    }
+
+    private String resolveLinkedPage(SearchResult searchResult) {
+        if (!searchResult.getHits().isEmpty()) {
+            try {
+                return ModelUtils.getVanityOfPageIfExists(searchResult.getHits().get(0).getPath(), getResourceResolver());
+            } catch (RepositoryException e) {
+                e.printStackTrace();
+                return StringUtils.EMPTY;
+            }
+        } else {
+            return StringUtils.EMPTY;
+        }
     }
 
     private ResourceResolver getResourceResolver() {

@@ -35,8 +35,9 @@ public class Job {
     private String[] environments;
     private String[] assets;
     private List<Job> relatedJobs = new ArrayList<>();
+    private String link;
 
-    public Job(ContentFragment contentFragment, List<Tag> labels) {
+    public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
         this.title = ContentFragmentUtils.getSingleValue(contentFragment, TITLE_KEY, String.class);
         this.description = ContentFragmentUtils.getSingleValue(contentFragment, DESCRIPTION_KEY, String.class);
@@ -50,6 +51,7 @@ public class Job {
         this.structures = ContentFragmentUtils.getMultifieldValue(contentFragment, STRUCTURES_KEY, String.class);
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
+        this.link = link;
     }
 
     public String getCodeMetier() {
@@ -94,6 +96,10 @@ public class Job {
 
     public List<Job> getRelatedJobs() {
         return relatedJobs;
+    }
+
+    public String getLink() {
+        return link;
     }
 
     public void setRelatedJobs(List<Job> relatedJobs) {
