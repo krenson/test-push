@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.search.impl;
 
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
+import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
 import com.leforemhe.aem.site.core.search.SearchResultsPagination;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.predicates.impl.FullltextPredicateFactoryImpl;
@@ -50,6 +51,9 @@ public class SearchResultsImpl implements SearchResults {
     private ResourceResolver resourceResolver;
     @Inject
     private SearchProvider searchProvider;
+    @Inject
+    private SearchResultsContentFragment searchResultsContentFragment;
+
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
     private long timeTaken = -1;
@@ -60,7 +64,7 @@ public class SearchResultsImpl implements SearchResults {
         log.debug("Inside initModel");
         final long start = System.currentTimeMillis();
         final Map<String, String> searchPredicates = predicateResolver.getRequestPredicates(request);
-
+        searchResultsContentFragment.getContentFragmentsCleMetier(request.getParameter("q"));
         log.debug("Search parameter q={}", request.getParameter("q"));
         searchPredicates.put("path", "/content/leforemhe");
         searchPredicates.put("type", "cq:Page");

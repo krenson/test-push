@@ -1,9 +1,12 @@
 package com.leforemhe.aem.site.core.search.impl;
 
+import com.adobe.cq.dam.cfm.ContentFragment;
+import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
+import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Exporter;
@@ -14,16 +17,16 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static com.leforemhe.aem.site.core.models.cfmodels.Job.CODE_METIER_KEY;
+
 @Model(
         adaptables = SlingHttpServletRequest.class,
-        adapters = SearchResultsContentFragment.class,
-        resourceType = "leforemhe/components/site/search"
+        adapters = SearchResultsContentFragment.class
 )
 @Exporter(
         name = "jackson",
@@ -45,14 +48,17 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     private ResourceResolver resourceResolver;
     @Inject
     private SearchProvider searchProvider;
+    @Inject
+    private ContentFragmentUtilService contentFragmentUtilService;
 
+    private List<String> cleMetierList = Collections.EMPTY_LIST;
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
 
 
-    @PostConstruct
-    private void initModel() {
+
+    public List<String> getContentFragmentsCleMetier(String queryParameter) {
         final Map<String, String> searchPredicates = predicateResolver.getRequestPredicates(request);
-        log.debug("Search parameter q={}", request.getParameter("q"));
+        log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
         searchPredicates.put("path", "/content/dam/leforemhe");
         searchPredicates.put("property_1", "jcr:content/data/cq:model");
@@ -62,8 +68,10 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         searchResults = searchProvider.buildSearchResults(result);
         for (SearchResult searchResult : searchResults) {
-            searchResult.getPath();
+            ContentFragment contentFragment = request.getResourceResolver().resolve(searchResult.getPath()).adaptTo(ContentFragment.class);
+            cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
             }
+        return cleMetierList;
         }
 
     public List<SearchResult> getResults() {
