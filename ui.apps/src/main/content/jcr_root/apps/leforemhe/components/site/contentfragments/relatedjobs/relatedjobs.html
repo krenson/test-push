@@ -1,7 +1,7 @@
 <div class="list"
      data-sly-use.relatedJobsModel="com.leforemhe.aem.site.core.models.horizonemploi.RelatedJobsModel"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html">
-    <ul id="${component.id}" class="cmp-list" data-sly-list.job="${relatedJobsModel.relatedJobs}">
+    <ul class="cmp-list" data-sly-list.job="${relatedJobsModel.relatedJobs}">
         <li class="cmp-list__item">
             <span class="cmp-list__item-title aem">
               <a href="${job.link}" target="_blank">${job.title}</a>
