@@ -17,10 +17,11 @@ public class Job {
     public static final String LABELS_KEY = "etiquettes";
     public static final String CODE_ESCO_KEY = "codeEsco";
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
-    public static final String PROFESSIONS_NEARBY_KEY = "metiersProches";
+    public static final String RELATED_JOBS_KEY = "metiersProches";
     public static final String STRUCTURES_KEY = "structures";
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
+    public static final String OBLIGATIONS_KEY = "obligatoire";
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
     public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
@@ -31,12 +32,14 @@ public class Job {
     private List<JobTag> labels;
     private String codeEsco;
     private String libelleEsco;
-    private String[] professionsNearby;
     private String[] structures;
     private String[] environments;
     private String[] assets;
+    private List<Job> relatedJobs = new ArrayList<>();
+    private String link;
+    private String[] obligations;
 
-    public Job(ContentFragment contentFragment, List<Tag> labels) {
+    public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
         this.title = ContentFragmentUtils.getSingleValue(contentFragment, TITLE_KEY, String.class);
         this.description = ContentFragmentUtils.getSingleValue(contentFragment, DESCRIPTION_KEY, String.class);
@@ -47,11 +50,11 @@ public class Job {
         }
         this.codeEsco = ContentFragmentUtils.getSingleValue(contentFragment, CODE_ESCO_KEY, String.class);
         this.libelleEsco = ContentFragmentUtils.getSingleValue(contentFragment, LIBELLE_ESCO_KEY, String.class);
-        this.professionsNearby = ContentFragmentUtils.getMultifieldValue(contentFragment, PROFESSIONS_NEARBY_KEY,
-                String.class);
         this.structures = ContentFragmentUtils.getMultifieldValue(contentFragment, STRUCTURES_KEY, String.class);
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
+        this.obligations = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATIONS_KEY, String.class);
+        this.link = link;
     }
 
     public String getCodeMetier() {
@@ -82,10 +85,6 @@ public class Job {
         return libelleEsco;
     }
 
-    public String[] getProfessionsNearby() {
-        return professionsNearby;
-    }
-
     public String[] getStructures() {
         return structures;
     }
@@ -96,6 +95,22 @@ public class Job {
 
     public String[] getAssets() {
         return assets;
+    }
+
+    public List<Job> getRelatedJobs() {
+        return relatedJobs;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String[] getObligations() {
+        return obligations;
+    }
+
+    public void setRelatedJobs(List<Job> relatedJobs) {
+        this.relatedJobs = relatedJobs;
     }
 
     public String getSingleTextValueFromElement(String element) {
@@ -110,7 +125,11 @@ public class Job {
         switch (element) {
             case SYNONYMES_KEY: return getSynonymes();
             case ASSETS_KEY: return getAssets();
+            case ENVIRONMENTS_KEY: return getEnvironments();
+            case STRUCTURES_KEY: return getStructures();
+            case OBLIGATIONS_KEY: return getObligations();
             default: return ArrayUtils.EMPTY_STRING_ARRAY;
         }
     }
+
 }

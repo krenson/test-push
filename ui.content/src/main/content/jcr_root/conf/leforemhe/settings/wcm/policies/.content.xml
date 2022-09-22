@@ -33,12 +33,12 @@
                         </cq:styleGroups>
                     </policy_1659710267008>
                     <policy_708220390716800
-                        jcr:lastModified="{Date}2022-09-07T13:05:29.558+02:00"
+                        jcr:lastModified="{Date}2022-09-21T23:05:49.546+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Containerv2 policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/leforemhe/components/commons/core/tabs,/apps/leforemhe/components/site/contentfragments/text,/apps/leforemhe/components/site/contentfragments/tags,/apps/leforemhe/components/site/containerv2,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/linkicon,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube,/apps/leforemhe/components/site/lastupdateddate,/apps/leforemhe/components/site/banniere/liens-carrousel]"
+                        components="[/apps/leforemhe/components/commons/core/tabs,/apps/leforemhe/components/site/contentfragments/tags,/apps/leforemhe/components/site/contentfragments/activities,/apps/leforemhe/components/site/contentfragments/list,/apps/leforemhe/components/site/contentfragments/relatedjobs,/apps/leforemhe/components/site/contentfragments/text,/apps/leforemhe/components/site/containerv2,/apps/leforemhe/components/site/lastupdateddate,/apps/leforemhe/components/site/image,/apps/leforemhe/components/site/banniere/liens-carrousel,/apps/leforemhe/components/site/linkicon,/apps/leforemhe/components/site/title,/apps/leforemhe/components/site/youtube]"
                         layoutDisabled="false">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -70,7 +70,7 @@
                                     <item0
                                         cq:styleClasses="twoCol smallLeft"
                                         cq:styleId="1660227783995"
-                                        cq:styleLabel="70 / 30"
+                                        cq:styleLabel="30 / 70"
                                         jcr:primaryType="nt:unstructured"/>
                                     <item1
                                         cq:styleClasses="twoCol"
@@ -80,7 +80,7 @@
                                     <item2
                                         cq:styleClasses="twoCol smallRight"
                                         cq:styleId="1660227729601"
-                                        cq:styleLabel="30 / 70"
+                                        cq:styleLabel="70 / 30"
                                         jcr:primaryType="nt:unstructured"/>
                                 </cq:styles>
                             </item1>
