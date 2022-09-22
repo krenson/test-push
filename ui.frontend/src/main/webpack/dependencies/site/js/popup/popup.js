@@ -3,14 +3,15 @@ if (popupOpener.length > 0) {
   [...popupOpener].forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      var popupId = element.getAttribute("popup-id");
+      var popupId = element.children[0].getAttribute("popup-id");
+
       if (popupId != null && popupId != "") {
         var popup = document.querySelector(`.popup[popup-id="${popupId}"]`);
         if (popup != null) {
           popup.classList.add("open");
           document.querySelector("html").classList.add("openPopup");
           popup.scrollIntoView();
-          document.body.appendChild(popup);
+          // document.body.appendChild(popup);
         }
       }
     });
