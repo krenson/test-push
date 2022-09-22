@@ -69,8 +69,8 @@ public class LinkModelImpl implements LinkModel {
     }
 
     @Override
-    public Resource popupReference() {
-        return request.getResourceResolver().resolve(popupReference);
+    public String popupReference() {
+        return popupReference;
     }
 
     @Override
