@@ -21,6 +21,7 @@ public class Job {
     public static final String STRUCTURES_KEY = "structures";
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
+    public static final String OBLIGATIONS_KEY = "obligatoire";
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
     public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
@@ -36,6 +37,7 @@ public class Job {
     private String[] assets;
     private List<Job> relatedJobs = new ArrayList<>();
     private String link;
+    private String[] obligations;
 
     public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
@@ -51,6 +53,7 @@ public class Job {
         this.structures = ContentFragmentUtils.getMultifieldValue(contentFragment, STRUCTURES_KEY, String.class);
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
+        this.obligations = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATIONS_KEY, String.class);
         this.link = link;
     }
 
@@ -102,6 +105,10 @@ public class Job {
         return link;
     }
 
+    public String[] getObligations() {
+        return obligations;
+    }
+
     public void setRelatedJobs(List<Job> relatedJobs) {
         this.relatedJobs = relatedJobs;
     }
@@ -118,6 +125,9 @@ public class Job {
         switch (element) {
             case SYNONYMES_KEY: return getSynonymes();
             case ASSETS_KEY: return getAssets();
+            case ENVIRONMENTS_KEY: return getEnvironments();
+            case STRUCTURES_KEY: return getStructures();
+            case OBLIGATIONS_KEY: return getObligations();
             default: return ArrayUtils.EMPTY_STRING_ARRAY;
         }
     }
