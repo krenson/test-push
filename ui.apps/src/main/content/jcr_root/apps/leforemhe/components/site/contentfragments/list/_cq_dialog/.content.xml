@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
           xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured"
-          jcr:title="Liste CF" sling:resourceType="cq/gui/components/authoring/dialog" height="{Long}300">
+          jcr:title="Liste CF" sling:resourceType="cq/gui/components/authoring/dialog" height="{Long}400">
     <content jcr:primaryType="nt:unstructured"
              sling:resourceType="granite/ui/components/foundation/container">
         <layout
@@ -31,8 +31,8 @@
                                   sling:resourceType="granite/ui/components/foundation/form/select"
                                   fieldLabel="Content fragment element: " name="./selectedActivityElement">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <test jcr:primaryType="nt:unstructured" text="test" value="test" />
-                                    <test2 jcr:primaryType="nt:unstructured" text="test" value="test2" />
+                                    <savoir jcr:primaryType="nt:unstructured" text="Savoir" value="savoir" />
+                                    <savoirFaire jcr:primaryType="nt:unstructured" text="Savoir Faire" value="savoirFaire" />
                                 </items>
                             </list>
                         </items>
@@ -48,6 +48,9 @@
                                 <items jcr:primaryType="nt:unstructured">
                                     <assets jcr:primaryType="nt:unstructured" text="Atouts" value="atouts" />
                                     <synonymes jcr:primaryType="nt:unstructured" text="Synonymes" value="synonymes" />
+                                    <environments jcr:primaryType="nt:unstructured" text="Environnements" value="environnements" />
+                                    <obligatoire jcr:primaryType="nt:unstructured" text="Obligatoire" value="obligatoire" />
+                                    <structures jcr:primaryType="nt:unstructured" text="Structures" value="structures" />
                                 </items>
                             </list>
                         </items>
