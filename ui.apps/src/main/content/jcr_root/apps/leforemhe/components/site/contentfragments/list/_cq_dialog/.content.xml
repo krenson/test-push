@@ -32,7 +32,7 @@
                                   fieldLabel="Content fragment element: " name="./selectedActivityElement">
                                 <items jcr:primaryType="nt:unstructured">
                                     <savoir jcr:primaryType="nt:unstructured" text="Savoir" value="savoir" />
-                                    <savoirFaire jcr:primaryType="nt:unstructured" text="Savoir Faire" value="-savoirFaire" />
+                                    <savoirFaire jcr:primaryType="nt:unstructured" text="Savoir Faire" value="savoirFaire" />
                                 </items>
                             </list>
                         </items>
