@@ -28,9 +28,6 @@ public class LinkModelImpl implements LinkModel {
     @SlingObject
     private Resource currentResource;
 
-    @Self
-    private SlingHttpServletRequest request;
-
     @Inject
     private ContentFragmentUtilService contentFragmentUtilService;
 
