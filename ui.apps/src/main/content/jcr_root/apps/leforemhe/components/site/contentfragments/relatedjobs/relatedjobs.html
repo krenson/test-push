@@ -1,0 +1,13 @@
+<div class="list"
+     data-sly-use.relatedJobsModel="com.leforemhe.aem.site.core.models.horizonemploi.RelatedJobsModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+    <ul class="cmp-list" data-sly-list.job="${relatedJobsModel.relatedJobs}">
+        <li class="cmp-list__item">
+            <span class="cmp-list__item-title aem">
+              <a href="${job.link}" target="_blank">${job.title}</a>
+            </span>
+        </li>
+    </ul>
+</div>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!relatedJobsModel.relatedJobs , classAppend='cmp-list'}"></sly>

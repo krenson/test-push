@@ -17,7 +17,7 @@ public class Job {
     public static final String LABELS_KEY = "etiquettes";
     public static final String CODE_ESCO_KEY = "codeEsco";
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
-    public static final String PROFESSIONS_NEARBY_KEY = "metiersProches";
+    public static final String RELATED_JOBS_KEY = "metiersProches";
     public static final String STRUCTURES_KEY = "structures";
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
@@ -31,12 +31,13 @@ public class Job {
     private List<JobTag> labels;
     private String codeEsco;
     private String libelleEsco;
-    private String[] professionsNearby;
     private String[] structures;
     private String[] environments;
     private String[] assets;
+    private List<Job> relatedJobs = new ArrayList<>();
+    private String link;
 
-    public Job(ContentFragment contentFragment, List<Tag> labels) {
+    public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
         this.title = ContentFragmentUtils.getSingleValue(contentFragment, TITLE_KEY, String.class);
         this.description = ContentFragmentUtils.getSingleValue(contentFragment, DESCRIPTION_KEY, String.class);
@@ -47,11 +48,10 @@ public class Job {
         }
         this.codeEsco = ContentFragmentUtils.getSingleValue(contentFragment, CODE_ESCO_KEY, String.class);
         this.libelleEsco = ContentFragmentUtils.getSingleValue(contentFragment, LIBELLE_ESCO_KEY, String.class);
-        this.professionsNearby = ContentFragmentUtils.getMultifieldValue(contentFragment, PROFESSIONS_NEARBY_KEY,
-                String.class);
         this.structures = ContentFragmentUtils.getMultifieldValue(contentFragment, STRUCTURES_KEY, String.class);
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
+        this.link = link;
     }
 
     public String getCodeMetier() {
@@ -82,10 +82,6 @@ public class Job {
         return libelleEsco;
     }
 
-    public String[] getProfessionsNearby() {
-        return professionsNearby;
-    }
-
     public String[] getStructures() {
         return structures;
     }
@@ -96,6 +92,18 @@ public class Job {
 
     public String[] getAssets() {
         return assets;
+    }
+
+    public List<Job> getRelatedJobs() {
+        return relatedJobs;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setRelatedJobs(List<Job> relatedJobs) {
+        this.relatedJobs = relatedJobs;
     }
 
     public String getSingleTextValueFromElement(String element) {
@@ -113,4 +121,5 @@ public class Job {
             default: return ArrayUtils.EMPTY_STRING_ARRAY;
         }
     }
+
 }
