@@ -3,6 +3,9 @@
 # **/ui.content/**/experience-fragments/**
 # **/ui.content/**/leforemhev1/**
 
+### ui.content
+**/ui.content/**/leforemhe/fr/javascript/**
+
 ### Eclipse ###
 *.pydevproject
 .metadata
