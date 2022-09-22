@@ -554,8 +554,8 @@ header .container-content {
   gap: $gapSize;
 }
 
-.twoCol .container-content {
-  .cmp-container {
+.twoCol div.container-content {
+  div.container.maxWidth.cmp-container {
     min-width: $colSize !important;
     max-width: $colSize !important;
     width: $colSize !important;
