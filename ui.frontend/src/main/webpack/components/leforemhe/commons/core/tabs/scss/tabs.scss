@@ -24,6 +24,13 @@
     border-bottom: 0.2rem solid $heigt-color;
   }
 
+  .cmp-tabs__tabpanel {
+    .popupOpener .cmp-teaser__image img {
+      width: 2.1rem;
+      height: 2.1rem;
+    }
+  }
+
   &.mobile {
     padding-left: 0;
     padding-right: 0;
@@ -61,6 +68,9 @@
     border-radius: 0.2rem;
     height: 0.4rem;
   }
+
+  div.cmp-teaser__image .cmp-image img {
+  }
 }
 .cmp-tabs__tab--active {
   /*  border-bottom: 0.4rem solid $tercary-color; */
@@ -74,6 +84,7 @@
 }
 .cmp-tabs__tabpanel--active {
 }
+
 .cmp-tabs.desktop {
   .tabscrollBar {
     width: 100%;

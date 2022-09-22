@@ -10,7 +10,7 @@ if (popupOpener.length > 0) {
           popup.classList.add("open");
           document.querySelector("html").classList.add("openPopup");
           popup.scrollIntoView();
-          document.body.appendChild(popup)
+          document.body.appendChild(popup);
         }
       }
     });
