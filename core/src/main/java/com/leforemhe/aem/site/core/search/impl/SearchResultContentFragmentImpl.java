@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     @Inject
     private ContentFragmentUtilService contentFragmentUtilService;
 
-    private List<String> cleMetierList = Collections.EMPTY_LIST;
+    private List<String> cleMetierList = new ArrayList<>();
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
 
 
