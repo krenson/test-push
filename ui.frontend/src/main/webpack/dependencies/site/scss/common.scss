@@ -554,6 +554,10 @@ header .container-content {
   gap: $gapSize;
 }
 
+.cmp-button.link-icone .icone img {
+  width: 2.1rem;
+}
+
 .twoCol div.container-content {
   div.container.maxWidth.cmp-container {
     min-width: $colSize !important;
