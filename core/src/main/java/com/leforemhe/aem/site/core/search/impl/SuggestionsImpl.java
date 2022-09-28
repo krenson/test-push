@@ -5,6 +5,7 @@ import com.leforemhe.aem.site.core.search.predicates.impl.PathsPredicateFactoryI
 import com.leforemhe.aem.site.core.search.providers.SuggestionProvider;
 import com.day.cq.commons.inherit.ComponentInheritanceValueMap;
 import com.day.cq.wcm.api.NameConstants;
+import com.leforemhe.aem.site.core.services.SearchConfigService;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -34,10 +35,12 @@ public class SuggestionsImpl implements Suggestions {
     private static final Logger log = LoggerFactory.getLogger(SuggestionsImpl.class);
 
     private static final String PN_SUGGESTIONS_LIMIT = "suggestionsLimit";
-    private static final int DEFAULT_SUGGESTIONS_LIMIT = 5;
 
     @Self
     private SlingHttpServletRequest request;
+
+    @Inject
+    private SearchConfigService searchConfigService;
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -58,10 +61,10 @@ public class SuggestionsImpl implements Suggestions {
 
         try {
             // This is required due to a bug in Sling Model Exporter; where 2 Sing Model Exporters cannot bind to the same resourceType
-            final String searchPath = new ComponentInheritanceValueMap(resource).getInherited(PathsPredicateFactoryImpl.PN_SEARCH_PATHS, PathsPredicateFactoryImpl.DEFAULT_SEARCH_PATH);
+            final String searchPath = new ComponentInheritanceValueMap(resource).getInherited(PathsPredicateFactoryImpl.PN_SEARCH_PATHS, searchConfigService.getConfig().suggestionsPath());
             suggestions = suggestionProvider.suggest(resourceResolver, searchPath,
                                                 NameConstants.NT_PAGE, getSearchTerm(),
-                                                resource.getValueMap().get(PN_SUGGESTIONS_LIMIT, DEFAULT_SUGGESTIONS_LIMIT));
+                                                resource.getValueMap().get(PN_SUGGESTIONS_LIMIT, searchConfigService.getConfig().amountOfSuggestions()));
         } catch (RepositoryException e) {
             log.error("Could not collect suggestions for search term [ {} ]", getSearchTerm());
         }
