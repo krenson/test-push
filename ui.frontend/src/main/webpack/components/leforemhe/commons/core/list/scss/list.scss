@@ -186,15 +186,16 @@
   padding-left: 1.5rem;
 
   & > div {
-    margin-bottom: 0;
+    margin-bottom: 4rem;
 
     &:first-child {
-      margin-bottom: 5rem;
+      margin-bottom: 6rem;
     }
   }
   h1 {
     font-weight: 600;
     font-size: 1.9rem;
+    margin-top: 0;
     margin-bottom: 1rem;
   }
 
@@ -204,27 +205,31 @@
 
   .list ol > li,
   .list ul > li {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     padding-left: 2.5rem;
   }
 }
 
 .activitéListContainer {
-  .cmp-accordion__header {
-    display: flex;
-    height: 4.5rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-
-    &:hover {
-      background-color: rgb(250, 245, 236);
-    }
-
-    button {
-      width: 100%;
+  .cmp-accordion__item {
+    padding: 0;
+    .cmp-accordion__header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      height: 4.5rem;
+      border-radius: 1rem;
+      padding: 0 1rem;
+      margin-bottom: 0.7rem;
+
+      &:hover {
+        background-color: rgb(250, 245, 236);
+      }
+
+      button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
   }
 }

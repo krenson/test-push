@@ -113,29 +113,28 @@ strong {
   margin: 0 auto;
 }
 
-.aem.img_container,
-.aem .img_container {
+.aem.image_component {
   max-width: 96rem;
+  min-width: 49rem;
+
   width: 100%;
+  height: 50rem;
   margin: 0;
   margin-top: 4rem !important;
   margin-bottom: 2rem;
+
+  padding-bottom: 56.5%;
+  position: relative;
+
   border-radius: 0px 0px 2.3rem 0px;
   overflow: hidden;
-  .image {
-    min-width: 49rem;
-    max-width: 96rem;
-    height: 50rem;
-    padding-bottom: 56.5%;
-    position: relative;
 
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -434,7 +433,7 @@ strong {
   }
 }
 
-.partial-background {
+.partial-background header {
   min-height: initial !important;
   margin-bottom: 0 !important;
   position: relative;
@@ -446,6 +445,8 @@ strong {
     height: 39.5rem;
     width: 100%;
     z-index: -1;
+    background: transparent linear-gradient(99deg, #f8e7ce 0%, #f9f5ed 100%) 0%
+      0% no-repeat padding-box;
   }
 
   .container-content {
@@ -454,15 +455,8 @@ strong {
 }
 
 .container .container-content {
-  .container
-    > .container-content
-    .aem.image_component:first-child
-    .img_container.aem,
-  .container
-    > .container-content
-    > div
-    > .aem.image_component
-    .img_container.aem,
+  .container > .container-content .aem.image_component:first-child,
+  .container > .container-content > div > .aem.image_component,
   .container > .container-content .aem.youtube_container:first-child,
   .container > .container-content > div > .aem.youtube_container {
     margin-top: 0;
@@ -531,16 +525,18 @@ header .container-content {
     }
   }
 
-  .partial-background {
+  .partial-background header {
     &::after {
       bottom: -10rem;
       height: 10rem;
     }
   }
+
   div.image_component {
-    .img_container {
-      margin: 1rem 0rem !important;
-    }
+    margin: 1rem 0rem !important;
+    width: 42.12rem !important;
+    max-width: 42.12rem !important;
+    min-width: 42.12rem !important;
   }
 }
 
