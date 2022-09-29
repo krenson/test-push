@@ -3,7 +3,6 @@ package com.leforemhe.aem.site.core.search.providers.impl;
 import com.leforemhe.aem.site.core.search.providers.SuggestionProvider;
 import com.day.cq.search.QueryBuilder;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.factory.ModelFactory;
 import org.osgi.service.component.annotations.Component;
@@ -17,10 +16,7 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 import javax.jcr.query.Row;
 import javax.jcr.query.RowIterator;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Component(
         immediate = true,
@@ -44,10 +40,7 @@ public class SuggestionProviderImpl implements SuggestionProvider {
             return suggestions;
         }
 
-        nodeType = StringUtils.defaultIfEmpty(nodeType, JcrConstants.NT_HIERARCHYNODE);
-        path = StringUtils.defaultIfEmpty(path, "/");
-
-        final String statement = String.format("SELECT [rep:suggest()] FROM [%s] WHERE ISDESCENDANTNODE('%s') AND SUGGEST('%s')", escape(nodeType), escape(path), escape(term));
+        final String statement = String.format("SELECT [rep:suggest()] FROM [dam:Asset] WHERE ISDESCENDANTNODE('/content/dam/leforemhe/fr/metiers') AND SUGGEST('%s') OPTION(INDEX NAME [searchIndex])", escape(term));
 
         final QueryManager queryManager = resourceResolver.adaptTo(Session.class).getWorkspace().getQueryManager();
         final QueryResult result = queryManager.createQuery(statement, javax.jcr.query.Query.JCR_SQL2).execute();

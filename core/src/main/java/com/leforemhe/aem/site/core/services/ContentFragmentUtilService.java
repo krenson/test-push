@@ -12,7 +12,6 @@ import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -135,7 +134,7 @@ public class ContentFragmentUtilService {
         return query.getResult();
     }
 
-    private List<Tag> resolveTags(String[] tagListIds) {
+    public List<Tag> resolveTags(String[] tagListIds) {
         ResourceResolver resourceResolver = getResourceResolver();
         List<Tag> tags = new ArrayList<>();
         if (resourceResolver != null) {
