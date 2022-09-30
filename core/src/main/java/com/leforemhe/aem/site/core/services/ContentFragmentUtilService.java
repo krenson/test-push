@@ -139,10 +139,12 @@ public class ContentFragmentUtilService {
         List<Tag> tags = new ArrayList<>();
         if (resourceResolver != null) {
             TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
-            for (String tagId : tagListIds) {
-                Tag resolvedTag = tagManager.resolve(tagId);
-                if (resolvedTag != null) {
-                    tags.add(resolvedTag);
+            if (tagListIds != null) {
+                for (String tagId : tagListIds) {
+                    Tag resolvedTag = tagManager.resolve(tagId);
+                    if (resolvedTag != null) {
+                        tags.add(resolvedTag);
+                    }
                 }
             }
         }
@@ -151,10 +153,12 @@ public class ContentFragmentUtilService {
 
     private List<Job> resolveJobs(String[] jobIds) {
         List<Job> jobs = new ArrayList<>();
-        for (String relatedJobID : jobIds) {
-            Job resolvedJob = getJobFromJobID(relatedJobID, false);
-            if (resolvedJob != null) {
-                jobs.add(resolvedJob);
+        if (jobIds != null) {
+            for (String relatedJobID : jobIds) {
+                Job resolvedJob = getJobFromJobID(relatedJobID, false);
+                if (resolvedJob != null) {
+                    jobs.add(resolvedJob);
+                }
             }
         }
         return jobs;
