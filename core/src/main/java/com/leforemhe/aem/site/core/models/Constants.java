@@ -10,5 +10,5 @@ public class Constants {
     public static final String CQ_PAGECONTENT = "cq:PageContent";
     public static final String CQ_TAGS = "cq:tags";
 
-    public static final String METIER_TEMPLATE = "/conf/leforemhe/settings/wcm/templates/pge_resp_he_metier";
+    public static final String JOB_PAGE_RESOURCE_TYPE = "leforemhe/components/site/jobpage";
 }

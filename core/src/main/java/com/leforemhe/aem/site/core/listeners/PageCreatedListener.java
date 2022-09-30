@@ -13,9 +13,11 @@ import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.utils.EventUtils;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import com.leforemhe.aem.site.core.services.GlobalConfigService;
+import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -75,7 +77,7 @@ public class PageCreatedListener implements EventListener {
                     event = events.nextEvent();
                     String eventPath = event.getPath();
                     Node pageNode = resolver.getResource(eventPath).adaptTo(Node.class);
-                    if (pageNode.getProperty(Constants.CQ_TEMPLATE).getValue().toString().equals(Constants.METIER_TEMPLATE)) {
+                    if (pageNode.getProperty(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY).getValue().toString().equals(Constants.JOB_PAGE_RESOURCE_TYPE)) {
                         EventUtils.handleJobPageEvent(pageNode, contentFragmentUtilService);
                         session.save();
                         return;

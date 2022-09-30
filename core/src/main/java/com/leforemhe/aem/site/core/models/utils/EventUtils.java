@@ -1,10 +1,8 @@
 package com.leforemhe.aem.site.core.models.utils;
 
 import com.day.cq.commons.jcr.JcrConstants;
-import com.day.cq.tagging.TagConstants;
 import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
-import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
 

@@ -13,6 +13,9 @@
                   maximized="{Boolean}true"
                   sling:resourceType="granite/ui/components/coral/foundation/tabs">
                 <items jcr:primaryType="nt:unstructured" sling:hideChildren="[properties]">
+                    <styletab jcr:primaryType="nt:unstructured"
+                              path="/mnt/overlay/cq/gui/components/authoring/dialog/style/tab_design/styletab"
+                              sling:resourceType="granite/ui/components/coral/foundation/include"/>
                 </items>
             </tabs>
         </items>

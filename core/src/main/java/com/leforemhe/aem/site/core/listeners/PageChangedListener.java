@@ -7,6 +7,7 @@ import com.leforemhe.aem.site.core.services.GlobalConfigService;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -71,7 +72,7 @@ public class PageChangedListener implements EventListener {
             Event event = events.nextEvent();
             if (EventUtils.getEventNodeType(event).equals(Constants.CQ_PAGECONTENT)) {
                 Node pageNode = resolver.getResource(event.getPath()).getParent().adaptTo(Node.class);
-                if (pageNode.getProperty(Constants.CQ_TEMPLATE).getValue().toString().equals(Constants.METIER_TEMPLATE)) {
+                if (pageNode.getProperty(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY).getValue().toString().equals(Constants.JOB_PAGE_RESOURCE_TYPE)) {
                     do {
                         String[] eventPathParts = event.getPath().split("/");
                         int lastIndex = eventPathParts.length - 1;
