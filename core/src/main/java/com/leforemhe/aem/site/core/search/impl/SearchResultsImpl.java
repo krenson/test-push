@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.search.impl;
 
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
+import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
 import com.leforemhe.aem.site.core.search.SearchResultsPagination;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.predicates.impl.FullltextPredicateFactoryImpl;
@@ -50,23 +51,36 @@ public class SearchResultsImpl implements SearchResults {
     private ResourceResolver resourceResolver;
     @Inject
     private SearchProvider searchProvider;
+    @Self
+    private SearchResultsContentFragment searchResultsContentFragment;
+
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
     private long timeTaken = -1;
     private String totalResults;
+    private int index = 0;
 
     @PostConstruct
     private void initModel() {
         log.debug("Inside initModel");
         final long start = System.currentTimeMillis();
+        String query = request.getParameter("q");
         final Map<String, String> searchPredicates = predicateResolver.getRequestPredicates(request);
-
-        log.debug("Search parameter q={}", request.getParameter("q"));
-        searchPredicates.put("path", "/content/leforemhe");
+        List<String> cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
+        log.debug("Search parameter q={}", query);
         searchPredicates.put("type", "cq:Page");
-        searchPredicates.put("group.p.or", "true");
-        searchPredicates.put("group.1_fulltext", request.getParameter("q"));
-        searchPredicates.put("group.1_fulltext.relPath", "jcr:content");
+        searchPredicates.put("path", "/content/leforemhe");
+        if(!cleMetierList.isEmpty()) {
+            searchPredicates.put("property", "jcr:content/clemetier");
+            for (String cleMetier : cleMetierList) {
+                searchPredicates.put("property." + index++ + "_value", cleMetier);
+            }
+        }
+        else {
+            searchPredicates.put("group.p.or", "true");
+            searchPredicates.put("group.1_fulltext", query);
+            searchPredicates.put("group.1_fulltext", "jcr:content");
+        }
 
         if (isSearchable()) {
             com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);

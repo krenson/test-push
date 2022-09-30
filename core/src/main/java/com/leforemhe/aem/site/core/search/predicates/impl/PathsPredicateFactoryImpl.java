@@ -3,9 +3,11 @@ package com.leforemhe.aem.site.core.search.predicates.impl;
 import com.leforemhe.aem.site.core.search.predicates.PredicateFactory;
 import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.day.cq.commons.inherit.ComponentInheritanceValueMap;
+import com.leforemhe.aem.site.core.services.SearchConfigService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +26,9 @@ public class PathsPredicateFactoryImpl implements PredicateFactory {
     public static final String SAFEGUARD_SEARCH_PATH = "/content/leforemhe";
     private static final Logger log = LoggerFactory.getLogger(PathsPredicateFactoryImpl.class);
 
+    @Reference
+    SearchConfigService searchConfigService;
+
     @Override
     public String getTitle() {
         return null;
@@ -38,7 +43,7 @@ public class PathsPredicateFactoryImpl implements PredicateFactory {
     public Map<String, String> getRequestPredicate(SlingHttpServletRequest request) {
         final Map<String, String> params = new HashMap<String, String>();
 
-        final String[] paths = new ComponentInheritanceValueMap(request.getResource()).getInherited(PN_SEARCH_PATHS, new String[]{DEFAULT_SEARCH_PATH});
+        final String[] paths = new ComponentInheritanceValueMap(request.getResource()).getInherited(PN_SEARCH_PATHS, new String[]{searchConfigService.getConfig().suggestionsPath()});
 
         for (String path : paths) {
             if (StringUtils.startsWith(path, SAFEGUARD_SEARCH_PATH)) {

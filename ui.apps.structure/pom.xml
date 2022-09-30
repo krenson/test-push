@@ -62,7 +62,16 @@
                         <filter>
                             <root>/apps/settings</root>
                         </filter>
+                        <!-- oak index filter -->
+                        <filter>
+                            <root>/oak:index</root>
+                        </filter>
                     </filters>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
+                    <!-- The option noIntermediateSaves ensures that the index configurations are added atomically. -->
+                    <properties>
+                        <noIntermediateSaves>true</noIntermediateSaves>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>

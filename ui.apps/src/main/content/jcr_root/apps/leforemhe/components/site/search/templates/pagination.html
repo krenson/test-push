@@ -1,4 +1,4 @@
-<template data-sly-template.pagination="${ @ searchResults}">
+<template data-sly-template.pagination="${ @ searchResults, searchResultsCf}">
     <ul class="pagination"
             data-sly-test="${searchResults.pagination.size > 1}">
         <li data-sly-list.option="${searchResults.pagination}">

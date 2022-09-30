@@ -57,7 +57,7 @@
                 <configuration>
                     <group>com.leforemhe</group>
                     <name>leforemhe.ui.apps</name>
-                    <packageType>application</packageType>
+                    <packageType>mixed</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
@@ -65,6 +65,7 @@
                             <artifactId>leforemhe.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                 </configuration>
             </plugin>
             <plugin>
