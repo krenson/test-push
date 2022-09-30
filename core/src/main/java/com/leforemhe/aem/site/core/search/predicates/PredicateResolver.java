@@ -11,4 +11,9 @@ public interface PredicateResolver {
     Map<String, String> getRequestPredicates(SlingHttpServletRequest request);
 
     List<PredicateGroup> getPredicateGroups(SlingHttpServletRequest request);
+
+    PredicateGroup getPredicateGroup(SlingHttpServletRequest request, String predicateGroup);
+
+    Map<String, String> getRequestPredicateFromGroup(SlingHttpServletRequest request, String predicateGroup);
+
 }

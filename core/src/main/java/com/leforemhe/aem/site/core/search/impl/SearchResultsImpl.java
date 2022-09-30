@@ -4,8 +4,9 @@ import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
 import com.leforemhe.aem.site.core.search.SearchResultsPagination;
+import com.leforemhe.aem.site.core.search.predicates.PredicateGroup;
+import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
-import com.leforemhe.aem.site.core.search.predicates.impl.FullltextPredicateFactoryImpl;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
 import com.day.cq.commons.inherit.ComponentInheritanceValueMap;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Model(
         adaptables = SlingHttpServletRequest.class,
@@ -63,26 +62,20 @@ public class SearchResultsImpl implements SearchResults {
     @PostConstruct
     private void initModel() {
         log.debug("Inside initModel");
+        boolean activeFacets = false;
         final long start = System.currentTimeMillis();
         String query = request.getParameter("q");
-        final Map<String, String> searchPredicates = predicateResolver.getRequestPredicates(request);
+        final Map<String, String> searchPredicates = new HashMap<>();
         List<String> cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
-        log.debug("Search parameter q={}", query);
-        searchPredicates.put("type", "cq:Page");
-        searchPredicates.put("path", "/content/leforemhe");
-        if(!cleMetierList.isEmpty()) {
-            searchPredicates.put("property", "jcr:content/clemetier");
-            for (String cleMetier : cleMetierList) {
-                searchPredicates.put("property." + index++ + "_value", cleMetier);
-            }
-        }
-        else {
-            searchPredicates.put("group.p.or", "true");
-            searchPredicates.put("group.1_fulltext", query);
-            searchPredicates.put("group.1_fulltext", "jcr:content");
-        }
+        searchPredicates.put("type", com.day.cq.wcm.api.NameConstants.NT_PAGE);
+        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "limit"));
+        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "guessTotal"));
+        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "useExcerpt"));
+        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "searchPaths"));
+        addClemetiers(cleMetierList, searchPredicates);
+        activeFacets = addTags(predicateResolver.getPredicateGroup(request, "tags"), searchPredicates, activeFacets);
 
-        if (isSearchable()) {
+        if (isSearchable(query) || activeFacets) {
             com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
             pagination = searchProvider.buildPagination(result, "Previous", "Next");
             searchResults = searchProvider.buildSearchResults(result);
@@ -91,9 +84,9 @@ public class SearchResultsImpl implements SearchResults {
         }
     }
 
-    private boolean isSearchable() {
+    private boolean isSearchable(String query) {
         log.debug("Inside isSearchable");
-        return StringUtils.isNotBlank(getSearchTerm())
+        return StringUtils.isNotBlank(query)
             || new ComponentInheritanceValueMap(request.getResource()).getInherited("allowBlankFulltext", false);
     }
 
@@ -109,6 +102,29 @@ public class SearchResultsImpl implements SearchResults {
     	return totalResults;
     }
 
+    private void addClemetiers(List<String> cleMetierList, Map<String, String> searchPredicates) {
+        if(!cleMetierList.isEmpty()) {
+            searchPredicates.put("1_property", "jcr:content/clemetier");
+            for (String cleMetier : cleMetierList) {
+                searchPredicates.put("1_property." + index++ + "_value", cleMetier);
+            }
+        }
+    }
+
+    private boolean addTags(PredicateGroup tagPredicates, Map<String, String> searchPredicates, boolean activeFacets) {
+        if(tagPredicates != null ) {
+            for (PredicateOption options: tagPredicates.getOptions()) {
+                if(options.isActive()){
+                    searchPredicates.put("2_property", "jcr:content/cq:tags");
+                    searchPredicates.put("2_property.value", options.getValue());
+                    activeFacets = true;
+                }
+            }
+        }
+        return activeFacets;
+    }
+
+
     @Override
     public List<SearchResult> getResults() {
         log.debug("Inside getResults");
@@ -122,13 +138,6 @@ public class SearchResultsImpl implements SearchResults {
         log.debug("Inside getPagination");
 
         return pagination;
-    }
-
-    @Override
-    public String getSearchTerm() {
-        log.debug("Inside getSearchTerm");
-
-        return request.getParameter(FullltextPredicateFactoryImpl.REQUEST_PARAM);
     }
 
     @Override

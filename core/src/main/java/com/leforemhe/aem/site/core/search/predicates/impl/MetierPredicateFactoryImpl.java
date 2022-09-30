@@ -2,27 +2,33 @@ package com.leforemhe.aem.site.core.search.predicates.impl;
 
 import com.leforemhe.aem.site.core.search.predicates.PredicateFactory;
 import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
+import com.leforemhe.aem.site.core.services.SearchConfigService;
 import org.apache.commons.lang3.ArrayUtils;
-import org.osgi.service.component.annotations.Component;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
 
 @Component(
         immediate = true,
-        service = AbstractTagPredicateFactory.class
+        service = PredicateFactory.class
 )
-public class AudiencePredicateFactoryImpl extends AbstractTagPredicateFactory implements PredicateFactory {
+public class MetierPredicateFactoryImpl extends AbstractTagPredicateFactory implements PredicateFactory {
 
-    public static final String TAG_NAMESPACE = "audience";
-    public static final String REQUEST_PARAM = "audience";
+    public static final String TAG_NAMESPACE = "he-metier";
+    public static final String REQUEST_PARAM = "tags";
     public static final int GROUP_ID = 3000;
     public static final String PROPERTY_PATH = "jcr:content/cq:tags";
 
+    @Reference
+    private SearchConfigService searchConfigService;
+
     @Override
     public String getTitle() {
-        return "Audience";
+        return "Metier";
     }
 
     @Override

@@ -9,7 +9,6 @@
         data-quick-search-results="${resource.path}/quick-results.results.json"
 
         data-sly-use.searchResults="com.leforemhe.aem.site.core.search.SearchResults"
-        data-sly-use.searchResulstCf="com.leforemhe.aem.site.core.search.SearchResultsContentFragment"
         data-sly-use.facets="templates/facets.html"
         data-sly-use.searchField="templates/search-field.html"
         data-sly-use.results="templates/results.html"
@@ -18,9 +17,7 @@
     <!-- Search Field -->
     <section class="search-field" data-sly-call="${searchField.searchField @ searchResults = searchResults}"></section>
 
-    <!-- Search Facets
     <section data-sly-test="${properties.showFacets == 'true'}" class="search-facets open" data-sly-call="${facets.facets}"></section>
-    -->
     <!-- Search Results -->
     <section class="search-results" data-sly-call="${results.results @ searchResults = searchResults}"></section>
 
