@@ -9,7 +9,7 @@ $(function() {
         }
     }
 
-    $('body').on('keyup', '.search form[data-quick-suggestions] input[name=q]', function() {
+    $('body').on('keyup', '.cmp-search form[data-quick-suggestions] input[name=q]', function() {
         var $form = $(this).closest('form'),
             $lists = $form.find('[data-quick-lists]'),
             $list = $form.find('[data-quick-suggestions]');
@@ -30,7 +30,7 @@ $(function() {
     });
 
 
-    $('body').on('keyup', '.search form[data-quick-search-results] input[name=q]', function() {
+    $('body').on('keyup', '.cmp-search form[data-quick-search-results] input[name=q]', function() {
         var $form = $(this).closest('form'),
             $lists = $form.find('[data-quick-lists]'),
             $list = $form.find('[data-quick-results]');

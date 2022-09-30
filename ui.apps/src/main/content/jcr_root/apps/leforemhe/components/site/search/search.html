@@ -1,7 +1,8 @@
-<form   action=""
+<div class="cmp-search">
+    <form action=""
         role="search"
         method="get"
-        class="cmp-search"
+        class="cmp-search-form"
         data-quick-suggestions-enabled="${properties.showSuggestions}"
         data-quick-suggestions="${resource.path}/quick-suggestions.suggestions.json"
 
@@ -25,3 +26,4 @@
     <section class="search-pagination" data-sly-test="${properties.showPagination == 'true'}"
     								   data-sly-call="${pagination.pagination @ searchResults = searchResults}"></section>
 </form>
+</div>
