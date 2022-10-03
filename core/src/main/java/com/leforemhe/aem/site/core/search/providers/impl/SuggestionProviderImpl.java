@@ -33,11 +33,8 @@ public class SuggestionProviderImpl implements SuggestionProvider {
     @Reference
     private ModelFactory modelFactory;
 
-    @Inject
-    private SearchConfigService searchConfigService;
-
     @Override
-    public List<String> suggest(ResourceResolver resourceResolver, String path, String nodeType, String term, int limit) throws RepositoryException {
+    public List<String> suggest(ResourceResolver resourceResolver, String path, String nodeType, String term, int limit, String suggestionPath) throws RepositoryException {
         final Set<String> suggestionsKeys = new HashSet<String>();
         final List<String> suggestions = new ArrayList<>();
 
@@ -45,7 +42,7 @@ public class SuggestionProviderImpl implements SuggestionProvider {
             return suggestions;
         }
 
-        final String statement = String.format("SELECT [rep:suggest()] FROM [dam:Asset] WHERE ISDESCENDANTNODE('%s') AND SUGGEST('%s') OPTION(INDEX NAME [searchIndex])", escape(searchConfigService.getConfig().suggestionsPath()),escape(term));
+        final String statement = String.format("SELECT [rep:suggest()] FROM [dam:Asset] WHERE ISDESCENDANTNODE('%s') AND SUGGEST('%s') OPTION(INDEX NAME [searchIndex])", escape(suggestionPath),escape(term));
 
         final QueryManager queryManager = resourceResolver.adaptTo(Session.class).getWorkspace().getQueryManager();
         final QueryResult result = queryManager.createQuery(statement, javax.jcr.query.Query.JCR_SQL2).execute();

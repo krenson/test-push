@@ -64,7 +64,7 @@ public class SuggestionsImpl implements Suggestions {
             final String searchPath = new ComponentInheritanceValueMap(resource).getInherited(PathsPredicateFactoryImpl.PN_SEARCH_PATHS, searchConfigService.getConfig().suggestionsPath());
             suggestions = suggestionProvider.suggest(resourceResolver, searchPath,
                                                 NameConstants.NT_PAGE, getSearchTerm(),
-                                                resource.getValueMap().get(PN_SUGGESTIONS_LIMIT, searchConfigService.getConfig().amountOfSuggestions()));
+                                                resource.getValueMap().get(PN_SUGGESTIONS_LIMIT, searchConfigService.getConfig().amountOfSuggestions()), searchConfigService.getConfig().suggestionsPath());
         } catch (RepositoryException e) {
             log.error("Could not collect suggestions for search term [ {} ]", getSearchTerm());
         }
