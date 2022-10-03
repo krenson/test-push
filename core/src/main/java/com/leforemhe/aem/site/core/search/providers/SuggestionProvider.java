@@ -8,5 +8,5 @@ import java.util.List;
 
 @ProviderType
 public interface SuggestionProvider {
-    List<String> suggest(ResourceResolver resourceResolver, String path, String nodeType, String term, int limit) throws RepositoryException;
+    List<String> suggest(ResourceResolver resourceResolver, String path, String nodeType, String term, int limit, String suggestionPath) throws RepositoryException;
 }
