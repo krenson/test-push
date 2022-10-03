@@ -121,7 +121,7 @@ strong {
   height: 50rem;
   margin: 0;
   margin-top: 4rem !important;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 
   padding-bottom: 56.5%;
   position: relative;
@@ -548,10 +548,6 @@ header .container-content {
   display: flex;
 
   gap: $gapSize;
-}
-
-.cmp-button.link-icone .icone img {
-  width: 2.1rem;
 }
 
 .twoCol div.container-content {
