@@ -48,6 +48,25 @@ public class PredicateResolverImpl implements PredicateResolver {
 
         return predicateGroups;
     }
+
+    public PredicateGroup getPredicateGroup(SlingHttpServletRequest request, String factoryName) {
+        for (final PredicateFactory factory : factories.values()) {
+            if(factory.getName().equals(factoryName)){
+                return new PredicateGroupImpl(factory.getTitle(), factory.getName(), factory.getPredicateOptions(request));
+            }
+        }
+        return null;
+    };
+
+    public Map<String, String> getRequestPredicateFromGroup(SlingHttpServletRequest request, String predicateGroup){
+        for (final PredicateFactory factory : factories.values()) {
+            if(factory.getName().equals(predicateGroup)) {
+                return factory.getRequestPredicate(request);
+            }
+        }
+        return null;
+    }
+
     @Reference(
             bind = "bindPredicateFactory",
             unbind = "unbindPredicateFactory",
@@ -57,7 +76,7 @@ public class PredicateResolverImpl implements PredicateResolver {
     )
     protected final void bindPredicateFactory(final PredicateFactory service, final Map<Object, Object> props) {
         log.debug("Inside bindPredicateFactory");
-        final String type = PropertiesUtil.toString(props.get("service.pid"), null);
+        final String type = PropertiesUtil.toString(props.get("service.id"), null);
         if (type != null) {
             this.factories.put(type, service);
         }
@@ -65,7 +84,7 @@ public class PredicateResolverImpl implements PredicateResolver {
 
     protected final void unbindPredicateFactory(final PredicateFactory service, final Map<Object, Object> props) {
         log.debug("Inside unbindPredicateFactory");
-        final String type = PropertiesUtil.toString(props.get("service.pid"), null);
+        final String type = PropertiesUtil.toString(props.get("service.id"), null);
         if (type != null) {
             this.factories.remove(type);
         }

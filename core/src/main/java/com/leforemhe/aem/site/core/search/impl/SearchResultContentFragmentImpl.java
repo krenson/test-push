@@ -18,10 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.leforemhe.aem.site.core.models.cfmodels.Job.CODE_METIER_KEY;
 
@@ -58,7 +55,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
 
 
     public List<String> getContentFragmentsCleMetier(String queryParameter) {
-        final Map<String, String> searchPredicates = predicateResolver.getRequestPredicates(request);
+        final Map<String, String> searchPredicates = new HashMap<>();
         log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
         searchPredicates.put("path", "/content/dam/leforemhe");
@@ -70,7 +67,10 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchResults = searchProvider.buildSearchResults(result);
         for (SearchResult searchResult : searchResults) {
             ContentFragment contentFragment = request.getResourceResolver().resolve(searchResult.getPath()).adaptTo(ContentFragment.class);
-            cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
+            String codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
+            if(codeMetier != null) {
+                cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
+            }
             }
         return cleMetierList;
         }

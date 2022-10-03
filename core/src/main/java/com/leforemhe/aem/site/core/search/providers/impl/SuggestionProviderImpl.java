@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.search.providers.impl;
 
 import com.leforemhe.aem.site.core.search.providers.SuggestionProvider;
 import com.day.cq.search.QueryBuilder;
+import com.leforemhe.aem.site.core.services.SearchConfigService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.factory.ModelFactory;
@@ -10,6 +11,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
@@ -31,6 +33,9 @@ public class SuggestionProviderImpl implements SuggestionProvider {
     @Reference
     private ModelFactory modelFactory;
 
+    @Inject
+    private SearchConfigService searchConfigService;
+
     @Override
     public List<String> suggest(ResourceResolver resourceResolver, String path, String nodeType, String term, int limit) throws RepositoryException {
         final Set<String> suggestionsKeys = new HashSet<String>();
@@ -40,7 +45,7 @@ public class SuggestionProviderImpl implements SuggestionProvider {
             return suggestions;
         }
 
-        final String statement = String.format("SELECT [rep:suggest()] FROM [dam:Asset] WHERE ISDESCENDANTNODE('/content/dam/leforemhe/fr/metiers') AND SUGGEST('%s') OPTION(INDEX NAME [searchIndex])", escape(term));
+        final String statement = String.format("SELECT [rep:suggest()] FROM [dam:Asset] WHERE ISDESCENDANTNODE('%s') AND SUGGEST('%s') OPTION(INDEX NAME [searchIndex])", escape(searchConfigService.getConfig().suggestionsPath()),escape(term));
 
         final QueryManager queryManager = resourceResolver.adaptTo(Session.class).getWorkspace().getQueryManager();
         final QueryResult result = queryManager.createQuery(statement, javax.jcr.query.Query.JCR_SQL2).execute();
