@@ -52,8 +52,10 @@ public class PageChangedListener implements EventListener {
             params.put(ResourceResolverFactory.SUBSERVICE, globalConfigService.getConfig().systemUser());
             resolver = resolverFactory.getServiceResourceResolver(params);
             session = resolver.adaptTo(Session.class);
-            LOG.info("Session created");
-            session.getWorkspace().getObservationManager().addEventListener(this, Event.PROPERTY_CHANGED, globalConfigService.getConfig().contentPath(), true, null, null, false);
+            if (session != null) {
+                LOG.info("Session created");
+                session.getWorkspace().getObservationManager().addEventListener(this, Event.PROPERTY_CHANGED, globalConfigService.getConfig().contentPath(), true, null, null, false);
+            }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
