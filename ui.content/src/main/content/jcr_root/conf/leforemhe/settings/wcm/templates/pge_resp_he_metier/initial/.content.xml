@@ -10,7 +10,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:uuid="9e66dc8a-5354-432e-bc98-965fcd2942ce"
-        sling:resourceType="leforemhe/components/site/page"
+        sling:resourceType="leforemhe/components/site/jobpage"
         hideHamburgermenuOnDesktop="false">
         <root
             jcr:primaryType="nt:unstructured"
