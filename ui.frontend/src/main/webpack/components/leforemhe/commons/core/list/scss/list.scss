@@ -265,6 +265,7 @@
 @media screen and (max-width: $breakpointMobile) {
   .activitéListContainer {
     .cmp-accordion__item .cmp-accordion__header {
+      margin-bottom: 2rem;
       &:hover {
         background-color: unset;
       }
