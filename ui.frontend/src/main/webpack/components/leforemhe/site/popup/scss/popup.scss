@@ -30,32 +30,33 @@
       justify-content: space-between;
       align-items: center;
       gap: 3rem;
-    }
 
-    .popup-title {
-      font-size: 2.3rem;
-      gap: 1.5rem;
-      .icone {
-        border: $link-icone-size-border-focus solid $link-icone-background-color;
-        height: 4.4rem;
-        min-width: 4.4rem;
-        width: 4.4rem;
-        border-radius: 50%;
-        background-color: $link-icone-background-color;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color $transitiontime $transitionmode,
-          border-color $transitiontime $transitionmode;
+      .popup-title {
+        font-size: 2.3rem;
+        gap: 1.5rem;
+        .icone {
+          border: $link-icone-size-border-focus solid
+            $link-icone-background-color;
+          height: 4.4rem;
+          min-width: 4.4rem;
+          width: 4.4rem;
+          border-radius: 50%;
+          background-color: $link-icone-background-color;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: background-color $transitiontime $transitionmode,
+            border-color $transitiontime $transitionmode;
 
-        img {
-          height: 1.6rem;
-          width: 1.6rem;
+          img {
+            height: 2.7rem;
+            width: 2.7rem;
+          }
         }
+        display: flex;
+        font-weight: 500;
+        align-items: center;
       }
-      display: flex;
-      font-weight: 500;
-      align-items: center;
     }
   }
   .popup-close {
