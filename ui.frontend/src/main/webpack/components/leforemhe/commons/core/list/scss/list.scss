@@ -200,19 +200,20 @@
   }
 
   .list ul {
-    margin: 0;
+    margin: 2rem 0;
   }
 
   .list ol > li,
   .list ul > li {
-    margin-bottom: 2rem;
-    padding-left: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    padding-left: 3rem;
   }
 }
 
 .activitéListContainer {
   .cmp-accordion__item {
-    padding: 0;
+    padding: 1rem 0;
     .cmp-accordion__header {
       display: flex;
       height: 4.5rem;
@@ -222,6 +223,17 @@
 
       &:hover {
         background-color: rgb(250, 245, 236);
+      }
+
+      .cmp-accordion__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        font-size: 1.8rem;
+        text-decoration: none;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
       }
 
       button {
@@ -252,7 +264,7 @@
 
 @media screen and (max-width: $breakpointMobile) {
   .activitéListContainer {
-    .cmp-accordion__header {
+    .cmp-accordion__item .cmp-accordion__header {
       &:hover {
         background-color: unset;
       }
