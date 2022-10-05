@@ -1,23 +1,62 @@
-<template data-sly-template.facets>
+<template data-sly-template.facets
+          data-sly-use.searchFacets="com.leforemhe.aem.site.core.search.SearchFacets">
+    <div class="filter-back-container">
+        <div class="filter-container">
+            <div class="filter-header">
+                <div>
+                    <div class="cmp-teaser__image">
+                        <div class="cmp-image">
+                            <img src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/sliders.svg"
+                                 class="cmp-image__image">
+                        </div>
+                    </div>
+                    <h1>Filtrer</h1>
+                </div>
+                <div class="filter-popup-close"></div>
+            </div>
+            <sly data-sly-list.predicateGroup="${searchFacets.predicateGroups}">
+                <sly data-sly-test="${predicateGroup.options.size > 0}">
+                <div class="accordion panelcontainer">
+                    <div id="accordion" class="cmp-accordion">
+                        <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
+                            <h3 class="cmp-accordion__header">
+                                <button id="accordion-item-button"
+                                        onclick="clickAccordion(this)"
+                                        class="cmp-accordion__button cmp-accordion__button--expanded"
+                                        aria-controls="accordion-item-panel" data-cmp-hook-accordion="button"
+                                        aria-expanded="true">
+                                    <span class="cmp-accordion__title">${predicateGroup.title}</span>
+                                    <span class="cmp-accordion__icon"></span>
+                                </button>
+                            </h3>
+                            <div data-cmp-hook-accordion="panel" id="accordion-item-panel"
+                                 class="cmp-accordion__panel cmp-accordion__panel--expanded" role="region"
+                                 aria-labelledby="accordion-item-button" aria-hidden="false">
+                                <div class="text">
+                                    <div class="cmp-text">
+                                        <ul data-sly-list.options="${predicateGroup.options}">
+                                            <li>
+                                                <label for="${options.value}">
+                                                    <div class="checkbox-container">
+                                                        <input onclick="checkboxClick(this)" type="checkbox" id="${options.value}"
+                                                               name="${options.value}">
+                                                        <label for="${options.value}">${options.label}</label>
+                                                    </div>
 
-    <button class="search-facet-toggle">
-        <coral-icon role="img" size="s" icon="accordionUp"></coral-icon>
-        <coral-icon role="img" size="s" icon="accordionDown"></coral-icon>
-    </button>
-    <div class="search-facets--content" data-sly-use.searchFacets="com.leforemhe.aem.site.core.search.SearchFacets"
-         data-sly-list.predicateGroup="${searchFacets.predicateGroups}">
-
-        <dl data-sly-test="${predicateGroup.options.size > 0}">
-            <dt>${predicateGroup.title}</dt>
-
-            <dd data-sly-list.option="${predicateGroup.options}">
-                <input id="search-facets--group--${predicateGroup.name}--${option.value}"
-                       type="checkbox"
-                       name="${predicateGroup.name}"
-                       value="${option.value}"
-                       data-sly-attribute.checked="${option.active}"/>
-                <label for="search-facets--group--${predicateGroup.name}--${option.value}">${option.label}</label>
-            </dd>
-        </dl>
+                                                    <div>
+                                                        <span class="checkbox-amount" for="${options.value}"></span>
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </sly>
+            </sly>
+        </div>
     </div>
 </template>

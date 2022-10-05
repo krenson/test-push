@@ -1,9 +1,10 @@
-var input = document.getElementById("searchInput");
-var suggestions = document.getElementById("searchSuggestions");
-var suggeBtn = document.getElementById("suggeBtn");
-
-var valueChips = document.getElementById("valueChips");
-
+let input = document.getElementById("searchInput");
+let suggestions = document.getElementById("searchSuggestions");
+const form = document.getElementsByClassName("searchContainer")[0];
+const checkboxes = document.querySelectorAll('.checkbox-container input');
+let valueChips = document.getElementById("valueChips");
+let innerValueChips = [];
+let tagsValue = '';
 // get value form the input field
 // and add it to the suggestion drop down container
 function getValue(e) {
@@ -11,6 +12,18 @@ function getValue(e) {
     suggestions.style.display = "none";
     return;
   }
+  const suggestionsList =  document.querySelector('#searchSuggestions');
+  if(form.dataset.quickSuggestionsEnabled === "true") {
+    $.get(form.dataset.quickSuggestions, `q=${e.value}`, function(data) {
+      suggestionsList.innerHTML='';
+      $.each(data.suggestions, function(index, suggestion) {
+       const html =  $(`<button onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion}</button>`)
+        suggestionsList.append(html.get(0))
+      });
+    });
+  }
+  getTagValues(e.value);
+
 
   if (window.screen.width <= 1425) {
     suggestions.style.display = "none";
@@ -19,8 +32,6 @@ function getValue(e) {
   }
 
   suggestions.style.display = "block";
-
-  suggeBtn.innerText = "Ajouter: " + e.value;
 }
 
 // on click of the suggestion
@@ -31,19 +42,23 @@ function suggestionClick(e) {
 
   valueChips.style.display = "block";
 
-  var chip = document.createElement("div");
+  var chip = document.createElement("span");
 
   chip.className = "chips chips-secondary";
 
-  chip.innerText = e.innerText.split(":")[1].trim();
+  chip.innerText = e.innerText;
+  innerValueChips.push(e.innerText);
 
   chip.addEventListener("click", function () {
     deleteValueChip(this);
   });
 
   valueChips.appendChild(chip);
-
-  console.log(chip);
+  let query = '';
+  innerValueChips.forEach(value => {
+    query = query + value + ',';
+  })
+  getQuickResults(query)
 }
 
 // on click on the chip
@@ -54,4 +69,71 @@ function deleteValueChip(e) {
   if (valueChips.childNodes.length < 1) {
     valueChips.style.display = "none";
   }
+  let query = '';
+  innerValueChips.forEach(value => {
+    query = query + value + ',';
+  })
+  getQuickResults(query);
+}
+
+function checkboxClick(e) {
+  const inputValue = document.querySelector('#searchInput').value;
+  tagsValue = getTagQuery();
+  let query = '';
+  innerValueChips.forEach(value => {
+    query = query + value + ',';
+  })
+  getQuickResults(query);
+  getTagValues(inputValue)
+}
+
+function getTagQuery() {
+  let tagsValue;
+  let index = 0;
+  checkboxes.forEach((checkbox) => {
+    if(checkbox.checked) {
+      if(index > 0) {
+        tagsValue += ',' + '';
+      }
+      tagsValue += checkbox.name + '';
+      index++
+    }
+  })
+  return tagsValue;
+}
+
+function getQuickResults(inputValue) {
+  const searchResultList = document.querySelector('.cmp-search-result')
+  let query = '';
+  query = `q=${inputValue}&${tagsValue}`;
+  $.get(form.dataset.quickSearchResults, query, function (data) {
+    searchResultList.innerHTML = '';
+    $.each(data.results, function (index, result) {
+      const html = $(`<a href="${result.url}"> ${result.title}</a>`)
+      searchResultList.append(html.get(0))
+    });
+  });
+}
+
+function getTagValues(inputValue) {
+  checkboxes.forEach(checkbox => {
+    const inputQuery = inputValue !== '' ? `&q=${inputValue}` : '';
+    const query = "tags=" + checkbox.name + "&limit=no-limit" + inputQuery
+    $.get(form.dataset.quickSearchResults, query, function (data) {
+      checkbox.parentElement.parentElement.querySelector(".checkbox-amount").innerHTML = data.resultTotal;
+    });
+
+  })
+ }
+ function clickAccordion(e) {
+  const itemPanel = document.querySelector('#accordion-item-panel');
+  if(itemPanel.style.display === 'none') {
+    itemPanel.style.display = 'block';
+  } else {
+    itemPanel.style.display = 'none';
+  }
+ }
+
+if(document.querySelector('#rechercheMetier')){
+  getTagValues('');
 }

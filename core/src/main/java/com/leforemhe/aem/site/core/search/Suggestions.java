@@ -9,6 +9,4 @@ public interface Suggestions {
     List<String> getSuggestions();
 
     String getSearchTerm();
-
-    long getTimeTaken();
 }

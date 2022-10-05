@@ -20,6 +20,10 @@ div#rechercheMetier {
     }
   }
 
+  .search-facets-container, .search-results{
+    display: inline-block;
+  }
+
   .searchContainer {
     width: 80%;
     margin-bottom: 5rem;

@@ -120,6 +120,7 @@
   .filter-container .filter-header {
     justify-content: unset;
     gap: 1rem;
+    display: inline-block;
 
     h1 {
       font-weight: 550;

@@ -10,6 +10,7 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.ResultPage;
 import com.day.cq.search.result.SearchResult;
+import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.factory.ModelFactory;
 import org.osgi.service.component.annotations.Component;
@@ -34,6 +35,9 @@ public class SearchProviderImpl implements SearchProvider {
 
     @Reference
     private ModelFactory modelFactory;
+
+    @Reference
+    private ContentFragmentUtilService contentFragmentUtilService;
 
     public SearchResult search(ResourceResolver resourceResolver, Map<String, String> predicates) {
         final Query query = queryBuilder.createQuery(PredicateGroup.create(predicates), resourceResolver.adaptTo(Session.class));

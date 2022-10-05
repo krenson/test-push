@@ -61,8 +61,4 @@ public class SimilarityResultsImpl implements SimilarityResults {
         return Collections.emptyList();
     }
 
-    public long getTimeTaken() {
-        return (System.currentTimeMillis() - start);
-    }
-
 }

@@ -10,7 +10,5 @@ public interface SearchResults {
 
     List<SearchResultsPagination> getPagination();
 
-    long getTimeTaken();
-
     String getResultTotal();
 }

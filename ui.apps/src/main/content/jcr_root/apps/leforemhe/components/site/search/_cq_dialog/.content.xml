@@ -30,6 +30,27 @@
                                         fieldLabel="Search Path"
                                         name="./searchPaths"
                                         rootPath="/content"/>
+                                    <titre
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                      fieldLabel="Titre"
+                                      name="./title"/>
+                                    <soustitre
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                      fieldLabel="Sous titre"
+                                      name="./subtitle"/>
+                                    <besoindaide
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                      fieldLabel="Besoin d'aide label"
+                                      name="./besoinAide"/>
+                                    <besoindaideUrl
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                      fieldLabel="Besoin d'aide url"
+                                      name="./besoindaideUrl"
+                                      rootPath="/content/leforemhe"/>
                                     <useExcerpt
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
