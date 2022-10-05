@@ -211,7 +211,7 @@
   }
 }
 
-.activitéListContainer {
+.activiteListContainer {
   .cmp-accordion__item {
     padding: 1rem 0;
     .cmp-accordion__header {
@@ -263,7 +263,7 @@
 }
 
 @media screen and (max-width: $breakpointMobile) {
-  .activitéListContainer {
+  .activiteListContainer {
     .cmp-accordion__item .cmp-accordion__header {
       margin-bottom: 2rem;
       &:hover {
