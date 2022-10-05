@@ -1,44 +1,63 @@
 <div data-sly-use.accordion="com.leforemhe.aem.site.core.models.horizonemploi.Activities"
-     data-panelcontainer="${wcmmode.edit && 'accordion'}"
-     id="${accordion.id}"
-     class="cmp-accordion"
-     data-cmp-is="accordion"
-     data-cmp-single-expansion="${accordion.singleExpansion}"
-     data-cmp-data-layer="${accordion.data.json}"
-     data-placeholder-text="${wcmmode.edit && 'Please drag Accordion item components here' @ i18n}">
-    <div data-sly-test="${accordion.activities.size > 0}"
-         data-sly-repeat.item="${accordion.activities}"
-         class="cmp-accordion__item"
-         data-cmp-hook-accordion="item"
-         id="${item.id}">
-        <h3 class="cmp-accordion__header">
-            <button
-                    id="${item.id}-button"
-                    class="cmp-accordion__button${item.name in accordion.expandedItems ? ' cmp-accordion__button&#45;&#45;expanded' : ''}"
-                    aria-controls="accordion-2098845c33-item-ace86c638b-panel"
-                    data-cmp-hook-accordion="button">
+     class="activiteListContainer">
+    <div class="accordion panelcontainer">
+        <div
+                data-panelcontainer="${wcmmode.edit && 'accordion'}"
+                id="${accordion.id}"
+                class="cmp-accordion"
+                data-cmp-is="accordion"
+                data-cmp-single-expansion="${accordion.singleExpansion}"
+                data-cmp-data-layer="${accordion.data.json}"
+                data-placeholder-text="${wcmmode.edit && 'Please drag Accordion item components here' @ i18n}">
+            <div data-sly-test="${accordion.activities.size > 0}"
+                 data-sly-repeat.item="${accordion.activities}"
+                 class="cmp-accordion__item"
+                 data-cmp-hook-accordion="item"
+                 id="${item.id}">
+                <h3 class="cmp-accordion__header">
+                    <button
+                            id="${item.id}-button"
+                            class="cmp-accordion__button${item.name in accordion.expandedItems ? ' cmp-accordion__button&#45;&#45;expanded' : ''}"
+                            aria-controls="accordion-2098845c33-item-ace86c638b-panel"
+                            data-cmp-hook-accordion="button">
               <span class="cmp-accordion__title">
                 ${item.title}
               </span>
-                <span class="cmp-accordion__icon"></span>
-            </button>
-        </h3>
-        <div data-cmp-hook-accordion="panel"
-             id="${item.id}-panel"
-             class="cmp-accordion__panel${item.name in accordion.expandedItems ? ' cmp-accordion__panel--expanded' : ' cmp-accordion__panel--hidden'}"
-             role="region"
-             aria-labelledby="${item.id}-button">
-             <h4>${'Savoir' @ i18n}</h4>
-             <ul data-sly-list.savoirItem="${item.savoir}">
-                  <li>${savoirItem}</li>
-             </ul>
-             <h4>${'Savoir Faire' @ i18n}</h4>
-             <ul data-sly-list.savoirFaireItem="${item.savoirFaire}">
-                  <li>${savoirFaireItem}</li>
-             </ul>
-          </div>
-    </div>
+                        <span class="cmp-accordion__icon"></span>
+                    </button>
+                </h3>
+                <div data-cmp-hook-accordion="panel"
+                     id="${item.id}-panel"
+                     class="cmp-accordion__panel${item.name in accordion.expandedItems ? ' cmp-accordion__panel--expanded' : ' cmp-accordion__panel--hidden'}"
+                     role="region"
+                     aria-labelledby="${item.id}-button">
+                    <div class="text">
+                        <div class="cmp-text">
+                            <div class="activitéContainer">
+                                <div>
+                                    <h1>${'Savoir' @ i18n}</h1>
+                                    <div class="list">
+                                        <ul data-sly-list.savoirItem="${item.savoir}">
+                                            <li>${savoirItem}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1>${'Savoir Faire' @ i18n}</h1>
+                                    <div class="list">
+                                        <ul data-sly-list.savoirFaireItem="${item.savoirFaire}">
+                                            <li>${savoirFaireItem}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
-         data-sly-test="${(wcmmode.edit || wcmmode.preview) && accordion.activities.size < 1}"></sly>
+            <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+                 data-sly-test="${(wcmmode.edit || wcmmode.preview) && accordion.activities.size < 1}"></sly>
+        </div>
+    </div>
 </div>
