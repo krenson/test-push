@@ -234,6 +234,7 @@
         text-decoration: none;
         -webkit-line-clamp: 2;
         line-clamp: 2;
+        text-decoration: underline;
       }
 
       button {
@@ -268,6 +269,10 @@
       margin-bottom: 2rem;
       &:hover {
         background-color: unset;
+      }
+
+      .cmp-accordion__title {
+        text-decoration: none;
       }
     }
   }
