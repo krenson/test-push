@@ -1,0 +1,8 @@
+<sly data-sly-template.tags="${@ teaser}">
+    <div class="aem cmp-teaser__tags">
+        <button data-sly-repeat.tag="${teaser.tags}" class="chip-button" style="background-color: ${tag.backgroundColor  @ context='styleString'}">
+            ${tag.title}
+        </button>
+    </div>
+</sly>
+
