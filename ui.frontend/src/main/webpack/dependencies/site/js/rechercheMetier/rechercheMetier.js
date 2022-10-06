@@ -22,8 +22,6 @@ function getValue(e) {
       });
     });
   }
-  getTagValues(e.value);
-
 
   if (window.screen.width <= 1425) {
     suggestions.style.display = "none";
@@ -59,6 +57,7 @@ function suggestionClick(e) {
     query = query + value + ',';
   })
   getQuickResults(query)
+  getTagValues(query)
 }
 
 // on click on the chip
@@ -69,26 +68,27 @@ function deleteValueChip(e) {
   if (valueChips.childNodes.length < 1) {
     valueChips.style.display = "none";
   }
+  let index = innerValueChips.indexOf(e.innerText);
+  innerValueChips.splice(index, 1);
   let query = '';
   innerValueChips.forEach(value => {
     query = query + value + ',';
   })
   getQuickResults(query);
+  getTagValues(query)
 }
 
 function checkboxClick(e) {
-  const inputValue = document.querySelector('#searchInput').value;
-  tagsValue = getTagQuery();
   let query = '';
   innerValueChips.forEach(value => {
     query = query + value + ',';
   })
   getQuickResults(query);
-  getTagValues(inputValue)
+  getTagValues(query)
 }
 
 function getTagQuery() {
-  let tagsValue;
+  let tagsValue = '';
   let index = 0;
   checkboxes.forEach((checkbox) => {
     if(checkbox.checked) {
@@ -104,8 +104,10 @@ function getTagQuery() {
 
 function getQuickResults(inputValue) {
   const searchResultList = document.querySelector('.cmp-search-result')
+  tagsValue = getTagQuery();
   let query = '';
-  query = `q=${inputValue}&${tagsValue}`;
+  query = inputValue === "" ? '' : `q=${inputValue}&`;
+  query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
   $.get(form.dataset.quickSearchResults, query, function (data) {
     searchResultList.innerHTML = '';
     $.each(data.results, function (index, result) {

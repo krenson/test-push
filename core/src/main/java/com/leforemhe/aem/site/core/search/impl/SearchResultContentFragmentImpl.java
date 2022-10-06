@@ -56,7 +56,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
 
     public List<String> getContentFragmentsCleMetier(String queryParameter) {
         final Map<String, String> searchPredicates = new HashMap<>();
-        int index = 1;
+        int index = 0;
         log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
         searchPredicates.put("path", "/content/dam/leforemhe");
@@ -64,9 +64,10 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchPredicates.put("property_1.value", "/conf/leforemhe/settings/dam/cfm/models/metier");
         if(queryParameter != null && queryParameter.contains(",")) {
             List<String> params = Arrays.asList(queryParameter.split(","));
-            params.forEach((param) -> {
-                searchPredicates.put("group." + index + "_fulltext", param);
-            });
+            for (String param : params) {
+                searchPredicates.put("group." + index++ + "_fulltext", param);
+            }
+            searchPredicates.put("group.p.or", "true");
         } else {
             searchPredicates.put("group.1_fulltext", request.getParameter("q"));
         }
