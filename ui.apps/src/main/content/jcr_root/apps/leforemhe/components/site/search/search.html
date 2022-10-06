@@ -1,29 +1,19 @@
-<div class="cmp-search">
-    <form action=""
-        role="search"
-        method="get"
-        class="cmp-search-form"
-        data-quick-suggestions-enabled="${properties.showSuggestions}"
-        data-quick-suggestions="${resource.path}/quick-suggestions.suggestions.json"
+<sly data-sly-use.searchResults="com.leforemhe.aem.site.core.search.SearchResults"
+     data-sly-use.facets="templates/facets.html"
+     data-sly-use.searchField="templates/search-field.html"
+     data-sly-use.results="templates/results.html"/>
+<div id="rechercheMetier">
+    <div class="background-Yellow">
+        <div class="aem title-container">
+            <h1>${properties.title}</h1>
+            <h5 class="subTitle">
+                ${properties.subtitle}
+            </h5>
+        </div>
+        <section data-sly-call="${searchField.searchField}" data-sly-unwrap/>
+    </div>
 
-		data-quick-search-results-enabled="${properties.showQuickResults}"
-        data-quick-search-results="${resource.path}/quick-results.results.json"
-
-        data-sly-use.searchResults="com.leforemhe.aem.site.core.search.SearchResults"
-        data-sly-use.facets="templates/facets.html"
-        data-sly-use.searchField="templates/search-field.html"
-        data-sly-use.results="templates/results.html"
-        data-sly-use.pagination="templates/pagination.html">
-
-    <!-- Search Field -->
-    <section class="search-field" data-sly-call="${searchField.searchField @ searchResults = searchResults}"></section>
-
-    <section data-sly-test="${properties.showFacets == 'true'}" class="search-facets open" data-sly-call="${facets.facets}"></section>
-    <!-- Search Results -->
+    <section class="search-facets-container" data-sly-test="${properties.showFacets == 'true'}" data-sly-call="${facets.facets}"></section>
     <section class="search-results" data-sly-call="${results.results @ searchResults = searchResults}"></section>
-
-    <!-- Search Results Pagination -->
-    <section class="search-pagination" data-sly-test="${properties.showPagination == 'true'}"
-    								   data-sly-call="${pagination.pagination @ searchResults = searchResults}"></section>
-</form>
+</div>
 </div>

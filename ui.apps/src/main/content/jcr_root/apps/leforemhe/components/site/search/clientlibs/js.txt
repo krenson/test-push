@@ -1,5 +1,3 @@
 #base=js
 
-facets.js
-search-field.js
-pagination.js
+recherchermetier.js

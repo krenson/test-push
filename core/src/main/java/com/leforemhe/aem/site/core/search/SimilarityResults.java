@@ -8,6 +8,4 @@ import java.util.List;
 @ProviderType
 public interface SimilarityResults {
     List<SearchResult> getResults() throws RepositoryException;
-
-    long getTimeTaken();
 }

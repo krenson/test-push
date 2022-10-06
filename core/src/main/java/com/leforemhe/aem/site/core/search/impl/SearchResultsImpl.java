@@ -8,9 +8,7 @@ import com.leforemhe.aem.site.core.search.predicates.PredicateGroup;
 import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
-import com.day.cq.commons.inherit.ComponentInheritanceValueMap;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Exporter;
@@ -55,7 +53,6 @@ public class SearchResultsImpl implements SearchResults {
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
-    private long timeTaken = -1;
     private String totalResults;
     private int index = 0;
 
@@ -65,45 +62,42 @@ public class SearchResultsImpl implements SearchResults {
         boolean activeFacets = false;
         final long start = System.currentTimeMillis();
         String query = request.getParameter("q");
+        String limit = request.getParameter("limit");
         final Map<String, String> searchPredicates = new HashMap<>();
         List<String> cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
+        if (cleMetierList.size() == 0 && query != null) {
+            searchPredicates.put("group.1_fulltext", query);
+        }
         searchPredicates.put("type", com.day.cq.wcm.api.NameConstants.NT_PAGE);
-        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "limit"));
+        if (limit == null || !limit.equals("no-limit")) {
+            searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "limit"));
+        }
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "guessTotal"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "useExcerpt"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "searchPaths"));
         addClemetiers(cleMetierList, searchPredicates);
-        activeFacets = addTags(predicateResolver.getPredicateGroup(request, "tags"), searchPredicates, activeFacets);
+        addTags(predicateResolver.getPredicateGroup(request, "tags"), searchPredicates);
 
-        if (isSearchable(query) || activeFacets) {
-            com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
-            pagination = searchProvider.buildPagination(result, "Previous", "Next");
-            searchResults = searchProvider.buildSearchResults(result);
-            totalResults = computeTotalMatches(result);
-            timeTaken = result.getExecutionTimeMillis();
-        }
-    }
-
-    private boolean isSearchable(String query) {
-        log.debug("Inside isSearchable");
-        return StringUtils.isNotBlank(query)
-            || new ComponentInheritanceValueMap(request.getResource()).getInherited("allowBlankFulltext", false);
+        com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
+        pagination = searchProvider.buildPagination(result, "Previous", "Next");
+        searchResults = searchProvider.buildSearchResults(result);
+        totalResults = computeTotalMatches(result);
     }
 
     private String computeTotalMatches(com.day.cq.search.result.SearchResult result) {
         log.debug("Inside computeTotalMatches");
 
-    	String totalResults = String.valueOf(result.getTotalMatches());
+        String totalResults = String.valueOf(result.getTotalMatches());
 
-    	//Returning a String with '+' character in the case guessTotal is being used
-    	if(result.hasMore()) {
-    		totalResults += "+";
-    	}
-    	return totalResults;
+        //Returning a String with '+' character in the case guessTotal is being used
+        if (result.hasMore()) {
+            totalResults += "+";
+        }
+        return totalResults;
     }
 
     private void addClemetiers(List<String> cleMetierList, Map<String, String> searchPredicates) {
-        if(!cleMetierList.isEmpty()) {
+        if (!cleMetierList.isEmpty()) {
             searchPredicates.put("1_property", "jcr:content/clemetier");
             for (String cleMetier : cleMetierList) {
                 searchPredicates.put("1_property." + index++ + "_value", cleMetier);
@@ -111,17 +105,15 @@ public class SearchResultsImpl implements SearchResults {
         }
     }
 
-    private boolean addTags(PredicateGroup tagPredicates, Map<String, String> searchPredicates, boolean activeFacets) {
-        if(tagPredicates != null ) {
-            for (PredicateOption options: tagPredicates.getOptions()) {
-                if(options.isActive()){
+    private void addTags(PredicateGroup tagPredicates, Map<String, String> searchPredicates) {
+        if (tagPredicates != null) {
+            for (PredicateOption options : tagPredicates.getOptions()) {
+                if (options.isActive()) {
                     searchPredicates.put("2_property", "jcr:content/cq:tags");
                     searchPredicates.put("2_property.value", options.getValue());
-                    activeFacets = true;
                 }
             }
         }
-        return activeFacets;
     }
 
 
@@ -141,16 +133,9 @@ public class SearchResultsImpl implements SearchResults {
     }
 
     @Override
-    public long getTimeTaken() {
-        log.debug("Inside getTimeTaken");
-
-        return timeTaken;
-    }
-
-	@Override
-	public String getResultTotal() {
+    public String getResultTotal() {
         log.debug("Inside getResultTotal");
 
         return totalResults;
-	}
+    }
 }

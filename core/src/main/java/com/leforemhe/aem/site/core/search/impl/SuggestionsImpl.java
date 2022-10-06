@@ -53,8 +53,6 @@ public class SuggestionsImpl implements Suggestions {
 
     List<String> suggestions = Collections.emptyList();
 
-    private long timeTaken = -1;
-
     @PostConstruct
     private void initModel() {
         final long start = System.currentTimeMillis();
@@ -68,8 +66,6 @@ public class SuggestionsImpl implements Suggestions {
         } catch (RepositoryException e) {
             log.error("Could not collect suggestions for search term [ {} ]", getSearchTerm());
         }
-
-        timeTaken = System.currentTimeMillis() - start;
     }
 
     public List<String> getSuggestions() {
@@ -79,10 +75,5 @@ public class SuggestionsImpl implements Suggestions {
     @Override
     public String getSearchTerm() {
         return request.getParameter("q");
-    }
-
-    @Override
-    public long getTimeTaken() {
-        return timeTaken;
     }
 }

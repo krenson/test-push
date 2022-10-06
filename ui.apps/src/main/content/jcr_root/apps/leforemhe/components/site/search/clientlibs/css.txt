@@ -1,9 +1,0 @@
-#base=css
-
-variables.less
-grid.less
-main.less
-facets.less
-search-field.less
-results.less
-pagination.less

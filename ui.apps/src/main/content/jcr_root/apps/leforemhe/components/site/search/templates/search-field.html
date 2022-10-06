@@ -1,18 +1,30 @@
 <template data-sly-template.searchField="${ @ searchResults}">
-	<div class="search-field--wrapper">
-        <input class="cmp-search__input" type="text" name="q" placeholder="Search..." autocomplete="off" value="${searchResults.searchTerm}">
-            <input type="submit" value="Go"/>
-        </input>
-
-        <!-- Quick results overlay -->
-        <div class="quick-lists" data-quick-lists>
-            <dl class="quick-suggestions" data-quick-suggestions>
-                <dt>Suggested search terms....</dt>
-            </dl>
-
-            <dl class="quick-results" data-quick-results>
-                <dt>Quick results</dt>
-            </dl>
+    <div class="searchContainer"
+         data-quick-suggestions-enabled="${properties.showSuggestions}"
+         data-quick-suggestions="${resource.path}/quick-suggestions.suggestions.json"
+         data-quick-search-results-enabled="${properties.showQuickResults}"
+         data-quick-search-results="${resource.path}/quick-results.results.json">
+        <div class="aem helpText">
+            <div class="icone">
+                <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/life-ring.svg">
+            </div>
+            <div>
+                <a href="${properties.besoindaideUrl}">${properties.besoinAide}</a>
+            </div>
+        </div>
+        <div class="searchbox">
+            <div>
+                <input onkeyup="getValue(this)" id="searchInput" type="text"
+                       placeholder="Rechercher par mots-cles, métiers, numéro">
+                <div id="searchSuggestions" class="aem searchSuggestions">
+                </div>
+                <div id="valueChips" class="aem valueChips"></div>
+            </div>
+            <div class="aem searchBtn">
+                <button class="btn btn-primary">
+                    <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/magnifying-glass.svg">
+                </button>
+            </div>
         </div>
     </div>
 </template>
