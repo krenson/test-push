@@ -7,7 +7,7 @@
 
   a {
     all: unset;
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer;
 
     .cmp-teaser {
