@@ -17,7 +17,6 @@
       .cmp-teaser__image {
         all: unset;
         height: 15.8rem;
-        width: 46.2rem;
         margin: 0;
         padding: 0;
         margin-bottom: 1rem;
@@ -101,11 +100,5 @@
 @media screen and (max-width: $breakpointMobile) {
   .teaser.tuileContainer {
     width: 35rem !important;
-
-    .cmp-teaser {
-      .cmp-teaser__image {
-        width: 35rem !important;
-      }
-    }
   }
 }
