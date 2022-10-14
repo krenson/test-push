@@ -16,6 +16,7 @@ module.exports = {
       jsProcessor: ["default:none", "min:none"],
       assets: {
         css: ["dist/clientlib-dependencies/*.css"],
+        js: ["dist/clientlib-dependencies/*.js"],
       },
     },
     {

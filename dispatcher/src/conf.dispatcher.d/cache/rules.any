@@ -23,4 +23,8 @@ $include "./default_rules.any"
     /glob "/content/leforemhe/authenticate"
     /type "deny"
 }
+/0026 {
+    /glob "/content/leforemhe/assetreaderservlet"
+    /type "deny"
+}
 
