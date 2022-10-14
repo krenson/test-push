@@ -2,3 +2,4 @@
 dropdownshowhide-multifield.js
 multifield-maxfields.js
 validator-external-links.js
+extension-validation-pathfield.js
