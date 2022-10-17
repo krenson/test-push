@@ -1,5 +1,7 @@
 package com.leforemhe.aem.site.core.search.predicates.impl;
 
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.leforemhe.aem.site.core.search.predicates.PredicateFactory;
 import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.leforemhe.aem.site.core.services.SearchConfigService;
@@ -9,6 +11,7 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import javax.inject.Inject;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -27,8 +30,10 @@ public class MetierPredicateFactoryImpl extends AbstractTagPredicateFactory impl
     private SearchConfigService searchConfigService;
 
     @Override
-    public String getTitle() {
-        return "Metier";
+    public String getTitle(SlingHttpServletRequest request) {
+        TagManager tagManager = request.getResourceResolver().adaptTo(TagManager.class);
+        Tag tag = Arrays.stream(tagManager.getNamespaces()).filter(namespaces -> namespaces.getTagID().contains(TAG_NAMESPACE)).findAny().get();
+        return tag.getTitle();
     }
 
     @Override

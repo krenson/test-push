@@ -24,7 +24,7 @@ public class ExcerptPredicateFactoryImpl implements PredicateFactory {
     public static final boolean DEFAULT_USE_EXCERPT = false;
 
     @Override
-    public String getTitle() {
+    public String getTitle(SlingHttpServletRequest request) {
         return null;
     }
 

@@ -24,7 +24,7 @@ public class OffsetPredicateFactoryImpl implements PredicateFactory {
     public static final int DEFAULT_OFFSET = 0;
 
     @Override
-    public String getTitle() {
+    public String getTitle(SlingHttpServletRequest request) {
         return null;
     }
 

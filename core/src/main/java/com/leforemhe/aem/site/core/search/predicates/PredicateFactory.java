@@ -12,7 +12,7 @@ public interface PredicateFactory {
 
     List<PredicateOption> getPredicateOptions(SlingHttpServletRequest request);
 
-    String getTitle();
+    String getTitle(SlingHttpServletRequest request);
 
     String getName();
 }
