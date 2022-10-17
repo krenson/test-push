@@ -1,14 +1,16 @@
 .twoCol.listeResultats-container .container-content {
   gap: 7rem;
   margin-top: 5.85rem;
+  width: 100%;
   //   padding-right: unset;
 
-  .filter-back-container .filter-container {
-    min-width: unset !important;
-    width: unset !important;
+  .filter-back-container {
+    max-width: 100%;
+    width: 100%;
   }
 
   .resultats-container {
+    width: 96.1rem;
     div.contentCentered.he {
       display: none;
     }
