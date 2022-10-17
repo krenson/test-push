@@ -1,0 +1,28 @@
+{
+    "labels": [
+        "Temps plein & jour/continu",
+        "Temps plein à & pauses/Nuit/ & W-E",
+        "Temps & Partiel/4/5e",
+        "Autres ou & inconnu"
+    ],
+    "datasets": [
+        {
+            "label": "Agent/Agente dentretien des parcs et jardins",
+            "data": [
+                120,
+                35,
+                160,
+                50
+            ]
+        },
+        {
+            "label": "Tous les métiers",
+            "data": [
+                20,
+                60,
+                200,
+                3
+            ]
+        }
+    ]
+}

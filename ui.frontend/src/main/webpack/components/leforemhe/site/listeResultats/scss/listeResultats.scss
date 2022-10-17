@@ -1,0 +1,63 @@
+.twoCol.listeResultats-container .container-content {
+  gap: 7rem;
+  margin-top: 5.85rem;
+  //   padding-right: unset;
+
+  .filter-back-container .filter-container {
+    min-width: unset !important;
+    width: unset !important;
+  }
+
+  .resultats-container {
+    div.contentCentered.he {
+      display: none;
+    }
+
+    .tuile-results-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 96.1rem;
+
+      div.teaser.tuileContainer:nth-child(-n + 2) {
+        margin-top: unset !important;
+      }
+      div.teaser.tuileContainer:nth-child(even) {
+        margin-right: unset !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .twoCol.listeResultats-container .container-content {
+    flex-direction: column;
+
+    .resultats-container {
+      div.contentCentered.he {
+        display: block;
+      }
+
+      .tuile-results-container {
+        display: flex;
+        flex-direction: column;
+
+        width: 96.1rem;
+
+        // div.teaser.tuileContainer:nth-child(-n + 2) {
+        //   margin-top: unset !important;
+        // }
+        // div.teaser.tuileContainer:nth-child(even) {
+        //   margin-right: unset !important;
+        // }
+      }
+    }
+
+    .filter-back-container {
+      display: none;
+    }
+  }
+  div#rechercheMetier .searchContainer {
+    position: relative !important;
+    bottom: unset !important;
+  }
+}

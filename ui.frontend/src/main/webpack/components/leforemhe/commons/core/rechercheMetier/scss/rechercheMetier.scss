@@ -20,9 +20,14 @@ div#rechercheMetier {
     }
   }
 
-  .search-facets-container, .search-results{
+  .search-facets-container,
+  .search-results {
     display: inline-block;
+  }
 
+  .search-facets-container,
+  .search-results {
+    display: inline-block;
   }
   .cmp-search-results {
     a {
@@ -129,6 +134,33 @@ div#rechercheMetier {
             height: 2.4rem;
           }
         }
+      }
+    }
+  }
+
+  .centrePage > *:first-child article header div:first-child * {
+    padding-top: unset !important;
+  }
+
+  .twoCol .container-content {
+    gap: 7rem;
+    margin-top: 5.85rem;
+
+    .filter-back-container .filter-container {
+      min-width: unset !important;
+      width: unset !important;
+    }
+
+    .resultats-container .tuile-results-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 96.1rem;
+
+      div.teaser.tuileContainer:nth-child(-n + 2) {
+        margin-top: unset !important;
+      }
+      div.teaser.tuileContainer:nth-child(even) {
+        margin-right: unset !important;
       }
     }
   }

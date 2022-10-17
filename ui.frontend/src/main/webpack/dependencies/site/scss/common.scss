@@ -538,6 +538,13 @@ header .container-content {
     max-width: 42.12rem !important;
     min-width: 42.12rem !important;
   }
+  div.twoCol div.container-content div.container.aem div.container-content {
+    div.image_component {
+      width: unset !important;
+      max-width: unset !important;
+      min-width: unset !important;
+    }
+  }
 }
 
 .container .container-content .container .container-content {

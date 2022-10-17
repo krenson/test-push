@@ -92,3 +92,6 @@ $include "./default_filters.any"
 /0140 { /type "allow" /method "GET" /selectors "results" /extension "json" }
 /0141 { /type "allow" /method "GET" /selectors "suggestions" /extension "json" }
 
+## Enable Asset Reader Servlet
+/0142 { /type "allow" /method "GET" /path "/content/leforemhe/assetreaderservlet" /extension "json" }
+

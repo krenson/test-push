@@ -1,0 +1,16 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "leforemhe/components/site/servlet/assetreaderservlet",
+  "dam": {
+    "jcr:primaryType": "sling:Folder",
+    "chart-data.json": {
+      "jcr:primaryType": "dam:Asset",
+      "jcr:content": {
+        "jcr:primaryType": "dam:AssetContent",
+        "renditions": {
+          "jcr:primaryType": "nt:folder"
+        }
+      }
+    }
+  }
+}
