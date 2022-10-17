@@ -1,19 +1,28 @@
 <sly data-sly-use.searchResults="com.leforemhe.aem.site.core.search.SearchResults"
      data-sly-use.facets="templates/facets.html"
      data-sly-use.searchField="templates/search-field.html"
-     data-sly-use.results="templates/results.html"/>
-<div id="rechercheMetier">
-    <div class="background-Yellow">
-        <div class="aem title-container">
-            <h1>${properties.title}</h1>
-            <h5 class="subTitle">
-                ${properties.subtitle}
-            </h5>
+     data-sly-use.results="templates/results.html"
+     data-sly-use.clientlibs="${'com.adobe.cq.wcm.core.components.models.ClientLibraries' @ categories='leforemhe.search'}">
+    ${clientlibs.jsAndCssIncludes @ context="unsafe"}
+    <div id="rechercheMetier">
+        <div class="background-Yellow">
+            <div class="aem title-container">
+                <h1>${properties.title}</h1>
+                <h5 class="subTitle">
+                    ${properties.subtitle}
+                </h5>
+            </div>
+            <section data-sly-call="${searchField.searchField}" data-sly-unwrap/>
         </div>
-        <section data-sly-call="${searchField.searchField}" data-sly-unwrap/>
-    </div>
 
-    <section class="search-facets-container" data-sly-test="${properties.showFacets == 'true'}" data-sly-call="${facets.facets}"></section>
-    <section class="search-results" data-sly-call="${results.results @ searchResults = searchResults}"></section>
-</div>
-</div>
+        <div class="container maxWidth padding-bottom aem twoCol listeResultats-container">
+            <div class="container-content">
+                <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
+                         data-sly-call="${facets.facets}"></div>
+                <div class="resultats-container"
+                         data-sly-call="${results.results @ searchResults = searchResults}"></div>
+            </div>
+        </div>
+    </div>
+</sly>
+

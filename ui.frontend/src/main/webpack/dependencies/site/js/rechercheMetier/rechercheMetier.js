@@ -103,7 +103,7 @@ function getTagQuery() {
 }
 
 function getQuickResults(inputValue) {
-  const searchResultList = document.querySelector('.cmp-search-result')
+  const searchResultList = document.querySelector('.tuile-results-container')
   tagsValue = getTagQuery();
   let query = '';
   query = inputValue === "" ? '' : `q=${inputValue}&`;

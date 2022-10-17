@@ -10,7 +10,7 @@
                                  class="cmp-image__image">
                         </div>
                     </div>
-                    <h1>Filtrer</h1>
+                    <h1>${'Filtrer' @ i18n}</h1>
                 </div>
                 <div class="filter-popup-close"></div>
             </div>
@@ -38,7 +38,8 @@
                                             <li>
                                                 <label for="${options.value}">
                                                     <div class="checkbox-container">
-                                                        <input onclick="checkboxClick(this)" type="checkbox" id="${options.value}"
+                                                        <input onclick="checkboxClick(this)" type="checkbox"
+                                                               id="${options.value}"
                                                                name="${options.value}">
                                                         <label for="${options.value}">${options.label}</label>
                                                     </div>
@@ -55,8 +56,8 @@
                         </div>
                     </div>
                 </div>
-                </sly>
             </sly>
-        </div>
-    </div>
+        </sly>
+        </div></div>
+
 </template>

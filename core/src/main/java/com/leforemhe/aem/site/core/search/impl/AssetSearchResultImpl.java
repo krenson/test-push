@@ -1,5 +1,7 @@
 package com.leforemhe.aem.site.core.search.impl;
 
+import com.leforemhe.aem.site.core.models.ModelUtils;
+import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
@@ -34,9 +36,12 @@ public class AssetSearchResultImpl implements SearchResult {
     @PostConstruct
     protected void initModel() {
         this.asset = DamUtil.resolveToAsset(resource);
+        this.jobtags = resolveTags(getTagIds());
     }
 
     private Asset asset;
+
+    private List<JobTag> jobtags;
 
     private List<String> excerpts = new ArrayList<String>();
 
@@ -81,5 +86,37 @@ public class AssetSearchResultImpl implements SearchResult {
     @Override
     public void setExcerpts(Collection<String> excerpts) {
         this.excerpts = new ArrayList<String>(excerpts);
+    }
+
+    @Override
+    public List<JobTag> getJobTags() {
+        return this.jobtags;
+    }
+
+    @Override
+    public String getVanityPath() {
+        return ModelUtils.getVanityUrlForAssetLink(getURL(), "");
+    }
+
+    @Override
+    public String getFeaturedImage() {
+        return null;
+    }
+
+
+    private List<JobTag> resolveTags(List<String> tagIds) {
+        List<JobTag> tags = new ArrayList<>();
+        if (resourceResolver != null) {
+            TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+            if (tagIds != null) {
+                for (String tagId : tagIds) {
+                    Tag resolvedTag = tagManager.resolve(tagId);
+                    if (resolvedTag != null) {
+                        tags.add(new JobTag(resolvedTag));
+                    }
+                }
+            }
+        }
+        return tags;
     }
 }

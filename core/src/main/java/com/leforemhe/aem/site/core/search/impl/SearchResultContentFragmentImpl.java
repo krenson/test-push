@@ -1,6 +1,9 @@
 package com.leforemhe.aem.site.core.search.impl;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
+import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
@@ -53,7 +56,6 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
 
 
-
     public List<String> getContentFragmentsCleMetier(String queryParameter) {
         final Map<String, String> searchPredicates = new HashMap<>();
         int index = 0;
@@ -62,7 +64,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchPredicates.put("path", "/content/dam/leforemhe");
         searchPredicates.put("property_1", "jcr:content/data/cq:model");
         searchPredicates.put("property_1.value", "/conf/leforemhe/settings/dam/cfm/models/metier");
-        if(queryParameter != null && queryParameter.contains(",")) {
+        if (queryParameter != null && queryParameter.contains(",")) {
             List<String> params = Arrays.asList(queryParameter.split(","));
             for (String param : params) {
                 searchPredicates.put("group." + index++ + "_fulltext", param);
@@ -77,16 +79,16 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         for (SearchResult searchResult : searchResults) {
             ContentFragment contentFragment = request.getResourceResolver().resolve(searchResult.getPath()).adaptTo(ContentFragment.class);
             String codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
-            if(codeMetier != null) {
+            if (codeMetier != null) {
                 cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
             }
-            }
-        return cleMetierList;
         }
+        return cleMetierList;
+    }
 
     public List<SearchResult> getResults() {
         log.debug("Inside getResults");
 
         return searchResults;
     }
-    }
+}
