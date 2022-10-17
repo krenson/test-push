@@ -24,7 +24,7 @@ public class GuessTotalPredicateFactoryImpl implements PredicateFactory {
     public static final String PN_GUESS_TOTAL = "guessTotal";
 
     @Override
-    public String getTitle() {
+    public String getTitle(SlingHttpServletRequest request) {
         return null;
     }
 

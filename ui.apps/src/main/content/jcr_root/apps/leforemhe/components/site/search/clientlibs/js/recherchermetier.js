@@ -6,8 +6,6 @@ $( document ).ready(function() {
     let valueChips = document.getElementById("valueChips");
     let innerValueChips = [];
     let tagsValue = '';
-    console.log(form)
-    console.log("test")
 
 // get value form the input field
 // and add it to the suggestion drop down container
@@ -39,7 +37,6 @@ $( document ).ready(function() {
 // on click of the suggestion
 // add a chip to the second value drop down menu
     window.suggestionClick = function suggestionClick(e) {
-        console.log("inside suggestionclick");
         input.value = "";
         suggestions.style.display = "none";
 
@@ -114,16 +111,13 @@ $( document ).ready(function() {
         query = inputValue === "" ? '' : `q=${inputValue}&`;
         query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
         $.get(form.dataset.quickSearchResults, query, function (data) {
-            console.log(data)
             searchResultList.innerHTML = '';
             $.each(data.results, function (index, result) {
                 var $jobTagHtml = $("<div>");
                 $.each(result.jobTags, function (newIndex, jobTag) {
-                    console.log(result)
                     $jobTagHtml.append('<button class="chip-button" style="background-color: ' + jobTag.backgroundColor +'">'+ jobTag.title + '</button>');
                 })
                 $jobTagHtml.append('</div>');
-                console.log($jobTagHtml.html());
                 const html = $(`<div class="teaser tuileContainer">
 <a href="${result.vanityPath}">
     <div class="cmp-teaser">

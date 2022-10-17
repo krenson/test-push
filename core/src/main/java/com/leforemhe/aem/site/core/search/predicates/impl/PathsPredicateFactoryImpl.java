@@ -30,7 +30,7 @@ public class PathsPredicateFactoryImpl implements PredicateFactory {
     SearchConfigService searchConfigService;
 
     @Override
-    public String getTitle() {
+    public String getTitle(SlingHttpServletRequest request) {
         return null;
     }
 

@@ -24,7 +24,7 @@ public class LimitPredicateFactoryImpl implements PredicateFactory {
     public static final int DEFAULT_LIMIT = 10;
 
     @Override
-    public String getTitle() {
+    public String getTitle(SlingHttpServletRequest request) {
         return null;
     }
 
