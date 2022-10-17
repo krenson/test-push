@@ -43,7 +43,7 @@ public class PredicateResolverImpl implements PredicateResolver {
         final List<PredicateGroup> predicateGroups = new ArrayList<PredicateGroup>();
 
         for (final PredicateFactory factory : factories.values()) {
-            predicateGroups.add(new PredicateGroupImpl(factory.getTitle(), factory.getName(), factory.getPredicateOptions(request)));
+            predicateGroups.add(new PredicateGroupImpl(factory.getTitle(request), factory.getName(), factory.getPredicateOptions(request)));
         }
 
         return predicateGroups;
@@ -52,7 +52,7 @@ public class PredicateResolverImpl implements PredicateResolver {
     public PredicateGroup getPredicateGroup(SlingHttpServletRequest request, String factoryName) {
         for (final PredicateFactory factory : factories.values()) {
             if(factory.getName().equals(factoryName)){
-                return new PredicateGroupImpl(factory.getTitle(), factory.getName(), factory.getPredicateOptions(request));
+                return new PredicateGroupImpl(factory.getTitle(request), factory.getName(), factory.getPredicateOptions(request));
             }
         }
         return null;
