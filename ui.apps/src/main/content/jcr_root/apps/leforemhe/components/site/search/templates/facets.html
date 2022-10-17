@@ -1,21 +1,20 @@
 <template data-sly-template.facets
           data-sly-use.searchFacets="com.leforemhe.aem.site.core.search.SearchFacets">
-    <div class="filter-back-container">
-        <div class="filter-container">
-            <div class="filter-header">
-                <div>
-                    <div class="cmp-teaser__image">
-                        <div class="cmp-image">
-                            <img src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/sliders.svg"
-                                 class="cmp-image__image">
-                        </div>
+    <div class="filter-container">
+        <div class="filter-header">
+            <div>
+                <div class="cmp-teaser__image">
+                    <div class="cmp-image">
+                        <img src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/sliders.svg"
+                             class="cmp-image__image">
                     </div>
-                    <h1>Filtrer</h1>
                 </div>
-                <div class="filter-popup-close"></div>
+                <h1>Filtrer</h1>
             </div>
-            <sly data-sly-list.predicateGroup="${searchFacets.predicateGroups}">
-                <sly data-sly-test="${predicateGroup.options.size > 0}">
+            <div class="filter-popup-close"></div>
+        </div>
+        <sly data-sly-list.predicateGroup="${searchFacets.predicateGroups}">
+            <sly data-sly-test="${predicateGroup.options.size > 0}">
                 <div class="accordion panelcontainer">
                     <div id="accordion" class="cmp-accordion">
                         <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
@@ -38,7 +37,8 @@
                                             <li>
                                                 <label for="${options.value}">
                                                     <div class="checkbox-container">
-                                                        <input onclick="checkboxClick(this)" type="checkbox" id="${options.value}"
+                                                        <input onclick="checkboxClick(this)" type="checkbox"
+                                                               id="${options.value}"
                                                                name="${options.value}">
                                                         <label for="${options.value}">${options.label}</label>
                                                     </div>
@@ -55,8 +55,7 @@
                         </div>
                     </div>
                 </div>
-                </sly>
             </sly>
-        </div>
+        </sly>
     </div>
 </template>

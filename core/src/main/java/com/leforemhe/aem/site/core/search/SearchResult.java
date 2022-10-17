@@ -1,5 +1,6 @@
 package com.leforemhe.aem.site.core.search;
 
+import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import org.osgi.annotation.versioning.ProviderType;
 
 import java.util.Collection;
@@ -29,4 +30,10 @@ public interface SearchResult {
     String getDescription();
 
     void setExcerpts(Collection<String> excerpt);
+
+    List<JobTag> getJobTags();
+
+    String getVanityPath();
+
+    String getFeaturedImage();
 }

@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.models;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -161,5 +162,15 @@ public class ModelUtils {
      */
     public static boolean isPageLinkFullUrl(String linkReference, String nonVanityPrefix) {
         return linkReference.startsWith(nonVanityPrefix);
+    }
+
+    public static String getFeaturedImageOfPage(String path, ResourceResolver resourceResolver) {
+        Resource featuredImage = resourceResolver.getResource(path).getChild("jcr:content").getChild("cq:featuredimage");
+        if (featuredImage != null) {
+            return featuredImage.getValueMap().get("fileReference",
+                    String.class);
+        } else {
+            return StringUtils.EMPTY;
+        }
     }
 }

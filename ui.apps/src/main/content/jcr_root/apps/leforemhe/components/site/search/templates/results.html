@@ -1,10 +1,9 @@
-<template data-sly-template.results="${ @ searchResults, searchResultsCf}">
-    <h2>Search results</h2>
-    <div class="cmp-search-result">
-        <sly data-sly-list.result="${searchResults.results}">
-            <a href="${result.url}">${result.title}</a><br/>
-        </sly>
+<template
+        data-sly-template.results="${ @ searchResults}">
+    <div class="tuile-results-container">
+
     </div>
 
     <div data-sly-test="${searchResults.results.size == 0}">No Results</div>
+
 </template>

@@ -1,5 +1,8 @@
 package com.leforemhe.aem.site.core.search.impl;
 
+import com.day.cq.tagging.TagManager;
+import com.leforemhe.aem.site.core.models.ModelUtils;
+import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
@@ -32,10 +35,12 @@ public class PageSearchResultImpl implements SearchResult {
     @Inject
     private ResourceResolver resourceResolver;
 
+    private List<JobTag> jobTags;
 
     @PostConstruct
     protected void intialize() {
         this.page = resourceResolver.adaptTo(PageManager.class).getContainingPage(resource);
+        this.jobTags = resolveTags(getTagIds());
     }
 
     private Page page;
@@ -61,20 +66,7 @@ public class PageSearchResultImpl implements SearchResult {
     @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
     public String getDescription() {
         String description = "";
-        if (this.excerpts.size() > 0) {
-            description = StringUtils.join(this.excerpts, DESCRIPTION_ELLIPSIS);
-            if (StringUtils.isNotBlank(description)) {
-                description = StringUtils.trim(description);
-            }
-        }
-
-        if (StringUtils.isBlank(description)) {
-            description = StringUtils.substringBeforeLast(StringUtils.left(page.getDescription(), DESCRIPTION_MAX_LENGTH), " ");
-            if (StringUtils.isNotBlank(description)) {
-                description += DESCRIPTION_ELLIPSIS;
-            }
-        }
-
+        description = page.getDescription();
         return description;
     }
 
@@ -98,5 +90,36 @@ public class PageSearchResultImpl implements SearchResult {
                 this.excerpts.add(StringUtils.trim(excerpt));
             }
         }
+    }
+
+    @Override
+    public List<JobTag> getJobTags() {
+        return this.jobTags;
+    }
+
+    @Override
+    public String getVanityPath() {
+        return ModelUtils.getVanityOfPageIfExists(getPath(), resourceResolver);
+    }
+
+    @Override
+    public String getFeaturedImage() {
+        return ModelUtils.getFeaturedImageOfPage(getPath(), resourceResolver);
+    }
+
+    private List<JobTag> resolveTags(List<String> tagIds) {
+        List<JobTag> tags = new ArrayList<>();
+        if (resourceResolver != null) {
+            TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+            if (tagIds != null) {
+                for (String tagId : tagIds) {
+                    Tag resolvedTag = tagManager.resolve(tagId);
+                    if (resolvedTag != null) {
+                        tags.add(new JobTag(resolvedTag));
+                    }
+                }
+            }
+        }
+        return tags;
     }
 }

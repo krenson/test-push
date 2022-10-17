@@ -1,6 +1,5 @@
 package com.leforemhe.aem.site.core.search.providers;
 
-import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import org.osgi.annotation.versioning.ProviderType;
 import com.leforemhe.aem.site.core.search.SearchResultsPagination;
 import org.apache.sling.api.resource.ResourceResolver;
