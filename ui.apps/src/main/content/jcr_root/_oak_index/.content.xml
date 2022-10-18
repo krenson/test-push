@@ -33,17 +33,6 @@
                         useInSuggest="{Boolean}true"
                         analyzed="{Boolean}true"
                         boost="{Double}3.0"/>
-                    <description
-                        jcr:primaryType="nt:unstructured"
-                        name="jcr:content/data/master/description"
-                        nodeScopeIndex="{Boolean}true"
-                        propertyIndex="{Boolean}true"
-                        type="String"
-                        useInSpellcheck="{Boolean}true"
-                        useInSuggest="{Boolean}true"
-                        analyzed="{Boolean}true"
-                        boost="{Double}1.0"
-                        />
                     <synonymes
                         jcr:primaryType="nt:unstructured"
                         name="jcr:content/data/master/synonymes"
