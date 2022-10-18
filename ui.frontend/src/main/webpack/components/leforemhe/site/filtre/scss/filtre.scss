@@ -49,6 +49,9 @@
     button {
       width: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       &.cmp-accordion__button::after,
       &.cmp-accordion__button--expanded::after {
         float: right;

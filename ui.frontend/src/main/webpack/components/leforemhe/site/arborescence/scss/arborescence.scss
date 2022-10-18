@@ -1,0 +1,55 @@
+.arborescence-container {
+  ul {
+    list-style: none;
+
+    li {
+      &::before {
+        all: unset;
+      }
+    }
+  }
+
+  h3.cmp-accordion__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    button {
+      span.cmp-accordion__title {
+        text-decoration: none;
+        font-size: 1.8rem;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  div.level2 .cmp-list > li.cmp-list__item {
+    div {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    &::before {
+      all: unset;
+    }
+  }
+
+  h3.cmp-accordion__header input[type="checkbox"],
+  div.level2 .cmp-list > li.cmp-list__item div input[type="checkbox"] {
+    accent-color: #2f3a48;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .arborescence-container {
+    .cmp-accordion__item {
+      border-bottom: none;
+    }
+  }
+}
