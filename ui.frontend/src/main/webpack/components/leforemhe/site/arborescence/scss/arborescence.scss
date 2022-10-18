@@ -53,11 +53,12 @@
     button {
       gap: 0.5rem;
       align-items: center;
+
       span:last-child {
         &::after {
           display: inline-flex;
           height: 1.1rem;
-          width: 2rem;
+
           background-size: contain;
           content: "";
           transition: transform 0.2s linear;
