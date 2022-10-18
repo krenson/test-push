@@ -10,9 +10,12 @@ for (var i = 0; i < subCheckboxes.length; i++) {
       "input." + optionId + ".subOption:checked"
     ).length;
 
-    option.checked = checkedCount > 0;
-    option.indeterminate =
-      checkedCount > 0 && checkedCount < subCheckboxes.length;
+    var mysuboptions = document.querySelectorAll(
+      "input." + optionId + ".subOption"
+    ).length;
+
+    option.checked = checkedCount > 0 && checkedCount == mysuboptions;
+    option.indeterminate = checkedCount > 0 && checkedCount < mysuboptions;
   };
 }
 
