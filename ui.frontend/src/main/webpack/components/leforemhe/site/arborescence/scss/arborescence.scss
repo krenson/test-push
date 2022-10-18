@@ -44,6 +44,35 @@
     width: 1.6rem;
     height: 1.6rem;
   }
+
+  div.aem {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3rem;
+
+    button {
+      gap: 0.5rem;
+      align-items: center;
+
+      span:last-child {
+        &::after {
+          display: inline-flex;
+          height: 1.1rem;
+
+          background-size: contain;
+          content: "";
+          transition: transform 0.2s linear;
+          transform: rotate(270deg);
+          padding-left: 1rem;
+          mask-image: url($resourcePath + "/images/forms/Form-chev-down.svg");
+          mask-position: center;
+          mask-repeat: no-repeat;
+          mask-size: contain;
+          background-color: $primary-colorV2;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $breakpointMobile) {
