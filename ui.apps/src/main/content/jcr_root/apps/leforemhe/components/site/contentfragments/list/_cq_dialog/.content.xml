@@ -48,8 +48,8 @@
                                 <items jcr:primaryType="nt:unstructured">
                                     <assets jcr:primaryType="nt:unstructured" text="Atouts" value="atouts" />
                                     <synonymes jcr:primaryType="nt:unstructured" text="Synonymes" value="synonymes" />
-                                    <environments jcr:primaryType="nt:unstructured" text="Environnements" value="environnements" />
-                                    <obligatoire jcr:primaryType="nt:unstructured" text="Obligatoire" value="obligatoire" />
+                                    <environments jcr:primaryType="nt:unstructured" text="Conditions" value="conditions" />
+                                    <obligatoire jcr:primaryType="nt:unstructured" text="Obligations" value="obligations" />
                                     <structures jcr:primaryType="nt:unstructured" text="Structures" value="structures" />
                                 </items>
                             </list>
