@@ -8,12 +8,14 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 @Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class RelatedJobsModel {
+public class JobsModel {
 
     @Inject
     private Page currentPage;
@@ -21,15 +23,20 @@ public class RelatedJobsModel {
     @Inject
     private ContentFragmentUtilService contentFragmentUtilService;
 
+    @ValueMapValue
+    private String selectedJobElement;
+
     private Job job;
 
-    public List<Job> getRelatedJobs() {
+    public List<Job> getJobs() {
+        List<Job> jobs = new ArrayList<>();
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
             String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            jobs = job.getJobsFromElement(selectedJobElement);
         }
-        return job.getRelatedJobs();
+        return jobs;
     }
 
 }

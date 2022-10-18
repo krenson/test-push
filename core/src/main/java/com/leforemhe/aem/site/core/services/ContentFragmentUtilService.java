@@ -73,10 +73,10 @@ public class ContentFragmentUtilService {
      * Returns a job based on JobID
      */
     public Job getJobFromJobID(String jobID) {
-        return getJobFromJobID(jobID, true);
+        return getJobFromJobID(jobID, true, true);
     }
 
-    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs) {
+    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs) {
         SearchResult resultPage = createQueryForPageWithLinkedContentFragment(
                 Constants.CONTENT_ROOT_PATH, jobID);
         SearchResult result = createQueryForContentFragments(
@@ -91,6 +91,11 @@ public class ContentFragmentUtilService {
                     String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
                             String.class);
                     job.setRelatedJobs(resolveJobs(relatedJobIds));
+                }
+                if (resolvePossibleJobs) {
+                    String[] possibleJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.POSSIBLE_JOBS_KEY,
+                            String.class);
+                    job.setPossibleJobs(resolveJobs(possibleJobIds));
                 }
                 return job;
             }
@@ -155,7 +160,7 @@ public class ContentFragmentUtilService {
         List<Job> jobs = new ArrayList<>();
         if (jobIds != null) {
             for (String relatedJobID : jobIds) {
-                Job resolvedJob = getJobFromJobID(relatedJobID, false);
+                Job resolvedJob = getJobFromJobID(relatedJobID, false, false);
                 if (resolvedJob != null) {
                     jobs.add(resolvedJob);
                 }

@@ -18,6 +18,7 @@ public class Job {
     public static final String CODE_ESCO_KEY = "codeEsco";
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
     public static final String RELATED_JOBS_KEY = "metiersProches";
+    public static final String POSSIBLE_JOBS_KEY = "metiersEnvisageables";
     public static final String STRUCTURES_KEY = "structures";
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
@@ -36,6 +37,7 @@ public class Job {
     private String[] environments;
     private String[] assets;
     private List<Job> relatedJobs = new ArrayList<>();
+    private List<Job> possibleJobs = new ArrayList<>();
     private String link;
     private String[] obligations;
     private String[] tagIds;
@@ -103,6 +105,10 @@ public class Job {
         return relatedJobs;
     }
 
+    public List<Job> getPossibleJobs() {
+        return possibleJobs;
+    }
+
     public String getLink() {
         return link;
     }
@@ -117,6 +123,10 @@ public class Job {
 
     public void setRelatedJobs(List<Job> relatedJobs) {
         this.relatedJobs = relatedJobs;
+    }
+
+    public void setPossibleJobs(List<Job> possibleJobs) {
+        this.possibleJobs = possibleJobs;
     }
 
     public String getSingleTextValueFromElement(String element) {
@@ -135,6 +145,14 @@ public class Job {
             case STRUCTURES_KEY: return getStructures();
             case OBLIGATIONS_KEY: return getObligations();
             default: return ArrayUtils.EMPTY_STRING_ARRAY;
+        }
+    }
+
+    public List<Job> getJobsFromElement(String element) {
+        switch (element) {
+            case POSSIBLE_JOBS_KEY: return getPossibleJobs();
+            case RELATED_JOBS_KEY: return getRelatedJobs();
+            default: return new ArrayList<>();
         }
     }
 
