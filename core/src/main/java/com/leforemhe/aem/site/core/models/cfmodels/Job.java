@@ -22,8 +22,11 @@ public class Job {
     public static final String STRUCTURES_KEY = "structures";
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
-    public static final String OBLIGATIONS_KEY = "obligatoire";
+    public static final String OBLIGATIONS_KEY = "obligations";
     public static final String VANITY_URL = "vanityUrl";
+    public static final String OBLIGATOIRE_KEY = "obligatoire";
+    public static final String CONDITIONS_KEY = "conditions";
+
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
     public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
@@ -41,7 +44,9 @@ public class Job {
     private List<Job> possibleJobs = new ArrayList<>();
     private String link;
     private String[] obligations;
+    private String[] obligatoire;
     private String[] tagIds;
+    private String[] conditions;
     private String vanityUrl;
 
     public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
@@ -59,8 +64,10 @@ public class Job {
         this.environments = ContentFragmentUtils.getMultifieldValue(contentFragment, ENVIRONMENTS_KEY, String.class);
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
         this.obligations = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATIONS_KEY, String.class);
+        this.obligatoire = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATOIRE_KEY, String.class);
         this.tagIds = ContentFragmentUtils.getMultifieldValue(contentFragment, LABELS_KEY, String.class);
         this.link = link;
+        this.conditions = ContentFragmentUtils.getMultifieldValue(contentFragment, CONDITIONS_KEY, String.class);
         this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);;
     }
 
@@ -116,6 +123,10 @@ public class Job {
         return link;
     }
 
+    public String[] getObligatoire() {
+        return obligatoire;
+    }
+
     public String getVanityUrl() {
         return vanityUrl;
     }
@@ -126,6 +137,10 @@ public class Job {
 
     public String[] getTagIds() {
         return tagIds;
+    }
+
+    public String[] getConditions() {
+        return conditions;
     }
 
     public void setRelatedJobs(List<Job> relatedJobs) {
@@ -151,6 +166,8 @@ public class Job {
             case ENVIRONMENTS_KEY: return getEnvironments();
             case STRUCTURES_KEY: return getStructures();
             case OBLIGATIONS_KEY: return getObligations();
+            case OBLIGATOIRE_KEY: return getObligatoire();
+            case CONDITIONS_KEY: return getConditions();
             default: return ArrayUtils.EMPTY_STRING_ARRAY;
         }
     }
