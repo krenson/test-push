@@ -23,6 +23,7 @@ public class Job {
     public static final String ASSETS_KEY = "atouts";
     public static final String ENVIRONMENTS_KEY = "environnements";
     public static final String OBLIGATIONS_KEY = "obligatoire";
+    public static final String VANITY_URL = "vanityUrl";
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
     public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
 
@@ -41,6 +42,7 @@ public class Job {
     private String link;
     private String[] obligations;
     private String[] tagIds;
+    private String vanityUrl;
 
     public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
@@ -59,6 +61,7 @@ public class Job {
         this.obligations = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATIONS_KEY, String.class);
         this.tagIds = ContentFragmentUtils.getMultifieldValue(contentFragment, LABELS_KEY, String.class);
         this.link = link;
+        this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);;
     }
 
     public String getCodeMetier() {
@@ -111,6 +114,10 @@ public class Job {
 
     public String getLink() {
         return link;
+    }
+
+    public String getVanityUrl() {
+        return vanityUrl;
     }
 
     public String[] getObligations() {
