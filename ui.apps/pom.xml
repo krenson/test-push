@@ -66,6 +66,9 @@
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <allowIndexDefinitions>true</allowIndexDefinitions>
+                    <properties>
+                        <noIntermediateSaves>true</noIntermediateSaves>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>

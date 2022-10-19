@@ -14,10 +14,13 @@ $( document ).ready(function() {
             suggestions.style.display = "none";
             return;
         }
+
+        const ajouterButton = $(`<button onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">Ajouter ${e.value}</button>`)
         const suggestionsList = document.querySelector('#searchSuggestions');
+        suggestionsList.innerHTML = '';
+        suggestionsList.append(ajouterButton.get(0))
         if (form.dataset.quickSuggestionsEnabled === "true") {
             $.get(form.dataset.quickSuggestions, `q=${e.value}`, function (data) {
-                suggestionsList.innerHTML = '';
                 $.each(data.suggestions, function (index, suggestion) {
                     const html = $(`<button onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion}</button>`)
                     suggestionsList.append(html.get(0))
@@ -46,8 +49,13 @@ $( document ).ready(function() {
 
         chip.className = "chips chips-secondary";
 
-        chip.innerText = e.innerText;
-        innerValueChips.push(e.innerText);
+        if(e.innerText.indexOf('Ajouter') !== -1) {
+            chip.innerText = e.innerText.split("Ajouter ")[1]
+            innerValueChips.push(e.innerText.split("Ajouter ")[1]);
+        } else {
+            chip.innerText = e.innerText;
+            innerValueChips.push(e.innerText);
+        }
 
         chip.addEventListener("click", function () {
             deleteValueChip(this);
