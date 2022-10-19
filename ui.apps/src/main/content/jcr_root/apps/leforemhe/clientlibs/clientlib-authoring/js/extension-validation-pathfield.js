@@ -1,6 +1,17 @@
 $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
     selector: "[data-leforemhe-allowedextensions]",
     validate: function (el) {
+
+        const getExtensionFromPathField = (pathField) => {
+            if (pathField) {
+                const configuredPath = pathField.value;
+                if (configuredPath) {
+                    return configuredPath.split('.').pop();
+                }
+            }
+            return null;
+        }
+
         var allowedExtensions = el.getAttribute("data-leforemhe-allowedextensions");
         if (!allowedExtensions || (allowedExtensions && allowedExtensions == '*')) {
             return;
@@ -16,15 +27,8 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
                 return `File should should be one of the following extensions (${allowedExtensions.join(',')})`
             }
         }
+
+
     }
 });
 
-const getExtensionFromPathField = (pathField) => {
-    if (pathField) {
-        const configuredPath = pathField.value;
-        if (configuredPath) {
-            return configuredPath.split('.').pop();
-        }
-    }
-    return null;
-}
