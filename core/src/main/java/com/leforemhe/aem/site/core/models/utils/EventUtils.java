@@ -30,6 +30,7 @@ public class EventUtils {
                     pageNode.setProperty(JcrConstants.JCR_TITLE, job.getTitle());
                     pageNode.setProperty(JcrConstants.JCR_DESCRIPTION, job.getDescription());
                     pageNode.setProperty(Constants.CQ_TAGS, job.getTagIds());
+                    pageNode.setProperty(Constants.SLING_VANITY_PATH, job.getVanityUrl());
                 }
             }
         } catch (Exception e) {
