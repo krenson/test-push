@@ -41,9 +41,9 @@
 
         .cmp-teaser__header {
           display: flex;
-          align-items: center;
-          justify-content: center;
           margin-bottom: 1rem;
+          align-items: center;
+          justify-content: space-between;
 
           .cmp-teaser__title {
             font-size: 1.8rem;
