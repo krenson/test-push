@@ -136,6 +136,9 @@ $( document ).ready(function() {
             <div class="cmp-teaser__header">
                 <h2 class="cmp-teaser__title">${result.title}</h2>
                 <div class="cmp-teaser__image">
+                    <div class="cmp-image">
+                        <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/heart.svg" loading="lazy" class="cmp-image__image">
+                    </div>
                 </div>
             </div>
             <div class="cmp-teaser__description">
