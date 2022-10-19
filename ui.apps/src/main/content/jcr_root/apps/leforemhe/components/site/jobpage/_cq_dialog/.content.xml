@@ -114,7 +114,7 @@
                                                     cq-msm-lockable="sling:vanityPath"
                                                     fieldLabel="Vanity URL"
                                                     renderReadOnly="{Boolean}true"
-                                                    required="{Boolean}true">
+                                                    required="{Boolean}false">
                                                 <granite:data
                                                         jcr:primaryType="nt:unstructured"
                                                         cq-msm-lockable="sling:vanityPath"/>
