@@ -61,12 +61,15 @@ public class SearchResultsImpl implements SearchResults {
         log.debug("Inside initModel");
         boolean activeFacets = false;
         final long start = System.currentTimeMillis();
+        List<String> cleMetierList = new ArrayList<>();
         String query = request.getParameter("q");
         String limit = request.getParameter("limit");
         final Map<String, String> searchPredicates = new HashMap<>();
-        List<String> cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
-        if (cleMetierList.size() == 0 && query != null) {
-            searchPredicates.put("group.1_fulltext", query);
+        if (query != null) {
+            cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
+            if (cleMetierList.isEmpty()) {
+                searchPredicates.put("group.1_fulltext", query);
+            }
         }
         searchPredicates.put("type", com.day.cq.wcm.api.NameConstants.NT_PAGE);
         if (limit == null || !limit.equals("no-limit")) {
