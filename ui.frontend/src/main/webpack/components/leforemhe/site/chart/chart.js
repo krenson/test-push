@@ -31,6 +31,7 @@ const renderBarGraph = (barChartElement, data) => {
             datasets: getGeneratedDataset(data.datasets)
         },
         options: {
+            scaleShowValues: true,
             plugins: {
                 legend: {
                     align: "start",
@@ -52,6 +53,7 @@ const renderBarGraph = (barChartElement, data) => {
                         borderWidth: 2,
                     },
                     ticks: {
+                        autoSkip: false,
                         font: {
                             family: "Poppins",
                             size: 13,
@@ -74,6 +76,7 @@ const renderBarGraph = (barChartElement, data) => {
                         radius: "50%",
                     },
                     ticks: {
+                        autoSkip: false,
                         stepSize: 20,
                         font: {
                             size: 15,
@@ -83,7 +86,6 @@ const renderBarGraph = (barChartElement, data) => {
             },
         },
     };
-
     const barChart = new Chart(barChartElement, chartConfig);
 }
 
