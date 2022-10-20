@@ -34,10 +34,12 @@ public class TextModel {
         String text = StringUtils.EMPTY;
         if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE) && !isInExperienceFragment()) {
             if (this.job == null) {
-                String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+                String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
                 this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
-            text = getSingleTextValueFromElementJob(selectedJobElement);
+            if (job != null) {
+                text = getSingleTextValueFromElementJob(selectedJobElement);
+            }
         }
         return text;
     }
@@ -46,10 +48,12 @@ public class TextModel {
         String[] text = {};
         if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)  && !isInExperienceFragment()) {
             if (this.job == null) {
-                String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+                String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
                 this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
-            text = getMultiTextValueFromElementJob(selectedJobElement);
+            if (job != null) {
+                text = getMultiTextValueFromElementJob(selectedJobElement);
+            }
         }
         return text;
     }

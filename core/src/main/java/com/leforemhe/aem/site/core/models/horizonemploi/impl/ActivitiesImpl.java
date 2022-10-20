@@ -38,7 +38,7 @@ public class ActivitiesImpl implements Activities {
     public List<Activity> getActivities() {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if(activities == null && !inExperienceFragment){
-            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+            String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
             this.activities = contentFragmentUtilService.getActivitiesFromJobID(cleMetier);
         }
         return this.activities;

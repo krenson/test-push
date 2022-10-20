@@ -32,7 +32,7 @@ public class JobsModel {
         List<Job> jobs = new ArrayList<>();
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
-            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+            String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             jobs = job.getJobsFromElement(selectedJobElement);
         }

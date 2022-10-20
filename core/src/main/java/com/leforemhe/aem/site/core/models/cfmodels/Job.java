@@ -71,6 +71,8 @@ public class Job {
         this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);;
     }
 
+    public Job() {};
+
     public String getCodeMetier() {
         return codeMetier;
     }
