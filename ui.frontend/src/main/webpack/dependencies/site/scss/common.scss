@@ -538,7 +538,9 @@ header .container-content {
     max-width: 42.12rem !important;
     min-width: 42.12rem !important;
   }
-  div.twoCol div.container-content div.container.aem div.container-content {
+
+  div.twoCol div.container-content div.container.aem div.container-content,
+  div.container.maxWidth.padding-bottom div.container-content div {
     div.image_component {
       width: unset !important;
       max-width: unset !important;
@@ -651,5 +653,13 @@ header .container-content {
       max-width: 100% !important;
       width: 100% !important;
     }
+  }
+}
+
+div.linkedIcon.teasers {
+  padding: 0 1.5rem;
+
+  .teaser {
+    padding: 0.75rem 0;
   }
 }
