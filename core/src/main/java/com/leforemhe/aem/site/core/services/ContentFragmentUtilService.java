@@ -84,7 +84,7 @@ public class ContentFragmentUtilService {
      */
     public Job getJobFromJobID(String jobID) {
         if (!jobID.isEmpty()) {
-            return getJobFromJobID(jobID, true, true);
+            return getJobFromJobID(jobID, false, false);
         } else {
             return new Job();
         }
@@ -174,7 +174,7 @@ public class ContentFragmentUtilService {
         List<Job> jobs = new ArrayList<>();
         if (jobIds != null) {
             for (String relatedJobID : jobIds) {
-                Job resolvedJob = getJobFromJobID(relatedJobID, false, false);
+                Job resolvedJob = getJobFromJobID(relatedJobID);
                 if (resolvedJob != null) {
                     jobs.add(resolvedJob);
                 }
