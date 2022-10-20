@@ -34,7 +34,9 @@ public class JobsModel {
         if (this.job == null && !inExperienceFragment) {
             String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, true, true);
-            jobs = job.getJobsFromElement(selectedJobElement);
+            if (job != null) {
+                jobs = job.getJobsFromElement(selectedJobElement);
+            }
         }
         return jobs;
     }
