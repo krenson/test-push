@@ -41,7 +41,7 @@ public class JobTitleImpl implements JobTitle {
     public String getText() {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (job == null && !inExperienceFragment) {
-            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+            String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
             this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
         }
         return job.getTitle();

@@ -77,11 +77,13 @@ public class LinkModelImpl implements LinkModel {
 
     @Override
     public String getJobTitle() {
+        String jobTitle = StringUtils.EMPTY;
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
-            String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+            String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
             job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            jobTitle = job.getTitle();
         }
-        return job.getTitle();
+        return jobTitle;
     }
 }

@@ -89,13 +89,13 @@ public class JobTeaserModelImpl implements JobTeaserModel {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (getLink() == null) {
             if (this.job == null && !inExperienceFragment) {
-                String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER).toString();
+                String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
                 job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
         } else {
             if (this.job == null && !inExperienceFragment) {
                 Page linkedResourcePage = currentResource.getResourceResolver().getResource(getLink().getURL()).adaptTo(Page.class);
-                String cleMetier = linkedResourcePage.getProperties().get(Constants.CLE_METIER).toString();
+                String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(linkedResourcePage);
                 job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }
         }

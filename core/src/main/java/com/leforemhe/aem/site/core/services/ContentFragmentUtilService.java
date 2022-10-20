@@ -7,6 +7,7 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
+import com.day.cq.wcm.api.Page;
 import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.Activity;
@@ -69,11 +70,24 @@ public class ContentFragmentUtilService {
         return Collections.EMPTY_LIST;
     }
 
+    public String getCleMeteirFromPage(Page page) {
+        var cleMetierProperty = page.getProperties().get(Constants.CLE_METIER);
+        if (cleMetierProperty == null) {
+            return StringUtils.EMPTY;
+        } else {
+            return cleMetierProperty.toString();
+        }
+    }
+
     /*
      * Returns a job based on JobID
      */
     public Job getJobFromJobID(String jobID) {
-        return getJobFromJobID(jobID, true, true);
+        if (!jobID.isEmpty()) {
+            return getJobFromJobID(jobID, false, false);
+        } else {
+            return new Job();
+        }
     }
 
     public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs) {
@@ -160,7 +174,7 @@ public class ContentFragmentUtilService {
         List<Job> jobs = new ArrayList<>();
         if (jobIds != null) {
             for (String relatedJobID : jobIds) {
-                Job resolvedJob = getJobFromJobID(relatedJobID, false, false);
+                Job resolvedJob = getJobFromJobID(relatedJobID);
                 if (resolvedJob != null) {
                     jobs.add(resolvedJob);
                 }
