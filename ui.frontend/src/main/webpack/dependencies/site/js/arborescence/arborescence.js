@@ -1,5 +1,6 @@
 var subCheckboxes = document.querySelectorAll("input.subOption");
 var optionCheckboxes = document.querySelectorAll("input.option");
+var btnVoirMetiers = document.getElementById("btnArborVoirMetiers");
 
 for (var i = 0; i < subCheckboxes.length; i++) {
   subCheckboxes[i].onclick = function () {
@@ -16,6 +17,8 @@ for (var i = 0; i < subCheckboxes.length; i++) {
 
     option.checked = checkedCount > 0 && checkedCount == mysuboptions;
     option.indeterminate = checkedCount > 0 && checkedCount < mysuboptions;
+
+    btnAvailability();
   };
 }
 
@@ -38,5 +41,18 @@ for (var i = 0; i < optionCheckboxes.length; i++) {
         optionSubs[i].checked = false;
       }
     }
+
+    btnAvailability();
   };
+}
+
+function btnAvailability() {
+  btnVoirMetiers.disabled = true;
+
+  for (var i = 0; i < subCheckboxes.length; i++) {
+    if (subCheckboxes[i].checked == true) {
+      btnVoirMetiers.disabled = false;
+      return;
+    }
+  }
 }
