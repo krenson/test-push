@@ -103,8 +103,14 @@
       display: none;
     }
   }
-  div#rechercheMetier .searchContainer {
-    position: relative !important;
-    bottom: unset !important;
+  div#rechercheMetier {
+    nav#filAriane.aem div {
+      padding-left: 0rem;
+    }
+
+    .searchContainer {
+      position: relative !important;
+      bottom: unset !important;
+    }
   }
 }
