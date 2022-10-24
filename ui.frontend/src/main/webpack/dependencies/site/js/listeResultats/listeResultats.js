@@ -5,6 +5,10 @@ const resultLabel = document.querySelectorAll(".result-counter h5")[0];
 searchBtn.addEventListener("click", () => {
   const rdmNr = Math.floor(Math.random() * (10 - 0 + 1) + 0);
 
+  if (window.screen.width <= 1200) {
+    return;
+  }
+
   resultcontainer.style.display = "flex";
 
   resultLabel.innerText = rdmNr + " métiers trouvés";

@@ -1,7 +1,12 @@
 div#rechercheMetier {
   .background-Yellow {
     padding: 10rem 0rem;
+
+    nav#filAriane {
+      display: none;
+    }
   }
+
   & > div,
   .title-container,
   .searchContainer {
@@ -175,6 +180,10 @@ div#rechercheMetier {
       &::after {
         content: "";
         padding-bottom: 10rem;
+      }
+
+      nav#filAriane {
+        display: none;
       }
     }
 
