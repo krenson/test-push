@@ -17,6 +17,7 @@ searchBtn.addEventListener("click", () => {
     searchBox.style.display = "none";
     filAriane.style.display = "block";
     titleContainer.style.alignItems = "start";
+    title.innerText = "Résultats";
 
     subtitle.innerText = rdmNr + " métiers trouvés";
     if (rdmNr == 1) subtitle.innerText = rdmNr + " métier trouvé";
@@ -32,5 +33,10 @@ searchBtn.addEventListener("click", () => {
 });
 
 filAriane.addEventListener("click", () => {
-  location.reload();
+  searchBox.style.display = "flex";
+  filAriane.style.display = "none";
+  titleContainer.style.alignItems = "center";
+  title.innerText = "Rechercher des informations sur un métier";
+  subtitle.innerText =
+    "Un catalogue de près de 650 métiers pour vous aider à trouver votre voie.";
 });
