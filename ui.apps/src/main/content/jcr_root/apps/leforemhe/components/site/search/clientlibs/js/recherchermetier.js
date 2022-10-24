@@ -1,9 +1,10 @@
-$( document ).ready(function() {
+$(document).ready(function () {
     let input = document.getElementById("searchInput");
     let suggestions = document.getElementById("searchSuggestions");
     const form = document.getElementsByClassName("searchContainer")[0];
     const checkboxes = document.querySelectorAll('.checkbox-container input');
     let valueChips = document.getElementById("valueChips");
+    const showResults = form.dataset.showSearchResults;
     let innerValueChips = [];
     let tagsValue = '';
 
@@ -15,14 +16,14 @@ $( document ).ready(function() {
             return;
         }
 
-        const ajouterButton = $(`<button onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">Ajouter ${e.value}</button>`)
+        const ajouterButton = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">Ajouter ${e.value}</button>`)
         const suggestionsList = document.querySelector('#searchSuggestions');
         suggestionsList.innerHTML = '';
         suggestionsList.append(ajouterButton.get(0))
         if (form.dataset.quickSuggestionsEnabled === "true") {
             $.get(form.dataset.quickSuggestions, `q=${e.value}`, function (data) {
                 $.each(data.suggestions, function (index, suggestion) {
-                    const html = $(`<button onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion}</button>`)
+                    const html = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0" value="${suggestion}">${suggestion}</button>`)
                     suggestionsList.append(html.get(0))
                 });
             });
@@ -40,34 +41,34 @@ $( document ).ready(function() {
 // on click of the suggestion
 // add a chip to the second value drop down menu
     window.suggestionClick = function suggestionClick(e) {
-        input.value = "";
-        suggestions.style.display = "none";
+            input.value = "";
+            suggestions.style.display = "none";
 
-        valueChips.style.display = "block";
+            valueChips.style.display = "block";
 
-        var chip = document.createElement("span");
+            var chip = document.createElement("span");
 
-        chip.className = "chips chips-secondary";
+            chip.className = "chips chips-secondary search-suggestion-term";
 
-        if(e.innerText.indexOf('Ajouter') !== -1) {
-            chip.innerText = e.innerText.split("Ajouter ")[1]
-            innerValueChips.push(e.innerText.split("Ajouter ")[1]);
-        } else {
-            chip.innerText = e.innerText;
-            innerValueChips.push(e.innerText);
-        }
+            if (e.innerText.indexOf('Ajouter') !== -1) {
+                chip.innerText = e.innerText.split("Ajouter ")[1]
+                innerValueChips.push(e.innerText.split("Ajouter ")[1]);
+            } else {
+                chip.innerText = e.innerText;
+                innerValueChips.push(e.innerText);
+            }
 
-        chip.addEventListener("click", function () {
-            deleteValueChip(this);
-        });
+            chip.addEventListener("click", function () {
+                deleteValueChip(this);
+            });
 
-        valueChips.appendChild(chip);
-        let query = '';
-        innerValueChips.forEach(value => {
-            query = query + value + ',';
-        })
-        getQuickResults(query)
-        getTagValues(query)
+            valueChips.appendChild(chip);
+            let query = '';
+            innerValueChips.forEach(value => {
+                query = query + value + ',';
+            })
+            getQuickResults(query)
+            getTagValues(query)
     }
 
 // on click on the chip
@@ -113,20 +114,21 @@ $( document ).ready(function() {
     }
 
     function getQuickResults(inputValue) {
-        const searchResultList = document.querySelector('.tuile-results-container')
-        tagsValue = getTagQuery();
-        let query = '';
-        query = inputValue === "" ? '' : `q=${inputValue}&`;
-        query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
-        $.get(form.dataset.quickSearchResults, query, function (data) {
-            searchResultList.innerHTML = '';
-            $.each(data.results, function (index, result) {
-                var $jobTagHtml = $("<div>");
-                $.each(result.jobTags, function (newIndex, jobTag) {
-                    $jobTagHtml.append('<button class="chip-button" style="background-color: ' + jobTag.backgroundColor +'">'+ jobTag.title + '</button>');
-                })
-                $jobTagHtml.append('</div>');
-                const html = $(`<div class="teaser tuileContainer">
+        if (showResults == "true") {
+            const searchResultList = document.querySelector('.tuile-results-container')
+            tagsValue = getTagQuery();
+            let query = '';
+            query = inputValue === "" ? '' : `q=${inputValue}&`;
+            query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
+            $.get(form.dataset.quickSearchResults, query, function (data) {
+                searchResultList.innerHTML = '';
+                $.each(data.results, function (index, result) {
+                    var $jobTagHtml = $("<div>");
+                    $.each(result.jobTags, function (newIndex, jobTag) {
+                        $jobTagHtml.append('<button class="chip-button" style="background-color: ' + jobTag.backgroundColor + '">' + jobTag.title + '</button>');
+                    })
+                    $jobTagHtml.append('</div>');
+                    const html = $(`<div class="teaser tuileContainer">
 <a href="${result.vanityPath}">
     <div class="cmp-teaser">
         <div class="cmp-teaser__image">
@@ -151,10 +153,11 @@ $( document ).ready(function() {
         </div>
     </a>
 </div>`);
-                searchResultList.append(html.get(0))
-            });
+                    searchResultList.append(html.get(0))
+                });
 
-        });
+            });
+        }
     }
 
     function getTagValues(inputValue) {
@@ -182,8 +185,19 @@ $( document ).ready(function() {
     }
 
     function initSearchPage() {
-        getQuickResults("")
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+
+        let value = params.q; // "some_value"
+
+        if (value != null) {
+            getQuickResults(value);
+        } else {
+            getQuickResults("");
+        }
     }
+
 
     initSearchPage();
 

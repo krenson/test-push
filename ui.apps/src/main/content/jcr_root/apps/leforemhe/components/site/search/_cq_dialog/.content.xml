@@ -80,6 +80,35 @@
                             </column>
                         </items>
                     </general>
+                    <results
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Results"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <showResults
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                            fieldDescription="show results under search field"
+                                            name="./showResults"
+                                            text="Show Results"
+                                            uncheckedValue="{Boolean}false"
+                                            value="{Boolean}true"/>
+                                    <resultPage
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldDescription="Specify page where to show results when pressing to search button"
+                                            fieldLabel="Result Page"
+                                            name="./searchResultPage"
+                                            defaultValue=""
+                                            rootPath="/content/leforemhe/fr"/>
+                                </items>
+                            </column>
+                        </items>
+                    </results>
                     <facets
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Facets"

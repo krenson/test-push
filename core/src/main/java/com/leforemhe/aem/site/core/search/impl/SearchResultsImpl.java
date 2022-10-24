@@ -1,5 +1,6 @@
 package com.leforemhe.aem.site.core.search.impl;
 
+import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
@@ -9,13 +10,14 @@ import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.models.annotations.Exporter;
-import org.apache.sling.models.annotations.ExporterOption;
-import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.*;
+import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +28,8 @@ import java.util.*;
 @Model(
         adaptables = SlingHttpServletRequest.class,
         adapters = SearchResults.class,
-        resourceType = "leforemhe/components/site/search"
+        resourceType = "leforemhe/components/site/search",
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 @Exporter(
         name = "jackson",
@@ -50,6 +53,10 @@ public class SearchResultsImpl implements SearchResults {
     private SearchProvider searchProvider;
     @Self
     private SearchResultsContentFragment searchResultsContentFragment;
+    @ValueMapValue
+    private boolean showResults;
+    @ValueMapValue
+    private String searchResultPage;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
@@ -87,6 +94,18 @@ public class SearchResultsImpl implements SearchResults {
         totalResults = computeTotalMatches(result);
     }
 
+    public boolean getShowResults() {
+        return this.showResults;
+    }
+
+    public String getAction() {
+        if (showResults) {
+            return StringUtils.EMPTY;
+        } else {
+            return ModelUtils.getVanityOfPageIfExists(this.searchResultPage, resourceResolver);
+        }
+    }
+
     private String computeTotalMatches(com.day.cq.search.result.SearchResult result) {
         log.debug("Inside computeTotalMatches");
 
@@ -118,7 +137,6 @@ public class SearchResultsImpl implements SearchResults {
             }
         }
     }
-
 
     @Override
     public List<SearchResult> getResults() {

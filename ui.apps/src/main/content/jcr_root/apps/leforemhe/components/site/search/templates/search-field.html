@@ -1,5 +1,7 @@
-<template data-sly-template.searchField="${ @ searchResults}">
+<template data-sly-template.searchField="${ @ action, showResults}">
     <div class="searchContainer"
+         data-show-search-results="${showResults ? 'true' : 'false'}"
+         data-search-result-page="${action}"
          data-quick-suggestions-enabled="${properties.showSuggestions}"
          data-quick-suggestions="${resource.path}/quick-suggestions.suggestions.json"
          data-quick-search-results-enabled="${properties.showQuickResults}"
@@ -12,6 +14,7 @@
                 <a href="${properties.besoindaideUrl}">${properties.besoinAide}</a>
             </div>
         </div>
+
         <div class="searchbox">
             <div>
                 <input onkeyup="getValue(this)" id="searchInput" type="text"
