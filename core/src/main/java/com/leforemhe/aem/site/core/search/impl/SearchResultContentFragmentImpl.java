@@ -56,7 +56,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
 
 
-    public List<String> getContentFragmentsCleMetier(String queryParameter) {
+    public List<String> getContentFragmentsCleMetier(String queryParameter, String orCheckbox) {
         final Map<String, String> searchPredicates = new HashMap<>();
         int index = 0;
         log.debug("Search parameter q={}", queryParameter);
@@ -69,9 +69,11 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
             for (String param : params) {
                 searchPredicates.put("group." + index++ + "_fulltext", param);
             }
-            searchPredicates.put("group.p.or", "true");
         } else {
             searchPredicates.put("group.1_fulltext", request.getParameter("q"));
+        }
+        if(orCheckbox != null && orCheckbox.equals("true")) {
+            searchPredicates.put("group.p.or", "true");
         }
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
@@ -87,8 +89,6 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     }
 
     public List<SearchResult> getResults() {
-        log.debug("Inside getResults");
-
         return searchResults;
     }
 }

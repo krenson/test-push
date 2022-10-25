@@ -51,6 +51,11 @@
                                       fieldLabel="Besoin d'aide url"
                                       name="./besoindaideUrl"
                                       rootPath="/content/leforemhe"/>
+                                    <ShowOffersWhichNotAllIncludeKeywords
+                                      jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                      fieldLabel="Des offres qui n'incluent pas toutes des mots-clés label"
+                                      name="./showOffersWhichNotAllIncludeKeywordsLabel"/>
                                     <useExcerpt
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
