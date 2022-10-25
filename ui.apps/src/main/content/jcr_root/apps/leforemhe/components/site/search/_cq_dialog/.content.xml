@@ -97,16 +97,16 @@
                                     <showResults
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                            fieldDescription="show results under search field"
+                                            fieldDescription="Afficher les résultats dans le champ de recherche"
                                             name="./showResults"
-                                            text="Show Results"
+                                            text="Montrer les résultats"
                                             uncheckedValue="{Boolean}false"
                                             value="{Boolean}true"/>
                                     <resultPage
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                            fieldDescription="Specify page where to show results when pressing to search button"
-                                            fieldLabel="Result Page"
+                                            fieldDescription="Spécifiez la page où afficher les résultats lorsque vous appuyez sur le bouton de recherche"
+                                            fieldLabel="Page de résultats"
                                             name="./searchResultPage"
                                             defaultValue=""
                                             rootPath="/content/leforemhe/fr"/>
