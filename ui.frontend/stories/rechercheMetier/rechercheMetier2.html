@@ -581,54 +581,56 @@
   type="text/javascript"
   src="http://dispatcher.realdolmen.com/clientlib-site/resources/js/events/events.js"
 ></script>
-<div id="rechercheMetier">
-  <div class="background-Yellow short-searchContainer">
-    <div class="aem title-container">
-      <h1>Résultats de recherche</h1>
-    </div>
-
-    <div class="searchContainer">
-      <div class="aem helpText">
-        <div class="icone">
-          <img
-            src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/life-ring.svg"
-          />
-        </div>
-
-        <div>
-          <a href="#">Besoin d'aide ?</a>
-        </div>
+<div class="short-searchContainer">
+  <div id="rechercheMetier">
+    <div class="background-Yellow">
+      <div class="aem title-container">
+        <h1>Résultats de recherche</h1>
       </div>
 
-      <div class="searchbox">
-        <div>
-          <input
-            onkeyup="getValue(this)"
-            id="searchInput"
-            type="text"
-            placeholder="Rechercher par mots-cles, métiers, numéro"
-          />
-
-          <div id="searchSuggestions" class="aem searchSuggestions">
-            <button
-              onclick="suggestionClick(this)"
-              id="suggeBtn"
-              class="chip-button"
-              style="background-color: #d9eff0"
-            >
-              Ajouter:
-            </button>
+      <div class="searchContainer">
+        <div class="aem helpText">
+          <div class="icone">
+            <img
+              src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/life-ring.svg"
+            />
           </div>
 
-          <div id="valueChips" class="aem valueChips"></div>
+          <div>
+            <a href="#">Besoin d'aide ?</a>
+          </div>
         </div>
 
-        <div class="aem searchBtn">
-          <button class="btn btn-primary">
-            <img
-              src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/magnifying-glass.svg"
+        <div class="searchbox">
+          <div>
+            <input
+              onkeyup="getValue(this)"
+              id="searchInput"
+              type="text"
+              placeholder="Rechercher par mots-cles, métiers, numéro"
             />
-          </button>
+
+            <div id="searchSuggestions" class="aem searchSuggestions">
+              <button
+                onclick="suggestionClick(this)"
+                id="suggeBtn"
+                class="chip-button"
+                style="background-color: #d9eff0"
+              >
+                Ajouter:
+              </button>
+            </div>
+
+            <div id="valueChips" class="aem valueChips"></div>
+          </div>
+
+          <div class="aem searchBtn">
+            <button class="btn btn-primary">
+              <img
+                src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/magnifying-glass.svg"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
