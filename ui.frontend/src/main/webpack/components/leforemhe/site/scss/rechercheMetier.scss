@@ -1,39 +1,6 @@
 div#rechercheMetier {
   .background-Yellow {
     padding: 10rem 0rem;
-
-    &:has(nav#filAriane) {
-      align-items: flex-start;
-      padding-left: 3rem;
-
-      nav#filAriane {
-        background: unset;
-
-        div {
-          padding-left: 0;
-        }
-      }
-
-      .title-container {
-        margin-bottom: 2rem;
-      }
-
-      .searchContainer {
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        gap: 1rem;
-        width: fit-content;
-
-        .helpText {
-          width: unset;
-          justify-content: unset;
-        }
-
-        .searchbox {
-          width: 50rem;
-        }
-      }
-    }
   }
 
   & > div,
@@ -183,6 +150,31 @@ div#rechercheMetier {
     }
   }
 
+  .short-searchContainer {
+    align-items: flex-start;
+    padding-left: 3rem;
+
+    .title-container {
+      margin-bottom: 2rem;
+    }
+
+    .searchContainer {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 1rem;
+      width: fit-content;
+
+      .helpText {
+        width: unset;
+        justify-content: unset;
+      }
+
+      .searchbox {
+        width: 50rem;
+      }
+    }
+  }
+
   .centrePage > *:first-child article header div:first-child * {
     padding-top: unset !important;
   }
@@ -214,6 +206,8 @@ div#rechercheMetier {
 @media screen and (max-width: $breakpointMobile) {
   div#rechercheMetier {
     margin-top: 12rem;
+    position: relative;
+
     .background-Yellow {
       padding: 1rem 2rem;
 
@@ -223,7 +217,31 @@ div#rechercheMetier {
       }
     }
 
-    position: relative;
+    .short-searchContainer {
+      align-items: center;
+      padding-left: unset;
+
+      .title-container {
+        margin-bottom: unset;
+      }
+
+      .searchContainer {
+        flex-direction: column;
+        justify-content: unset;
+        gap: unset;
+        width: 100%;
+
+        .helpText {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .searchbox {
+          width: 100%;
+        }
+      }
+    }
+
     .searchContainer {
       width: 100%;
       margin-bottom: 1rem;
