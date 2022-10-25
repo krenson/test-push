@@ -1,14 +1,12 @@
-const searchBtn = document.querySelectorAll(".aem.searchBtn button")[0];
-const resultcontainer = document.querySelectorAll(".result-counter ")[0];
-const resultLabel = document.querySelectorAll(".result-counter h5")[0];
+const searchBtn = document.querySelector(".aem.searchBtn button");
+const resultcontainer = document.querySelector(".result-counter ");
+const resultLabel = document.querySelector(".result-counter h5");
 
-const searchBox = document.querySelectorAll(".searchContainer")[0];
-const filAriane = document.querySelectorAll("#filAriane")[0];
-const titleContainer = document.querySelectorAll(".aem.title-container")[0];
-const title = document.querySelectorAll(".aem.title-container h1")[0];
-const subtitle = document.querySelectorAll(
-  ".aem.title-container h5.subTitle"
-)[0];
+const searchBox = document.querySelector(".searchContainer");
+const filAriane = document.querySelector("#filAriane");
+const titleContainer = document.querySelector(".aem.title-container");
+const title = document.querySelector(".aem.title-container h1");
+const subtitle = document.querySelector(".aem.title-container h5.subTitle");
 
 searchBtn.addEventListener("click", () => {
   const rdmNr = Math.floor(Math.random() * (10 - 0 + 1) + 0);
