@@ -63,10 +63,11 @@ public class SearchResultsImpl implements SearchResults {
         final long start = System.currentTimeMillis();
         List<String> cleMetierList = new ArrayList<>();
         String query = request.getParameter("q");
+        String orCheckbox = request.getParameter("or");
         String limit = request.getParameter("limit");
         final Map<String, String> searchPredicates = new HashMap<>();
         if (query != null) {
-            cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query);
+            cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query, orCheckbox);
             if (cleMetierList.isEmpty()) {
                 searchPredicates.put("group.1_fulltext", query);
             }
