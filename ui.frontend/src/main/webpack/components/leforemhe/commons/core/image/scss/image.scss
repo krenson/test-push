@@ -1,4 +1,40 @@
-.cmp-image {}
-.cmp-image__link {}
-.cmp-image__image {}
-.cmp-image__title {}
+.cmp-image {
+}
+.cmp-image__link {
+}
+.cmp-image__image {
+}
+.cmp-image__title {
+}
+
+div.aem.image_component_default {
+  max-width: 96rem;
+  min-width: 49rem;
+  width: 100%;
+  height: 50rem;
+
+  margin-top: 4rem !important;
+  margin-bottom: 2rem !important;
+  padding-bottom: 56.5%;
+  position: relative;
+  border-radius: 0px 0px 2.3rem 0px;
+  overflow: hidden;
+
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  div.aem.image_component_default {
+  }
+}
