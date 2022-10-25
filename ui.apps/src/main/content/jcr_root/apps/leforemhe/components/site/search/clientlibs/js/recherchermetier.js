@@ -1,3 +1,6 @@
+const SHOW = 'block';
+const HIDE = 'none';
+
 $(document).ready(function () {
     let input = document.getElementById("searchInput");
     let suggestions = document.getElementById("searchSuggestions");
@@ -5,14 +8,16 @@ $(document).ready(function () {
     const checkboxes = document.querySelectorAll('.checkbox-container input');
     let valueChips = document.getElementById("valueChips");
     const showResults = form.dataset.showSearchResults;
+    const orCheckbox = document.querySelector('.searchCheckbox input');
     let innerValueChips = [];
     let tagsValue = '';
+    orCheckbox.parentElement.style.marginTop = '1rem';
 
 // get value form the input field
 // and add it to the suggestion drop down container
     window.getValue = function getValue(e) {
         if (e.value == "" || e.value.split("")[0] == " ") {
-            suggestions.style.display = "none";
+            suggestions.style.display = HIDE;
             return;
         }
 
@@ -23,52 +28,51 @@ $(document).ready(function () {
         if (form.dataset.quickSuggestionsEnabled === "true") {
             $.get(form.dataset.quickSuggestions, `q=${e.value}`, function (data) {
                 $.each(data.suggestions, function (index, suggestion) {
-                    const html = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0" value="${suggestion}">${suggestion}</button>`)
-                    suggestionsList.append(html.get(0))
+                    if (!innerValueChips.includes(suggestion.trim())) {
+                        const html = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion.trim()}</button>`)
+                        suggestionsList.append(html.get(0))
+                    }
                 });
             });
         }
 
         if (window.screen.width <= 1425) {
-            suggestions.style.display = "none";
-            valueChips.style.display = "none";
+            suggestions.style.display = HIDE;
+            valueChips.style.display = HIDE;
             return;
         }
-
-        suggestions.style.display = "block";
+        suggestions.style.display = SHOW;
     }
 
 // on click of the suggestion
 // add a chip to the second value drop down menu
     window.suggestionClick = function suggestionClick(e) {
-            input.value = "";
-            suggestions.style.display = "none";
-
-            valueChips.style.display = "block";
-
-            var chip = document.createElement("span");
-
-            chip.className = "chips chips-secondary search-suggestion-term";
-
-            if (e.innerText.indexOf('Ajouter') !== -1) {
-                chip.innerText = e.innerText.split("Ajouter ")[1]
-                innerValueChips.push(e.innerText.split("Ajouter ")[1]);
-            } else {
-                chip.innerText = e.innerText;
-                innerValueChips.push(e.innerText);
-            }
+        let suggestionValue = e.innerText
+        input.value = "";
+        suggestions.style.display = HIDE;
+        valueChips.style.display = SHOW;
+        var chip = document.createElement("span");
+        chip.className = "chips chips-secondary search-suggestion-term";
+        if (suggestionValue.indexOf('Ajouter') !== -1) {
+            chip.innerText = suggestionValue.split("Ajouter ")[1]
+            innerValueChips.push(suggestionValue.split("Ajouter ")[1]);
+        } else {
+            chip.innerText = suggestionValue;
+            innerValueChips.push(suggestionValue);
+        }
 
             chip.addEventListener("click", function () {
                 deleteValueChip(this);
             });
 
-            valueChips.appendChild(chip);
-            let query = '';
-            innerValueChips.forEach(value => {
-                query = query + value + ',';
-            })
-            getQuickResults(query)
-            getTagValues(query)
+        valueChips.appendChild(chip);
+        let query = '';
+        innerValueChips.forEach(value => {
+            query = query + value + ',';
+        })
+        orCheckbox.parentElement.style.marginTop = valueChips.offsetHeight + 'px';
+        getQuickResults(query)
+        getTagValues(query)
     }
 
 // on click on the chip
@@ -77,7 +81,7 @@ $(document).ready(function () {
         e.remove();
 
         if (valueChips.childNodes.length < 1) {
-            valueChips.style.display = "none";
+            valueChips.style.display = HIDE;
         }
         let index = innerValueChips.indexOf(e.innerText);
         innerValueChips.splice(index, 1);
@@ -119,6 +123,7 @@ $(document).ready(function () {
             tagsValue = getTagQuery();
             let query = '';
             query = inputValue === "" ? '' : `q=${inputValue}&`;
+            query = query + (orCheckbox.checked === false ? '' : `or=true&`);
             query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
             $.get(form.dataset.quickSearchResults, query, function (data) {
                 searchResultList.innerHTML = '';
@@ -173,10 +178,10 @@ $(document).ready(function () {
 
     window.clickAccordion = function clickAccordion(e) {
         const itemPanel = document.querySelector('#accordion-item-panel');
-        if (itemPanel.style.display === 'none') {
-            itemPanel.style.display = 'block';
+        if (itemPanel.style.display === HIDE) {
+            itemPanel.style.display = SHOW;
         } else {
-            itemPanel.style.display = 'none';
+            itemPanel.style.display = HIDE;
         }
     }
 
@@ -197,7 +202,6 @@ $(document).ready(function () {
             getQuickResults("");
         }
     }
-
 
     initSearchPage();
 

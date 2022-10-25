@@ -10,6 +10,13 @@ div#rechercheMetier {
     flex-direction: column;
   }
 
+  .searchCheckbox {
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    color: #2f3a48;
+  }
+
   .title-container {
     h1 {
       margin-bottom: 0;

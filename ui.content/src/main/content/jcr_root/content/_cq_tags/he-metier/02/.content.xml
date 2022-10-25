@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:lastModified="{Date}2022-08-29T10:59:12.693+02:00"
-    jcr:lastModifiedBy="admin"
-    jcr:primaryType="cq:Tag"
-    jcr:title="Métier de niche"
-    sling:resourceType="cq/tagging/components/tag"
-    backgroundColor="#D9EFF0"/>
