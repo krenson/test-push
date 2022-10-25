@@ -1,5 +1,6 @@
 $(document).ready(function () {
     const form = document.getElementsByClassName("searchContainer")[0];
+    const orCheckbox = document.getElementById("orCheckbox");
     const urlSearch = form.dataset.searchResultPage;
     const showResults = form.dataset.showSearchResults;
     let searchBtn = document.getElementsByClassName("searchBtn")[0];
@@ -15,7 +16,9 @@ $(document).ready(function () {
                     url += `,${item.innerText}`;
                 }
             });
-
+            if (orCheckbox.checked) {
+                url += '&or=true'
+            }
             window.location = urlSearch + url;
         }
     }

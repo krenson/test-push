@@ -21,7 +21,7 @@ $(document).ready(function () {
             return;
         }
 
-        const ajouterButton = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">Ajouter ${e.value}</button>`)
+        const ajouterButton = $(`<button type="button" onclick="addSuggestion(this.innerText)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">Ajouter ${e.value}</button>`)
         const suggestionsList = document.querySelector('#searchSuggestions');
         suggestionsList.innerHTML = '';
         suggestionsList.append(ajouterButton.get(0))
@@ -29,7 +29,7 @@ $(document).ready(function () {
             $.get(form.dataset.quickSuggestions, `q=${e.value}`, function (data) {
                 $.each(data.suggestions, function (index, suggestion) {
                     if (!innerValueChips.includes(suggestion.trim())) {
-                        const html = $(`<button type="button" onclick="suggestionClick(this)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion.trim()}</button>`)
+                        const html = $(`<button type="button" onclick="addSuggestion(this.innerText)" id="suggeBtn" class="chip-button" style="background-color: #d9eff0">${suggestion.trim()}</button>`)
                         suggestionsList.append(html.get(0))
                     }
                 });
@@ -46,8 +46,7 @@ $(document).ready(function () {
 
 // on click of the suggestion
 // add a chip to the second value drop down menu
-    window.suggestionClick = function suggestionClick(e) {
-        let suggestionValue = e.innerText
+    window.addSuggestion = function suggestionClick(suggestionValue) {
         input.value = "";
         suggestions.style.display = HIDE;
         valueChips.style.display = SHOW;
@@ -195,11 +194,29 @@ $(document).ready(function () {
         });
 
         let value = params.q; // "some_value"
+        let orCheckboxInitValue = params.or; // "some_value"
+
+        if (orCheckboxInitValue === "true") {
+            document.getElementById("orCheckbox").checked = "true";
+        }
+
+        initSuggestionValues(value);
 
         if (value != null) {
             getQuickResults(value);
         } else {
             getQuickResults("");
+        }
+
+    }
+
+    function initSuggestionValues(qParams) {
+        if (qParams != null && qParams.length != 0) {
+            let splittedQParams = qParams.split(",");
+
+            splittedQParams.forEach(param => {
+                addSuggestion(param)
+            })
         }
     }
 
