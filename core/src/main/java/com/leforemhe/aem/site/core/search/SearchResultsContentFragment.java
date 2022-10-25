@@ -6,5 +6,5 @@ import java.util.List;
 
 @ProviderType
 public interface SearchResultsContentFragment {
-    List<String> getContentFragmentsCleMetier(String queryParameter);
+    List<String> getContentFragmentsCleMetier(String queryParameter, String orCheckbox);
 }
