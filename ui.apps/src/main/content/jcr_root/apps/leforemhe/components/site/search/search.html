@@ -12,15 +12,15 @@
                     ${properties.subtitle}
                 </h5>
             </div>
-            <section data-sly-call="${searchField.searchField}" data-sly-unwrap/>
+            <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults}" data-sly-unwrap/>
         </div>
 
-        <div class="container maxWidth padding-bottom aem twoCol listeResultats-container">
+        <div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
             <div class="container-content">
                 <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
                          data-sly-call="${facets.facets}"></div>
                 <div class="resultats-container"
-                         data-sly-call="${results.results @ searchResults = searchResults}"></div>
+                         data-sly-call="${results.results}"></div>
             </div>
         </div>
     </div>

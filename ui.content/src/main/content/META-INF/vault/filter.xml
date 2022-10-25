@@ -2,8 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/global" mode="update"/>
     <filter root="/conf/leforemhe" mode="update"/>
-    <filter root="/content/cq:tags" mode="update"/>
-    <filter root="/content/cq:tags/he-metier" mode="update"/>
+    <filter root="/content/cq:tags" mode="merge"/>
     <filter root="/content/leforemhe" mode="merge"/>
     <filter root="/content/dam/leforemhe" mode="merge"/>
     <filter root="/content/dam/leforemhe/fr" mode="merge"/>
