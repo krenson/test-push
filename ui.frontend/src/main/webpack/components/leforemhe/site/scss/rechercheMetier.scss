@@ -1,7 +1,41 @@
 div#rechercheMetier {
   .background-Yellow {
     padding: 10rem 0rem;
+
+    &:has(nav#filAriane) {
+      align-items: flex-start;
+      padding-left: 3rem;
+
+      nav#filAriane {
+        background: unset;
+
+        div {
+          padding-left: 0;
+        }
+      }
+
+      .title-container {
+        margin-bottom: 2rem;
+      }
+
+      .searchContainer {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 1rem;
+        width: fit-content;
+
+        .helpText {
+          width: unset;
+          justify-content: unset;
+        }
+
+        .searchbox {
+          width: 50rem;
+        }
+      }
+    }
   }
+
   & > div,
   .title-container,
   .searchContainer {
