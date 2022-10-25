@@ -1,15 +1,10 @@
 package com.leforemhe.aem.site.core.search.impl;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.day.cq.tagging.Tag;
-import com.day.cq.tagging.TagManager;
-import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
-import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
-import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Exporter;
@@ -43,14 +38,10 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
 
     @Self
     private SlingHttpServletRequest request;
-    @OSGiService
-    private PredicateResolver predicateResolver;
     @Inject
     private ResourceResolver resourceResolver;
     @Inject
     private SearchProvider searchProvider;
-    @Inject
-    private ContentFragmentUtilService contentFragmentUtilService;
 
     private List<String> cleMetierList = new ArrayList<>();
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
@@ -64,6 +55,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchPredicates.put("path", "/content/dam/leforemhe");
         searchPredicates.put("property_1", "jcr:content/data/cq:model");
         searchPredicates.put("property_1.value", "/conf/leforemhe/settings/dam/cfm/models/metier");
+        searchPredicates.put("p.limit", "-1");
         if (queryParameter != null && queryParameter.contains(",")) {
             List<String> params = Arrays.asList(queryParameter.split(","));
             for (String param : params) {
