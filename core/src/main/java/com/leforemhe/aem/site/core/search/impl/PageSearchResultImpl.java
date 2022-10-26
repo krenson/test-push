@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.search.impl;
 
 import com.day.cq.tagging.TagManager;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.search.SearchResult;
@@ -61,6 +62,10 @@ public class PageSearchResultImpl implements SearchResult {
 
     public String getTitle() {
         return StringUtils.defaultIfBlank(StringUtils.defaultIfBlank(page.getPageTitle(), page.getTitle()), page.getName());
+    }
+
+    public String getJobId() {
+        return page.getProperties().get(Constants.CLE_METIER).toString();
     }
 
     @JsonInclude(value = JsonInclude.Include.NON_EMPTY)

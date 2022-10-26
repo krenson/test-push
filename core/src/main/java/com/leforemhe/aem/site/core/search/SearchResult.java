@@ -36,4 +36,6 @@ public interface SearchResult {
     String getVanityPath();
 
     String getFeaturedImage();
+
+    String getJobId();
 }

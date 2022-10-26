@@ -43,6 +43,8 @@ public class AssetSearchResultImpl implements SearchResult {
 
     private List<JobTag> jobtags;
 
+    private String jobId;
+
     private List<String> excerpts = new ArrayList<String>();
 
     public ContentType getContentType() {
@@ -118,5 +120,10 @@ public class AssetSearchResultImpl implements SearchResult {
             }
         }
         return tags;
+    }
+
+    @Override
+    public String getJobId() {
+        return jobId;
     }
 }

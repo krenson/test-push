@@ -69,7 +69,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         }
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
-        searchResults = searchProvider.buildSearchResults(result);
+        searchResults = searchProvider.buildSearchResults(result, null, false);
         for (SearchResult searchResult : searchResults) {
             ContentFragment contentFragment = request.getResourceResolver().resolve(searchResult.getPath()).adaptTo(ContentFragment.class);
             String codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);

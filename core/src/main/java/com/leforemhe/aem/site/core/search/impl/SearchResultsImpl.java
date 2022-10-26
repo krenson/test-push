@@ -90,7 +90,7 @@ public class SearchResultsImpl implements SearchResults {
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         pagination = searchProvider.buildPagination(result, "Previous", "Next");
-        searchResults = searchProvider.buildSearchResults(result);
+        searchResults = searchProvider.buildSearchResults(result, cleMetierList, (limit == null || !limit.equals("no-limit")));
         totalResults = computeTotalMatches(result);
     }
 
