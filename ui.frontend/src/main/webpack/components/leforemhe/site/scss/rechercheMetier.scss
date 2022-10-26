@@ -1,7 +1,9 @@
-div#rechercheMetier {
+div#rechercheMetier,
+.short-searchContainer div#rechercheMetier {
   .background-Yellow {
     padding: 10rem 0rem;
   }
+
   & > div,
   .title-container,
   .searchContainer {
@@ -177,9 +179,37 @@ div#rechercheMetier {
   }
 }
 
+.short-searchContainer div#rechercheMetier div.background-Yellow {
+  align-items: flex-start;
+  padding-left: 3rem;
+
+  .title-container {
+    margin-bottom: 2rem;
+  }
+
+  .searchContainer {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: fit-content;
+
+    .helpText {
+      width: unset;
+      justify-content: unset;
+    }
+
+    .searchbox {
+      width: 50rem;
+    }
+  }
+}
+
 @media screen and (max-width: $breakpointMobile) {
-  div#rechercheMetier {
+  div#rechercheMetier,
+  .short-searchContainer div#rechercheMetier {
     margin-top: 12rem;
+    position: relative;
+
     .background-Yellow {
       padding: 1rem 2rem;
 
@@ -189,7 +219,6 @@ div#rechercheMetier {
       }
     }
 
-    position: relative;
     .searchContainer {
       width: 100%;
       margin-bottom: 1rem;
@@ -241,6 +270,31 @@ div#rechercheMetier {
         color: #363d4a;
         font-weight: 550;
         width: 80%;
+      }
+    }
+  }
+
+  .short-searchContainer div#rechercheMetier div.background-Yellow {
+    align-items: center;
+    padding-left: unset;
+
+    .title-container {
+      margin-bottom: unset;
+    }
+
+    .searchContainer {
+      flex-direction: column;
+      justify-content: unset;
+      gap: unset;
+      width: 100%;
+
+      .helpText {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .searchbox {
+        width: 100%;
       }
     }
   }
