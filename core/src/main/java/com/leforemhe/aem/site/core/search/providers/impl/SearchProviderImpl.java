@@ -45,7 +45,7 @@ public class SearchProviderImpl implements SearchProvider {
     }
 
     @Override
-    public final List<com.leforemhe.aem.site.core.search.SearchResult> buildSearchResults(SearchResult result, List<String> cleMetierList, Boolean noLimit) {
+    public final List<com.leforemhe.aem.site.core.search.SearchResult> buildSearchResults(SearchResult result, List<String> cleMetierList) {
         final List<com.leforemhe.aem.site.core.search.SearchResult> searchResults = new ArrayList<com.leforemhe.aem.site.core.search.SearchResult>();
         final List<com.leforemhe.aem.site.core.search.SearchResult> orderedSearchResults = new ArrayList<com.leforemhe.aem.site.core.search.SearchResult>();
 
@@ -62,7 +62,7 @@ public class SearchProviderImpl implements SearchProvider {
                 log.warn("Unable to adapt this hit's resource to a Search Result", e);
             }
         }
-        if (cleMetierList != null && cleMetierList.size() > 0 && noLimit) {
+        if (cleMetierList != null && cleMetierList.size() > 0) {
             orderSearchResults(cleMetierList, searchResults, orderedSearchResults);
         }
         return orderedSearchResults.size() > 0 ? orderedSearchResults : searchResults;
