@@ -126,6 +126,22 @@ div#rechercheMetier,
         }
       }
 
+      div.searchCheckbox-container {
+        display: flex;
+        position: absolute;
+        bottom: -4.5rem;
+        padding-left: 1.5rem;
+        align-items: center;
+        gap: 1rem;
+
+        input[type="checkbox"] {
+          accent-color: #2f3a48;
+          width: 2rem;
+          height: 2rem;
+          margin-top: 0rem;
+        }
+      }
+
       .searchBtn {
         margin: 0;
         width: fit-content;
@@ -230,6 +246,16 @@ div#rechercheMetier,
         gap: 1.5rem;
         padding: 1.5rem;
         flex-direction: column;
+
+        div.searchCheckbox-container {
+          position: relative;
+          bottom: unset;
+          padding-left: 0;
+
+          input[type="checkbox"] {
+            width: 5rem;
+          }
+        }
 
         .searchSuggestions,
         .valueChips {
