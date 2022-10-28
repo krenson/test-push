@@ -41,13 +41,13 @@ public class SearchProviderImpl implements SearchProvider {
 
     public SearchResult search(ResourceResolver resourceResolver, Map<String, String> predicates) {
         final Query query = queryBuilder.createQuery(PredicateGroup.create(predicates), resourceResolver.adaptTo(Session.class));
-
         return query.getResult();
     }
 
     @Override
-    public final List<com.leforemhe.aem.site.core.search.SearchResult> buildSearchResults(SearchResult result) {
+    public final List<com.leforemhe.aem.site.core.search.SearchResult> buildSearchResults(SearchResult result, List<String> cleMetierList) {
         final List<com.leforemhe.aem.site.core.search.SearchResult> searchResults = new ArrayList<com.leforemhe.aem.site.core.search.SearchResult>();
+        final List<com.leforemhe.aem.site.core.search.SearchResult> orderedSearchResults = new ArrayList<com.leforemhe.aem.site.core.search.SearchResult>();
 
         for (Hit hit : result.getHits()) {
             try {
@@ -56,14 +56,16 @@ public class SearchProviderImpl implements SearchProvider {
                 List<String> excerpts = new ArrayList<>();
                 excerpts.add(hit.getExcerpt());
                 searchResult.setExcerpts(excerpts);
-
                 searchResults.add(searchResult);
                 log.debug("Added hit [ {} ] to search results", hit.getPath());
             } catch (Exception e) {
                 log.warn("Unable to adapt this hit's resource to a Search Result", e);
             }
         }
-        return searchResults;
+        if (cleMetierList != null && cleMetierList.size() > 0) {
+            orderSearchResults(cleMetierList, searchResults, orderedSearchResults);
+        }
+        return orderedSearchResults.size() > 0 ? orderedSearchResults : searchResults;
     }
 
     @Override
@@ -93,5 +95,16 @@ public class SearchProviderImpl implements SearchProvider {
         }
 
         return pagination;
+    }
+
+    private List<com.leforemhe.aem.site.core.search.SearchResult> orderSearchResults(List<String> cleMetierList, List<com.leforemhe.aem.site.core.search.SearchResult> searchResults, List<com.leforemhe.aem.site.core.search.SearchResult> orderedSearchResults) {
+        cleMetierList.forEach(cleMetier -> {
+            searchResults.forEach(searchResult -> {
+                if(searchResult.getJobId().equals(cleMetier) && !orderedSearchResults.contains(searchResult)){
+                    orderedSearchResults.add(searchResult);
+                }
+            });
+        });
+        return orderedSearchResults;
     }
 }
