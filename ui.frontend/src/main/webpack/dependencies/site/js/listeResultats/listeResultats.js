@@ -9,7 +9,7 @@ const title = document.querySelector(".aem.title-container h1");
 const subtitle = document.querySelector(".aem.title-container h5.subTitle");
 
 searchBtn.addEventListener("click", () => {
-  const randomSearchResult = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+  const randomNumber = Math.floor(Math.random() * (10 - 0 + 1) + 0);
 
   if (window.screen.width <= 1200) {
     searchContainer.style.display = "none";
@@ -17,19 +17,18 @@ searchBtn.addEventListener("click", () => {
     titleContainer.style.alignItems = "start";
 
     title.innerText = "Résultats";
-    subtitle.innerText = randomSearchResult + " métiers trouvés";
-    if (randomSearchResult == 1)
-      subtitle.innerText = randomSearchResult + " métier trouvé";
+    subtitle.innerText = randomNumber + " métiers trouvés";
+    if (randomNumber == 1) subtitle.innerText = randomNumber + " métier trouvé";
 
     return;
   }
 
   resultcontainer.style.display = "flex";
 
-  resultLabel.innerText = randomSearchResult + " métiers trouvés";
+  resultLabel.innerText = randomNumber + " métiers trouvés";
 
-  if (randomSearchResult == 1)
-    resultLabel.innerText = randomSearchResult + " métier trouvé";
+  if (randomNumber == 1)
+    resultLabel.innerText = randomNumber + " métier trouvé";
 });
 
 filAriane.addEventListener("click", () => {
