@@ -96,22 +96,25 @@ public class ContentFragmentUtilService {
         SearchResult result = createQueryForContentFragments(
                 contentFragmentConfigService.getConfig().modelMetierPath(), jobID, Job.CONTENT_FRAGMENT_MODEL_CONF);
         if (!result.getHits().isEmpty()) {
-            ContentFragment contentFragmentJob = result.getResources().next().adaptTo(ContentFragment.class);
-            if (contentFragmentJob != null) {
-                String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
-                        String.class);
-                Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage));
-                if (resolveRelatedJobs) {
-                    String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
+            Resource iterationResource = result.getResources().next();
+            if (iterationResource != null ) {
+                ContentFragment contentFragmentJob = getContentFragmentFromPath(iterationResource.getPath());
+                if (contentFragmentJob != null) {
+                    String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
                             String.class);
-                    job.setRelatedJobs(resolveJobs(relatedJobIds));
+                    Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage));
+                    if (resolveRelatedJobs) {
+                        String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
+                                String.class);
+                        job.setRelatedJobs(resolveJobs(relatedJobIds));
+                    }
+                    if (resolvePossibleJobs) {
+                        String[] possibleJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.POSSIBLE_JOBS_KEY,
+                                String.class);
+                        job.setPossibleJobs(resolveJobs(possibleJobIds));
+                    }
+                    return job;
                 }
-                if (resolvePossibleJobs) {
-                    String[] possibleJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.POSSIBLE_JOBS_KEY,
-                            String.class);
-                    job.setPossibleJobs(resolveJobs(possibleJobIds));
-                }
-                return job;
             }
         }
         return null;
@@ -199,5 +202,9 @@ public class ContentFragmentUtilService {
     private ResourceResolver getResourceResolver() {
         return ServiceUtils.getResourceResolver(resolverFactory,
                 globalConfigService.getConfig().systemUser());
+    }
+
+    private ContentFragment getContentFragmentFromPath(String path) {
+        return getResourceResolver().getResource(path).adaptTo(ContentFragment.class);
     }
 }

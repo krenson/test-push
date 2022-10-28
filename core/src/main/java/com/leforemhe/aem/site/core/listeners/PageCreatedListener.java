@@ -56,7 +56,8 @@ public class PageCreatedListener implements EventListener {
             session = resolver.adaptTo(Session.class);
             if (session != null) {
                 LOG.info("Session created");
-                session.getWorkspace().getObservationManager().addEventListener(this, Event.NODE_ADDED, globalConfigService.getConfig().contentPath(), true, null, null, false);
+                // Not deleting this in case we ever want to swap to listeners again (Replaced with workflow)
+                //session.getWorkspace().getObservationManager().addEventListener(this, Event.NODE_ADDED, globalConfigService.getConfig().contentPath(), true, null, null, false);
             }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
