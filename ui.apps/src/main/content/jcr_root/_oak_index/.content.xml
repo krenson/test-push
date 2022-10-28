@@ -19,6 +19,10 @@
                     relativeNode="{Boolean}true"/>
             </dam:Asset>
         </aggregates>
+        <analyzers jcr:primaryType="nt:unstructured">
+            <default  jcr:primaryType="nt:unstructured"
+                      class="org.apache.lucene.analysis.fr.FrenchAnalyzer"/>
+        </analyzers>
         <indexRules jcr:primaryType="nt:unstructured">
             <dam:Asset jcr:primaryType="nt:unstructured">
                 <properties jcr:primaryType="nt:unstructured">
