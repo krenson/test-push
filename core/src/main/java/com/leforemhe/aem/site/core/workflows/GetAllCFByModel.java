@@ -42,7 +42,7 @@ public class GetAllCFByModel implements WorkflowProcess {
 
     @Override
     public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {
-        LOG.info("Executing the workflow");
+        LOG.debug("Executing the workflow get all cf");
         try {
             String payloadPath = workItem.getWorkflowData().getPayload().toString();
             String model = metaDataMap.get("cfModel", "empty");
