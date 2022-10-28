@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          cq:dialogMode="floating"
+          cq:inherit="{Boolean}true"
+          jcr:primaryType="cq:EditConfig">
+    <cq:formParameters
+            jcr:description="This workflow listens to new content fragment creations and creates a page for it."
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Create page by CF ID(s)"
+            PROCESS="com.leforemhe.aem.site.core.workflows.PageCreationByIdCF"
+            PROCESS_AUTO_ADVANCE="true"/>
+</jcr:root>

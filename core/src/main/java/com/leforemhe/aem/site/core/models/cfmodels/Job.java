@@ -26,6 +26,7 @@ public class Job {
     public static final String VANITY_URL = "vanityUrl";
     public static final String OBLIGATOIRE_KEY = "obligatoire";
     public static final String CONDITIONS_KEY = "conditions";
+    public static final String NAME_JOB_KEY = "nomMetier";
 
     public static final String CONTENT_FRAGMENT_MODEL_CONF = "/conf/leforemhe/settings/dam/cfm/models/metier";
     public static final String CONTENT_FRAGMENT_MODEL_TYPE = "job";
@@ -48,6 +49,7 @@ public class Job {
     private String[] tagIds;
     private String[] conditions;
     private String vanityUrl;
+    private String name;
 
     public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
@@ -68,10 +70,11 @@ public class Job {
         this.tagIds = ContentFragmentUtils.getMultifieldValue(contentFragment, LABELS_KEY, String.class);
         this.link = link;
         this.conditions = ContentFragmentUtils.getMultifieldValue(contentFragment, CONDITIONS_KEY, String.class);
-        this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);;
+        this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);
+        this.name = ContentFragmentUtils.getSingleValue(contentFragment, NAME_JOB_KEY, String.class);
     }
 
-    public Job() {};
+    public Job() {}
 
     public String getCodeMetier() {
         return codeMetier;
@@ -133,6 +136,10 @@ public class Job {
         return vanityUrl;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String[] getObligations() {
         return obligations;
     }
@@ -157,6 +164,7 @@ public class Job {
         switch (element) {
             case DESCRIPTION_KEY: return getDescription();
             case CODE_METIER_KEY: return getCodeMetier();
+            case NAME_JOB_KEY: return getName();
             default: return StringUtils.EMPTY;
         }
     }
