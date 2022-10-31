@@ -62,7 +62,7 @@ public class ModelUtils {
     /**
      * Check if a resource has a child
      *
-     * @param resource the resource to be checked.
+     * @param resource     the resource to be checked.
      * @param resourceName the name of the child.
      * @return true if the resource has the child specified
      */
@@ -81,7 +81,7 @@ public class ModelUtils {
      * Get the vanity url of a page if it exists, otherwise return the given real path of the page.
      *
      * @param internalLinkReference the real path of the page
-     * @param resourceResolver the resource resolver to fetch the page resource object
+     * @param resourceResolver      the resource resolver to fetch the page resource object
      * @return the vanity url of the page if there's one, the real url otherwise
      */
     public static String getVanityOfPageIfExists(String internalLinkReference, ResourceResolver resourceResolver) {
@@ -99,7 +99,7 @@ public class ModelUtils {
             return internalLinkReference;
         }
         vanityUrl = page.getVanityUrl();
-        return vanityUrl==null ? internalLinkReference : vanityUrl;
+        return vanityUrl == null ? internalLinkReference : vanityUrl;
     }
 
     /**
@@ -119,7 +119,7 @@ public class ModelUtils {
      * Return the vanity url of given link reference of an asset by (eventually) removing the non vanity prefix.
      *
      * @param assetLinkReference the link reference of the asset (document, image) to return the vanity url from
-     * @param nonVanityPrefix the prefix of non vanity urls
+     * @param nonVanityPrefix    the prefix of non vanity urls
      * @return the vanity url of given link reference of an asset
      */
     public static String getVanityUrlForAssetLink(String assetLinkReference, String nonVanityPrefix) {
@@ -146,7 +146,7 @@ public class ModelUtils {
      * Check whether the given assetLinkReference (document or image) is a full url (and thus not a vanity url).
      *
      * @param assetLinkReference the given link reference to check whether it is a full url
-     * @param nonVanityPrefix the prefix of non vanity urls
+     * @param nonVanityPrefix    the prefix of non vanity urls
      * @return whether the given assetLinkReference is a full url
      */
     public static boolean isAssetLinkFullUrl(String assetLinkReference, String nonVanityPrefix) {
@@ -156,7 +156,7 @@ public class ModelUtils {
     /**
      * Check whether the given linkReference (for pages) is a full url (and thus not a vanity url).
      *
-     * @param linkReference the given link reference to check whether it is a full url
+     * @param linkReference   the given link reference to check whether it is a full url
      * @param nonVanityPrefix the prefix of non vanity urls
      * @return whether the given assetLinkReference is a full url
      */
@@ -165,12 +165,12 @@ public class ModelUtils {
     }
 
     public static String getFeaturedImageOfPage(String path, ResourceResolver resourceResolver) {
-        Resource featuredImage = resourceResolver.getResource(path).getChild("jcr:content").getChild("cq:featuredimage");
+        String featuredImage = resourceResolver.getResource(path).getChild("jcr:content")
+                .getChild("cq:featuredimage").getValueMap()
+                .get("fileReference", String.class);
         if (featuredImage != null) {
-            return featuredImage.getValueMap().get("fileReference",
-                    String.class);
-        } else {
-            return StringUtils.EMPTY;
+            return featuredImage;
         }
+        return StringUtils.EMPTY;
     }
 }
