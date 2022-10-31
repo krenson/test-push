@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = () => {
   const searchBtn = document.querySelector(".aem.searchBtn button");
   const resultcontainer = document.querySelector(".result-counter ");
   const resultLabel = document.querySelector(".result-counter h5");
