@@ -16,7 +16,7 @@
     }
 
     div.contentCentered.he.result-counter {
-      display: none;
+      display: flex;
       justify-content: center;
     }
 
@@ -32,6 +32,17 @@
         margin-right: unset !important;
       }
     }
+  }
+}
+
+div#rechercheMetier:has(nav#filAriane.aem) {
+  .aem.title-container.results {
+    display: flex;
+  }
+
+  .aem.title-container.results {
+    display: none;
+    align-items: flex-start;
   }
 }
 
@@ -102,12 +113,26 @@
       display: none;
     }
   }
-  div#rechercheMetier {
-    nav#filAriane.aem div {
-      padding-left: 0rem;
+
+  div#rechercheMetier:has(nav#filAriane.aem) {
+    nav#filAriane.aem {
+      display: block;
+      div {
+        padding-left: 0rem;
+      }
+    }
+
+    .aem.title-container {
+      display: none;
+    }
+
+    .aem.title-container.results {
+      display: flex;
+      align-items: flex-start;
     }
 
     .searchContainer {
+      display: none;
       position: relative !important;
       bottom: unset !important;
     }
