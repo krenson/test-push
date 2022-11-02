@@ -175,8 +175,8 @@ $(document).ready(function () {
         })
     }
 
-    window.clickAccordion = function clickAccordion(e) {
-        const itemPanel = document.querySelector('#accordion-item-panel');
+    window.clickAccordion = function clickAccordion(itemPanel) {
+        itemPanel = itemPanel.parentElement.parentElement.querySelector('#accordion-item-panel');
         if (itemPanel.style.display === HIDE) {
             itemPanel.style.display = SHOW;
         } else {
