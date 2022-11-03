@@ -54,6 +54,10 @@
       gap: 0.5rem;
       align-items: center;
 
+      a{
+        text-decoration: none;
+      }
+
       span:last-child {
         &::after {
           display: inline-flex;
