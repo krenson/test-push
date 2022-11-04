@@ -135,6 +135,10 @@ strong {
 }
 
 @media screen and (max-width: $breakpointMobile) {
+  .aem.image_component {
+    width: 100%;
+  }
+
   body .middle {
     padding-top: 12rem;
     transition: padding-top 0.3s linear;
