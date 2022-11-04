@@ -9,11 +9,13 @@ import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.leforemhe.aem.site.core.services.ImageService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.osgi.service.component.annotations.Reference;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -35,6 +37,9 @@ public class PageSearchResultImpl implements SearchResult {
 
     @Inject
     private ResourceResolver resourceResolver;
+
+    @Inject
+    private ImageService imageService;
 
     private List<JobTag> jobTags;
 
@@ -109,7 +114,12 @@ public class PageSearchResultImpl implements SearchResult {
 
     @Override
     public String getFeaturedImage() {
-        return ModelUtils.getFeaturedImageOfPage(getPath(), resourceResolver);
+        String featuredImageFileReference = ModelUtils.getFeaturedImageOfPage(getPath(), resourceResolver);
+        if(!StringUtils.isEmpty(featuredImageFileReference)) {
+            return imageService.getImageRendition(featuredImageFileReference);
+        }
+        // TODO : Replace StringUtils.EMPTY here with fallback image for tuile
+        return StringUtils.isEmpty(featuredImageFileReference) ? featuredImageFileReference : StringUtils.EMPTY;
     }
 
     private List<JobTag> resolveTags(List<String> tagIds) {

@@ -10,7 +10,6 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +18,10 @@ import java.util.Map;
         immediate = true,
         service = PredicateFactory.class
 )
-public class MetierPredicateFactoryImpl extends AbstractTagPredicateFactory implements PredicateFactory {
+public class SecteurPredicateFactoryImpl extends AbstractTagPredicateFactory implements PredicateFactory {
 
-    public static final String TAG_NAMESPACE = "he-metier";
-    public static final String REQUEST_PARAM = "he-metier";
+    public static final String TAG_NAMESPACE = "secteurs";
+    public static final String REQUEST_PARAM = "secteurs";
     public static final int GROUP_ID = 3000;
     public static final String PROPERTY_PATH = "jcr:content/cq:tags";
 

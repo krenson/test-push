@@ -86,7 +86,9 @@ public class SearchResultsImpl implements SearchResults {
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "useExcerpt"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "searchPaths"));
         addClemetiers(cleMetierList, searchPredicates);
-        addTags(predicateResolver.getPredicateGroup(request, "tags"), searchPredicates);
+        if (request.getParameter("tags") != null) {
+            addTags(request.getParameter("tags"), searchPredicates);
+        }
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         pagination = searchProvider.buildPagination(result, "Previous", "Next");
@@ -127,14 +129,12 @@ public class SearchResultsImpl implements SearchResults {
         }
     }
 
-    private void addTags(PredicateGroup tagPredicates, Map<String, String> searchPredicates) {
-        if (tagPredicates != null) {
-            for (PredicateOption options : tagPredicates.getOptions()) {
-                if (options.isActive()) {
-                    searchPredicates.put("2_property", "jcr:content/cq:tags");
-                    searchPredicates.put("2_property.value", options.getValue());
-                }
-            }
+    private void addTags(String tags, Map<String, String> searchPredicates) {
+        int index = 0;
+        for (String tag : tags.split(",")) {
+            index++;
+            searchPredicates.put(index +"_property", "jcr:content/cq:tags");
+            searchPredicates.put(index + "_property.value", tag);
         }
     }
 
