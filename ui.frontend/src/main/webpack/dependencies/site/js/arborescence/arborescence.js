@@ -56,3 +56,23 @@ function btnAvailability() {
     }
   }
 }
+
+function createUrlParams() {
+  let urlParams = "tags="
+  subCheckboxes.forEach( subCheckbox => {
+    if(subCheckbox.checked === true) {
+      urlParams += subCheckbox.dataset.tagname + ",";
+    }
+  })
+  optionCheckboxes.forEach(optionCheckbox => {
+    if(optionCheckbox.checked === true) {
+      urlParams += optionCheckbox.dataset.tagname + ",";
+    }
+  })
+  return urlParams;
+}
+
+function clickButton(href) {
+  let urlParams = createUrlParams();
+  window.location = href + ".html?" + urlParams;
+}
