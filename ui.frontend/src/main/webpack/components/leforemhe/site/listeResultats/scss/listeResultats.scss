@@ -1,24 +1,29 @@
 .twoCol.listeResultats-container .container-content {
-  gap: 7rem;
+  gap: 3rem !important;
   margin-top: 5.85rem;
   width: 100%;
+  flex-direction: row;
   //   padding-right: unset;
 
   .filter-back-container {
-    max-width: 100%;
-    width: 100%;
+    width: fit-content;
   }
 
   .resultats-container {
-    width: 96.1rem;
+    width: 95.5rem;
     div.contentCentered.he {
       display: none;
+    }
+
+    div.contentCentered.he.result-counter {
+      display: none;
+      justify-content: center;
     }
 
     .tuile-results-container {
       display: flex;
       flex-wrap: wrap;
-      width: 96.1rem;
+      width: 100%;
 
       div.teaser.tuileContainer:nth-child(-n + 2) {
         margin-top: unset !important;
@@ -30,20 +35,81 @@
   }
 }
 
-@media screen and (max-width: $breakpointMobile) {
+@media screen and (max-width: $breakpointWideScreen) {
   .twoCol.listeResultats-container .container-content {
-    flex-direction: column;
+    .resultats-container .tuile-results-container {
+      div.teaser.tuileContainer {
+        width: 35rem;
+      }
+    }
+  }
+}
 
+@media screen and (max-width: 1200px) {
+  .twoCol.listeResultats-container .container-content {
+    margin-top: 15rem !important;
+    flex-direction: row !important;
+
+    .resultats-container .tuile-results-container {
+      div.teaser.tuileContainer {
+        width: 35rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .twoCol.listeResultats-container .container-content {
+    margin-top: 15rem;
+    flex-direction: row;
+
+    .resultats-container .tuile-results-container {
+      align-items: center;
+      flex-direction: column;
+
+      div.teaser.tuileContainer {
+        width: 46.25rem !important ;
+        margin-right: 0rem !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .twoCol.listeResultats-container .container-content {
+    margin-top: 5.85rem !important;
     .resultats-container {
+      width: 100%;
+
       div.contentCentered.he {
         display: block;
+
+        .cmp-teaser {
+          justify-content: end;
+          a .cmp-teaser__image {
+            border: unset;
+            background-color: unset;
+            margin-right: unset;
+
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              margin-top: 0.2rem;
+            }
+          }
+        }
+      }
+
+      div.contentCentered.he.result-counter {
+        display: none;
       }
 
       .tuile-results-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
 
-        width: 96.1rem;
+        width: 100% !important;
 
         // div.teaser.tuileContainer:nth-child(-n + 2) {
         //   margin-top: unset !important;
@@ -51,6 +117,24 @@
         // div.teaser.tuileContainer:nth-child(even) {
         //   margin-right: unset !important;
         // }
+
+        div.teaser.tuileContainer {
+          margin-right: 3rem !important;
+          width: 35rem !important;
+          div.aem.cmp-teaser__tags {
+            width: unset !important;
+            margin: 0.5rem 0 !important;
+
+            .chip-button {
+              padding: 0.6rem 1.2rem;
+              margin-top: 0.5rem;
+              margin-bottom: 0.5rem;
+              font-weight: 600 !important;
+              width: unset !important;
+              display: unset !important;
+            }
+          }
+        }
       }
     }
 
@@ -58,8 +142,93 @@
       display: none;
     }
   }
-  div#rechercheMetier .searchContainer {
-    position: relative !important;
-    bottom: unset !important;
+
+  div#rechercheMetier {
+    nav#filAriane.aem div {
+      padding-left: 0rem;
+    }
+
+    .searchContainer {
+      position: relative !important;
+      bottom: unset !important;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .twoCol.listeResultats-container .container-content {
+    .resultats-container {
+      width: 100%;
+
+      div.contentCentered.he {
+        display: block;
+
+        .cmp-teaser {
+          justify-content: end;
+          a .cmp-teaser__image {
+            border: unset;
+            background-color: unset;
+            margin-right: unset;
+
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              margin-top: 0.2rem;
+            }
+          }
+        }
+      }
+
+      div.contentCentered.he.result-counter {
+        display: none;
+      }
+
+      .tuile-results-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100% !important;
+
+        // div.teaser.tuileContainer:nth-child(-n + 2) {
+        //   margin-top: unset !important;
+        // }
+        // div.teaser.tuileContainer:nth-child(even) {
+        //   margin-right: unset !important;
+        // }
+
+        div.teaser.tuileContainer {
+          margin-right: 0 !important;
+          div.aem.cmp-teaser__tags {
+            width: unset !important;
+            margin: 0.5rem 0 !important;
+
+            .chip-button {
+              padding: 0.6rem 1.2rem;
+              margin-top: 0.5rem;
+              margin-bottom: 0.5rem;
+              font-weight: 600 !important;
+              width: unset !important;
+              display: unset !important;
+            }
+          }
+        }
+      }
+    }
+
+    .filter-back-container {
+      display: none;
+    }
+  }
+
+  div#rechercheMetier {
+    nav#filAriane.aem div {
+      padding-left: 0rem;
+    }
+
+    .searchContainer {
+      position: relative !important;
+      bottom: unset !important;
+    }
   }
 }

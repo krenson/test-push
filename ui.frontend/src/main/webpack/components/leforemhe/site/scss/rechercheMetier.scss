@@ -2,6 +2,10 @@ div#rechercheMetier,
 .short-searchContainer div#rechercheMetier {
   .background-Yellow {
     padding: 10rem 0rem;
+
+    nav#filAriane {
+      display: none;
+    }
   }
 
   & > div,
@@ -46,6 +50,7 @@ div#rechercheMetier,
 
   .searchContainer {
     width: 80%;
+    max-width: 140rem;
     margin-bottom: 5rem;
 
     position: relative;
@@ -232,6 +237,10 @@ div#rechercheMetier,
       &::after {
         content: "";
         padding-bottom: 10rem;
+      }
+
+      nav#filAriane {
+        display: none;
       }
     }
 

@@ -16,7 +16,10 @@ $ffSemiBoldV2: "poppinssemibold";
 $ffLightV2: "poppinslight"; */
 
 $primary-font-colorV2: $primary-colorV2;
+$breakpointSmallMobile: 700px;
 $breakpointMobile: 1200px;
+$breakpointWideScreen: 1400px;
+
 $min-padding: 1.5rem;
 
 $global-max-width: 140rem;
@@ -27,7 +30,7 @@ $max-width-two-colum: calc(
   #{$global-two-colum-max-with} + calc(#{$min-padding} * 2)
 );
 
-$colSize: 48.5rem;
+$colSize: 37.5rem;
 $gapSize: 10rem;
 @mixin max-width {
   max-width: $max-width;
