@@ -109,7 +109,7 @@ $(document).ready(function () {
                 if (index > 0) {
                     tagsValue += ',' + '';
                 }
-                tagsValue += checkbox.name + '';
+                tagsValue += checkbox.name + ',';
                 index++
             }
         })
@@ -119,7 +119,7 @@ $(document).ready(function () {
     function getQuickResults(inputValue) {
         if (showResults == "true") {
             const searchResultList = document.querySelector('.tuile-results-container')
-            tagsValue = getTagQuery();
+            tagsValue += getTagQuery();
             let query = '';
             query = inputValue === "" ? '' : `q=${inputValue}&`;
             query = query + (orCheckbox.checked === false ? '' : `or=true&`);
@@ -195,6 +195,7 @@ $(document).ready(function () {
 
         let value = params.q; // "some_value"
         let orCheckboxInitValue = params.or; // "some_value"
+        tagsValue = params.tags;
 
         if (orCheckboxInitValue === "true") {
             document.getElementById("orCheckbox").checked = "true";

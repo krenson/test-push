@@ -6,9 +6,10 @@
                 <div id="accordion" class="cmp-accordion" data-cmp-is="accordion">
                     <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
                         <h3 class="cmp-accordion__header">
-                            <input onclick="checkboxClick(this)" type="checkbox"
+                            <input type="checkbox"
                                    id="${parentTags.key.value}"
                                    name="${parentTags.key.value}"
+                                   data-tagname="${parentTags.key.tagName}"
                                    class="option">
                             <button id="accordion-item-button"
                                     class="cmp-accordion__button cmp-accordion__button--expanded"
@@ -26,9 +27,10 @@
                                         <li class="cmp-list__item">
                                             <div>
                                                 <label for="${childTag.value}">
-                                                    <input onclick="checkboxClick(this)" type="checkbox"
+                                                    <input type="checkbox"
                                                            id="${childTag.value}"
                                                            name="${childTag.value}"
+                                                           data-tagname="${childTag.tagName}"
                                                            class="${parentTags.key.value} subOption">
                                                     <label for="${childTag.value}">${childTag.label}</label>
                                                 </label>
@@ -43,11 +45,9 @@
             </div>
         </sly>
         <div class="aem">
-            <button disabled="true" id="btnArborVoirMetiers" class="btn btn-primary">
-                <a href="${model.internalLinkReference}">
+            <button onclick="clickButton(${model.internalLinkReference @ context='scriptString'})" disabled="true" id="btnArborVoirMetiers" class="btn btn-primary">
                     <span>${model.ctaLabel}</span>
                     <span class="cmp-accordion__icon"></span>
-                </a>
             </button>
             </a>
         </div>
