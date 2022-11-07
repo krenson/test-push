@@ -56,6 +56,10 @@ public class SearchResultsImpl implements SearchResults {
     private boolean showResults;
     @ValueMapValue
     private String searchResultPage;
+    @ValueMapValue
+    private String resultCounterLabel;
+    @ValueMapValue
+    private String resultCounterLabelZeroOrOne;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
