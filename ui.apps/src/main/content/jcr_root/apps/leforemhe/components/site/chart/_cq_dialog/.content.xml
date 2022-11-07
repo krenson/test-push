@@ -32,12 +32,8 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                                 fieldLabel="Path to dataset"
                                                 name="./dataPath"
-                                                nodeTypes="dam:Asset"
                                                 required="{Boolean}true"
                                                 rootPath="/content/dam">
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    leforemhe-allowedextensions="json"/>
                                             </dataPath>
                                         </items>
                                     </column>

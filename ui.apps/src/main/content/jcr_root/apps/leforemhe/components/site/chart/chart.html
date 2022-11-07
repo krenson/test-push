@@ -1,3 +1,6 @@
-<div class="cmp-chart" data-sly-use.chart="com.leforemhe.aem.site.core.models.horizonemploi.Chart">
+<div class="cmp-chart" data-sly-use.chart="com.leforemhe.aem.site.core.models.horizonemploi.Chart" data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <canvas data-chartdata-path="${chart.dataChartPath}" class="cmp-chart--barchart" responsive="true"></canvas>
 </div>
+<sly
+  data-sly-call="${template.placeholder @ isEmpty = true}"
+></sly>
