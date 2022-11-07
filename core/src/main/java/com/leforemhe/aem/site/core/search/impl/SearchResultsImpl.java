@@ -163,14 +163,4 @@ public class SearchResultsImpl implements SearchResults {
 
         return totalResults;
     }
-
-    @Override
-    public String getResultCounterLabel() {
-        return null;
-    }
-
-    @Override
-    public String getResultCounterLabelZeroOrOne() {
-        return null;
-    }
 }

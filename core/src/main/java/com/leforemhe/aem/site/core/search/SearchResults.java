@@ -11,8 +11,4 @@ public interface SearchResults {
     List<SearchResultsPagination> getPagination();
 
     String getResultTotal();
-
-    String getResultCounterLabel();
-
-    String getResultCounterLabelZeroOrOne();
 }
