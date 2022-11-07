@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
@@ -41,13 +42,19 @@ public class AssetReaderServlet extends SlingSafeMethodsServlet {
 
         if (StringUtils.isNotEmpty(chartDataPath)) {
             Asset graphDataAsset = getGraphDataAsset(request, chartDataPath);
-            if (graphDataAsset == null) {
+            Resource graphDataResource = getGraphDataResource(request, chartDataPath);
+            if (graphDataAsset == null && graphDataResource == null) {
                 response.setStatus(404);
                 errorResponse.addProperty("error", "Could not find graph data");
                 response.getWriter().write(errorResponse.toString());
                 return;
             }
-            JsonObject parsedGraphData = parseGraphData(graphDataAsset);
+            JsonObject parsedGraphData = null;
+            if (graphDataAsset != null) {
+                parsedGraphData = parseGraphData(graphDataAsset);
+            } else {
+                parsedGraphData = parseGraphDataFromResource(graphDataResource);
+            }
             if (parsedGraphData != null) {
                 response.setStatus(200);
                 response.getWriter().write(parsedGraphData.toString());
@@ -77,10 +84,29 @@ public class AssetReaderServlet extends SlingSafeMethodsServlet {
         return null;
     }
 
+    private Resource getGraphDataResource(SlingHttpServletRequest request, String path) {
+        if (StringUtils.isNotEmpty(path)) {
+            ResourceResolver resolver = request.getResourceResolver();
+            Resource chartDataResource = resolver.getResource(path);
+            return chartDataResource;
+        }
+        return null;
+    }
+
     private JsonObject parseGraphData(Asset graphDataAsset) {
-        if (graphDataAsset != null) {
+        if (graphDataAsset != null && graphDataAsset.getOriginal() != null) {
             return (JsonObject) JsonParser
-                    .parseReader(new InputStreamReader(graphDataAsset.getRendition("original").getStream(),
+                    .parseReader(new InputStreamReader(graphDataAsset.getOriginal().getStream(),
+                            StandardCharsets.UTF_8));
+        }
+        return null;
+    }
+
+    private JsonObject parseGraphDataFromResource(Resource graphDataResource) {
+        if (graphDataResource != null && graphDataResource.getChild("jcr:content") != null) {
+            InputStream is = graphDataResource.getChild("jcr:content").adaptTo(InputStream.class);
+            return (JsonObject) JsonParser
+                    .parseReader(new InputStreamReader(is,
                             StandardCharsets.UTF_8));
         }
         return null;
