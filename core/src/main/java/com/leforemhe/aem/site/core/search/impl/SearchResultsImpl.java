@@ -56,6 +56,10 @@ public class SearchResultsImpl implements SearchResults {
     private boolean showResults;
     @ValueMapValue
     private String searchResultPage;
+    @ValueMapValue
+    private String resultCounterLabel;
+    @ValueMapValue
+    private String resultCounterLabelZeroOrOne;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
@@ -158,5 +162,15 @@ public class SearchResultsImpl implements SearchResults {
         log.debug("Inside getResultTotal");
 
         return totalResults;
+    }
+
+    @Override
+    public String getResultCounterLabel() {
+        return null;
+    }
+
+    @Override
+    public String getResultCounterLabelZeroOrOne() {
+        return null;
     }
 }
