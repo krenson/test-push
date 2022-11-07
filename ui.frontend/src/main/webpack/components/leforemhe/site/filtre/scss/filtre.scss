@@ -3,8 +3,8 @@
 }
 
 .filter-container {
-  min-width: 46.6rem;
-  width: 4.6rem !important;
+  min-width: 30rem;
+  max-width: 38.5rem;
   padding-left: 1.5rem;
 
   .filter-header {
@@ -87,6 +87,16 @@
         align-items: center;
       }
 
+      & div:last-child {
+        width: 3.4rem;
+        max-width: 3.4rem;
+        min-width: 3.4rem;
+        margin-left: 1rem;
+        span {
+          float: right;
+        }
+      }
+
       &:hover {
         background-color: rgb(251, 231, 203);
       }
@@ -119,6 +129,13 @@
   div.cmp-accordion__item {
     border-bottom: 0.1rem solid $heigt-color;
     margin-bottom: 1rem;
+  }
+}
+
+div.popup-content:has(div.filter-container) {
+  div.filter-container,
+  div.accordion.panelcontainer div {
+    padding-left: 0rem;
   }
 }
 
@@ -156,7 +173,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointMobile) {
+@media screen and (max-width: $breakpointSmallMobile) {
   .filter-back-container {
     position: relative;
     background-color: rgba(47, 58, 72, 0.8);
