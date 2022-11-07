@@ -3,6 +3,7 @@ let suggestions = document.getElementById("searchSuggestions");
 const form = document.getElementsByClassName("searchContainer")[0];
 const checkboxes = document.querySelectorAll(".checkbox-container input");
 let valueChips = document.getElementById("valueChips");
+let searchCheckbox = document.querySelector(".searchCheckbox-container");
 let innerValueChips = [];
 let tagsValue = "";
 // get value form the input field
@@ -28,6 +29,7 @@ function getValue(e) {
   if (window.screen.width <= 1425) {
     suggestions.style.display = "none";
     valueChips.style.display = "none";
+    searchCheckbox.style.bottom = "-4.8rem";
     return;
   }
 
@@ -41,6 +43,7 @@ function suggestionClick(e) {
   suggestions.style.display = "none";
 
   valueChips.style.display = "block";
+  searchCheckbox.style.bottom = "-10.8rem";
 
   var chip = document.createElement("span");
 
@@ -69,6 +72,7 @@ function deleteValueChip(e) {
 
   if (valueChips.childNodes.length < 1) {
     valueChips.style.display = "none";
+    searchCheckbox.style.bottom = "-4.8rem";
   }
   let index = innerValueChips.indexOf(e.innerText);
   innerValueChips.splice(index, 1);
