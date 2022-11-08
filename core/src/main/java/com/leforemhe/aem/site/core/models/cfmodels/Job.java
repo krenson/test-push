@@ -15,6 +15,7 @@ public class Job {
     public static final String DESCRIPTION_KEY = "description";
     public static final String SYNONYMES_KEY = "synonymes";
     public static final String LABELS_KEY = "etiquettes";
+    public static final String SECTORS_KEY = "secteurs";
     public static final String CODE_ESCO_KEY = "codeEsco";
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
     public static final String RELATED_JOBS_KEY = "metiersProches";
@@ -51,7 +52,7 @@ public class Job {
     private String vanityUrl;
     private String name;
 
-    public Job(ContentFragment contentFragment, List<Tag> labels, String link) {
+    public Job(ContentFragment contentFragment, List<Tag> labels, String link, String[] tagIds) {
         this.codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
         this.title = ContentFragmentUtils.getSingleValue(contentFragment, TITLE_KEY, String.class);
         this.description = ContentFragmentUtils.getSingleValue(contentFragment, DESCRIPTION_KEY, String.class);
@@ -67,7 +68,7 @@ public class Job {
         this.assets = ContentFragmentUtils.getMultifieldValue(contentFragment, ASSETS_KEY, String.class);
         this.obligations = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATIONS_KEY, String.class);
         this.obligatoire = ContentFragmentUtils.getMultifieldValue(contentFragment, OBLIGATOIRE_KEY, String.class);
-        this.tagIds = ContentFragmentUtils.getMultifieldValue(contentFragment, LABELS_KEY, String.class);
+        this.tagIds = tagIds;
         this.link = link;
         this.conditions = ContentFragmentUtils.getMultifieldValue(contentFragment, CONDITIONS_KEY, String.class);
         this.vanityUrl = ContentFragmentUtils.getSingleValue(contentFragment, VANITY_URL, String.class);
