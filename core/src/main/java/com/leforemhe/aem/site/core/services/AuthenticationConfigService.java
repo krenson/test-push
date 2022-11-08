@@ -1,8 +1,6 @@
 package com.leforemhe.aem.site.core.services;
 
 import com.leforemhe.aem.site.core.config.AuthenticationConfig;
-import com.leforemhe.aem.site.core.config.JavascriptConfig;
-import com.leforemhe.aem.site.core.servlet.ContactFormServlet;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;

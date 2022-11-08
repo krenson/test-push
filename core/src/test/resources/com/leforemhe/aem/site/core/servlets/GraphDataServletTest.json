@@ -1,6 +1,6 @@
 {
   "jcr:primaryType": "nt:unstructured",
-  "sling:resourceType": "leforemhe/components/site/servlet/assetreaderservlet",
+  "sling:resourceType": "leforemhe/components/site/servlet/graphdataservlet",
   "dam": {
     "jcr:primaryType": "sling:Folder",
     "chart-data.json": {
