@@ -100,9 +100,9 @@ public class ContentFragmentUtilService {
             if (iterationResource != null ) {
                 ContentFragment contentFragmentJob = getContentFragmentFromPath(iterationResource.getPath());
                 if (contentFragmentJob != null) {
-                    String[] tagListIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.LABELS_KEY,
-                            String.class);
-                    Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage));
+                   String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY};
+                   String[] tagListIds = resolveTagIds(tagLabels, contentFragmentJob);
+                    Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage), tagListIds);
                     if (resolveRelatedJobs) {
                         String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
                                 String.class);
@@ -206,5 +206,17 @@ public class ContentFragmentUtilService {
 
     private ContentFragment getContentFragmentFromPath(String path) {
         return getResourceResolver().getResource(path).adaptTo(ContentFragment.class);
+    }
+
+    private String[] resolveTagIds(String[] tagLabels, ContentFragment contentFragmentJob) {
+        ArrayList<String> tagIds = new ArrayList<>();
+        for(String label : tagLabels) {
+            String[] ids = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, label,
+                    String.class);
+            if (ids != null && ids.length > 0) {
+                tagIds.addAll(Arrays.asList(ids));
+            }
+        }
+        return tagIds.toArray(new String[0]);
     }
 }
