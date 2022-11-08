@@ -9,7 +9,6 @@ $(document).ready(function () {
     let valueChips = document.getElementById("valueChips");
     const showResults = form.dataset.showSearchResults;
     const orCheckbox = document.querySelector('.searchCheckbox input');
-    const resultCounter = document.querySelector('.result-counter').getElementsByTagName('h5')[0];
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
@@ -127,10 +126,6 @@ $(document).ready(function () {
             query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
             $.get(form.dataset.quickSearchResults, query, function (data) {
                 searchResultList.innerHTML = '';
-                let resultCounterData = resultCounter.dataset;
-                resultCounter.innerText = data.resultTotal <= 1 ?
-                    `${data.resultTotal} ${resultCounterData.resultcounterlabelzeroorone}` :
-                    `${data.resultTotal} ${resultCounterData.resultcounterlabel}`;
                 $.each(data.results, function (index, result) {
                     var $jobTagHtml = $("<div>");
                     $.each(result.jobTags, function (newIndex, jobTag) {
