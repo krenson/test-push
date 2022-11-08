@@ -32,6 +32,15 @@ div#rechercheMetier:has(div.aem.title-container.results) {
       flex-wrap: wrap;
       width: 100%;
 
+      .zero-results-container {
+        p:first-child {
+          margin-bottom: 1.6rem;
+        }
+        p strong {
+          text-decoration: underline;
+        }
+      }
+
       div.teaser.tuileContainer:nth-child(-n + 2) {
         margin-top: unset !important;
       }
@@ -127,7 +136,7 @@ div#rechercheMetier:has(div.aem.title-container.results) {
   div#rechercheMetier:has(div.aem.title-container.results) {
     div.aem.title-container.results {
       display: flex;
-      margin-top: 5rem;
+      margin-top: 2rem;
       h1,
       h5 {
         width: 100%;
@@ -216,7 +225,7 @@ div#rechercheMetier:has(div.aem.title-container.results) {
   div#rechercheMetier:has(div.aem.title-container.results) {
     div.aem.title-container.results {
       display: flex;
-      margin-top: 5rem;
+      margin-top: 2rem;
       h1,
       h5 {
         width: 100%;
@@ -303,7 +312,7 @@ div#rechercheMetier:has(div.aem.title-container.results) {
   div#rechercheMetier:has(div.aem.title-container.results) {
     div.aem.title-container.results {
       display: flex;
-      margin-top: 5rem;
+      margin-top: 2rem;
       h1,
       h5 {
         width: 100%;
