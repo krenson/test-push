@@ -16,8 +16,18 @@ $ffSemiBoldV2: "poppinssemibold";
 $ffLightV2: "poppinslight"; */
 
 $primary-font-colorV2: $primary-colorV2;
+
+// used in filter component
 $breakpointSmallMobile: 700px;
+
+// used is liste de resultat component
+$breakpointSmallMobile_60: 760px;
+$breakpointSmallMobile_100: 800px;
+$breakpointTablet: 1090px;
+
 $breakpointMobile: 1200px;
+
+// used is liste de resultat component
 $breakpointWideScreen: 1400px;
 
 $min-padding: 1.5rem;
