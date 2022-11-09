@@ -126,7 +126,7 @@ public class SearchResultsImpl implements SearchResults {
     }
 
     private void addTags(String tags, Map<String, String> searchPredicates) {
-        int index = 0;
+        int index = 1;
         for (String tag : tags.split(",")) {
             index++;
             searchPredicates.put(index +"_property", "jcr:content/cq:tags");
