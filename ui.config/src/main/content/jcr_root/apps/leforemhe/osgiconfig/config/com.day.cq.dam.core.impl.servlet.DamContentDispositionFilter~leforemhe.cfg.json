@@ -1,0 +1,7 @@
+{
+  "cq.dam.empty.mim": false,
+  "cq.mime.type.blacklist": [
+    "application/octet-stream",
+    "image/svg+xml"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "jobSearchCountLink": "https://leforemhe-acc2.forem.be/espace-personnel/rest/RecherchesOffres/Count",
+  "jobSearchRequestPath": "https://leforemhe-acc2.forem.be/recherche-offres/resultat-recherche-offre"
+}

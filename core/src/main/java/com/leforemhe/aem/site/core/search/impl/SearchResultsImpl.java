@@ -5,8 +5,6 @@ import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
 import com.leforemhe.aem.site.core.search.SearchResultsPagination;
-import com.leforemhe.aem.site.core.search.predicates.PredicateGroup;
-import com.leforemhe.aem.site.core.search.predicates.PredicateOption;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -56,10 +54,6 @@ public class SearchResultsImpl implements SearchResults {
     private boolean showResults;
     @ValueMapValue
     private String searchResultPage;
-    @ValueMapValue
-    private String resultCounterLabel;
-    @ValueMapValue
-    private String resultCounterLabelZeroOrOne;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
@@ -69,8 +63,6 @@ public class SearchResultsImpl implements SearchResults {
     @PostConstruct
     private void initModel() {
         log.debug("Inside initModel");
-        boolean activeFacets = false;
-        final long start = System.currentTimeMillis();
         List<String> cleMetierList = new ArrayList<>();
         String query = request.getParameter("q");
         String orCheckbox = request.getParameter("or");
@@ -134,7 +126,7 @@ public class SearchResultsImpl implements SearchResults {
     }
 
     private void addTags(String tags, Map<String, String> searchPredicates) {
-        int index = 0;
+        int index = 1;
         for (String tag : tags.split(",")) {
             index++;
             searchPredicates.put(index +"_property", "jcr:content/cq:tags");

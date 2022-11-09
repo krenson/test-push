@@ -1,0 +1,16 @@
+{
+  "tokenUrl":"https://login.microsoftonline.com/6d26b97c-ca46-4057-84eb-6b2f2c236d3b/oauth2/v2.0/token",
+  "clientId":"$[env:SMTP_CLIENT_ID;default=]",
+  "refreshUrl":"https://login.microsoftonline.com/6d26b97c-ca46-4057-84eb-6b2f2c236d3b/oauth2/v2.0/token",
+  "clientSecret":"$[secret:SMTP_OAUTH_CLIENT_SECRET;default=]",
+  "authUrl":"https://login.microsoftonline.com/6d26b97c-ca46-4057-84eb-6b2f2c236d3b/oauth2/v2.0/authorize",
+  "authCodeRedirectUrl":"http://localhost",
+  "refreshToken":"$[secret:SMTP_OAUTH_REFRESH_TOKEN;default=]",
+  "scopes":[
+    "https://outlook.office365.com/SMTP.Send",
+    "https://outlook.office365.com/Mail.Send",
+    "https://outlook.office365.com/Mail.Read",
+    "https://outlook.office365.com/openid",
+    "https://outlook.office365.com/offline_access"
+  ]
+}

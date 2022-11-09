@@ -1,0 +1,4 @@
+{
+  "jobSearchCountLink": "/espace-personnel/rest/RecherchesOffres/Count",
+  "jobSearchRequestPath": "/recherche-offres/resultat-recherche-offre"
+}

@@ -1,5 +1,5 @@
 {
-    "googleCustomSearchEngineKey": "009994014376239286379:tjqeu6y7vs8",
-    "googleCustomSearchEngineKeyParameterName": "cx",
-    "googleCustomSearchEngineSource": "https://cse.google.com/cse.js"
+  "googleCustomSearchEngineKey": "$[secret:GOOGLE_KEY;default=]",
+  "googleCustomSearchEngineKeyParameterName": "cx",
+  "googleCustomSearchEngineSource": "https://cse.google.com/cse.js"
 }

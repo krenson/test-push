@@ -9,7 +9,6 @@ $(document).ready(function () {
     let valueChips = document.getElementById("valueChips");
     const showResults = form.dataset.showSearchResults;
     const orCheckbox = document.querySelector('.searchCheckbox input');
-    const resultCounter = document.querySelector('.result-counter').getElementsByTagName('h5')[0];
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
@@ -110,10 +109,7 @@ $(document).ready(function () {
         let index = 0;
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
-                if (index > 0) {
-                    tagsValue += ',' + '';
-                }
-                tagsValue += checkbox.name + ',';
+                tagsValue += index === 0 ? checkbox.name : ',' + checkbox.name ;
                 index++
             }
         })
@@ -123,17 +119,13 @@ $(document).ready(function () {
     function getQuickResults(inputValue) {
         if (showResults == "true") {
             const searchResultList = document.querySelector('.tuile-results-container')
-            tagsValue += getTagQuery();
+            tagsValue = getTagQuery();
             let query = '';
             query = inputValue === "" ? '' : `q=${inputValue}&`;
             query = query + (orCheckbox.checked === false ? '' : `or=true&`);
             query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
             $.get(form.dataset.quickSearchResults, query, function (data) {
                 searchResultList.innerHTML = '';
-                let resultCounterData = resultCounter.dataset;
-                resultCounter.innerText = data.resultTotal <= 1 ?
-                    `${data.resultTotal} ${resultCounterData.resultcounterlabelzeroorone}` :
-                    `${data.resultTotal} ${resultCounterData.resultcounterlabel}`;
                 $.each(data.results, function (index, result) {
                     var $jobTagHtml = $("<div>");
                     $.each(result.jobTags, function (newIndex, jobTag) {
@@ -175,7 +167,7 @@ $(document).ready(function () {
     function getTagValues(inputValue) {
         checkboxes.forEach(checkbox => {
             const inputQuery = inputValue !== '' ? `&q=${inputValue}` : '';
-            const query = "tags=" + checkbox.name + ',' + (params.tags !== null ? params.tags : '') + "&limit=no-limit" + inputQuery
+            const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : '') + "&limit=no-limit" + inputQuery
             $.get(form.dataset.quickSearchResults, query, function (data) {
                 checkbox.parentElement.parentElement.querySelector(".checkbox-amount").innerHTML = data.resultTotal;
             });
@@ -199,7 +191,6 @@ $(document).ready(function () {
     function initSearchPage() {
         let value = params.q; // "some_value"
         let orCheckboxInitValue = params.or; // "some_value"
-        tagsValue = params.tags;
 
         if (orCheckboxInitValue === "true") {
             document.getElementById("orCheckbox").checked = "true";
