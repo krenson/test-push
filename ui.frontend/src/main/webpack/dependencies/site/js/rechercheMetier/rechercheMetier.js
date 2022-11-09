@@ -29,7 +29,6 @@ function getValue(e) {
   if (window.screen.width <= 1425) {
     suggestions.style.display = "none";
     valueChips.style.display = "none";
-    searchCheckbox.style.bottom = "-4.8rem";
     return;
   }
 
@@ -49,8 +48,8 @@ function suggestionClick(e) {
 
   chip.className = "chips chips-secondary";
 
-  chip.innerText = e.innerText;
-  innerValueChips.push(e.innerText);
+  chip.innerText = e.innerText.trim().split(":")[1];
+  innerValueChips.push(e.innerText.trim().split(":")[1]);
 
   chip.addEventListener("click", function () {
     deleteValueChip(this);

@@ -49,8 +49,8 @@ div#rechercheMetier,
   }
 
   .searchContainer {
-    width: 80%;
-    max-width: 140rem;
+    width: 97%;
+    max-width: calc(140rem + 1.5rem);
     margin-bottom: 5rem;
 
     position: relative;
@@ -136,14 +136,13 @@ div#rechercheMetier,
         display: flex;
         position: absolute;
         bottom: -4.8rem;
-        padding-left: 1rem;
         align-items: center;
         gap: 1rem;
         z-index: 0;
 
         input[type="checkbox"] {
           accent-color: #2f3a48;
-          width: 2rem;
+          width: 4rem;
           height: 2rem;
           margin-top: 0rem;
         }
@@ -167,10 +166,6 @@ div#rechercheMetier,
           }
         }
       }
-    }
-
-    form.form-searchbox {
-      width: 100%;
     }
   }
 
@@ -203,26 +198,58 @@ div#rechercheMetier,
 }
 
 .short-searchContainer div#rechercheMetier div.background-Yellow {
-  align-items: flex-start;
-  padding-left: 3rem;
+  padding-left: 1.5rem;
 
-  .title-container {
-    margin-bottom: 2rem;
-  }
+  div.short-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 141.5rem;
+    margin: 0 auto;
+    max-width: calc(140rem + 1.5rem);
 
-  .searchContainer {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    gap: 1rem;
-    width: fit-content;
-
-    .helpText {
-      width: unset;
-      justify-content: unset;
+    .title-container {
+      margin-bottom: 2rem;
+      align-items: flex-start;
     }
 
-    .searchbox {
-      width: 50rem;
+    .searchContainer {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 1rem;
+      width: fit-content;
+      margin-bottom: 3rem;
+
+      .helpText {
+        width: unset;
+        justify-content: unset;
+        flex-direction: row;
+      }
+
+      .searchbox {
+        width: 50rem;
+        flex-direction: row;
+        position: relative;
+
+        .searchCheckbox-container {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+
+          .searchCheckbox {
+            input[type="checkbox"] {
+              accent-color: #2f3a48;
+            }
+            margin-top: 0;
+            width: 4rem;
+            height: 2rem;
+            accent-color: #2f3a48;
+          }
+
+          label {
+            white-space: nowrap;
+          }
+        }
+      }
     }
   }
 }
@@ -238,7 +265,7 @@ div#rechercheMetier,
 
       &::after {
         content: "";
-        padding-bottom: 10rem;
+        padding-bottom: 15rem;
       }
 
       nav#filAriane {
@@ -260,10 +287,11 @@ div#rechercheMetier,
 
         div.searchCheckbox-container {
           position: relative;
-          bottom: unset;
-          padding-left: 0;
+          bottom: 0 !important;
+          padding-left: 0 !important;
 
           input[type="checkbox"] {
+            width: 2.5rem;
           }
         }
 
@@ -312,25 +340,43 @@ div#rechercheMetier,
 
   .short-searchContainer div#rechercheMetier div.background-Yellow {
     align-items: center;
-    padding-left: unset;
 
-    .title-container {
-      margin-bottom: unset;
-    }
+    div.short-content-container {
+      width: 100% !important;
+      max-width: unset !important;
+      align-items: center;
 
-    .searchContainer {
-      flex-direction: column;
-      justify-content: unset;
-      gap: unset;
-      width: 100%;
-
-      .helpText {
-        width: 100%;
-        justify-content: flex-end;
+      .title-container {
+        margin-bottom: unset;
+        align-items: center;
       }
 
-      .searchbox {
-        width: 100%;
+      .searchContainer {
+        flex-direction: column !important;
+        justify-content: unset;
+        gap: unset;
+        width: 100% !important;
+        bottom: -15rem;
+
+        .helpText {
+          width: 100%;
+          justify-content: end;
+        }
+
+        .searchbox {
+          width: 100% !important;
+          gap: 1.5rem;
+          flex-direction: column !important;
+
+          div:first-child {
+            width: 100%;
+            max-width: unset;
+          }
+
+          div.searchCheckbox-container label {
+            white-space: unset !important;
+          }
+        }
       }
     }
   }
