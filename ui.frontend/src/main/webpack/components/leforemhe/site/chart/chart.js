@@ -20,7 +20,7 @@ const colorBorders = [
     "rgb(54, 64, 75)",
 ];
 
-const SERVLET_URL = "/content/leforemhe/assetreaderservlet.json";
+const SERVLET_URL = "/content/leforemhe/graphdataservlet.json";
 const ATTRIBUTE_GRAPH_DATA_PATH = "data-chartdata-path";
 
 const renderBarGraph = (barChartElement, data) => {

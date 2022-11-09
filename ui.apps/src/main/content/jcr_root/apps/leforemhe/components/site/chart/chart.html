@@ -1,6 +1,59 @@
-<div class="cmp-chart" data-sly-use.chart="com.leforemhe.aem.site.core.models.horizonemploi.Chart" data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+<div class="chart-container">
+  <div class="cmp-chart" data-sly-use.chart="com.leforemhe.aem.site.core.models.horizonemploi.Chart"
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <canvas data-chartdata-path="${chart.dataChartPath}" class="cmp-chart--barchart" responsive="true"></canvas>
+  </div>
+  <div data-sly-test="${chart.chartData}">
+    <div class="accordion panelcontainer">
+      <div id="accordion-${chart.ID}" class="cmp-accordion" data-cmp-is="accordion" data-placeholder-text="false">
+        <div class="cmp-accordion__item" data-cmp-hook-accordion="item" id="accordion-${chart.ID}-item">
+          <h3 class="cmp-accordion__header">
+            <button id="accordion-${chart.ID}-item-button" class="cmp-accordion__button cmp-accordion__button--expanded"
+              aria-controls="accordion-${chart.ID}-item-panel" data-cmp-hook-accordion="button">
+              <div>
+                <div class="icone">
+                  <img
+                    src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/icons/table-list-light.svg" />
+                </div>
+                <span class="cmp-accordion__title">Consulter les données sous forme de tableau</span>
+              </div>
+            </button>
+          </h3>
+          <div data-cmp-hook-accordion="panel" id="accordion-${chart.ID}-item-panel"
+            class="cmp-accordion__panel cmp-accordion__panel--expanded" role="region"
+            aria-labelledby="accordion-${chart.ID}-item-button" aria-hidden="true">
+            <div class="text">
+              <div class="cmp-text">
+                <div class="chart-details">
+                  <div>
+                    <p data-sly-test="${chart.tableDescription}">
+                      ${chart.tableDescription} 
+                    </p>
+                    <div>
+                      <table>
+                        <tr>
+                          <th>Type</th>
+                          <th data-sly-repeat.dataset="${chart.chartData.dataset}">
+                            ${dataset.label}
+                          </th>
+                        </tr>
+
+                        <tr data-sly-repeat.label="${chart.chartData.labels}">
+                          <td>${label}</td>
+                          <td data-sly-repeat.dataset="${chart.chartData.dataset}">
+                            ${dataset.data[labelList.index]}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <sly data-sly-call="${template.placeholder @ isEmpty = true}"></sly>
 </div>
-<sly
-  data-sly-call="${template.placeholder @ isEmpty = true}"
-></sly>

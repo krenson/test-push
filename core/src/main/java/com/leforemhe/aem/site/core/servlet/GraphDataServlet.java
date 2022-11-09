@@ -25,9 +25,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 @Component(service = { Servlet.class })
-@SlingServletResourceTypes(resourceTypes = "leforemhe/components/site/servlet/assetreaderservlet", methods = HttpConstants.METHOD_GET, extensions = "json")
+@SlingServletResourceTypes(resourceTypes = "leforemhe/components/site/servlet/graphdataservlet", methods = HttpConstants.METHOD_GET, extensions = "json")
 @ServiceDescription("Asset Reader Servlet")
-public class AssetReaderServlet extends SlingSafeMethodsServlet {
+public class GraphDataServlet extends SlingSafeMethodsServlet {
 
     public static final String CHART_DATA_PATH_PARAM = "chartDataPath";
 
