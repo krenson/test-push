@@ -16,6 +16,7 @@ public class Job {
     public static final String SYNONYMES_KEY = "synonymes";
     public static final String LABELS_KEY = "etiquettes";
     public static final String SECTORS_KEY = "secteurs";
+    public static final String TREE_STRUCTURE_KEY = "arborescence";
     public static final String CODE_ESCO_KEY = "codeEsco";
     public static final String LIBELLE_ESCO_KEY = "refLibelleEsco";
     public static final String RELATED_JOBS_KEY = "metiersProches";

@@ -100,7 +100,7 @@ public class ContentFragmentUtilService {
             if (iterationResource != null ) {
                 ContentFragment contentFragmentJob = getContentFragmentFromPath(iterationResource.getPath());
                 if (contentFragmentJob != null) {
-                   String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY};
+                   String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY};
                    String[] tagListIds = resolveTagIds(tagLabels, contentFragmentJob);
                     Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage), tagListIds);
                     if (resolveRelatedJobs) {
