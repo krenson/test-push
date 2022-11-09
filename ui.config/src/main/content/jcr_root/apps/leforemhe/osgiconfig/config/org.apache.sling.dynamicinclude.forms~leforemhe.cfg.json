@@ -1,0 +1,18 @@
+{
+  "include-filter.config.ignoreUrlParams": [
+  ],
+  "include-filter.config.resource-types": [
+    "leforemhe/components/site/forms/demandeform",
+    "leforemhe/components/site/forms/reclamationform",
+    "leforemhe/components/site/forms/rhformationform",
+    "leforemhe/components/site/forms/stageetrangerform"
+  ],
+  "include-filter.config.enabled": true,
+  "include-filter.config.path": "/content",
+  "include-filter.config.required_header": "Server-Agent=Communique-Dispatcher",
+  "include-filter.config.include-type": "SSI",
+  "include-filter.config.selector": "nocache",
+  "include-filter.config.add_comment": false,
+  "include-filter.config.rewrite": true,
+  "include-filter.config.ttl": 10800
+}

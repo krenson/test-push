@@ -1,0 +1,20 @@
+{
+  "service.special_link_patterns": [
+  ],
+  "service.special_link_prefix": [
+    "javascript:",
+    "data:",
+    "mailto:",
+    "#",
+    "<!--",
+    "",
+    "tel:"
+  ],
+  "service.bad_link_tolerance_interval": 48,
+  "service.check_override_patterns": [
+    "^system/"
+  ],
+  "service.cache_broken_internal_links": false,
+  "scheduler.concurrent": false,
+  "scheduler.period": 5
+}

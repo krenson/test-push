@@ -1,5 +1,5 @@
 {
-    "dynamicJavascriptFolderPath": "/content/dam/leforemhe/fr/javascript/dynamic/",
-    "staticJavascriptFolderPath": "/content/dam/leforemhe/fr/javascript/static/",
-    "pathToListen": "/content/experience-fragments/leforemhe/fr/site/javascript"
+  "dynamicJavascriptFolderPath": "/content/dam/leforemhe/fr/javascript/dynamic/",
+  "staticJavascriptFolderPath": "/content/dam/leforemhe/fr/javascript/static/",
+  "pathToListen": "/content/experience-fragments/leforemhe/fr/site/javascript"
 }

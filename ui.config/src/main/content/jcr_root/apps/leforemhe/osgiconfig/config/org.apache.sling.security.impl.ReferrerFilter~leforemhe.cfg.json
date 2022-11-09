@@ -1,0 +1,26 @@
+{
+  "allow.hosts.regexp": [
+    "https://.*\\.adobe\\.com:443",
+    "https://.*\\.adobe\\.net:443",
+    "https://.*\\.workfront\\.com:443",
+    "https://.*\\.workfront-dev\\.com:443",
+    "https://.*\\.dev\\.workfront\\.tech:443"
+  ],
+  "allow.hosts": [
+    "fciamacc.b2clogin.com",
+    "fciam.b2clogin.com",
+    "leforem2.glb.leforem.be",
+    "leforemhe-acc.forem.be",
+    "leforemhe-dev2.forem.be",
+    "leforemhe-acc2.forem.be",
+    "leforemhe-test2.forem.be",
+    "forem.be",
+    "author-p84852-e796329.adobeaemcloud.com",
+    "publish-p84852-e796329.adobeaemcloud.com",
+    "author-p84852-e798654.adobeaemcloud.com",
+    "publish-p84852-e798654.adobeaemcloud.com",
+    "author-p84852-e796372.adobeaemcloud.com",
+    "publish-p84852-e796372.adobeaemcloud.com"
+  ],
+  "allow.empty": true
+}

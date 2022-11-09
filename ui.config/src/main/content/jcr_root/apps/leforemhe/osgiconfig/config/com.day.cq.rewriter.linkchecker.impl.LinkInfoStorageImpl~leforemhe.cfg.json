@@ -1,0 +1,4 @@
+{
+  "service.save_external_link_references": true,
+  "service.max_links_per_host": 500
+}

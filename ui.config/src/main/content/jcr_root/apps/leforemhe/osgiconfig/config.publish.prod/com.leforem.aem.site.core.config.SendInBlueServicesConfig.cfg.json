@@ -1,0 +1,6 @@
+{
+  "key": "$[secret:SENDINBLUE_KEY;default=]",
+  "urlDoubleOptIn": "https://api.sendinblue.com/v3/contacts/doubleOptinConfirmation",
+  "urlDeleteContact": "https://api.sendinblue.com/v3/contacts/lists/{listId}/contacts/remove",
+  "urlRedirect": "https://www.forem.be/entreprises.html"
+}
