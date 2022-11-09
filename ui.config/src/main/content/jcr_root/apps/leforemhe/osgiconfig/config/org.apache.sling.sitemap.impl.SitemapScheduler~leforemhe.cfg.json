@@ -1,0 +1,7 @@
+{
+    "scheduler.name": "LeForem Horizons Emploi Sitemaps",
+    "scheduler.expression": "0 0/1 * 1/1 * ? *",
+    "searchPath": "/content/leforemhe/fr",
+    "includeGenerators": "com.leforemhe.aem.site.core.services.ForemSitemapGenerator",
+    "excludePaths": "/content/leforemhe/fr/catalogue-des-formations-insertions"
+}

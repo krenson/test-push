@@ -1,0 +1,27 @@
+{
+  "resource.resolver.map.observation": [
+    "/libs",
+    "/apps",
+    "/content",
+    "/etc",
+    "/conf"
+  ],
+  "resource.resolver.manglenamespaces": true,
+  "resource.resolver.vanitypath.whitelist": [
+    "/apps/",
+    "/libs/",
+    "/content/"
+  ],
+  "resource.resolver.vanitypath.blacklist": [
+    "/content/usergenerated"
+  ],
+  "resource.resolver.searchpath": [
+    "/apps",
+    "/libs"
+  ],
+  "resource.resolver.mapping": [
+    "/-/",
+    "/content/dam/leforemhe/fr/>/"
+  ],
+  "resource.resolver.log.unclosed": false
+}

@@ -1,0 +1,32 @@
+{
+  "identitySyncType":"default",
+  "keyStorePassword":"",
+  "service.ranking:Integer":5002,
+  "idpHttpRedirect":false,
+  "createUser":false,
+  "defaultRedirectUrl":"/b2cuserpage.html",
+  "userIDAttribute":"uid",
+  "idpIdentifier":"",
+  "assertionConsumerServiceURL":"https://leforemhe-acc.forem.be/saml_login",
+  "defaultGroups":[],
+  "storeSAMLResponse":false,
+  "signatureMethod":"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
+  "idpCertAlias":"certalias___1635490535978",
+  "addGroupMemberships":false,
+  "path":[
+    "/b2cuserpage.html",
+    "/saml_login"
+  ],
+  "digestMethod":"http://www.w3.org/2001/04/xmlenc#sha256",
+  "synchronizeAttributes":[],
+  "clockTolerance:Integer":60,
+  "groupMembershipAttribute":"groupMembership",
+  "idpUrl":"https://fciamacc.b2clogin.com/fciamacc.onmicrosoft.com/B2C_1A_RP_SI_SAML_AEM/samlp/sso/login",
+  "serviceProviderEntityId":"https://leforemhe-acc.forem.be",
+  "logoutUrl":"https://fciamacc.b2clogin.com/fciamacc.onmicrosoft.com/B2C_1A_RP_SI_SAML_AEM/samlp/sso/logout",
+  "handleLogout":true,
+  "userIntermediatePath":"end-users",
+  "spPrivateKeyAlias":"",
+  "useEncryption":false,
+  "nameIdFormat":"urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+}

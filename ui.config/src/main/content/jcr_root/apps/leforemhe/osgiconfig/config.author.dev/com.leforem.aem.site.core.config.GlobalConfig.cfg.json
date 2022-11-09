@@ -1,0 +1,13 @@
+{
+  "appName": "leforemhe-1.0.0",
+  "runMode": "author,dev",
+  "contentPath": "/content/leforemhe/fr",
+  "unplacedPagesNodeName": "pages-non-places",
+  "assetsPath": "/content/dam/leforemhe/fr",
+  "experienceFragmentsPath": "/content/experience-fragments/leforemhe/fr",
+  "exportContextPath": "",
+  "publicServerURI": "https://leforemhe-acc2.forem.be",
+  "authorServerURI": "https://author-p84852-e798654.adobeaemcloud.com",
+  "pathSeparator": "/",
+  "systemUser": "datawritehe"
+}        

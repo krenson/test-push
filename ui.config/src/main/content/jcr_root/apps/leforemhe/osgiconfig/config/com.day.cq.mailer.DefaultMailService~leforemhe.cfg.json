@@ -1,0 +1,11 @@
+{
+  "debug.email":true,
+  "smtp.starttls":true,
+  "oauth.flow":true,
+  "smtp.host":"$[env:AEM_PROXY_HOST;default=proxy.tunnel]",
+  "smtp.ssl":false,
+  "from.address":"svc_sendmail_adobe@leforem.onmicrosoft.com",
+  "smtp.port":"30710",
+  "smtp.password":"",
+  "smtp.user":"svc_sendmail_adobe@leforem.onmicrosoft.com"
+}
