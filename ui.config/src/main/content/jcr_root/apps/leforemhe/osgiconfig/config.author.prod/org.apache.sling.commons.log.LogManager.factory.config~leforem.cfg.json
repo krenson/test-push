@@ -1,8 +1,0 @@
-{
-  "org.apache.sling.commons.log.names": [
-    "com.leforemhe.aem.site"
-  ],
-  "org.apache.sling.commons.log.level": "ERROR",
-  "org.apache.sling.commons.log.file": "logs/error.log",
-  "org.apache.sling.commons.log.additiv": "false"
-}
