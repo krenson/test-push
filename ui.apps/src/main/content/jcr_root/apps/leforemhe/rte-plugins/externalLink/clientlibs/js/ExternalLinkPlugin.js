@@ -13,7 +13,9 @@
     const HTTPS = "https://";
     const MAILTO = "mailto:";
 
-    addDialogTemplate();
+    if(typeof _ != 'undefined') {
+        addDialogTemplate();
+    }
     addPluginToDefaultUISettings();
 
     if (!CUI.rte.dialogs) CUI.rte.dialogs = {};

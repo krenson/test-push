@@ -5,7 +5,9 @@
         const TCP_DIALOG = 'acronymDialog';
         const DIALOG_URL = '/apps/leforemhe/rte-plugins/acronym/cq:dialog.html';
 
-        addDialogTemplate();
+        if(typeof _ != 'undefined') {
+            addDialogTemplate();
+        }
         addPluginToDefaultUISettings();
 
         if (!CUI.rte.dialogs) CUI.rte.dialogs = {};
