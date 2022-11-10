@@ -3,7 +3,7 @@
     data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <canvas data-chartdata-path="${chart.dataChartPath}" class="cmp-chart--barchart" responsive="true"></canvas>
   </div>
-  <div data-sly-test="${chart.chartData}">
+  <div data-sly-test="${chart.dataChartPath && chart.chartData}">
     <div class="accordion panelcontainer">
       <div id="accordion-${chart.ID}" class="cmp-accordion" data-cmp-is="accordion" data-placeholder-text="false">
         <div class="cmp-accordion__item" data-cmp-hook-accordion="item" id="accordion-${chart.ID}-item">
@@ -13,7 +13,7 @@
               <div>
                 <div class="icone">
                   <img
-                    src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/icons/table-list-light.svg" />
+                    src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/icons/table-list-light.svg" />
                 </div>
                 <span class="cmp-accordion__title">Consulter les données sous forme de tableau</span>
               </div>
@@ -30,7 +30,7 @@
                       ${chart.tableDescription} 
                     </p>
                     <div>
-                      <table>
+                      <table aria-describedby="Chart Data Table">
                         <tr>
                           <th>Type</th>
                           <th data-sly-repeat.dataset="${chart.chartData.dataset}">

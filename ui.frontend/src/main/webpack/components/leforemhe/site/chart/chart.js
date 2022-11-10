@@ -34,8 +34,8 @@ const renderBarGraph = (barChartElement, data) => {
             scaleShowValues: true,
             plugins: {
                 legend: {
+                    display: data.datasets.length > 1 ? true : false,
                     align: "start",
-
                     labels: {
                         font: {
                             family: "Poppins",
