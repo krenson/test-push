@@ -5,7 +5,9 @@
         TCP_DIALOG = 'addressDialog',
         DIALOG_URL = '/apps/leforemhe/rte-plugins/address/cq:dialog.html';
 
-    addDialogTemplate();
+    if(typeof _ != 'undefined') {
+        addDialogTemplate();
+    }
     addPluginToDefaultUISettings();
 
     if (!CUI.rte.dialogs) CUI.rte.dialogs = {};
