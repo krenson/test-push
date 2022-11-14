@@ -87,8 +87,11 @@ public class PageCreationByIdCF implements WorkflowProcess {
         Job job = contentFragmentUtilService.getJobFromJobID(jobId);
         if (job != null) {
             Page page = pageManager.create(destinationFolder, JcrUtil.createValidName(job.getName()), template, job.getTitle());
+            LOG.debug("Page created for: {}", jobId);
             Node pageNode = resourceResolver.getResource(page.getPath() + "/jcr:content").adaptTo(Node.class);
             handlePageProperties(pageNode, job);
+        } else {
+            LOG.debug("No CF found for: {}", jobId);
         }
     }
 
