@@ -1,6 +1,6 @@
 {
   "scripts": [
-    "create service user datawritehe with path system/leforem",
+    "create service user datawritehe with path system/leforemhe",
     "add datawritehe to group everyone",
     "create group forem-imr-editors",
     "create group forem-imr-gestionnaires-dam",
@@ -9,6 +9,13 @@
     "create path /content/dam/leforemhe(sling:OrderedFolder)",
     "set ACL for datawritehe\n allow jcr:versionManagement,jcr:modifyProperties,jcr:read,jcr:addChildNodes,jcr:lockManagement,jcr:nodeTypeManagement on /content/dam/leforemhe\n end",
     "create path /apps/leforemhe/email(sling:OrderedFolder)",
-    "set ACL for datawritehe\n allow jcr:all on /apps/leforemhe/email\n end"
+    "set ACL for datawritehe\n allow jcr:all on /apps/leforemhe/email\n end",
+    "create path /content/experience-fragments/leforemhe(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/experience-fragments/leforemhe\n end",
+    "create path /content/leforemhe/fr(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/leforemhe/fr\n end",
+    "create path /content/leforemhe(sling:OrderedFolder)",
+    "set ACL for everyone\n allow jcr:read on /content/leforemhe\n end"
+
   ]
 }
