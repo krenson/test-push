@@ -58,6 +58,7 @@ public class GetAllCFByModel implements WorkflowProcess {
                     hits = getAllContentFragments(payloadPath, model);
                     ids = getJobIds(hits);
                 }
+                LOG.debug("ID's to check for a page: {}", ids);
                 map.put("allIds", ids);
             }
         } catch (Exception e) {

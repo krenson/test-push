@@ -44,9 +44,12 @@ public class CheckForNonLinkedCFs implements WorkflowProcess {
             for (String id : allIds) {
                 if (!pageExists(id)) {
                     idsMissingPage.add(id);
+                } else {
+                    LOG.debug("Page already exist for: {}", id);
                 }
             }
             map.put("idsMissingPage", idsMissingPage);
+            LOG.debug("ID's who need a page: {}", idsMissingPage);
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
