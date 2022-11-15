@@ -62,7 +62,7 @@ public class GetAllCFByModel implements WorkflowProcess {
                 map.put("allIds", ids);
             }
         } catch (Exception e) {
-            LOG.debug(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
     }
 

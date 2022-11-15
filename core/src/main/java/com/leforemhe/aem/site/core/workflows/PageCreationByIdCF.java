@@ -21,9 +21,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
+import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 
 @Component(service = WorkflowProcess.class, property = {"process.label = Create linked page for CF(s)"})
@@ -78,7 +82,7 @@ public class PageCreationByIdCF implements WorkflowProcess {
                     session.save();
                 }
             } catch (WCMException | RepositoryException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage());
             }
         }
     }
@@ -102,9 +106,9 @@ public class PageCreationByIdCF implements WorkflowProcess {
             pageNode.setProperty(Constants.CQ_TAGS, job.getTagIds());
             pageNode.setProperty(Constants.SLING_VANITY_PATH, job.getVanityUrl());
             pageNode.setProperty(Constants.CLE_METIER, job.getCodeMetier());
-            pageNode.setProperty(Constants.LAST_UPDATED, pageNode.getProperty("cq:lastModified").getValue().toString());
+            pageNode.setProperty(Constants.LAST_UPDATED, Calendar.getInstance(TimeZone.getTimeZone("CET")));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage());
         }
     }
 
