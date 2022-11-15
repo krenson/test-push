@@ -387,4 +387,4 @@ Go to http://publish.realdolmen.com:8081/storybook
 
 ## Releases leforemhe
 
-1.0.0 In progress.
+1.0.0 In progress...
