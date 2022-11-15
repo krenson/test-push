@@ -1,6 +1,6 @@
 {
   "service.ranking": 0,
   "user.mapping": [
-    "leforemhe.core:datawritehe=datawritehe"
+    "leforemhe.core:datawrite=datawrite"
   ]
 }
