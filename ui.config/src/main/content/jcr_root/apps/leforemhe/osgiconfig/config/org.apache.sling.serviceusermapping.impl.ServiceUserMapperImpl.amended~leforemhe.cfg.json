@@ -1,6 +1,8 @@
 {
   "service.ranking": 0,
   "user.mapping": [
-    "leforemhe.core:datawrite=datawrite"
+    "leforemhe.core:datawrite=datawrite",
+    "leforem.core:datawrite=datawrite",
+    "leforemv1.core:datawrite=datawrite"
   ]
 }
