@@ -1,12 +1,9 @@
 <template
-        data-sly-template.results="${ @ searchResults}">
+        data-sly-template.results="${ @ searchResults, oneResultLabel, multipleResultLabel, noResultText}">
     <div class="contentCentered he result-counter">
-        <h5 data-resultCounterLabel="${'Plusieurs resultat' @ i18n}" data-resultCounterLabelZeroOrOne="${'Single resultat' @ i18n}"></h5>
+        <h5 data-resultCounterLabel="${multipleResultLabel}" data-resultCounterLabelOne="${oneResultLabel}"></h5>
     </div>
-    <div class="tuile-results-container">
+    <div class="tuile-results-container" data-noresult="${noResultText}">
 
     </div>
-
-    <div data-sly-test="${searchResults.results.size == 0}">${'No resultat' @ i18n}</div>
-
 </template>
