@@ -8,7 +8,7 @@ $(document).ready(function () {
     const checkboxes = document.querySelectorAll('.checkbox-container input');
     let valueChips = document.getElementById("valueChips");
     const showResults = form.dataset.showSearchResults;
-    const orCheckbox = document.querySelector('.searchCheckbox input');
+    const orCheckbox = document.querySelector('.searchCheckbox-container input');
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
