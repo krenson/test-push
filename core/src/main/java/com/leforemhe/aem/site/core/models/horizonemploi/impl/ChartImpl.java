@@ -25,6 +25,9 @@ public class ChartImpl implements Chart {
     @ValueMapValue
     private String tableDescription;
 
+    @ValueMapValue
+    private Boolean showAsPercentage;
+
     @Self
     private SlingHttpServletRequest request;
 
@@ -58,6 +61,11 @@ public class ChartImpl implements Chart {
             this.graphData = graphDataService.getChartData(request, this.dataPath);
         }
         return this.graphData;
+    }
+
+    @Override
+    public boolean getShowAsPercentage() {
+        return showAsPercentage == null ? false : showAsPercentage;
     }
 
 }

@@ -7,6 +7,7 @@ import com.leforemhe.aem.site.core.models.pojo.GraphData;
 @ProviderType
 public interface Chart {
     String getDataChartPath();
+    boolean getShowAsPercentage();
     String getTableDescription();
     String getID();
     GraphData getChartData();

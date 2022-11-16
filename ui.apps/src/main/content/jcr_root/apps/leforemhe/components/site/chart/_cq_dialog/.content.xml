@@ -33,7 +33,14 @@
                                                 fieldLabel="Path to dataset"
                                                 name="./dataPath"
                                                 required="{Boolean}true"
-                                                rootPath="/content/dam"></dataPath>
+                                                rootPath="/content/dam" />
+                                            <showAsPercentage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                text="Show Data as percentage"
+                                                name="./showAsPercentage"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false" />
                                             <tableDescription
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

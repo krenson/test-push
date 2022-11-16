@@ -22,13 +22,14 @@ const colorBorders = [
 
 const SERVLET_URL = "/content/leforemhe/graphdataservlet.json";
 const ATTRIBUTE_GRAPH_DATA_PATH = "data-chartdata-path";
+const ATTRIBUTE_SHOW_AS_PERCENTAGE = "data-chartdata-showaspercentage";
 
-const renderBarGraph = (barChartElement, data) => {
+const renderBarGraph = (showAsPercentage, barChartElement, data) => {
     const chartConfig = {
         type: "bar",
         data: {
             labels: data.labels,
-            datasets: getGeneratedDataset(data.datasets)
+            datasets: getGeneratedDataset(showAsPercentage, data.datasets)
         },
         options: {
             scaleShowValues: true,
@@ -43,6 +44,14 @@ const renderBarGraph = (barChartElement, data) => {
                         },
                     },
                 },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            let label = context.dataset.label || '';
+                            return `${label}: ${context.formattedValue}${showAsPercentage ? '%' : ''}`
+                        }
+                    }
+                }
             },
             indexAxis: "y",
             scales: {
@@ -81,9 +90,13 @@ const renderBarGraph = (barChartElement, data) => {
                         font: {
                             size: 15,
                         },
+                        callback: function (value) {
+                            return `${value}${showAsPercentage ? '%' : ''}`;
+                        }
                     },
                 },
             },
+
         },
     };
     const barChart = new Chart(barChartElement, chartConfig);
@@ -93,18 +106,29 @@ const hasAllData = (dataset) => {
     return dataset && dataset.labels && dataset.datasets;
 }
 
-const getGeneratedDataset = (datasetResponse) => {
+const getGeneratedDataset = (showAsPercentage, datasetResponse) => {
     const dataset = [];
     datasetResponse.forEach((data, index) => {
         dataset.push({
             label: data.label,
-            data: data.data,
+            data: showAsPercentage ? showChartAsPercentages(data.data) : data.data,
             fill: false,
             backgroundColor: colors[index],
-            borderColor: colorBorders[index],
+            borderColor: colorBorders[index]
         })
     });
     return dataset;
+}
+
+const showChartAsPercentages = (dataList) => {
+    const convertedDataListToPercentage = [];
+    const sum = dataList.reduce((accumulator, value) => {
+        return accumulator + value;
+    }, 0);
+    dataList.forEach((dataNumber) => {
+        convertedDataListToPercentage.push((dataNumber / sum * 100).toFixed(2));
+    })
+    return convertedDataListToPercentage;
 }
 
 addEventListener('DOMContentLoaded', () => {
@@ -123,7 +147,7 @@ addEventListener('DOMContentLoaded', () => {
             .then((response) => response.json())
             .then((jsonData) => {
                 if (hasAllData(jsonData)) {
-                    renderBarGraph(barChartElement, jsonData);
+                    renderBarGraph(barChartElement.hasAttribute(ATTRIBUTE_SHOW_AS_PERCENTAGE) ? true : false, barChartElement, jsonData);
                 } else {
                     barChartElement.remove();
                 }
