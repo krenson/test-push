@@ -4,16 +4,26 @@
      data-sly-use.results="templates/results.html"
      data-sly-use.clientlibs="${'com.adobe.cq.wcm.core.components.models.ClientLibraries' @ categories='leforemhe.search'}">
     ${clientlibs.jsAndCssIncludes @ context="unsafe"}
+    <sly data-sly-test="${searchResults.showResults}">
+        <div class="short-searchContainer">
+    </sly>
     <div id="rechercheMetier">
         <div class="background-Yellow">
+            <sly data-sly-test="${searchResults.showResults}">
+                <div class="short-content-container">
+            </sly>
             <div class="aem title-container">
                 <h1>${properties.title}</h1>
-                <h5 class="subTitle">
+                <h5 data-sly-test="${properties.subtitle}" class="subTitle">
                     ${properties.subtitle}
                 </h5>
             </div>
             <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults}" data-sly-unwrap/>
+            <sly data-sly-test="${searchResults.showResults}">
+                </div>
+            </sly>
         </div>
+
 
         <div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
             <div class="container-content">
@@ -24,5 +34,8 @@
             </div>
         </div>
     </div>
+    <sly data-sly-test="${searchResults.showResults}">
+        </div>
+    </sly>
 </sly>
 
