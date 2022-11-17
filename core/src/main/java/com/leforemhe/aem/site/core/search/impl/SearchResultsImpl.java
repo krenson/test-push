@@ -91,6 +91,9 @@ public class SearchResultsImpl implements SearchResults {
         if (request.getParameter("tags") != null) {
             addTags(request.getParameter("tags"), searchPredicates);
         }
+        if(orCheckbox != null && orCheckbox.equals("true")) {
+            searchPredicates.put("group.p.or", "true");
+        }
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         pagination = searchProvider.buildPagination(result, "Previous", "Next");
@@ -135,8 +138,8 @@ public class SearchResultsImpl implements SearchResults {
         int index = 1;
         for (String tag : tags.split(",")) {
             index++;
-            searchPredicates.put(index +"_property", "jcr:content/cq:tags");
-            searchPredicates.put(index + "_property.value", tag);
+            searchPredicates.put("group." + index +"_property", "jcr:content/cq:tags");
+            searchPredicates.put("group." + index + "_property.value", tag);
         }
     }
 
