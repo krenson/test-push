@@ -30,7 +30,8 @@
                 <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
                          data-sly-call="${facets.facets}"></div>
                 <div class="resultats-container"
-                         data-sly-call="${results.results}"></div>
+                         data-sly-call="${results.results @ oneResultLabel = searchResults.oneResultLabel, multipleResultLabel = searchResults.multipleResultLabel, noResultText= searchResults.noResultText}">
+                </div>
             </div>
         </div>
     </div>

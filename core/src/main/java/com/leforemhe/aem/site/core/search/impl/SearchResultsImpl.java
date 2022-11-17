@@ -54,6 +54,12 @@ public class SearchResultsImpl implements SearchResults {
     private boolean showResults;
     @ValueMapValue
     private String searchResultPage;
+    @ValueMapValue
+    private String oneResultLabel;
+    @ValueMapValue
+    private String multipleResultLabel;
+    @ValueMapValue
+    private String noResultText;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
@@ -140,7 +146,6 @@ public class SearchResultsImpl implements SearchResults {
     @Override
     public List<SearchResult> getResults() {
         log.debug("Inside getResults");
-
         return searchResults;
     }
 
@@ -148,14 +153,27 @@ public class SearchResultsImpl implements SearchResults {
     @Override
     public List<SearchResultsPagination> getPagination() {
         log.debug("Inside getPagination");
-
         return pagination;
     }
 
     @Override
     public String getResultTotal() {
         log.debug("Inside getResultTotal");
-
         return totalResults;
+    }
+
+    @Override
+    public String getOneResultLabel() {
+        return oneResultLabel;
+    }
+
+    @Override
+    public String getMultipleResultLabel() {
+        return multipleResultLabel;
+    }
+
+    @Override
+    public String getNoResultText() {
+        return noResultText;
     }
 }
