@@ -6,7 +6,7 @@
     <filter root="/apps/leforemhe/rte-plugins"/>
     <filter root="/apps/leforemhe/email"/>
     <filter root="/apps/sling"/>
-    <filter root="/oak:index/searchIndex"/>
+    <filter root="/oak:index/customSearchIndex"/>
     <!-- Blueprint filter -->
     <filter root="/apps/msm/leforemhe-blueprint" />
 
