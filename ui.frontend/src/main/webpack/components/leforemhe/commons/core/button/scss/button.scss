@@ -14,27 +14,39 @@
       padding: 0;
     }
   }
+
   &:hover {
     .cmp-button__text {
       text-decoration: none;
     }
   }
+
   .cmp-button__text {
     font-weight: 500;
     font-size: 1.8rem;
     text-decoration: underline;
   }
+
   .cmp-button__desc {
-    color: #969ca3;
+    color: #6d757e;
     font-weight: 400;
     font-size: 1.2rem;
     text-decoration: none;
+  }
+
+  .icone {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
 .cmp-button.link-icone.dark {
   .cmp-button__text {
     color: white;
+  }
+
+  .cmp-button__desc {
+    color: #ffffff;
   }
 }
 

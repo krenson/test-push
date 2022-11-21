@@ -312,6 +312,8 @@ p > .btn {
   color: $link-icone-text-color !important;
   text-decoration: underline;
   .icone {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     margin-right: 1.5rem;
     border: $link-icone-size-border-focus solid $link-icone-background-color;
     height: $link-icone-size;
