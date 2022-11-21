@@ -1,5 +1,6 @@
 {
   "org.apache.sling.commons.log.names": [
+    "com.leforem.aem.site",
     "com.leforemhe.aem.site",
     "com.day.cq.mailer.oauth"
   ],
