@@ -8,14 +8,14 @@ $(document).ready(function () {
         const checkboxes = document.querySelectorAll('.checkbox-container input');
         let valueChips = document.getElementById("valueChips");
         const showResults = form.dataset.showSearchResults;
-        const orCheckbox = document.querySelector('.searchCheckbox-container input');
+        const orCheckbox = document.querySelector('.searchCheckbox-container')
+        const orCheckboxInput = document.querySelector('.searchCheckbox-container input');
         const resultCounter = document.querySelector('.result-counter');
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
         });
         let innerValueChips = [];
         let tagsValue = '';
-        orCheckbox.parentElement.style.marginTop = '1rem';
 
 // get value form the input field
 // and add it to the suggestion drop down container
@@ -73,7 +73,7 @@ $(document).ready(function () {
             innerValueChips.forEach(value => {
                 query = query + value + ',';
             })
-            orCheckbox.parentElement.style.marginTop = valueChips.offsetHeight + 'px';
+            orCheckbox.style.bottom = "-" + valueChips.offsetHeight + 'px';
             getQuickResults(query)
             getTagValues(query)
         }
@@ -123,7 +123,7 @@ $(document).ready(function () {
                 tagsValue = getTagQuery();
                 let query = '';
                 query = inputValue === "" ? '' : `q=${inputValue}&`;
-                query = query + (orCheckbox.checked === false ? '' : `or=true&`);
+                query = query + (orCheckboxInput.checked === false ? '' : `or=true&`);
                 query = query + (tagsValue === "" ? '' : `tags=${tagsValue}`);
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                         let noResultText = searchResultList.dataset.noresult;
