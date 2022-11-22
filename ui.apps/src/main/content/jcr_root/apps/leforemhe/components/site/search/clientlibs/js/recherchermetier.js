@@ -176,7 +176,7 @@ $(document).ready(function () {
         function getTagValues(inputValue) {
             checkboxes.forEach(checkbox => {
                 const inputQuery = inputValue !== '' ? `&q=${inputValue}` : '';
-                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : '') + "&limit=no-limit" + inputQuery
+                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : '') + (orCheckboxInput.checked === false ? '' : `&or=true`) + inputQuery
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                     checkbox.parentElement.parentElement.querySelector(".checkbox-amount").innerHTML = data.resultTotal;
                 });

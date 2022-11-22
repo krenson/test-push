@@ -72,7 +72,6 @@ public class SearchResultsImpl implements SearchResults {
         List<String> cleMetierList = new ArrayList<>();
         String query = request.getParameter("q");
         String orCheckbox = request.getParameter("or");
-        String limit = request.getParameter("limit");
         final Map<String, String> searchPredicates = new HashMap<>();
         if (query != null) {
             cleMetierList = searchResultsContentFragment.getContentFragmentsCleMetier(query, orCheckbox);
@@ -81,9 +80,7 @@ public class SearchResultsImpl implements SearchResults {
             }
         }
         searchPredicates.put("type", com.day.cq.wcm.api.NameConstants.NT_PAGE);
-        if (limit == null || !limit.equals("no-limit")) {
-            searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "limit"));
-        }
+        searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "limit"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "guessTotal"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "useExcerpt"));
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "searchPaths"));
