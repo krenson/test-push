@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -27,6 +28,9 @@ public class ChartImpl implements Chart {
 
     @ValueMapValue
     private Boolean showAsPercentage;
+
+    @ValueMapValue
+    private String chartType;
 
     @Self
     private SlingHttpServletRequest request;
@@ -67,5 +71,12 @@ public class ChartImpl implements Chart {
     public boolean getShowAsPercentage() {
         return showAsPercentage == null ? false : showAsPercentage;
     }
+
+    @Override
+    public String getChartType() {
+        return ObjectUtils.defaultIfNull(chartType, "horizontal-bar");
+    }
+
+    
 
 }

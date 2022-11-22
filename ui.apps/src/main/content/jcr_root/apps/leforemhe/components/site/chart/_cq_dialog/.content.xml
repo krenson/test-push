@@ -27,6 +27,21 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
+                                            <linkType jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Chart Type"
+                                                name="./chartType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <horizontalBar
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Horizontal Bar"
+                                                        value="horizontal-bar" />
+                                                    <verticalBar
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Vertical Bar"
+                                                        value="vertical-bar" />
+                                                </items>
+                                            </linkType>
                                             <dataPath
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
