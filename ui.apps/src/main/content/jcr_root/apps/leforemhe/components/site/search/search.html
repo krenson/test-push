@@ -23,20 +23,20 @@
                 </div>
             </sly>
         </div>
-
-
-        <div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
-            <div class="container-content">
-                <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
-                         data-sly-call="${facets.facets}"></div>
-                <div class="resultats-container"
-                         data-sly-call="${results.results @ oneResultLabel = searchResults.oneResultLabel, multipleResultLabel = searchResults.multipleResultLabel, noResultText= searchResults.noResultText}">
-                </div>
-            </div>
-        </div>
     </div>
     <sly data-sly-test="${searchResults.showResults}">
         </div>
     </sly>
+
+
+    <div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
+        <div class="container-content">
+            <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
+                     data-sly-call="${facets.facets}"></div>
+            <div class="resultats-container"
+                     data-sly-call="${results.results @ oneResultLabel = searchResults.oneResultLabel, multipleResultLabel = searchResults.multipleResultLabel, noResultText= searchResults.noResultText}">
+            </div>
+        </div>
+    </div>
 </sly>
 

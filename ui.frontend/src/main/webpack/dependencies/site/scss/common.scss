@@ -141,11 +141,10 @@ strong {
   }
 
   body .middle {
-    padding-top: 12rem;
     transition: padding-top 0.3s linear;
   }
   body.searchOpenMobile .middle {
-    padding-top: 20.6rem;
+    padding-top: 8.6rem;
   }
   .aem {
     h1 {
@@ -349,9 +348,12 @@ strong {
 
 .maxWidth .container-content {
   @include max-width;
-
   width: 100%;
   margin: 0 auto;
+  .short-searchContainer {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+  }
 }
 
 .background-Yellow {
