@@ -8,19 +8,19 @@
         <head jcr:primaryType="nt:unstructured">
             <viewport
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/admin/page/viewport"/>
+                sling:resourceType="granite/ui/components/coral/foundation/admin/page/viewport" />
             <meta
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/meta"
                 content="chrome=1"
-                name="X-UA-Compatible"/>
+                name="X-UA-Compatible" />
             <favicon
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/page/favicon"/>
+                sling:resourceType="granite/ui/components/coral/foundation/page/favicon" />
             <clientlibs
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
-                categories="[coralui3,granite.ui.coral.foundation,cq.tagging.touch.tagedit]"/>
+                categories="[coralui3,granite.ui.coral.foundation,cq.tagging.touch.tagedit]" />
         </head>
         <body
             jcr:primaryType="nt:unstructured"
@@ -64,53 +64,74 @@
                                                             granite:class="parttext"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/text"
-                                                            text="Tag Details"/>
+                                                            text="Tag Details" />
                                                         <titlefield
                                                             granite:class="block"
                                                             granite:id="tagtitle"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                             fieldLabel="Title"
-                                                            name="./jcr:title"/>
+                                                            name="./jcr:title" />
                                                         <descriptionfield
                                                             granite:class="block"
                                                             granite:id="tagdescription"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                                             fieldLabel="Description"
-                                                            name="./jcr:description"/>
+                                                            name="./jcr:description" />
                                                         <lastModified
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
-                                                            name="./jcr:lastModified"/>
+                                                            name="./jcr:lastModified" />
                                                         <lastModifiedBy
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
-                                                            name="./jcr:lastModifiedBy"/>
+                                                            name="./jcr:lastModifiedBy" />
                                                         <backgroundColor
-                                                                granite:class="block"
-                                                                granite:id="tagbackgroundColor"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                                fieldLabel="Background color"
-                                                                name="./backgroundColor">
+                                                            granite:class="block"
+                                                            granite:id="tagbackgroundColor"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            fieldLabel="Background color"
+                                                            name="./backgroundColor">
                                                             <items
                                                                 jcr:primaryType="nt:unstructured">
+                                                                <lemon
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Lemon"
+                                                                    value="#F5F0BE" />
+                                                                <azure
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Azure"
+                                                                    value="#D9EFF0" />
+                                                                <lavender
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Lavender"
+                                                                    value="#DEC7E0" />
+                                                                <pink
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Pink"
+                                                                    value="#F9D9D9" />
                                                                 <yellow
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="Yellow"
-                                                                        value="#F5F0BE"
-                                                                />
-                                                                <lightblue
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="Light blue"
-                                                                        value="#D9EFF0"
-                                                                />
-                                                                <purple
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="Purple"
-                                                                        value="#DEC7E0"
-                                                                />
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Yellow"
+                                                                    value="#FBE7CB" />
+                                                                <yellow300
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Yellow-300"
+                                                                    value="#FAF5EC" />
+                                                                <green
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Green"
+                                                                    value="#E8F7E1" />
+                                                                <orange
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Orange"
+                                                                    value="#FFEADE" />
+                                                                <grey
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Grey"
+                                                                    value="#EFEFEF" />
                                                             </items>
                                                         </backgroundColor>
                                                     </items>
@@ -124,11 +145,11 @@
                                                             granite:class="parttext"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/text"
-                                                            text="Localization"/>
+                                                            text="Localization" />
                                                         <jcrtype
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
-                                                            name="jcr:primaryType"/>
+                                                            name="jcr:primaryType" />
                                                         <addlanguage
                                                             granite:id="tageditsettings-addlanguage"
                                                             jcr:primaryType="nt:unstructured"
@@ -139,22 +160,22 @@
                                                                     sling:resourceType="cq/tagging/gui/components/tagedit/languagepicker"
                                                                     emptyText="Add Language"
                                                                     id="tagedit-settings-languagepicker"
-                                                                    userGroups="[everyone]"/>
+                                                                    userGroups="[everyone]" />
                                                             </items>
                                                         </addlanguage>
                                                         <charset
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
                                                             name="_charset_"
-                                                            value="utf-8"/>
+                                                            value="utf-8" />
                                                         <titleReadFrom
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
                                                             name="titleReadFrom"
-                                                            value="contentNode"/>
+                                                            value="contentNode" />
                                                         <contentPath
                                                             jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="/libs/cq/tagging/gui/components/tagedit/contentpath"/>
+                                                            sling:resourceType="/libs/cq/tagging/gui/components/tagedit/contentpath" />
                                                     </items>
                                                 </fixedColumn2>
                                             </items>
@@ -172,7 +193,7 @@
                                             variant="primary">
                                             <granite:data
                                                 jcr:primaryType="nt:unstructured"
-                                                foundation-wizard-control-action="next"/>
+                                                foundation-wizard-control-action="next" />
                                         </next>
                                     </parentConfig>
                                 </editStep>
