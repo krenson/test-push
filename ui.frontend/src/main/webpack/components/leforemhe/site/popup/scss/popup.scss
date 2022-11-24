@@ -100,8 +100,11 @@
     }
 
     .popup-close-bottom-btn {
+      border: none;
       background-color: transparent;
       margin-left: auto;
+      margin-right: auto;
+
       div {
         width: fit-content;
       }
