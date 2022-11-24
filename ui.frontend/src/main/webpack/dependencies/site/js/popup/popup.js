@@ -21,13 +21,15 @@ if (popupOpener.length > 0) {
 var popups = document.getElementsByClassName("popup aem");
 if (popups != null) {
   [...popups].forEach((element) => {
-    var closeCross = element.getElementsByClassName("popup-close-top-btn");
+    var closeCross = element.getElementsByClassName("popup-close");
     if (closeCross != null) {
       closeCross[0].addEventListener("click", function (e) {
         closePopup(element);
       });
     }
-    var closeButton = element.getElementsByClassName("popup-close-bottom-btn");
+    var closeButton = element.querySelectorAll(
+      ".popup-button.btn.btn-tertiary.closeButton"
+    );
     if (closeButton != null) {
       closeButton[0].addEventListener("click", function (e) {
         closePopup(element);
