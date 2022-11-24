@@ -1,0 +1,10 @@
+{
+  "org.apache.sling.commons.log.names": [
+    "com.leforem.aem.site",
+    "com.leforemhe.aem.site",
+    "com.day.cq.mailer.oauth"
+  ],
+  "org.apache.sling.commons.log.level": "$[env:LOG_LEVEL;default=DEBUG]",
+  "org.apache.sling.commons.log.file": "logs/error.log",
+  "org.apache.sling.commons.log.additiv": "false"
+}

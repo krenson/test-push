@@ -12,6 +12,11 @@
     li {
       padding-bottom: 1rem;
 
+      div.icone img {
+        height: 6rem;
+        width: 6rem;
+      }
+
       &:last-child {
         padding-bottom: 0;
       }

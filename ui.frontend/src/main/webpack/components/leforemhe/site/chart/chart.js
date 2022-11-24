@@ -23,10 +23,39 @@ const colorBorders = [
 const SERVLET_URL = "/content/leforemhe/graphdataservlet.json";
 const ATTRIBUTE_GRAPH_DATA_PATH = "data-chartdata-path";
 const ATTRIBUTE_SHOW_AS_PERCENTAGE = "data-chartdata-showaspercentage";
+const ATTRIBUTE_CHART_TYPE = "data-chartdata-charttype";
 
-const renderBarGraph = (showAsPercentage, barChartElement, data) => {
+const CHART = {
+    HorizontalBar: 'horizontal-bar',
+    VerticalBar: 'vertical-bar',
+}
+
+const getChartType = (chartType) => {
+    switch (chartType) {
+        case 'horizontal-bar':
+            return CHART.HorizontalBar;
+        case 'vertical-bar':
+            return CHART.VerticalBar;
+        default:
+            return CHART.HorizontalBar;
+    }
+}
+
+const getChartTypeOption = (chartType) => {
+    switch (chartType) {
+        case chartType === CHART.HorizontalBar:
+            return 'bar';
+        case chartType === CHART.VerticalBar:
+            return 'bar';
+        default:
+            return 'bar';
+    }
+}
+
+const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
+    const resolvedChartType = getChartType(chartType);
     const chartConfig = {
-        type: "bar",
+        type: getChartTypeOption(resolvedChartType),
         data: {
             labels: data.labels,
             datasets: getGeneratedDataset(showAsPercentage, data.datasets)
@@ -53,7 +82,7 @@ const renderBarGraph = (showAsPercentage, barChartElement, data) => {
                     }
                 }
             },
-            indexAxis: "y",
+            indexAxis: resolvedChartType == CHART.HorizontalBar ? "y" : "x",
             scales: {
                 y: {
                     grid: {
@@ -147,7 +176,7 @@ addEventListener('DOMContentLoaded', () => {
             .then((response) => response.json())
             .then((jsonData) => {
                 if (hasAllData(jsonData)) {
-                    renderBarGraph(barChartElement.hasAttribute(ATTRIBUTE_SHOW_AS_PERCENTAGE) ? true : false, barChartElement, jsonData);
+                    renderGraph(barChartElement.hasAttribute(ATTRIBUTE_SHOW_AS_PERCENTAGE) ? true : false, barChartElement, jsonData, barChartElement.getAttribute(ATTRIBUTE_CHART_TYPE));
                 } else {
                     barChartElement.remove();
                 }
