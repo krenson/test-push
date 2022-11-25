@@ -116,7 +116,7 @@ public class PageSearchResultImpl implements SearchResult {
     public String getFeaturedImage() {
         String featuredImageFileReference = ModelUtils.getFeaturedImageOfPage(getPath(), resourceResolver);
         if(!StringUtils.isEmpty(featuredImageFileReference)) {
-            return imageService.getImageRendition(featuredImageFileReference);
+            return imageService.getImageRendition(featuredImageFileReference, resourceResolver);
         }
         // TODO : Replace StringUtils.EMPTY here with fallback image for tuile
         return StringUtils.isEmpty(featuredImageFileReference) ? featuredImageFileReference : StringUtils.EMPTY;
