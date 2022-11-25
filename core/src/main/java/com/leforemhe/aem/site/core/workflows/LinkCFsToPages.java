@@ -24,9 +24,9 @@ import java.util.Map;
 
 
 @Component(service = WorkflowProcess.class, property = {"process.label = Check which CF stills needs a page"})
-public class CheckForNonLinkedCFs implements WorkflowProcess {
+public class LinkCFsToPages implements WorkflowProcess {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CheckForNonLinkedCFs.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LinkCFsToPages.class);
 
     @Reference
     private ResourceResolverService resourceResolverService;

@@ -4,4 +4,5 @@
           cq:isContainer="{Boolean}true"
           jcr:title="Conteneur - En-tête"
           sling:resourceSuperType="leforemhe/components/site/container"
+          cq:noDecoration="true"
           componentGroup="LeForem HE - Site"/>

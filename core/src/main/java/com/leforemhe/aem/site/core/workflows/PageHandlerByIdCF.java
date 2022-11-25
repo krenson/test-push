@@ -21,19 +21,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
-import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
 
 @Component(service = WorkflowProcess.class, property = {"process.label = Create linked page for CF(s)"})
-public class PageCreationByIdCF implements WorkflowProcess {
+public class PageHandlerByIdCF implements WorkflowProcess {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PageCreationByIdCF.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PageHandlerByIdCF.class);
 
     @Reference
     private ResourceResolverService resourceResolverService;

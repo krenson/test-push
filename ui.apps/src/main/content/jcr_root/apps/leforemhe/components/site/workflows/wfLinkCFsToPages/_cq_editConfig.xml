@@ -4,9 +4,9 @@
           cq:inherit="{Boolean}true"
           jcr:primaryType="cq:EditConfig">
     <cq:formParameters
-            jcr:description="This workflow listens to new content fragment creations and creates a page for it."
+            jcr:description="This workflow checks in the list of CF to update / create / replace pages by ID"
             jcr:primaryType="nt:unstructured"
-            jcr:title="Create page by CF ID(s)"
-            PROCESS="com.leforemhe.aem.site.core.workflows.PageCreationByIdCF"
+            jcr:title="Link CFs to their page."
+            PROCESS="com.leforemhe.aem.site.core.workflows.LinkCFsToPages"
             PROCESS_AUTO_ADVANCE="true"/>
 </jcr:root>

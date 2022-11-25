@@ -4,9 +4,9 @@
           cq:inherit="{Boolean}true"
           jcr:primaryType="cq:EditConfig">
     <cq:formParameters
-            jcr:description="This workflow checks in the list of CF who still needs a page to be created."
+            jcr:description="This workflow looks to content fragment and handles a page for it."
             jcr:primaryType="nt:unstructured"
-            jcr:title="Check CF(s) who needs a page."
-            PROCESS="com.leforemhe.aem.site.core.workflows.CheckForNonLinkedCFs"
+            jcr:title="Handle page by CF ID(s)"
+            PROCESS="com.leforemhe.aem.site.core.workflows.PageHandlerByIdCF"
             PROCESS_AUTO_ADVANCE="true"/>
 </jcr:root>
