@@ -58,7 +58,7 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
         type: getChartTypeOption(resolvedChartType),
         data: {
             labels: data.labels,
-            datasets: getGeneratedDataset(showAsPercentage, data.datasets)
+            datasets: getGeneratedDataset(data.datasets)
         },
         options: {
             scaleShowValues: true,
@@ -135,29 +135,18 @@ const hasAllData = (dataset) => {
     return dataset && dataset.labels && dataset.datasets;
 }
 
-const getGeneratedDataset = (showAsPercentage, datasetResponse) => {
+const getGeneratedDataset = (datasetResponse) => {
     const dataset = [];
     datasetResponse.forEach((data, index) => {
         dataset.push({
             label: data.label,
-            data: showAsPercentage ? showChartAsPercentages(data.data) : data.data,
+            data: data.data,
             fill: false,
             backgroundColor: colors[index],
             borderColor: colorBorders[index]
         })
     });
     return dataset;
-}
-
-const showChartAsPercentages = (dataList) => {
-    const convertedDataListToPercentage = [];
-    const sum = dataList.reduce((accumulator, value) => {
-        return accumulator + value;
-    }, 0);
-    dataList.forEach((dataNumber) => {
-        convertedDataListToPercentage.push((dataNumber / sum * 100).toFixed(2));
-    })
-    return convertedDataListToPercentage;
 }
 
 addEventListener('DOMContentLoaded', () => {
