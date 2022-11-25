@@ -1,8 +1,10 @@
 <sly data-sly-use.model="com.leforemhe.aem.site.core.models.horizonemploi.ButtonModel"></sly>
-  <div class="cmp-banniere-liens links-onglet-container">
-    <div class="aem link-container">
-    <h3>${model.text}</h3>
-    <a href="${model.urlLink}" target="_blank">${model.urlLink}</a>
+<div class="cmp-banniere-liens links-onglet-container">
+    <div class="aem link-container" onclick="clicked(this)">
+        <h3>${model.text}</h3>
+        <div>
+            <a href="${model.urlLink}">${model.urlLink}</a>
+        </div>
     </div>
-  </div>
+</div>
 
