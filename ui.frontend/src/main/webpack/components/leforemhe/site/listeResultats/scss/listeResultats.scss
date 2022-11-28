@@ -1,4 +1,5 @@
-div#rechercheMetier:has(div.aem.title-container.results) {
+div.short-searchContainer
+  div#rechercheMetier:has(div.aem.title-container.results) {
   div.aem.title-container.results {
     display: none;
     width: fit-content;
@@ -50,47 +51,6 @@ div#rechercheMetier:has(div.aem.title-container.results) {
         margin-right: unset !important;
       }
     }
-  }
-}
-
-div.short-searchContainer:has(div.aem.title-container.results) {
-  div#rechercheMetier div.background-Yellow {
-    padding: 1rem 2rem;
-
-    &::after {
-      all: unset;
-    }
-
-    div.short-content-container {
-      align-items: flex-start;
-    }
-
-    div.aem.title-container.results {
-      display: flex;
-      margin-top: 2rem;
-      h1,
-      h5 {
-        width: 100%;
-      }
-    }
-  }
-
-  div#rechercheMetier nav#filAriane {
-    width: fit-content;
-    background: transparent;
-    display: block;
-    div {
-      padding-left: 0;
-    }
-  }
-
-  div#rechercheMetier div.searchContainer,
-  div#rechercheMetier div.aem.title-container {
-    display: none;
-  }
-
-  & + div .container-content {
-    margin-top: 3rem !important;
   }
 }
 
