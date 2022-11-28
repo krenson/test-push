@@ -10,6 +10,7 @@ import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.horizonemploi.JobTeaserModel;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -84,6 +85,8 @@ public class JobTeaserModelImpl implements JobTeaserModel {
         return teaser.getLink();
     }
 
+
+
     @Override
     public List<JobTag> getTags() {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
@@ -94,7 +97,7 @@ public class JobTeaserModelImpl implements JobTeaserModel {
             }
         } else {
             if (this.job == null && !inExperienceFragment) {
-                Page linkedResourcePage = currentResource.getResourceResolver().getResource(getLink().getURL()).adaptTo(Page.class);
+                Page linkedResourcePage = currentResource.getResourceResolver().getResource(StringUtils.removeEnd(getLink().getURL(), ".html")).adaptTo(Page.class);
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(linkedResourcePage);
                 job = contentFragmentUtilService.getJobFromJobID(cleMetier);
             }

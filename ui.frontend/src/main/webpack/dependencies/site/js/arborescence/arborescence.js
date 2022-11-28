@@ -74,5 +74,5 @@ function createUrlParams() {
 
 function clickButton(href) {
   let urlParams = createUrlParams();
-  window.location = href + ".html?" + urlParams;
+  window.location = href + "?" + urlParams;
 }

@@ -45,7 +45,7 @@
             </div>
         </sly>
         <div class="aem">
-            <button onclick="clickButton(${model.internalLinkReference @ context='scriptString'})" disabled="true" id="btnArborVoirMetiers" class="btn btn-primary">
+            <button onclick="clickButton('${model.internalLinkReference @ context='html'}')" disabled="true" id="btnArborVoirMetiers" class="btn btn-primary">
                     <span>${model.ctaLabel}</span>
                     <span class="cmp-accordion__icon"></span>
             </button>
