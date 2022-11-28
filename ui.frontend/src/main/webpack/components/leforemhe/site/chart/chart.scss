@@ -83,6 +83,12 @@ div.chart-container {
               tr {
                 background-color: white;
 
+                &:not(:first-child) {
+                  td:not(:first-child) {
+                    text-align: end;
+                  }
+                }
+
                 &:nth-child(2n + 3) {
                   background: rgb(249, 245, 237);
                 }
