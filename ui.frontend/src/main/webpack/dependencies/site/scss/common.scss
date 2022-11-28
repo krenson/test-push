@@ -77,10 +77,12 @@ strong {
   @include max-width;
   margin: 0 auto;
 
-  .multiComponent {
+  .multiComponent,
+  section {
     margin-bottom: 1.5rem !important;
 
-    .multi-content {
+    .multi-content,
+    div {
       background-color: #f4fafb;
       max-width: 100%;
       width: 100%;
@@ -351,8 +353,8 @@ strong {
   width: 100%;
   margin: 0 auto;
   .short-searchContainer {
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
 }
 
