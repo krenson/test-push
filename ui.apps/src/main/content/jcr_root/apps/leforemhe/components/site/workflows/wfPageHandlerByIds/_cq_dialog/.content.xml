@@ -41,6 +41,23 @@
                                     defaultValue=""
                                     required="true"
                                     rootPath="/content/leforemhe/fr"/>
+                            <radioGroup
+                                    jcr:primaryType="nt:unstructured"
+                                    name="./metaData/action"
+                                    text="Action"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <radioExpanded
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Update"
+                                            value="update"
+                                            checked="true"/>
+                                        <radioCollapse
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Replace"
+                                            value="replace"/>
+                                    </items>
+                             </radioGroup>
                         </items>
                     </columns>
                 </items>
