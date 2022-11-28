@@ -27,7 +27,7 @@ if (popups != null) {
         closePopup(element);
       });
     }
-    var closeButton = element.getElementsByClassName("closeButton");
+    var closeButton = element.querySelectorAll(".popup-button.btn.closeButton");
     if (closeButton != null) {
       closeButton[0].addEventListener("click", function (e) {
         closePopup(element);

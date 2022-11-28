@@ -7,6 +7,9 @@
   max-width: 38.5rem;
   padding-left: 1.5rem;
 
+  display: flex;
+  flex-direction: column;
+
   .filter-header {
     display: flex;
     justify-content: space-between;
@@ -41,27 +44,35 @@
         }
       }
     }
+
+    .popup-close-top-btn {
+      display: none;
+    }
   }
 
-  h3.cmp-accordion__header {
-    margin-bottom: 1.5rem;
+  .cmp-accordion {
+    padding-left: 0;
 
-    button {
-      width: 100%;
+    h3.cmp-accordion__header {
+      margin-bottom: 1.5rem;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      &.cmp-accordion__button::after,
-      &.cmp-accordion__button--expanded::after {
-        float: right;
-      }
+      button {
+        width: 100%;
 
-      span {
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.8rem;
-        padding-left: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &.cmp-accordion__button::after,
+        &.cmp-accordion__button--expanded::after {
+          float: right;
+        }
+
+        span {
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.8rem;
+          padding-left: 0.5rem;
+        }
       }
     }
   }
@@ -130,6 +141,12 @@
     border-bottom: 0.1rem solid $heigt-color;
     margin-bottom: 1rem;
   }
+
+  .popup-close-bottom-btn {
+    display: none;
+    width: fit-content;
+    align-self: center;
+  }
 }
 
 div.popup-content:has(div.filter-container) {
@@ -183,26 +200,37 @@ div.popup-content:has(div.filter-container) {
     .filter-container {
       position: absolute;
       width: 100% !important;
+      max-width: unset !important;
+      min-width: unset !important;
       max-height: 90%;
       padding: 2rem 1.5rem;
       background-color: white;
       border-radius: 2.4rem 2.4rem 0 0;
       bottom: 0;
 
+      display: flex;
+      flex-direction: column;
+
       .filter-header {
         margin-bottom: 3rem;
         padding-left: 0.5rem;
 
-        .filter-popup-close {
-          height: 1.45rem;
-          width: 1.45rem;
-          mask-image: url($resourcePath + "/images/Close.svg");
+        .popup-close-top-btn {
+          display: inline-block;
+          background-color: transparent;
+          border: none;
 
-          background-color: $primary-colorV2;
-          mask-repeat: no-repeat;
-          mask-size: contain;
+          .filter-popup-close {
+            height: 1.45rem;
+            width: 1.45rem;
+            mask-image: url($resourcePath + "/images/Close.svg");
 
-          cursor: pointer;
+            background-color: $primary-colorV2;
+            mask-repeat: no-repeat;
+            mask-size: contain;
+
+            cursor: pointer;
+          }
         }
       }
 
@@ -223,6 +251,14 @@ div.popup-content:has(div.filter-container) {
         li {
           gap: 1rem;
         }
+      }
+
+      .popup-close-bottom-btn {
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        width: fit-content;
+        align-self: center;
       }
     }
   }
@@ -264,6 +300,8 @@ div.popup-content:has(div.filter-container) {
 
   div.popup-content .filter-container {
     width: 100% !important;
+    max-width: unset;
+    min-width: unset;
 
     h3 {
       button {
