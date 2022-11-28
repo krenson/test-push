@@ -2,12 +2,17 @@ package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -19,6 +24,12 @@ import com.leforemhe.aem.site.core.services.GraphDataService;
         Chart.class }, resourceType = ChartImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ChartImpl implements Chart {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/chart";
+    public static final String CHART_SELECTOR = "%s_%s";
+    public static final String CHARTS_ASSET_FOLDER = "/content/dam/leforemhe/fr/metiers/charts/";
+    public static final String JSON_EXTENSION = ".json";
+
+    @ScriptVariable
+    private Page currentPage;
 
     @ValueMapValue
     private String dataPath;
@@ -40,10 +51,17 @@ public class ChartImpl implements Chart {
 
     private String generatedUUID;
     private GraphData graphData;
+    private String automaticGeneratedPath;
+
+    @PostConstruct
+    public void init() {
+        String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER, String.class);
+        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getChartType() + JSON_EXTENSION);
+    }
 
     @Override
     public String getDataChartPath() {
-        return dataPath;
+        return dataPath != null ? dataPath : automaticGeneratedPath;
     }
 
     @Override
@@ -62,7 +80,11 @@ public class ChartImpl implements Chart {
     @Override
     public GraphData getChartData() {
         if (graphData == null) {
-            this.graphData = graphDataService.getChartData(request, this.dataPath);
+            if(this.dataPath != null) {
+                this.graphData = graphDataService.getChartData(request, this.dataPath);
+            } else {
+                this.graphData = graphDataService.getChartData(request, automaticGeneratedPath);
+            }
         }
         return this.graphData;
     }
@@ -74,9 +96,9 @@ public class ChartImpl implements Chart {
 
     @Override
     public String getChartType() {
-        return ObjectUtils.defaultIfNull(chartType, "horizontal-bar");
+        return ObjectUtils.defaultIfNull(chartType, "horizontal");
     }
 
-    
+
 
 }

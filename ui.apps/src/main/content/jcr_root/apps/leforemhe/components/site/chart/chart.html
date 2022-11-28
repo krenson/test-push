@@ -3,7 +3,7 @@
     data-sly-use.template="core/wcm/components/commons/v1/templates.html">
     <canvas data-chartdata-showaspercentage="${chart.showAsPercentage}" data-chartdata-path="${chart.dataChartPath}" data-chartdata-charttype="${chart.chartType}" class="cmp-chart--barchart" responsive="true"></canvas>
   </div>
-  <div data-sly-test="${chart.dataChartPath && chart.chartData}">
+  <div data-sly-test="${chart.chartData}">
     <div class="accordion panelcontainer">
       <div id="accordion-${chart.ID}" class="cmp-accordion" data-cmp-is="accordion" data-placeholder-text="false">
         <div class="cmp-accordion__item" data-cmp-hook-accordion="item" id="accordion-${chart.ID}-item">
@@ -27,7 +27,7 @@
                 <div class="chart-details">
                   <div>
                     <p data-sly-test="${chart.tableDescription}">
-                      ${chart.tableDescription} 
+                      ${chart.tableDescription}
                     </p>
                     <div>
                       <table aria-describedby="Chart Data Table">
