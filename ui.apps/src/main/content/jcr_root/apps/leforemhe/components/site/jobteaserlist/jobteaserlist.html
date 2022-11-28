@@ -1,0 +1,9 @@
+<div class="teaser tuileContainer"
+     data-sly-use.list="com.leforemhe.aem.site.core.models.horizonemploi.JobTeaserList"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.teaserTemplate="leforemhe/components/site/templates/teaser.html"
+     data-sly-list.item="${list.pages}">
+    <sly data-sly-call="${teaserTemplate.teaser @ teaser=item}">
+    </sly>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=list.listItems.size == 0, classAppend='cmp-list'}"></sly>
