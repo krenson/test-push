@@ -9,7 +9,6 @@ public class Constants {
     public static final String LAST_UPDATED = "lastUpdatedDate";
     public static final String UPDATE = "update";
 
-
     public static final String CQ_TEMPLATE = "cq:template";
     public static final String CQ_PAGE = "cq:Page";
     public static final String CQ_PAGECONTENT = "cq:PageContent";
