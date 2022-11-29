@@ -3,9 +3,11 @@ package com.leforemhe.aem.site.core.models;
 public class Constants {
     public static final String EF_RESOURCE_TYPE = "leforemhe/components/commons/core/xfpage";
     public static final String CLE_METIER = "clemetier";
+    public static final String CLE_METIER_PROPERTY_CF = "jcr:content/clemetier";
     public static final String CONTENT_ROOT_PATH = "/content/leforemhe";
     public static final String PATH_METIER_CF = "/content/dam/leforemhe/fr/metiers";
     public static final String LAST_UPDATED = "lastUpdatedDate";
+    public static final String UPDATE = "update";
 
     public static final String CQ_TEMPLATE = "cq:template";
     public static final String CQ_PAGE = "cq:Page";
