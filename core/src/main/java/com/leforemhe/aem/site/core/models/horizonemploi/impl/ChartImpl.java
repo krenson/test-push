@@ -26,7 +26,6 @@ public class ChartImpl implements Chart {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/chart";
     public static final String CHART_SELECTOR = "%s_%s";
     public static final String CHARTS_ASSET_FOLDER = "/content/dam/leforemhe/fr/metiers/charts/";
-    public static final String JSON_EXTENSION = ".json";
 
     @ScriptVariable
     private Page currentPage;
@@ -56,7 +55,7 @@ public class ChartImpl implements Chart {
     @PostConstruct
     public void init() {
         String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER, String.class);
-        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getChartType() + JSON_EXTENSION);
+        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getChartType() + Constants.JSON_EXTENSION);
     }
 
     @Override

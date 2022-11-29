@@ -20,4 +20,7 @@ public class Constants {
     public static final String FALLBACK_RENDITION = "/jcr:content/renditions/cq5dam.web.1280.1280.jpeg";
 
     public static final String JOB_PAGE_RESOURCE_TYPE = "leforemhe/components/site/jobpage";
+
+    public static final String JSON_EXTENSION = ".json";
+
 }
