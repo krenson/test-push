@@ -6,8 +6,7 @@
     background-color: #d9eff0;
     padding: 2rem 3rem;
     border-radius: 2rem;
-    width: fit-content;
-    max-width: 96rem;
+
     box-sizing: border-box;
     li {
       padding-bottom: 1rem;
@@ -60,13 +59,9 @@
   }
 }
 
-.referencemultivoiraussi .multi-content {
-  .aem .multiComponent {
-    div.multi-content {
-      width: 100%;
-      margin-bottom: 1.5rem;
-    }
-  }
+.referencemultivoiraussi.full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (max-width: $breakpointMobile) {
