@@ -27,12 +27,31 @@ if (popups != null) {
         closePopup(element);
       });
     }
+
+    var topCloseBtn = element.getElementsByClassName("popup-close-top-btn");
+    topCloseBtn[0].addEventListener("keyup", function (event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        closePopup(element);
+      }
+    });
+
     var closeButton = element.querySelectorAll(".popup-button.btn.closeButton");
     if (closeButton != null) {
       closeButton[0].addEventListener("click", function (e) {
         closePopup(element);
       });
     }
+
+    var bottomCloseButton = element.getElementsByClassName(
+      "popup-close-bottom-btn"
+    );
+    bottomCloseButton[0].addEventListener("keyup", function (event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        closePopup(element);
+      }
+    });
   });
 }
 
