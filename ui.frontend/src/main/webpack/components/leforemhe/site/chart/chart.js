@@ -26,15 +26,15 @@ const ATTRIBUTE_SHOW_AS_PERCENTAGE = "data-chartdata-showaspercentage";
 const ATTRIBUTE_CHART_TYPE = "data-chartdata-charttype";
 
 const CHART = {
-    HorizontalBar: 'horizontal-bar',
-    VerticalBar: 'vertical-bar',
+    HorizontalBar: 'horizontal',
+    VerticalBar: 'vertical',
 }
 
 const getChartType = (chartType) => {
     switch (chartType) {
-        case 'horizontal-bar':
+        case 'horizontal':
             return CHART.HorizontalBar;
-        case 'vertical-bar':
+        case 'vertical':
             return CHART.VerticalBar;
         default:
             return CHART.HorizontalBar;
