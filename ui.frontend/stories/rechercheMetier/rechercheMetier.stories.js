@@ -8,6 +8,6 @@ storiesOf("AEM Components/Recherche Metier", rechercheMetier).add(
 );
 
 storiesOf("AEM Components/Recherche Metier", rechercheMetierShort).add(
-  "Recherche Metier Short",
+  "Recherche Metier réduit avec résultats",
   () => rechercheMetierShort
 );
