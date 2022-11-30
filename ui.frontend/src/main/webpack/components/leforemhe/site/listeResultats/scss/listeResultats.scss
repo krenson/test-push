@@ -70,12 +70,6 @@ div#rechercheMetier:has(div.aem.title-container.results) {
       div.contentCentered.he.result-counter {
         display: none;
       }
-
-      .tuile-results-container {
-        div.teaser.tuileContainer {
-          width: 35rem;
-        }
-      }
     }
   }
 
@@ -127,7 +121,6 @@ div#rechercheMetier:has(div.aem.title-container.results) {
       flex-direction: column;
 
       div.teaser.tuileContainer {
-        width: 46.25rem !important ;
         margin-right: 0rem !important;
       }
     }
@@ -199,7 +192,7 @@ div#rechercheMetier:has(div.aem.title-container.results) {
 
         div.teaser.tuileContainer {
           margin-right: 3rem !important;
-          width: 35rem !important;
+
           div.aem.cmp-teaser__tags {
             width: unset !important;
             margin: 0.5rem 0 !important;

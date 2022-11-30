@@ -114,30 +114,33 @@ strong {
 }
 
 .aem.image_component {
-  width: 94.5rem;
-  height: 49.6rem;
+  max-height: 49.6rem;
+  min-height: 30.6rem;
+
+  max-width: 94.5rem;
+  min-width: 34.8rem;
+
   margin: 0;
   margin-top: 4rem !important;
   margin-bottom: 2rem !important;
 
-  position: relative;
-
-  border-radius: 0px 0px 2.3rem 0px;
-  overflow: hidden;
-
   img {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+
+    max-width: 94.5rem;
+    min-width: 34.8rem;
+
+    height: auto;
+
+    max-height: 49.6rem;
+    min-height: 30.6rem;
+
+    border-radius: 0px 0px 2.3rem 0px;
   }
 }
 
 @media screen and (max-width: $breakpointMobile) {
   .aem.image_component {
-    width: 100%;
-    height: 30.6rem;
   }
 
   body .middle {
@@ -174,6 +177,13 @@ strong {
     display: none;
   }
 }
+
+// @media screen and (max-width: $breakpointSmallMobile) {
+//   .aem.image_component {
+//     width: 100%;
+//     height: 30.6rem;
+//   }
+// }
 
 .centrePage {
   > *:first-child article header div:first-child * {
