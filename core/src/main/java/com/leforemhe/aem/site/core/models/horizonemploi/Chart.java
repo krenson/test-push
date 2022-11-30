@@ -12,4 +12,5 @@ public interface Chart {
     String getID();
     GraphData getChartData();
     String getChartType();
+    String getGraphType();
 }

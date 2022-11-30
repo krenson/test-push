@@ -24,8 +24,8 @@ import com.leforemhe.aem.site.core.services.GraphDataService;
         Chart.class }, resourceType = ChartImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ChartImpl implements Chart {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/chart";
-    public static final String CHART_SELECTOR = "%s_%s";
-    public static final String CHARTS_ASSET_FOLDER = "/content/dam/leforemhe/fr/metiers/charts/";
+    public static final String CHART_SELECTOR = "%s_%s.%s";
+    public static final String CHARTS_ASSET_FOLDER = "/content/dam/leforemhe/fr/chiffres-graphes/";
 
     @ScriptVariable
     private Page currentPage;
@@ -42,6 +42,9 @@ public class ChartImpl implements Chart {
     @ValueMapValue
     private String chartType;
 
+    @ValueMapValue
+    private String graphType;
+
     @Self
     private SlingHttpServletRequest request;
 
@@ -55,7 +58,7 @@ public class ChartImpl implements Chart {
     @PostConstruct
     public void init() {
         String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER, String.class);
-        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getChartType() + Constants.JSON_EXTENSION);
+        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getGraphType(), Constants.JSON_EXTENSION);
     }
 
     @Override
@@ -98,6 +101,10 @@ public class ChartImpl implements Chart {
         return ObjectUtils.defaultIfNull(chartType, "horizontal");
     }
 
+    @Override
+    public String getGraphType() {
+        return graphType;
+    }
 
 
 }

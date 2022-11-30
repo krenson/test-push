@@ -1,73 +1,101 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
-    xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Chart"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+  <content
     jcr:primaryType="nt:unstructured"
-    jcr:title="Chart"
-    sling:resourceType="cq/gui/components/authoring/dialog">
-    <content
+    sling:resourceType="granite/ui/components/coral/foundation/container">
+    <items jcr:primaryType="nt:unstructured">
+      <tabs
         jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/container">
+        sling:resourceType="granite/ui/components/coral/foundation/tabs"
+        maximized="{Boolean}true">
         <items jcr:primaryType="nt:unstructured">
-            <tabs
+          <properties
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Properties"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            margin="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+              <columns
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                maximized="{Boolean}true">
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                margin="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <properties
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Properties"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
+                  <column
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                      <chartType jcr:primaryType="nt:unstructured"
+                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                 fieldLabel="Chart Type"
+                                 name="./chartType">
                         <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <chartType jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldLabel="Chart Type"
-                                                name="./chartType">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <horizontalBar
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Horizontal Bar"
-                                                        value="horizontal" />
-                                                    <verticalBar
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Vertical Bar"
-                                                        value="vertical" />
-                                                </items>
-                                            </chartType>
-                                            <dataPath
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                fieldLabel="Path to dataset"
-                                                name="./dataPath"
-                                                rootPath="/content/dam" />
-                                            <showAsPercentage
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                text="Show Data as percentage"
-                                                name="./showAsPercentage"
-                                                value="{Boolean}true"
-                                                uncheckedValue="{Boolean}false" />
-                                            <tableDescription
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldLabel="Table Description"
-                                                name="./tableDescription" />
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
+                          <horizontalBar
+                            jcr:primaryType="nt:unstructured"
+                            text="Horizontal Bar"
+                            value="horizontal"/>
+                          <verticalBar
+                            jcr:primaryType="nt:unstructured"
+                            text="Vertical Bar"
+                            value="vertical"/>
                         </items>
-                    </properties>
+                      </chartType>
+                      <graphType jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Graph type"
+                        name="./graphType">
+                        <items jcr:primaryType="nt:unstructured">
+                          <historique
+                            jcr:primaryType="nt:unstructured"
+                            text="Historique"
+                            value="Historique"/>
+                          <regimeTravail
+                            jcr:primaryType="nt:unstructured"
+                            text="Regime Travail"
+                            value="RegimeTravail"/>
+                          <geo
+                            jcr:primaryType="nt:unstructured"
+                            text="Geo"
+                            value="Geo"/>
+                          <typecontrat
+                            jcr:primaryType="nt:unstructured"
+                            text="Type Contrat"
+                            value="TypeContrat"/>
+                          <secteur
+                            jcr:primaryType="nt:unstructured"
+                            text="Secteur"
+                            value="Secteur"/>
+                        </items>
+                      </graphType>
+                      <dataPath
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Path to dataset"
+                        name="./dataPath"
+                        rootPath="/content/dam"/>
+                      <showAsPercentage
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                        text="Show Data as percentage"
+                        name="./showAsPercentage"
+                        value="{Boolean}true"
+                        uncheckedValue="{Boolean}false"/>
+                      <tableDescription
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Table Description"
+                        name="./tableDescription"/>
+                    </items>
+                  </column>
                 </items>
-            </tabs>
+              </columns>
+            </items>
+          </properties>
         </items>
-    </content>
+      </tabs>
+    </items>
+  </content>
 </jcr:root>

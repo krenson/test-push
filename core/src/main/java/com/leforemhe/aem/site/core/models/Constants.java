@@ -21,6 +21,6 @@ public class Constants {
 
     public static final String JOB_PAGE_RESOURCE_TYPE = "leforemhe/components/site/jobpage";
 
-    public static final String JSON_EXTENSION = ".json";
+    public static final String JSON_EXTENSION = "json";
 
 }
