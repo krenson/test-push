@@ -1,7 +1,7 @@
 div#rechercheMetier,
 .short-searchContainer div#rechercheMetier {
   .background-Yellow {
-    padding: 10rem 0rem;
+    padding: 5rem 0rem;
 
     nav#filAriane {
       display: none;
@@ -257,7 +257,6 @@ div#rechercheMetier,
 @media screen and (max-width: $breakpointMobile) {
   div#rechercheMetier,
   .short-searchContainer div#rechercheMetier {
-    margin-top: 12rem;
     position: relative;
 
     .background-Yellow {

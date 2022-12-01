@@ -1,0 +1,85 @@
+<div class="short-searchContainer">
+  <div id="rechercheMetier">
+    <div class="background-Yellow">
+      <div class="short-content-container">
+        <div class="aem title-container">
+          <h1>Rechercher des informations sur un métier</h1>
+
+          <h5 class="subTitle">
+            Un catalogue de près de 650 métiers pour vous aider à trouver votre
+            voie.
+          </h5>
+        </div>
+
+        <div class="aem title-container results">
+          <h1>Résultats</h1>
+
+          <h5 class="subTitle">233 métiers trouvés</h5>
+        </div>
+
+        <div class="searchContainer">
+          <div class="aem helpText">
+            <div class="icone">
+              <img
+                src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/life-ring.svg"
+              />
+            </div>
+
+            <div>
+              <a href="#">Besoin d'aide ?</a>
+            </div>
+          </div>
+
+          <div class="searchbox">
+            <div>
+              <input
+                onkeyup="getValue(this)"
+                id="searchInput"
+                type="text"
+                placeholder="Rechercher par mots-cles, métiers, numéro"
+              />
+
+              <div id="searchSuggestions" class="aem searchSuggestions">
+                <button
+                  onclick="suggestionClick(this)"
+                  id="suggeBtn"
+                  class="chip-button"
+                  style="background-color: #d9eff0"
+                >
+                  Ajouter:
+                </button>
+              </div>
+
+              <div id="valueChips" class="aem valueChips"></div>
+            </div>
+
+            <div class="searchCheckbox-container">
+              <input
+                type="checkbox"
+                name="checkbox"
+                class="searchCheckbox"
+                id="searchCheckbox"
+              />
+              <label for="searchCheckbox"
+                >Afficher les offres qui ne contiennent pas tous les mots
+                clés</label
+              >
+            </div>
+
+            <div class="aem searchBtn">
+              <button class="btn btn-primary">
+                <img
+                  src="http://dispatcher.realdolmen.com/clientlib-site/resources/images/magnifying-glass.svg"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  type="text/javascript"
+  src="http://dispatcher.realdolmen.com/clientlib-site/resources/js/rechercheMetier/rechercheMetier.js"
+></script>
