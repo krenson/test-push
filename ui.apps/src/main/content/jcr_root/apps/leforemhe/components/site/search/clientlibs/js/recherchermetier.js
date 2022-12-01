@@ -193,10 +193,6 @@ $(document).ready(function () {
             }
         }
 
-        if (document.querySelector('#rechercheMetier')) {
-            getTagValues('');
-        }
-
         function setResultCounterLabel(resultTotal) {
             if (resultCounter !== undefined && resultCounter.getElementsByTagName('h5') !== undefined) {
                 let resultCounterData = resultCounter.getElementsByTagName('h5')[0].dataset;
@@ -213,13 +209,14 @@ $(document).ready(function () {
             if (orCheckboxInitValue === "true") {
                 document.getElementById("orCheckbox").checked = "true";
             }
-
             initSuggestionValues(value);
 
             if (value != null) {
                 getQuickResults(value);
+                getTagValues(value)
             } else {
                 getQuickResults("");
+                getTagValues("")
             }
 
         }

@@ -1,5 +1,4 @@
-<template data-sly-template.facets
-          data-sly-use.searchFacets="com.leforemhe.aem.site.core.search.SearchFacets">
+<template data-sly-template.facets="${@ tags}">
     <div class="filter-back-container">
         <div class="filter-container">
             <div class="filter-header">
@@ -14,8 +13,7 @@
                 </div>
                 <div class="filter-popup-close"></div>
             </div>
-            <sly data-sly-list.predicateGroup="${searchFacets.predicateGroups}">
-                <sly data-sly-test="${predicateGroup.options.size > 0}">
+            <sly data-sly-list.item="${tags}">
                 <div class="accordion panelcontainer">
                     <div id="accordion" class="cmp-accordion" data-cmp-is="accordion">
                         <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
@@ -25,7 +23,7 @@
                                         class="cmp-accordion__button cmp-accordion__button--expanded"
                                         aria-controls="accordion-item-panel" data-cmp-hook-accordion="button"
                                         aria-expanded="true">
-                                    <span class="cmp-accordion__title">${predicateGroup.title}</span>
+                                    <span class="cmp-accordion__title">${item.parentTag.label}</span>
                                     <span class="cmp-accordion__icon"></span>
                                 </button>
                             </h3>
@@ -34,18 +32,17 @@
                                  aria-labelledby="accordion-item-button" aria-hidden="false">
                                 <div class="text">
                                     <div class="cmp-text">
-                                        <ul data-sly-list.options="${predicateGroup.options}">
+                                        <ul data-sly-list.childTag="${item.childTags}">
                                             <li>
-                                                <label for="${options.value}">
+                                                <label for="${childTag.tagName}">
                                                     <div class="checkbox-container">
                                                         <input onclick="checkboxClick(this)" type="checkbox"
-                                                               id="${options.value}"
-                                                               name="${options.value}">
-                                                        <label for="${options.value}">${options.label}</label>
+                                                               id="${childTag.tagName}"
+                                                               name="${childTag.tagName}">
+                                                        <label for="${childTag.tagName}">${childTag.label}</label>
                                                     </div>
-
                                                     <div>
-                                                        <span class="checkbox-amount" for="${options.value}"></span>
+                                                        <span class="checkbox-amount" for="${childTag.tagName}"></span>
                                                     </div>
                                                 </label>
                                             </li>
@@ -57,7 +54,6 @@
                     </div>
                 </div>
             </sly>
-        </sly>
-        </div></div>
-
+        </div>
+    </div>
 </template>

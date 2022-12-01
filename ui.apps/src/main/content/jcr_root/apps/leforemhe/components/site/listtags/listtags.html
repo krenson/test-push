@@ -1,21 +1,21 @@
 <sly data-sly-use.model="com.leforemhe.aem.site.core.models.ListTagsComponent"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
     <div class="arborescence-container">
-        <sly data-sly-list.parentTags="${model.tagsList.entrySet}">
+        <sly data-sly-list.item="${model.tagsList}">
             <div class="accordion panelcontainer">
                 <div id="accordion" class="cmp-accordion" data-cmp-is="accordion">
                     <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
                         <h3 class="cmp-accordion__header">
                             <input type="checkbox"
-                                   id="${parentTags.key.value}"
-                                   name="${parentTags.key.value}"
-                                   data-tagname="${parentTags.key.tagName}"
+                                   id="${item.parentTag.value}"
+                                   name="${item.parentTag.value}"
+                                   data-tagname="${item.parentTag.tagName}"
                                    class="option">
                             <button id="accordion-item-button"
                                     class="cmp-accordion__button cmp-accordion__button--expanded"
                                     aria-controls="accordion-item-panel" data-cmp-hook-accordion="button"
                                     aria-expanded="true">
-                                <span class="cmp-accordion__title">${parentTags.key.label}</span>
+                                <span class="cmp-accordion__title">${item.parentTag.label}</span>
                             </button>
                         </h3>
                         <div data-cmp-hook-accordion="panel" id="accordion-item-panel"
@@ -23,7 +23,7 @@
                              aria-labelledby="accordion-item-button" aria-hidden="false">
                             <div class="text">
                                 <div class="cmp-text list level2">
-                                    <ul class="cmp-list" data-sly-list.childTag="${parentTags.value}">
+                                    <ul class="cmp-list" data-sly-list.childTag="${item.childTags}">
                                         <li class="cmp-list__item">
                                             <div>
                                                 <label for="${childTag.value}">
@@ -31,7 +31,7 @@
                                                            id="${childTag.value}"
                                                            name="${childTag.value}"
                                                            data-tagname="${childTag.tagName}"
-                                                           class="${parentTags.key.value} subOption">
+                                                           class="${item.parentTag.value} subOption">
                                                     <label for="${childTag.value}">${childTag.label}</label>
                                                 </label>
                                             </div>
