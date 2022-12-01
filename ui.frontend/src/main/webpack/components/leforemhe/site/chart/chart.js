@@ -86,7 +86,7 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
             scales: {
                 y: {
                     grid: {
-                        display: false,
+                        display: resolvedChartType == CHART.VerticalBar,
                         borderColor: "rgb(219, 202, 175)",
                         borderWidth: 2,
                     },
@@ -97,9 +97,13 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                             size: 13,
                         },
                         callback: function (value) {
-                            const valueLegend = this.getLabelForValue(value);
-                            const arr = valueLegend.split("&");
-                            return arr;
+                            if (resolvedChartType == CHART.HorizontalBar) {
+                                const valueLegend = this.getLabelForValue(value);
+                                const arr = valueLegend.split("&");
+                                return arr;
+                            } else if (resolvedChartType == CHART.VerticalBar) {
+                                return `${value}${showAsPercentage ? '%' : ''}`;
+                            }
                         },
                     },
                 },
@@ -107,6 +111,7 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                     labelMaxWidth: 20,
                     beginAtZero: true,
                     grid: {
+                        display: resolvedChartType == CHART.HorizontalBar,
                         color: "rgb(246, 241, 234)",
                         lineWidth: 2,
                         borderColor: "rgb(219, 202, 175)",
@@ -120,7 +125,13 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                             size: 15,
                         },
                         callback: function (value) {
-                            return `${value}${showAsPercentage ? '%' : ''}`;
+                            if (resolvedChartType == CHART.VerticalBar) {
+                                const valueLegend = this.getLabelForValue(value);
+                                const arr = valueLegend.split("&");
+                                return arr;
+                            } else if (resolvedChartType == CHART.HorizontalBar) {
+                                return `${value}${showAsPercentage ? '%' : ''}`;
+                            }
                         }
                     },
                 },
