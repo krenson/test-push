@@ -65,7 +65,7 @@ public class SearchResultsImpl implements SearchResults {
     private String multipleResultLabel;
     @ValueMapValue
     private String noResultText;
-    @ChildResource(name = "tagNamespaces")
+    @ChildResource
     private List<TagNamespace> tagNamespaces;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
