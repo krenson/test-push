@@ -1,6 +1,10 @@
 package com.leforemhe.aem.site.core.search.impl;
 
+import com.day.cq.tagging.Tag;
+import com.day.cq.tagging.TagManager;
 import com.leforemhe.aem.site.core.models.ModelUtils;
+import com.leforemhe.aem.site.core.models.utils.FilterModel;
+import com.leforemhe.aem.site.core.models.utils.TagUtils;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.SearchResults;
 import com.leforemhe.aem.site.core.search.SearchResultsContentFragment;
@@ -12,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.*;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
@@ -60,9 +65,12 @@ public class SearchResultsImpl implements SearchResults {
     private String multipleResultLabel;
     @ValueMapValue
     private String noResultText;
+    @ChildResource
+    private List<TagNamespace> tagNamespaces;
 
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<SearchResultsPagination> pagination = Collections.EMPTY_LIST;
+    ArrayList<FilterModel> tagsList = new ArrayList<>();
     private String totalResults;
     private int index = 0;
 
@@ -172,5 +180,17 @@ public class SearchResultsImpl implements SearchResults {
     @Override
     public String getNoResultText() {
         return noResultText;
+    }
+
+    @Override
+    public List<FilterModel> getTagNamespaces() {
+        TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
+        if(tagNamespaces != null && tagManager != null) {
+            for (int i = 0; i < tagNamespaces.size(); i++) {
+                Tag parentTag = tagManager.resolve(tagNamespaces.get(i).getTagNamespace());
+                tagsList = TagUtils.getParentAndChildTags(parentTag.listChildren(), parentTag, tagsList);
+            }
+        }
+        return tagsList;
     }
 }

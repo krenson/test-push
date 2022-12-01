@@ -2,7 +2,8 @@ package com.leforemhe.aem.site.core.models;
 
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
-import com.leforemhe.aem.site.core.models.utils.AEMCheckbox;
+import com.leforemhe.aem.site.core.models.utils.FilterModel;
+import com.leforemhe.aem.site.core.models.utils.TagUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -29,7 +30,7 @@ public class ListTagsComponent {
     @ValueMapValue
     private String ctaLabel;
 
-    private Map<AEMCheckbox, ArrayList<AEMCheckbox>> tagsList = new HashMap<>();
+    private ArrayList<FilterModel> tagsList = new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -39,18 +40,12 @@ public class ListTagsComponent {
             Iterator<Tag> parentTagIterator = tagManager.resolve(tagNamespace).listChildren();
             while (parentTagIterator.hasNext()) {
                 Tag firstLevelParentTag = parentTagIterator.next();
-                ArrayList<AEMCheckbox> childTags = new ArrayList<>();
-                Iterator<Tag> childrenTagIterator = firstLevelParentTag.listChildren();
-                while (childrenTagIterator.hasNext()) {
-                    Tag childTag = childrenTagIterator.next();
-                    childTags.add(new AEMCheckbox(childTag.getTitle(), childTag.getTagID()));
-                }
-                tagsList.put(new AEMCheckbox(firstLevelParentTag.getTitle(), firstLevelParentTag.getTagID()), childTags);
+                tagsList = TagUtils.getParentAndChildTags(firstLevelParentTag.listChildren(), firstLevelParentTag, tagsList);
             }
         }
     }
 
-    public Map<AEMCheckbox, ArrayList<AEMCheckbox>> getTagsList() {
+    public ArrayList<FilterModel> getTagsList() {
         return tagsList;
     }
 
