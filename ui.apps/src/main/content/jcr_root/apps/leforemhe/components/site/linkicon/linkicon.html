@@ -1,21 +1,21 @@
-<div class="button" data-sly-use.linkModel="com.leforemhe.aem.site.core.models.horizonemploi.LinkModel"
+<div class="teaser popupOpener" data-sly-use.linkModel="com.leforemhe.aem.site.core.models.horizonemploi.LinkModel"
      data-sly-test.isConfigured="${linkModel.isConfigured}"
      data-sly-use.popupTemplate="templates/popupbase.html">
-  <button
-          type="button"
-          popup-id="${linkModel.generatedId}"
-          id="button-${linkModel.generatedId}"
-          class="cmp-button link-icone ${linkModel.popupReference ? 'popupOpener' : ''}">
-    <div class="icone" data-sly-test="${linkModel.icon}">
-      <img src="${linkModel.icon}" alt="${linkModel.title}"/>
+    <div id="teaser${linkModel.generatedId}" class="cmp-teaser" popup-id="${linkModel.generatedId}">
+        <a  class="cmp-teaser__link" data-cmp-clickable>
+            <div class="cmp-teaser__content">
+                <h2 class="cmp-teaser__title">${linkModel.title}</h2>
+                <div class="cmp-teaser__description" data-sly-test.description="${linkModel.description}">
+                    <p>${description}</p>
+                </div>
+            </div>
+            <div class="cmp-teaser__image" data-sly-test="${linkModel.icon}">
+                <img src="${linkModel.icon}" alt="${linkModel.title}"/>
+            </div>
+        </a>
     </div>
-    <div class="link-icone-text">
-      <span class="cmp-button__text">${linkModel.title}</span>
-      <span class="cmp-button__desc" data-sly-test.description="${linkModel.description}">
-          ${description}
-        </span>
-    </div>
-  </button>
-  <sly data-sly-unwrap data-sly-test="${linkModel.jobTitle}" data-sly-test="${linkModel.popupReference}" data-sly-call="${popupTemplate.popup @ id=linkModel.generatedId, title=linkModel.title, icon=linkModel.icon, jobTitle=linkModel.jobTitle, popupReference=linkModel.popupReference}"></sly>
 </div>
-<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" data-sly-call="${template.placeholder @ isEmpty = !isConfigured}"></sly>
+<sly data-sly-unwrap data-sly-test="${linkModel.jobTitle}" data-sly-test="${linkModel.popupReference}"
+     data-sly-call="${popupTemplate.popup @ id=linkModel.generatedId, title=linkModel.title, icon=linkModel.icon, jobTitle=linkModel.jobTitle, popupReference=linkModel.popupReference}"></sly>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty = !isConfigured}"></sly>

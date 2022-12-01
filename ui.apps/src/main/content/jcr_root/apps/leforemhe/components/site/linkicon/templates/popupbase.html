@@ -8,7 +8,9 @@
                     </div>
                     ${title}
                 </div>
-                <div class="popup-close"></div>
+                <button class="popup-close-top-btn">
+                    <div class="popup-close"></div>
+                </button>
             </div>
             <div class="popup-content">
                 <div class="popup-subtitle">${jobTitle}</div>
@@ -16,7 +18,9 @@
                     <sly data-sly-resource="${popupReference @ wcmmode='disabled'}"></sly>
                 </div>
             </div>
-            <div class="popup-button btn btn-tertiary closeButton">${'Fermer' @ i18n}</div>
+            <button class="popup-close-bottom-btn">
+                <div class="popup-button btn btn-tertiary closeButton">${'Fermer' @ i18n}</div>
+            </button>
         </div>
     </div>
     </sly>
