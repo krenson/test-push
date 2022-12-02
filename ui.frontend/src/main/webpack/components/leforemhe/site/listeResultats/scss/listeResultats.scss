@@ -15,7 +15,8 @@ div.short-searchContainer
   //   padding-right: unset;
 
   .filter-back-container {
-    width: fit-content;
+    min-width: 30rem;
+    width: 38.5rem;
   }
 
   .resultats-container {
