@@ -379,4 +379,11 @@ div#rechercheMetier,
       }
     }
   }
+
+  .short-searchContainer div#rechercheMetier div.background-Yellow {
+    div.short-content-container {
+      width: 100% !important;
+      max-width: unset !important;
+    }
+  }
 }
