@@ -2,6 +2,7 @@
      data-sly-use.facets="templates/facets.html"
      data-sly-use.searchField="templates/search-field.html"
      data-sly-use.results="templates/results.html"
+     data-sly-use.popup="templates/filter-popup.html"
      data-sly-use.clientlibs="${'com.adobe.cq.wcm.core.components.models.ClientLibraries' @ categories='leforemhe.search'}">
     ${clientlibs.jsAndCssIncludes @ context="unsafe"}
     <sly data-sly-test="${searchResults.showResults}">
@@ -17,6 +18,11 @@
                 <h5 data-sly-test="${properties.subtitle}" class="subTitle">
                     ${properties.subtitle}
                 </h5>
+            </div>
+
+            <div class="aem title-container results">
+                <h1>Resultats</h1>
+                <h5 class="subTitle result-counter-header" data-resultCounterLabel="${searchResults.multipleResultLabel}" data-resultCounterLabelOne="${searchResults.oneResultLabel}"></h5>
             </div>
             <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults}" data-sly-unwrap/>
             <sly data-sly-test="${searchResults.showResults}">
@@ -38,5 +44,6 @@
             </div>
         </div>
     </div>
+    <sly data-sly-call="${popup.popup @ tags=searchResults.tagNamespaces}"></sly>
 </sly>
 
