@@ -545,7 +545,10 @@ header .container-content {
     }
   }
 
-  .top-page-container.container.responsivegrid.partial-background {
+  .top-page-container.container.responsivegrid.partial-background,
+  div.short-searchContainer:has(div.aem.title-container.results)
+    div#rechercheMetier
+    div.background-Yellow {
     padding-top: 12rem;
   }
 
