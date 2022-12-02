@@ -184,6 +184,7 @@ public class SearchResultsImpl implements SearchResults {
 
     @Override
     public List<FilterModel> getTagNamespaces() {
+        tagsList = new ArrayList<>();
         TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
         if(tagNamespaces != null && tagManager != null) {
             for (int i = 0; i < tagNamespaces.size(); i++) {

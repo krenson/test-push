@@ -11,6 +11,7 @@ $(document).ready(function () {
         const orCheckbox = document.querySelector('.searchCheckbox-container')
         const orCheckboxInput = document.querySelector('.searchCheckbox-container input');
         const resultCounter = document.querySelector('.result-counter');
+        const resultCounterHeader = document.querySelector('.result-counter-header');
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
         });
@@ -128,7 +129,8 @@ $(document).ready(function () {
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                         let noResultText = searchResultList.dataset.noresult;
                         searchResultList.innerHTML = '';
-                        setResultCounterLabel(data.resultTotal);
+                        setResultCounterLabel(data.resultTotal, resultCounter.getElementsByTagName('h5')[0]);
+                        setResultCounterLabel(data.resultTotal, resultCounterHeader);
                         if (data.resultTotal > 0) {
                             $.each(data.results, function (index, result) {
                                 var $jobTagHtml = $("<div>");
@@ -193,10 +195,10 @@ $(document).ready(function () {
             }
         }
 
-        function setResultCounterLabel(resultTotal) {
-            if (resultCounter !== undefined && resultCounter.getElementsByTagName('h5') !== undefined) {
-                let resultCounterData = resultCounter.getElementsByTagName('h5')[0].dataset;
-                resultCounter.getElementsByTagName('h5')[0].innerText = resultTotal === 1 ?
+        function setResultCounterLabel(resultTotal, resultElement) {
+            if (resultElement !== undefined) {
+                let resultCounterData = resultElement.dataset;
+                resultElement.innerText = resultTotal === 1 ?
                     `${resultTotal} ${resultCounterData.resultcounterlabelone}` :
                     `${resultTotal} ${resultCounterData.resultcounterlabel}`;
             }
@@ -207,7 +209,7 @@ $(document).ready(function () {
             let orCheckboxInitValue = params.or; // "some_value"
 
             if (orCheckboxInitValue === "true") {
-                document.getElementById("orCheckbox").checked = "true";
+                document.getElementById("searchCheckbox").checked = "true";
             }
             initSuggestionValues(value);
 
