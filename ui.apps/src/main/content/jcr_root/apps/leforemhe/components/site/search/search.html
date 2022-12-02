@@ -21,7 +21,7 @@
             </div>
 
             <div class="aem title-container results">
-                <h1>Resultats</h1>
+                <h1>${'Résultats' @ i18n}</h1>
                 <h5 class="subTitle result-counter-header" data-resultCounterLabel="${searchResults.multipleResultLabel}" data-resultCounterLabelOne="${searchResults.oneResultLabel}"></h5>
             </div>
             <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults}" data-sly-unwrap/>
