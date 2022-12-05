@@ -8,6 +8,7 @@ $(document).ready(function () {
         const checkboxes = document.querySelectorAll('.checkbox-container input');
         let valueChips = document.getElementById("valueChips");
         const showResults = form.dataset.showSearchResults;
+        const fallbackImage = form.dataset.fallbackImage;
         const orCheckbox = document.querySelector('.searchCheckbox-container')
         const orCheckboxInput = document.querySelector('.searchCheckbox-container input');
         const resultCounter = document.querySelector('.result-counter');
@@ -142,7 +143,7 @@ $(document).ready(function () {
 <a href="${result.vanityPath}">
     <div class="cmp-teaser">
         <div class="cmp-teaser__image">
-                    <img src="${result.featuredImage}" loading="lazy" class="cmp-image__image">
+                    <img src="${getFeaturedImageOrFallback(result.featuredImage)}" loading="lazy" class="cmp-image__image">
         </div>
         <div class="cmp-teaser__content">
             <div class="cmp-teaser__header">
@@ -230,6 +231,14 @@ $(document).ready(function () {
                 splittedQParams.forEach(param => {
                     addSuggestion(param)
                 })
+            }
+        }
+
+        function getFeaturedImageOrFallback(featuredImage) {
+            if (featuredImage === "") {
+                return fallbackImage;
+            } else {
+                return featuredImage;
             }
         }
 

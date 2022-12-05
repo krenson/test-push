@@ -9,6 +9,7 @@ public interface SearchResults {
     List<SearchResult> getResults();
     List<SearchResultsPagination> getPagination();
     String getResultTotal();
+    String getFallbackImage();
     String getOneResultLabel();
     String getMultipleResultLabel();
     String getNoResultText();

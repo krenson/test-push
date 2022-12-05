@@ -12,6 +12,7 @@ import com.leforemhe.aem.site.core.search.SearchResultsPagination;
 import com.leforemhe.aem.site.core.search.predicates.PredicateResolver;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.leforemhe.aem.site.core.services.ImageService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -45,6 +46,9 @@ import java.util.*;
 public class SearchResultsImpl implements SearchResults {
     private static final Logger log = LoggerFactory.getLogger(SearchResultsImpl.class);
 
+    @Inject
+    ImageService imageService;
+
     @Self
     private SlingHttpServletRequest request;
     @OSGiService
@@ -65,6 +69,8 @@ public class SearchResultsImpl implements SearchResults {
     private String multipleResultLabel;
     @ValueMapValue
     private String noResultText;
+    @ValueMapValue
+    private String fileReferenceImage;
     @ChildResource
     private List<TagNamespace> tagNamespaces;
 
@@ -168,6 +174,11 @@ public class SearchResultsImpl implements SearchResults {
     }
 
     @Override
+    public String getFallbackImage() {
+        return imageService.getImageRendition(fileReferenceImage, resourceResolver);
+    }
+
+    @Override
     public String getOneResultLabel() {
         return oneResultLabel;
     }
@@ -194,4 +205,5 @@ public class SearchResultsImpl implements SearchResults {
         }
         return tagsList;
     }
+
 }
