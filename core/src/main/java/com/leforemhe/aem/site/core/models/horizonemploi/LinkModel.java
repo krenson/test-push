@@ -11,4 +11,6 @@ public interface LinkModel {
     String getJobTitle();
     int getGeneratedId();
     boolean isConfigured();
+    Boolean isInternalLink();
+    String getLinkReference();
 }
