@@ -570,6 +570,10 @@ $backgroud-menu-color: #faf5ec;
     a span {
       display: none;
     }
+
+    & + section {
+      margin-top: 12rem;
+    }
   }
   .aem.topV2 header {
     font-size: 1.8rem;
