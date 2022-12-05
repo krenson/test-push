@@ -37,13 +37,64 @@
                            fieldLabel="Description"
                            fieldDescription="Description du lien pavé (pour le HTML)"
                            name="./description"/>
-                    <linkReference
-                      jcr:primaryType="nt:unstructured"
-                      sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                      fieldLabel="Popup content"
-                      name="./popupReference"
-                      rootPath="/content/experience-fragments"/>
-
+                    <linkType jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                              deleteHint="{Boolean}true"
+                              granite:class="cq-dialog-dropdown-showhide-multi"
+                              fieldLabel="Type de lien"
+                              name="./linkType">
+                        <items jcr:primaryType="nt:unstructured">
+                            <popup
+                              jcr:primaryType="nt:unstructured"
+                              text="Popup"
+                              selected="{Boolean}true"
+                              value="pop-up"
+                              icon="graphPathing"/>
+                            <internalLink
+                              jcr:primaryType="nt:unstructured"
+                              text="Lien internal"
+                              value="internal-link"
+                              icon="globe"/>
+                        </items>
+                        <granite:data
+                          jcr:primaryType="nt:unstructured"
+                          cqdialogdropdownshowhidetarget=".link-type-showhide-target">
+                        </granite:data>
+                    </linkType>
+                    <internalLink jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/container"
+                                  margin="{Boolean}true"
+                                  granite:class="hide link-type-showhide-target">
+                        <granite:data
+                          jcr:primaryType="nt:unstructured"
+                          showhidetargetvalue="internal-link"/>
+                        <items jcr:primaryType="nt:unstructured">
+                         <linkReference
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                              fieldLabel="Lien interne"
+                              fieldDescription="Sélectionner la page vers laquelle ce lien référencera."
+                              name="./internalLinkReference"
+                              rootPath="/content/leforemhe"/>
+                        </items>
+                    </internalLink>
+                    <popuplink jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/container"
+                                  margin="{Boolean}true"
+                                  granite:class="hide link-type-showhide-target">
+                        <granite:data
+                          jcr:primaryType="nt:unstructured"
+                          showhidetargetvalue="pop-up">
+                        </granite:data>
+                        <items jcr:primaryType="nt:unstructured">
+                            <popupReference
+                              jcr:primaryType="nt:unstructured"
+                              sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                              fieldLabel="Popup content"
+                              name="./popupReference"
+                              rootPath="/content/experience-fragments"/>
+                        </items>
+                    </popuplink>
                 </items>
             </column>
         </items>

@@ -43,6 +43,12 @@ public class LinkModelImpl implements LinkModel {
     @ValueMapValue
     private String popupReference;
 
+    @ValueMapValue
+    private String linkType;
+
+    @ValueMapValue
+    private String linkReference;
+
     private Job job;
 
     @Override
@@ -85,5 +91,15 @@ public class LinkModelImpl implements LinkModel {
             jobTitle = job.getTitle();
         }
         return jobTitle;
+    }
+
+    @Override
+    public Boolean isInternalLink() {
+        return linkType.equals("internal-link");
+    }
+
+    @Override
+    public String getLinkReference() {
+        return StringUtils.isBlank(linkReference) ? "#" : linkReference;
     }
 }
