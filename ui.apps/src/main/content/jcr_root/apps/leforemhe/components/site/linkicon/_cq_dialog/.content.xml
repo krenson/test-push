@@ -74,7 +74,7 @@
                               sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                               fieldLabel="Lien interne"
                               fieldDescription="Sélectionner la page vers laquelle ce lien référencera."
-                              name="./internalLinkReference"
+                              name="./linkReference"
                               rootPath="/content/leforemhe"/>
                         </items>
                     </internalLink>
