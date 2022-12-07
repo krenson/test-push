@@ -2,14 +2,15 @@
      data-sly-use.pretitleTemplate="core/wcm/components/teaser/v2/teaser/pretitle.html"
      data-sly-use.descriptionTemplate="core/wcm/components/teaser/v2/teaser/description.html"
      data-sly-use.actionsTemplate="core/wcm/components/teaser/v2/teaser/actions.html"
-     data-sly-use.tagsTemplate="leforemhe/components/site/templates/tags.html"
-     data-sly-use.imageTemplate="core/wcm/components/teaser/v2/teaser/image.html">
+     data-sly-use.tagsTemplate="leforemhe/components/site/templates/tags.html">
     <a class="cmp-teaser__link"
        data-sly-attribute="${teaser.link.htmlAttributes}"
        data-cmp-clickable="${teaser.data ? true : false}"
        id=${teaser.id}>
         <div class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}">
-            <sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
+            <div class="cmp-teaser__image">
+                <img src="${teaser.imageResource.path}" loading="lazy" class="cmp-image__image">
+            </div>
             <div class="cmp-teaser__content">
                 <div class="cmp-teaser__header">
                     <sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>

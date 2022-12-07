@@ -3,16 +3,19 @@ package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 import com.adobe.cq.wcm.core.components.models.Teaser;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
+import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.horizonemploi.JobTeaserList;
 import com.leforemhe.aem.site.core.search.SearchResult;
 import com.leforemhe.aem.site.core.search.providers.SearchProvider;
+import com.leforemhe.aem.site.core.services.ImageService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -30,8 +33,15 @@ public class JobTeaserListImpl implements JobTeaserList {
     @Inject
     private ResourceResolver resourceResolver;
 
+    @Inject
+    private ImageService imageService;
+
+    @ValueMapValue
+    private String fallbackImage;
+
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<Teaser> teasers = new ArrayList<Teaser>();
+    private Resource imageResource;
 
     @Override
     public Collection<Teaser> getPages() {
@@ -52,7 +62,12 @@ public class JobTeaserListImpl implements JobTeaserList {
             searchResults.forEach(searchResult -> {
                 Page page = resourceResolver.resolve(searchResult.getPath()).adaptTo(Page.class);
                 String externalizedUrl = externalizer.publishLink(resourceResolver, page.getPath()) + ".html";
-                Resource imageResource = resourceResolver.getResource(searchResult.getPath() + "/jcr:content/cq:featuredimage");
+                String featuredImageFileReference = ModelUtils.getFeaturedImageOfPage(page.getPath(), resourceResolver);
+                if(!StringUtils.isEmpty(featuredImageFileReference)) {
+                    imageResource = resourceResolver.getResource(imageService.getImageRendition(featuredImageFileReference, resourceResolver));
+                } else {
+                    imageResource = resourceResolver.getResource(fallbackImage);
+                }
                 teasers.add(new TeaserListItemImpl(page, imageResource, externalizedUrl));
             });
         }
