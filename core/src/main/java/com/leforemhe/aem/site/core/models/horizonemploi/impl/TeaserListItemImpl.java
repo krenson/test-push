@@ -31,7 +31,9 @@ public class TeaserListItemImpl implements TeaserListItem {
         this.imageResource = imageResource;
         this.link = new TeaserListItemLinkImpl(page, externalizedUrl);
         for (Tag tag: tags) {
-            jobTags.add(new JobTag(tag));
+            if(tag.getNamespace().getName().equals("he-metier")) {
+                jobTags.add(new JobTag(tag));
+            }
         }
         this.teaserTags = jobTags;
 
