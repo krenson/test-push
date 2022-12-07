@@ -100,6 +100,6 @@ public class LinkModelImpl implements LinkModel {
 
     @Override
     public String getLinkReference() {
-        return StringUtils.isBlank(linkReference) ? "#" : linkReference;
+        return linkReference;
     }
 }
