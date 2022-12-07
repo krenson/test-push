@@ -81,4 +81,83 @@
             </dam:Asset>
         </indexRules>
     </customSearchIndex>
+    <searchIndex
+      jcr:primaryType="oak:QueryIndexDefinition"
+      async="[async,nrt]"
+      compatVersion="{Long}2"
+      includedPaths="/content/dam/leforemhe/fr/metiers"
+      reindex="{Boolean}false"
+      reindexCount="{Long}12"
+      seed="{Long}7704420373846509942"
+      type="lucene">
+        <aggregates jcr:primaryType="nt:unstructured">
+            <dam:Asset jcr:primaryType="nt:unstructured">
+                <include0
+                  jcr:primaryType="nt:unstructured"
+                  path="jcr:content"
+                  relativeNode="{Boolean}true"/>
+            </dam:Asset>
+        </aggregates>
+        <analyzers jcr:primaryType="nt:unstructured">
+            <default  jcr:primaryType="nt:unstructured"
+                      class="org.apache.lucene.analysis.fr.FrenchAnalyzer"/>
+        </analyzers>
+        <indexRules jcr:primaryType="nt:unstructured">
+            <dam:Asset jcr:primaryType="nt:unstructured">
+                <properties jcr:primaryType="nt:unstructured">
+                    <titre
+                      jcr:primaryType="nt:unstructured"
+                      includePropertyTypes="multiple"
+                      name="jcr:content/data/master/titre"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      useInSuggest="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}3.0"/>
+                    <synonymes
+                      jcr:primaryType="nt:unstructured"
+                      name="jcr:content/data/master/synonymes"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      useInSuggest="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}2.0"/>
+                    <savoir
+                      jcr:primaryType="nt:unstructured"
+                      name="jcr:content/data/master/savoir"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      useInSuggest="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}1.0"/>
+                    <savoirfaire
+                      jcr:primaryType="nt:unstructured"
+                      name="jcr:content/data/master/savoirFaire"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      useInSuggest="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}1.0"/>
+                    <codemetier
+                      jcr:primaryType="nt:unstructured"
+                      name="jcr:content/data/master/codeMetier"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      useInSuggest="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}4.0"/>
+                </properties>
+            </dam:Asset>
+        </indexRules>
+    </searchIndex>
 </jcr:root>
