@@ -3,6 +3,9 @@
   margin-bottom: 1.5rem;
   @include max-width;
 
+  padding-left: unset;
+  padding-right: unset;
+
   &.full-width {
     width: 100%;
   }
@@ -64,10 +67,6 @@
       }
     }
   }
-}
-
-.multi-labels {
-  padding-left: 1.5rem;
 }
 
 @media screen and (max-width: $breakpointMobile) {
