@@ -12,6 +12,8 @@ if (popupOpener.length > 0) {
           document.querySelector("html").classList.add("openPopup");
           popup.scrollIntoView();
           document.body.appendChild(popup);
+
+          popup.focus();
         }
       }
     });
