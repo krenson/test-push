@@ -1,7 +1,7 @@
 <sly data-sly-use.referenceMultiModel="com.leforemhe.aem.site.core.models.NavigationModel"></sly>
 <section class="aem multiComponent">
     <div class="multi-content">
-        <h1 data-sly-test="${properties.jcr:title}">${properties.jcr:title}</h1>
+        <h3 data-sly-test="${properties.jcr:title}">${properties.jcr:title}</h3>
         <ul data-sly-test="${referenceMultiModel.items && referenceMultiModel.items.size>0}">
             <sly data-sly-repeat.reference="${referenceMultiModel.items}">
                 <li class="${reference.document ? 'multi-icone' : ''}">
