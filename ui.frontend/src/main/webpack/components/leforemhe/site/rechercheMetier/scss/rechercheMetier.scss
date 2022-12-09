@@ -49,7 +49,6 @@ div#rechercheMetier,
   }
 
   .searchContainer {
-
     width: 100%;
     max-width: 140rem;
 
@@ -381,10 +380,9 @@ div#rechercheMetier,
     }
   }
 
-  .short-searchContainer div#rechercheMetier div.background-Yellow {
-    div.short-content-container {
-      width: 100% !important;
-      max-width: unset !important;
+  div.container-content:has(div#rechercheMetier) {
+    & + div {
+      margin-top: 15rem;
     }
   }
 }
