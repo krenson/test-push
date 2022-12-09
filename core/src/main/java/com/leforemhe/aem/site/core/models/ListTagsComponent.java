@@ -50,7 +50,7 @@ public class ListTagsComponent {
     }
 
     public String getInternalLinkReference() {
-        return  ModelUtils.getVanityOfPageIfExists(internalLinkReference, request.getResourceResolver());
+        return ModelUtils.getVanityOfPageIfExists(internalLinkReference, request.getResourceResolver());
     }
 
     public String getCtaLabel() {
