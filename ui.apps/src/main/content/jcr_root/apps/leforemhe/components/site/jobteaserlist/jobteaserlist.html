@@ -1,9 +1,18 @@
-<div class="teaser tuileContainer"
+<div class="container maxWidth padding-bottom aem twoCol listeResultats-container"
      data-sly-use.list="com.leforemhe.aem.site.core.models.horizonemploi.JobTeaserList"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html"
-     data-sly-use.teaserTemplate="leforemhe/components/site/templates/teaser.html"
-     data-sly-list.item="${list.pages}">
-    <sly data-sly-call="${teaserTemplate.teaser @ teaser=item}">
-    </sly>
+     data-sly-use.teaserTemplate="leforemhe/components/site/templates/teaser.html">
+    <div class="container-content">
+        <div class="resultats-container">
+            <div class="tuile-results-container">
+                <div class="teaser tuileContainer"
+                     data-sly-repeat="${list.pages}">
+                    <sly data-sly-call="${teaserTemplate.teaser @ teaser=item}">
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <sly data-sly-call="${template.placeholder @ isEmpty=list.listItems.size == 0, classAppend='cmp-list'}"></sly>
