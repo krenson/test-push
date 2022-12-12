@@ -4,6 +4,7 @@ import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.horizonemploi.TeaserListItem;
 import org.apache.sling.api.resource.Resource;
@@ -31,7 +32,7 @@ public class TeaserListItemImpl implements TeaserListItem {
         this.imageResource = imageResource;
         this.link = new TeaserListItemLinkImpl(page, externalizedUrl);
         for (Tag tag: tags) {
-            if(tag.getNamespace().getName().equals("he-metier")) {
+            if(tag.getNamespace().getName().equals(Constants.HE_METIER_NAMESPACE)) {
                 jobTags.add(new JobTag(tag));
             }
         }
