@@ -25,4 +25,6 @@ public class Constants {
 
     public static final String JSON_EXTENSION = "json";
 
+    public static final String HE_METIER_NAMESPACE = "he-metier";
+
 }

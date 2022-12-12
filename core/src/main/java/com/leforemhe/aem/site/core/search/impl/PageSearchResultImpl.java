@@ -129,7 +129,7 @@ public class PageSearchResultImpl implements SearchResult {
             if (tagIds != null) {
                 for (String tagId : tagIds) {
                     Tag resolvedTag = tagManager.resolve(tagId);
-                    if (resolvedTag != null) {
+                    if (resolvedTag != null && resolvedTag.getTagID().contains(Constants.HE_METIER_NAMESPACE)) {
                         tags.add(new JobTag(resolvedTag));
                     }
                 }
