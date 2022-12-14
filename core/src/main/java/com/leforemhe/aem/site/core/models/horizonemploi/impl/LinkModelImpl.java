@@ -2,6 +2,7 @@ package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
 import com.day.cq.wcm.api.Page;
 import com.leforemhe.aem.site.core.models.Constants;
+import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
 import org.apache.commons.lang3.StringUtils;
@@ -100,6 +101,6 @@ public class LinkModelImpl implements LinkModel {
 
     @Override
     public String getLinkReference() {
-        return linkReference;
+        return ModelUtils.addHtmlExtensionIfNecessary(ModelUtils.getVanityOfPageIfExists(linkReference, currentResource.getResourceResolver()));
     }
 }
