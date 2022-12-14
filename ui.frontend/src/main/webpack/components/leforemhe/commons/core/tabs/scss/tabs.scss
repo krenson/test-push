@@ -71,6 +71,10 @@
 
   div.cmp-teaser__image .cmp-image img {
   }
+
+  h2 {
+    all: unset;
+  }
 }
 .cmp-tabs__tab--active {
   /*  border-bottom: 0.4rem solid $tercary-color; */
