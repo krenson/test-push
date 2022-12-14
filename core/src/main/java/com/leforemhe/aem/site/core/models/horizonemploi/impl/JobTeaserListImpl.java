@@ -49,6 +49,7 @@ public class JobTeaserListImpl implements JobTeaserList {
         final Map<String, String> searchPredicates = new HashMap<>();
         searchPredicates.put("type", "cq:Page");
         searchPredicates.put("path", "/content/leforemhe/fr/infos-metiers/metiers");
+        searchPredicates.put("group.p.or", "true");
         if(tags != null) {
             addTags(tags,searchPredicates);
             searchPredicates.put("p.limit", "-1");
