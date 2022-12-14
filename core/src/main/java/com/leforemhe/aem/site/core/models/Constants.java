@@ -1,5 +1,7 @@
 package com.leforemhe.aem.site.core.models;
 
+import java.util.List;
+
 public class Constants {
     public static final String EF_RESOURCE_TYPE = "leforemhe/components/commons/core/xfpage";
     public static final String CLE_METIER = "clemetier";
@@ -21,6 +23,6 @@ public class Constants {
 
     public static final String JSON_EXTENSION = "json";
 
-    public static final String HE_METIER_NAMESPACE = "he-metier";
+    public static final List<String> ALLOWED_NAMESPACES = List.of("he-metier");
 
 }
