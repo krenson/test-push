@@ -102,7 +102,7 @@ public class SearchResultsImpl implements SearchResults {
         if (request.getParameter("tags") != null) {
             addTags(request.getParameter("tags"), searchPredicates);
         }
-        if(orCheckbox != null && orCheckbox.equals("true")) {
+        if (orCheckbox != null && orCheckbox.equals("true")) {
             searchPredicates.put("group.p.or", "true");
         }
 
@@ -117,11 +117,7 @@ public class SearchResultsImpl implements SearchResults {
     }
 
     public String getAction() {
-        if (showResults) {
-            return StringUtils.EMPTY;
-        } else {
-            return ModelUtils.getVanityOfPageIfExists(this.searchResultPage, resourceResolver);
-        }
+        return ModelUtils.getVanityOfPageIfExists(this.searchResultPage, resourceResolver);
     }
 
     private String computeTotalMatches(com.day.cq.search.result.SearchResult result) {
@@ -149,7 +145,7 @@ public class SearchResultsImpl implements SearchResults {
         int index = 1;
         for (String tag : tags.split(",")) {
             index++;
-            searchPredicates.put("group." + index +"_property", "jcr:content/cq:tags");
+            searchPredicates.put("group." + index + "_property", "jcr:content/cq:tags");
             searchPredicates.put("group." + index + "_property.value", tag);
         }
     }
@@ -197,7 +193,7 @@ public class SearchResultsImpl implements SearchResults {
     public List<FilterModel> getTagNamespaces() {
         tagsList = new ArrayList<>();
         TagManager tagManager = resourceResolver.adaptTo(TagManager.class);
-        if(tagNamespaces != null && tagManager != null) {
+        if (tagNamespaces != null && tagManager != null) {
             for (int i = 0; i < tagNamespaces.size(); i++) {
                 Tag parentTag = tagManager.resolve(tagNamespaces.get(i).getTagNamespace());
                 tagsList = TagUtils.getParentAndChildTags(parentTag.listChildren(), parentTag, tagsList);

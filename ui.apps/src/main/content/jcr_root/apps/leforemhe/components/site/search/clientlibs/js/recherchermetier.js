@@ -9,6 +9,7 @@ $(document).ready(function () {
         let valueChips = document.getElementById("valueChips");
         const showResults = form.dataset.showSearchResults;
         const fallbackImage = form.dataset.fallbackImage;
+        const dynamicSearch = form.dataset.dynamicSearch;
         const orCheckbox = document.querySelector('.searchCheckbox-container')
         const orCheckboxInput = document.querySelector('.searchCheckbox-container input');
         const resultCounter = document.querySelector('.result-counter');
@@ -76,7 +77,7 @@ $(document).ready(function () {
                 query = query + value + ',';
             })
             orCheckbox.style.bottom = "-" + valueChips.offsetHeight + 'px';
-            getQuickResults(query)
+            getQuickResults(query, dynamicSearch)
             getTagValues(query)
         }
 
@@ -94,33 +95,38 @@ $(document).ready(function () {
             innerValueChips.forEach(value => {
                 query = query + value + ',';
             })
-            getQuickResults(query);
+            getQuickResults(query, dynamicSearch);
             getTagValues(query)
         }
 
-        window.checkboxClick = function checkboxClick(e) {
-            let query = '';
-            innerValueChips.forEach(value => {
-                query = query + value + ',';
-            })
-            getQuickResults(query);
-            getTagValues(query)
+        if(dynamicSearch === "true") {
+            window.checkboxClick = function checkboxClick(e) {
+                let query = '';
+                innerValueChips.forEach(value => {
+                    query = query + value + ',';
+                })
+                getQuickResults(query, dynamicSearch);
+                getTagValues(query)
+            }
         }
 
         function getTagQuery() {
-            let tagsValue = params.tags !== null ? params.tags : '';
-            let index = 0;
-            checkboxes.forEach((checkbox) => {
-                if (checkbox.checked) {
-                    tagsValue += index === 0 ? checkbox.name : ',' + checkbox.name;
-                    index++
-                }
-            })
+            let tagsValue = '';
+            tagsValue = params.tags !== null ? params.tags : '';
+            if(dynamicSearch === "true") {
+                let index = 0;
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        tagsValue += index === 0 ? checkbox.name : ',' + checkbox.name;
+                        index++
+                    }
+                })
+            }
             return tagsValue;
         }
 
-        function getQuickResults(inputValue) {
-            if (showResults == "true") {
+        function getQuickResults(inputValue, doSearch) {
+            if (showResults == "true" && doSearch == "true") {
                 const searchResultList = document.querySelector('.tuile-results-container')
                 tagsValue = getTagQuery();
                 let query = '';
@@ -207,29 +213,39 @@ $(document).ready(function () {
 
         function initSearchPage() {
             let value = params.q; // "some_value"
+            let tags = params.tags;
             let orCheckboxInitValue = params.or; // "some_value"
 
             if (orCheckboxInitValue === "true") {
                 document.getElementById("searchCheckbox").checked = "true";
             }
-            initSuggestionValues(value);
+            initSuggestionValues(value, tags);
 
             if (value != null) {
-                getQuickResults(value);
+                getQuickResults(value, "true");
                 getTagValues(value)
             } else {
-                getQuickResults("");
+                getQuickResults("", "true");
                 getTagValues("")
             }
-
         }
 
-        function initSuggestionValues(qParams) {
+        function initSuggestionValues(qParams, tags) {
             if (qParams != null && qParams.length != 0) {
                 let splittedQParams = qParams.split(",");
 
                 splittedQParams.forEach(param => {
                     addSuggestion(param)
+                })
+            }
+            if(tags != null && tags.length != 0) {
+                let splittedTags = tags.split(",")
+                splittedTags.forEach(tag => {
+                    checkboxes.forEach(checkbox => {
+                        if (checkbox.name === tag) {
+                            checkbox.checked = true;
+                        }
+                    })
                 })
             }
         }
