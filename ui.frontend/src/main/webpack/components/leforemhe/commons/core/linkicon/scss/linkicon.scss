@@ -1,5 +1,11 @@
 .linkicon {
-  .cmp-teaser__image img{
-    height: 27px;
+  margin: 1rem;
+  padding: 1.5rem;
+  .teaser .cmp-teaser a {
+    display: flex;
+    .cmp-teaser__image img {
+      height: 2.7rem;
+      width: 2.7rem;
+    }
   }
 }
