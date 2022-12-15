@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.tagging.Tag;
+import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -60,7 +61,9 @@ public class Job {
         this.synonymes = ContentFragmentUtils.getMultifieldValue(contentFragment, SYNONYMES_KEY, String.class);
         this.labels = new ArrayList<>();
         for (Tag label : labels) {
-            this.labels.add(new JobTag(label));
+            if(Constants.ALLOWED_NAMESPACES.contains(label.getNamespace().getName())) {
+                this.labels.add(new JobTag(label));
+            }
         }
         this.codeEsco = ContentFragmentUtils.getSingleValue(contentFragment, CODE_ESCO_KEY, String.class);
         this.libelleEsco = ContentFragmentUtils.getSingleValue(contentFragment, LIBELLE_ESCO_KEY, String.class);

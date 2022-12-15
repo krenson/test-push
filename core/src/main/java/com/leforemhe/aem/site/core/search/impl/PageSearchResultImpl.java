@@ -15,7 +15,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
-import org.osgi.service.component.annotations.Reference;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -129,7 +128,7 @@ public class PageSearchResultImpl implements SearchResult {
             if (tagIds != null) {
                 for (String tagId : tagIds) {
                     Tag resolvedTag = tagManager.resolve(tagId);
-                    if (resolvedTag != null && resolvedTag.getTagID().contains(Constants.HE_METIER_NAMESPACE)) {
+                    if (resolvedTag != null && Constants.ALLOWED_NAMESPACES.contains(resolvedTag.getNamespace().getName())) {
                         tags.add(new JobTag(resolvedTag));
                     }
                 }

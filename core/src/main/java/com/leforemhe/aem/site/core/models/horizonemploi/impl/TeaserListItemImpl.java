@@ -32,7 +32,7 @@ public class TeaserListItemImpl implements TeaserListItem {
         this.imageResource = imageResource;
         this.link = new TeaserListItemLinkImpl(page, externalizedUrl);
         for (Tag tag: tags) {
-            if(tag.getNamespace().getName().equals(Constants.HE_METIER_NAMESPACE)) {
+            if(Constants.ALLOWED_NAMESPACES.contains(tag.getNamespace().getName())) {
                 jobTags.add(new JobTag(tag));
             }
         }
