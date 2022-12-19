@@ -268,6 +268,13 @@
                     text="Montrer les résultats"
                     uncheckedValue="{Boolean}false"
                     value="{Boolean}true"/>
+                  <dynamicSearch
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                    name="./dynamicSearch"
+                    text="Recherche dynamique"
+                    uncheckedValue="{Boolean}false"
+                    value="{Boolean}true"/>
                   <resultPage
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
