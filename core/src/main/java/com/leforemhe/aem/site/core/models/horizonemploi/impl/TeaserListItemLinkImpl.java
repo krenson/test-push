@@ -1,6 +1,7 @@
 package com.leforemhe.aem.site.core.models.horizonemploi.impl;
 
 import com.day.cq.wcm.api.Page;
+import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.horizonemploi.TeaserListItemLink;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -18,15 +19,15 @@ public class TeaserListItemLinkImpl implements TeaserListItemLink {
     private final String externalizedUrl;
     private final Object reference;
 
-    public TeaserListItemLinkImpl(Page page, String externalizedUrl) {
-        htmlAttributes.put("href", page.getPath() + HTML_EXTENSION);
+    public TeaserListItemLinkImpl(Page page, String url) {
+        htmlAttributes.put("href", url);
         if(page != null && StringUtils.isNotBlank(page.getPath())) {
             this.isValid = true;
         }
         this.url = page.getPath() + HTML_EXTENSION;
         this.mappedUrl = page.getPath() + HTML_EXTENSION;
         this.reference = page;
-        this.externalizedUrl = externalizedUrl + HTML_EXTENSION;
+        this.externalizedUrl = url;
     }
 
     @Override

@@ -62,14 +62,14 @@ public class JobTeaserListImpl implements JobTeaserList {
         if (externalizer != null) {
             searchResults.forEach(searchResult -> {
                 Page page = resourceResolver.resolve(searchResult.getPath()).adaptTo(Page.class);
-                String externalizedUrl = externalizer.publishLink(resourceResolver, page.getPath()) + ".html";
+                String url = ModelUtils.getVanityOfPageIfExists(page.getPath(), resourceResolver);
                 String featuredImageFileReference = ModelUtils.getFeaturedImageOfPage(page.getPath(), resourceResolver);
                 if(!StringUtils.isEmpty(featuredImageFileReference)) {
                     imageResource = resourceResolver.getResource(imageService.getImageRendition(featuredImageFileReference, resourceResolver));
                 } else {
                     imageResource = resourceResolver.getResource(fallbackImage);
                 }
-                teasers.add(new TeaserListItemImpl(page, imageResource, externalizedUrl));
+                teasers.add(new TeaserListItemImpl(page, imageResource, url));
             });
         }
         return teasers;
