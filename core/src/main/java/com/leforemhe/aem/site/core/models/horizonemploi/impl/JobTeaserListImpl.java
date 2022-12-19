@@ -39,6 +39,9 @@ public class JobTeaserListImpl implements JobTeaserList {
     @ValueMapValue
     private String fallbackImage;
 
+    @ValueMapValue
+    private String searchPath;
+
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
     private List<Teaser> teasers = new ArrayList<Teaser>();
     private Resource imageResource;
@@ -48,7 +51,7 @@ public class JobTeaserListImpl implements JobTeaserList {
         String tags = request.getParameter("tags");
         final Map<String, String> searchPredicates = new HashMap<>();
         searchPredicates.put("type", "cq:Page");
-        searchPredicates.put("path", "/content/leforemhe/fr/infos-metiers/metiers");
+        searchPredicates.put("path", searchPath);
         searchPredicates.put("group.p.or", "true");
         if(tags != null) {
             addTags(tags,searchPredicates);

@@ -23,6 +23,13 @@
             fileReferenceParameter="./fallbackImage"
             mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
             name="./file"/>
+          <searchPath
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+            fieldDescription="Specify search path to be used"
+            fieldLabel="Search Path"
+            name="./searchPaths"
+            rootPath="/content"/>
         </items>
       </column>
     </items>
