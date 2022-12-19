@@ -1,4 +1,14 @@
 .list ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  list-style-type: none;
+
+  li {
+    padding-left: 0;
+
+    &::before {
+      all: unset;
+    }
+  }
 }
