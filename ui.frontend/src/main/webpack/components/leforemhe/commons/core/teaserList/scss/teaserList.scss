@@ -1,14 +1,38 @@
-.list ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  list-style-type: none;
-
-  li {
+.teaserList {
+  ul {
+    display: grid;
+    list-style-type: none;
     padding-left: 0;
 
-    &::before {
-      all: unset;
+    li {
+      &::before {
+        all: unset;
+      }
+    }
+  }
+
+  &.grid1Col {
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.grid2Col {
+    ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &.grid3Col {
+    ul {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &.teaserRow {
+    ul {
+      display: flex;
+      overflow-x: auto;
     }
   }
 }
