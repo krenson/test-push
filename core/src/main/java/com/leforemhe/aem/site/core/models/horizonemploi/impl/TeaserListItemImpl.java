@@ -24,13 +24,13 @@ public class TeaserListItemImpl implements TeaserListItem {
 
     private List<JobTag> jobTags = new ArrayList<>();
 
-    public TeaserListItemImpl(Page page, Resource imageResource, String externalizedUrl) {
+    public TeaserListItemImpl(Page page, Resource imageResource, String url) {
         Tag[] tags = page.getTags();
         this.title = page.getTitle();
         this.name = page.getName();
         this.description = page.getDescription();
         this.imageResource = imageResource;
-        this.link = new TeaserListItemLinkImpl(page, externalizedUrl);
+        this.link = new TeaserListItemLinkImpl(page, url);
         for (Tag tag: tags) {
             if(Constants.ALLOWED_NAMESPACES.contains(tag.getNamespace().getName())) {
                 jobTags.add(new JobTag(tag));
