@@ -1,0 +1,38 @@
+.teaserList {
+  ul {
+    display: grid;
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      &::before {
+        all: unset;
+      }
+    }
+  }
+
+  &.grid1Col {
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.grid2Col {
+    ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &.grid3Col {
+    ul {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &.teaserRow {
+    ul {
+      display: flex;
+      overflow-x: auto;
+    }
+  }
+}
