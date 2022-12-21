@@ -4,12 +4,14 @@ import com.adobe.cq.wcm.core.components.commons.link.Link;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.adobe.cq.wcm.core.components.models.Teaser;
 import com.adobe.cq.wcm.core.components.models.datalayer.ComponentData;
+import com.day.cq.commons.ImageResource;
 import com.day.cq.wcm.api.Page;
 import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.horizonemploi.JobTeaserModel;
 import com.leforemhe.aem.site.core.services.ContentFragmentUtilService;
+import com.leforemhe.aem.site.core.services.ImageService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -34,6 +36,9 @@ public class JobTeaserModelImpl implements JobTeaserModel {
     private ContentFragmentUtilService contentFragmentUtilService;
 
     @Inject
+    ImageService imageService;
+
+    @Inject
     private Page currentPage;
 
     @SlingObject
@@ -48,6 +53,10 @@ public class JobTeaserModelImpl implements JobTeaserModel {
     @Override
     public Resource getImageResource() {
         return teaser.getImageResource();
+    }
+
+    public String getImageResourcePath() {
+        return imageService.getImageRendition(getImageResource().getValueMap().get("fileReference").toString(), currentResource.getResourceResolver());
     }
 
     @Override
