@@ -9,6 +9,27 @@
       display: flex;
       text-decoration: none;
 
+      .cmp-teaser__image {
+        order: 0;
+        margin-right: 1.5rem;
+        border: $link-icone-size-border-focus solid $link-icone-background-color;
+        height: $link-icone-size;
+        min-width: $link-icone-size;
+        width: $link-icone-size;
+        border-radius: 50%;
+        background-color: $link-icone-background-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color $transitiontime $transitionmode,
+          border-color $transitiontime $transitionmode;
+
+        img {
+          height: 2.7rem;
+          width: 2.7rem;
+        }
+      }
+
       &:hover {
         cursor: pointer;
         .cmp-teaser__image {
@@ -80,6 +101,7 @@
     }
   }
 }
+
 .cmp-teaser__content {
   order: 1;
   display: flex;
