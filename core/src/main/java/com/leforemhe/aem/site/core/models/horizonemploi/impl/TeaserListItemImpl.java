@@ -7,9 +7,11 @@ import com.day.cq.wcm.api.Page;
 import com.leforemhe.aem.site.core.models.Constants;
 import com.leforemhe.aem.site.core.models.cfmodels.JobTag;
 import com.leforemhe.aem.site.core.models.horizonemploi.TeaserListItem;
+import com.leforemhe.aem.site.core.services.ImageService;
 import org.apache.sling.api.resource.Resource;
 import org.jetbrains.annotations.Nullable;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,10 +23,12 @@ public class TeaserListItemImpl implements TeaserListItem {
     private final String description;
     private final Resource imageResource;
     private final List<JobTag> teaserTags;
+    private ImageService imageService;
+    private String fallBackImage;
 
     private List<JobTag> jobTags = new ArrayList<>();
 
-    public TeaserListItemImpl(Page page, Resource imageResource, String url) {
+    public TeaserListItemImpl(Page page, Resource imageResource, String url, ImageService imageService, String fallbackImage) {
         Tag[] tags = page.getTags();
         this.title = page.getTitle();
         this.name = page.getName();
@@ -37,8 +41,8 @@ public class TeaserListItemImpl implements TeaserListItem {
             }
         }
         this.teaserTags = jobTags;
-
-
+        this.imageService = imageService;
+        this.fallBackImage = fallbackImage;
     }
 
     @Override
@@ -59,6 +63,14 @@ public class TeaserListItemImpl implements TeaserListItem {
     @Override
     public Resource getImageResource() {
         return this.imageResource;
+    }
+
+    public String getImageResourcePath() {
+        if (getImageResource().getValueMap().get("fileReference") != null) {
+            return imageService.getImageRendition(getImageResource().getValueMap().get("fileReference").toString(), imageResource.getResourceResolver());
+        } else {
+            return imageService.getImageRendition(fallBackImage, imageResource.getResourceResolver());
+        }
     }
 
     @Override
