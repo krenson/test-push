@@ -9,18 +9,14 @@
        id=${teaser.id}>
         <div class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}">
             <div class="cmp-teaser__image">
-                <img src="${teaser.imageResource.path}" loading="lazy" class="cmp-image__image">
+                <div class="cmp-image">
+                    <img src="${teaser.imageResourcePath}" class="cmp-image__image" />
+                </div>
             </div>
             <div class="cmp-teaser__content">
                 <div class="cmp-teaser__header">
                     <sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>
                     <h2 class="cmp-teaser__title">${teaser.title}</h2>
-                    <div class="cmp-teaser__image">
-                        <div class="cmp-image">
-                            <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/heart.svg"
-                                 loading="lazy" class="cmp-image__image">
-                        </div>
-                    </div>
                 </div>
                 <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
                 <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
