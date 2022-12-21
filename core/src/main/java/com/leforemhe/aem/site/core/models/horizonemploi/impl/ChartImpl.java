@@ -24,7 +24,7 @@ import com.leforemhe.aem.site.core.services.GraphDataService;
         Chart.class }, resourceType = ChartImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ChartImpl implements Chart {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/chart";
-    public static final String CHART_SELECTOR = "%s_%s.%s";
+    public static final String CHART_SELECTOR = "%s_%s";
     public static final String CHARTS_ASSET_FOLDER = "/content/dam/leforemhe/fr/chiffres-graphes/";
 
     @ScriptVariable
@@ -58,7 +58,7 @@ public class ChartImpl implements Chart {
     @PostConstruct
     public void init() {
         String cleMetier = currentPage.getProperties().get(Constants.CLE_METIER, String.class);
-        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier, getGraphType(), Constants.JSON_EXTENSION);
+        automaticGeneratedPath = CHARTS_ASSET_FOLDER + String.format(CHART_SELECTOR, cleMetier.toLowerCase(), getGraphType());
     }
 
     @Override
@@ -85,11 +85,13 @@ public class ChartImpl implements Chart {
             if(this.dataPath != null) {
                 this.graphData = graphDataService.getChartData(request, this.dataPath);
             } else {
-                this.graphData = graphDataService.getChartData(request, automaticGeneratedPath);
+                this.graphData = graphDataService.getChartData(request, automaticGeneratedPath + Constants.JSON_EXTENSION);
             }
         }
         return this.graphData;
     }
+    ///content/dam/leforemhe/fr/chiffres-graphes/A120301-1_Historique.json
+    ///content/dam/leforemhe/fr/chiffres-graphes/A120301-1_Historique.json
 
     @Override
     public boolean getShowAsPercentage() {
