@@ -24,7 +24,7 @@
     "https://author-p84852-e722654.adobeaemcloud.com:443",
     "https://publish-p84852-e722654.adobeaemcloud.com:443"
   ],
-  "allow.empty": true,
+  "allow.empty": false,
   "filter.methods": [
     "PUT",
     "DELETE",
