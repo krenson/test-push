@@ -4,7 +4,7 @@
      id="filAriane" class="aem">
     <div class="filArianeContainer">
         <sly data-sly-repeat.item="${breadcrumb.items}">
-            <a title="${item.description}" href="${item.uRL}" data-sly-unwrap="${item.active}">
+            <a title="${item.description}" href="${item.page.vanityUrl}" data-sly-unwrap="${item.active}">
                     <span data-sly-unwrap="${!item.active}">
                         <sly data-sly-test="${itemList.first && properties.premierNiveau && breadcrumb.visible}">${properties.premierNiveau} - </sly>${item.title}
                     </span>
