@@ -5,27 +5,16 @@
     "https://.*\\.workfront\\.com:443",
     "https://.*\\.workfront-dev\\.com:443",
     "https://.*\\.dev\\.workfront\\.tech:443",
-    "https://.*\\.forem\\.be:443"
+    "https://.*\\.forem\\.be:443",
+    "https://.*\\.adobeaemcloud\\.com:443"
   ],
   "allow.hosts": [
     "https://fciamacc.b2clogin.com:443",
-    "https://fciam.b2clogin.com:443",
-    "https://leforem-dev2.forem.be:443",
-    "https://leforem-acc.forem.be:443",
-    "https://leforem-test.forem.be:443",
-    "https://forem.be:443",
-    "https://www.forem.be:443",
-    "https://author-p84852-e796329.adobeaemcloud.com:443",
-    "https://publish-p84852-e796329.adobeaemcloud.com:443",
-    "https://author-p84852-e798654.adobeaemcloud.com:443",
-    "https://publish-p84852-e798654.adobeaemcloud.com:443",
-    "https://author-p84852-e796372.adobeaemcloud.com:443",
-    "https://publish-p84852-e796372.adobeaemcloud.com:443",
-    "https://author-p84852-e722654.adobeaemcloud.com:443",
-    "https://publish-p84852-e722654.adobeaemcloud.com:443"
+    "https://fciam.b2clogin.com:443"
   ],
   "allow.empty": false,
   "filter.methods": [
+    "POST",
     "PUT",
     "DELETE",
     "COPY",
