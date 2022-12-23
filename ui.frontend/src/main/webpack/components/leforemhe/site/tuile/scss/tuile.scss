@@ -43,10 +43,7 @@
         }
 
         .cmp-teaser__header {
-          display: flex;
-          margin-bottom: 1rem;
-          align-items: center;
-          justify-content: space-between;
+          margin: 1rem 0;
 
           .cmp-teaser__title {
             font-size: 1.8rem;
@@ -54,22 +51,6 @@
 
             -webkit-line-clamp: 2;
             line-clamp: 2;
-          }
-
-          .cmp-teaser__image {
-            margin: 1.5rem 0rem 1.5rem 1.5rem;
-            max-width: 4.4rem;
-            min-width: 4.4rem;
-            width: 4.4rem;
-            height: 4.4rem;
-            border-radius: 50%;
-            background-color: #d9eff0;
-            border-color: #d9eff0;
-            cursor: pointer;
-
-            .cmp-image img {
-              height: 1.65rem;
-            }
           }
         }
 
