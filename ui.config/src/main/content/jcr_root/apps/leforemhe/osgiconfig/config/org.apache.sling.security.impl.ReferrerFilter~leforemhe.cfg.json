@@ -7,20 +7,28 @@
     "https://.*\\.dev\\.workfront\\.tech:443"
   ],
   "allow.hosts": [
-    "fciamacc.b2clogin.com",
-    "fciam.b2clogin.com",
-    "leforem2.glb.leforem.be",
-    "leforemhe-acc.forem.be",
-    "leforemhe-dev2.forem.be",
-    "leforemhe-acc2.forem.be",
-    "leforemhe-test2.forem.be",
-    "forem.be",
-    "author-p84852-e796329.adobeaemcloud.com",
-    "publish-p84852-e796329.adobeaemcloud.com",
-    "author-p84852-e798654.adobeaemcloud.com",
-    "publish-p84852-e798654.adobeaemcloud.com",
-    "author-p84852-e796372.adobeaemcloud.com",
-    "publish-p84852-e796372.adobeaemcloud.com"
+    "https://fciamacc.b2clogin.com:443",
+    "https://fciam.b2clogin.com:443",
+    "https://leforem2.glb.leforem.be:443",
+    "https://leforem-dev2.forem.be:443",
+    "https://leforem-acc.forem.be:443",
+    "https://leforem-test.forem.be:443",
+    "https://forem.be:443",
+    "https://www.forem.be:443",
+    "https://author-p84852-e796329.adobeaemcloud.com:443",
+    "https://publish-p84852-e796329.adobeaemcloud.com:443",
+    "https://author-p84852-e798654.adobeaemcloud.com:443",
+    "https://publish-p84852-e798654.adobeaemcloud.com:443",
+    "https://author-p84852-e796372.adobeaemcloud.com:443",
+    "https://publish-p84852-e796372.adobeaemcloud.com:443",
+    "https://author-p84852-e722654.adobeaemcloud.com:443",
+    "https://publish-p84852-e722654.adobeaemcloud.com:443"
   ],
-  "allow.empty": true
+  "allow.empty": true,
+  "filter.methods": [
+    "PUT",
+    "DELETE",
+    "COPY",
+    "MOVE"
+  ]
 }
