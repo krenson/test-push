@@ -3,7 +3,9 @@
     <div class="aem link-container" onclick="clicked(this)">
         <h3>${model.text}</h3>
         <div>
-            <a href="${model.urlLink}">${model.urlLink}</a>
+            <a href="${model.urlLink}" aria-label="${model.accessibilityLabel}">
+                ${model.urlLink}
+            </a>
         </div>
     </div>
 </div>
