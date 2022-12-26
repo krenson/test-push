@@ -93,7 +93,6 @@ var chartConfig = {
           radius: "50%",
         },
         ticks: {
-          stepSize: 20,
           font: {
             size: 15,
           },

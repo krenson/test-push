@@ -87,7 +87,6 @@ var lineChartConfig = {
           borderRadius: "15px",
         },
         ticks: {
-          stepSize: 20,
           font: {
             size: 15,
             family: "Poppins",
