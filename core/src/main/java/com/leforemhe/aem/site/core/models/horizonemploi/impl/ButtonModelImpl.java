@@ -33,4 +33,9 @@ public class ButtonModelImpl implements ButtonModel {
     public String getUrlLink() {
         return link;
     }
+
+    @Override
+    public String getAccessibilityLabel() {
+        return button.getAccessibilityLabel();
+    }
 }
