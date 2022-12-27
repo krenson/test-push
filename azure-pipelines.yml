@@ -21,13 +21,15 @@ resources:
   repositories:
     - repository: templates
       type: git
-      name: 'Composants partagés Forem/buildtemplates'
-      ref: refs/heads/release/v2
+      name: 'Composants partagés Forem/devops-java-ci-templates'
+      ref: refs/heads/release/v3
 
 stages:
-  - template: java/template.yaml@templates
+  - template: template.yaml@templates
     parameters:
+      projectName: java-yaml-properties-source-shared
       containsShareable: true
       mavenMainTaskOptions: '-DfailIfNoTests=false'
       alwaysRunSonar: true
       sonarType: 'SonarCloud'
+      useRenovateBot: true
