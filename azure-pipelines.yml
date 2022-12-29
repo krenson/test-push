@@ -32,4 +32,6 @@ stages:
       mavenMainTaskOptions: '-DfailIfNoTests=false'
       alwaysRunSonar: true
       sonarType: 'SonarCloud'
-      useRenovateBot: true
+      dependenciesUpdateConfig:
+        enabled: true
+        targetBranch: master
