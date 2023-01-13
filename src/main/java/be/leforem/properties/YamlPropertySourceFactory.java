@@ -9,12 +9,14 @@ import org.springframework.core.io.support.PropertySourceFactory;
 
 import java.util.Properties;
 
+import static java.util.Objects.requireNonNull;
+
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
-    public PropertySource<?> createPropertySource(String name, EncodedResource resource) {
-        Properties propertiesFromYaml = toProperties(resource);
-        String sourceName = StringUtils.defaultIfBlank(name, resource.getResource().getFilename());
-        return new PropertiesPropertySource(sourceName, propertiesFromYaml);
+    public PropertySource<?> createPropertySource(String name, EncodedResource yamlResource) {
+        Properties propertiesFromYaml = toProperties(requireNonNull(yamlResource));
+        String sourceName = StringUtils.defaultIfBlank(name, yamlResource.getResource().getFilename());
+        return new PropertiesPropertySource(sourceName, requireNonNull(propertiesFromYaml));
     }
 
     private Properties toProperties(EncodedResource yamlResource) {
@@ -23,4 +25,5 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
         factory.afterPropertiesSet();
         return factory.getObject();
     }
+
 }
