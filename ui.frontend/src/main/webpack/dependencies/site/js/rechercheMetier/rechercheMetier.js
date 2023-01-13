@@ -26,6 +26,10 @@ try {
           suggestionsList.append(html.get(0));
         });
       });
+    } else {
+      let suggeText = "Ajouter: " + e.value;
+
+      suggestionsList.querySelector("button").innerText = suggeText;
     }
 
     if (window.screen.width <= 1425) {
