@@ -34,7 +34,7 @@ import static com.leforemhe.aem.site.core.models.cfmodels.Job.CODE_METIER_KEY;
 )
 public class SearchResultContentFragmentImpl implements SearchResultsContentFragment {
     private static final Logger log = LoggerFactory.getLogger(SearchResultContentFragmentImpl.class);
-
+    private static List<String> properties = List.of("codeMetier", "titre", "synonymes", "description");
     @Self
     private SlingHttpServletRequest request;
     @Inject
@@ -48,21 +48,13 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
 
     public List<String> getContentFragmentsCleMetier(String queryParameter, String orCheckbox) {
         final Map<String, String> searchPredicates = new HashMap<>();
-        int index = 0;
         log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
         searchPredicates.put("path", "/content/dam/leforemhe");
         searchPredicates.put("property_1", "jcr:content/data/cq:model");
         searchPredicates.put("property_1.value", "/conf/leforemhe/settings/dam/cfm/models/metier");
         searchPredicates.put("p.limit", "-1");
-        if (queryParameter != null && queryParameter.contains(",")) {
-            List<String> params = Arrays.asList(queryParameter.split(","));
-            for (String param : params) {
-                searchPredicates.put("group." + index++ + "_fulltext", param);
-            }
-        } else {
-            searchPredicates.put("group.1_fulltext", request.getParameter("q"));
-        }
+        createPropertiesQuery(queryParameter, searchPredicates);
         if(orCheckbox != null && orCheckbox.equals("true")) {
             searchPredicates.put("group.p.or", "true");
         }
@@ -81,5 +73,25 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
 
     public List<SearchResult> getResults() {
         return searchResults;
+    }
+
+    private void createPropertiesQuery(String queryParameter, Map<String, String> searchPredicates){
+        int index = 0;
+        if (queryParameter != null) {
+            List<String> params = Arrays.asList(queryParameter.split(","));
+            for (String param : params) {
+                for (int i = 0; i < properties.size(); i++) {
+                    index++;
+                    if(!properties.get(i).equals("description")) {
+                        searchPredicates.put("group." + index + "_property.value", param);
+                        searchPredicates.put("group." + index + "_property", "jcr:content/data/master/" + properties.get(i));
+                    } else {
+                        searchPredicates.put("group." + index + "_fulltext", param);
+                        searchPredicates.put("group." + index + "_fulltext.property", "jcr:content/data/master/" + properties.get(i));
+                    }
+                }
+            }
+            searchPredicates.put("group_1.p.or", "true");
+        }
     }
 }
