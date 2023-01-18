@@ -1,52 +1,50 @@
 <template data-sly-template.facets="${@ tags}">
-    <div class="filter-back-container">
-        <div class="filter-container">
-            <div class="filter-header">
-                <div>
-                    <div class="cmp-teaser__image">
-                        <div class="cmp-image">
-                            <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/sliders.svg"
-                                 class="cmp-image__image">
-                        </div>
+    <div class="filter-container">
+        <div class="filter-header">
+            <div>
+                <div class="cmp-teaser__image">
+                    <div class="cmp-image">
+                        <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/sliders.svg"
+                             class="cmp-image__image">
                     </div>
-                    <h1>${'Filtrer' @ i18n}</h1>
                 </div>
-                <div class="filter-popup-close"></div>
+                <h1>${'Filtrer' @ i18n}</h1>
             </div>
-            <div data-sly-repeat.item="${tags}" class="accordion panelcontainer">
-                <div id="accordion" class="cmp-accordion" data-cmp-is="accordion">
-                    <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
-                        <h3 class="cmp-accordion__header">
-                            <button id="accordion-item-button"
-                                    onclick="clickAccordion(this)"
-                                    class="cmp-accordion__button cmp-accordion__button--expanded"
-                                    aria-controls="accordion-item-panel" data-cmp-hook-accordion="button"
-                                    aria-expanded="true">
-                                <span class="cmp-accordion__title">${item.parentTag.label}</span>
-                                <span class="cmp-accordion__icon"></span>
-                            </button>
-                        </h3>
-                        <div data-cmp-hook-accordion="panel" id="accordion-item-panel"
-                             class="cmp-accordion__panel cmp-accordion__panel--expanded" role="region"
-                             aria-labelledby="accordion-item-button" aria-hidden="false">
-                            <div class="text">
-                                <div class="cmp-text">
-                                    <ul data-sly-list.childTag="${item.childTags}">
-                                        <li>
-                                            <label for="${childTag.tagName}">
-                                                <div class="checkbox-container">
-                                                    <input onclick="checkboxClick(this)" type="checkbox"
-                                                           id="${childTag.tagName}"
-                                                           name="${childTag.tagName}">
-                                                    <label for="${childTag.tagName}">${childTag.label}</label>
-                                                </div>
-                                                <div>
-                                                    <span class="checkbox-amount" for="${childTag.tagName}"></span>
-                                                </div>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
+            <div class="filter-popup-close"></div>
+        </div>
+        <div data-sly-repeat.item="${tags}" class="accordion panelcontainer">
+            <div id="accordion" class="cmp-accordion" data-cmp-is="accordion">
+                <div class="cmp-accordion__item" data-cmp-hook-accordion="item" data-cmp-expanded="">
+                    <h3 class="cmp-accordion__header">
+                        <button id="accordion-item-button"
+                                onclick="clickAccordion(this)"
+                                class="cmp-accordion__button cmp-accordion__button--expanded"
+                                aria-controls="accordion-item-panel" data-cmp-hook-accordion="button"
+                                aria-expanded="true">
+                            <span class="cmp-accordion__title">${item.parentTag.label}</span>
+                            <span class="cmp-accordion__icon"></span>
+                        </button>
+                    </h3>
+                    <div data-cmp-hook-accordion="panel" id="accordion-item-panel"
+                         class="cmp-accordion__panel cmp-accordion__panel--expanded" role="region"
+                         aria-labelledby="accordion-item-button" aria-hidden="false">
+                        <div class="text">
+                            <div class="cmp-text">
+                                <ul data-sly-list.childTag="${item.childTags}">
+                                    <li>
+                                        <label for="${childTag.tagName}">
+                                            <div class="checkbox-container">
+                                                <input onclick="checkboxClick(this)" type="checkbox"
+                                                       id="${childTag.tagName}"
+                                                       name="${childTag.tagName}">
+                                                <label for="${childTag.tagName}">${childTag.label}</label>
+                                            </div>
+                                            <div>
+                                                <span class="checkbox-amount" for="${childTag.tagName}"></span>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
