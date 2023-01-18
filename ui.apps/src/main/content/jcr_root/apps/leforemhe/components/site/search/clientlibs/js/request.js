@@ -26,7 +26,7 @@ $(document).ready(function () {
                 url += suggestionTerms.length > 0 ? `&tags=${tagsValue}` : `?tags=${tagsValue}`;
             }
             if (orCheckbox.checked) {
-                url += '&or=true'
+                url += tagsValue == '' && suggestionTerms.length < 1 ? '?or=true' : '&or=true';
             }
             window.location = urlSearch + url;
         }
