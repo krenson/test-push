@@ -34,7 +34,8 @@ import static com.leforemhe.aem.site.core.models.cfmodels.Job.CODE_METIER_KEY;
 )
 public class SearchResultContentFragmentImpl implements SearchResultsContentFragment {
     private static final Logger log = LoggerFactory.getLogger(SearchResultContentFragmentImpl.class);
-    private static List<String> properties = List.of("codeMetier", "titre", "synonymes", "description");
+    private static List<String> propertiesMetier = List.of("codeMetier", "titre", "synonymes", "description");
+    private static final String METIER_CF_TYPE = "/conf/leforemhe/settings/dam/cfm/models/metier";
     @Self
     private SlingHttpServletRequest request;
     @Inject
@@ -50,12 +51,11 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         final Map<String, String> searchPredicates = new HashMap<>();
         log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
-        searchPredicates.put("path", "/content/dam/leforemhe");
-        searchPredicates.put("property_1", "jcr:content/data/cq:model");
-        searchPredicates.put("property_1.value", "/conf/leforemhe/settings/dam/cfm/models/metier");
         searchPredicates.put("p.limit", "-1");
-        createPropertiesQuery(queryParameter, searchPredicates);
-        if(orCheckbox != null && orCheckbox.equals("true")) {
+        List<String> params = Arrays.asList(queryParameter.split(","));
+        createPropertiesQueryMetier(params, searchPredicates);
+        createPropertiesQueryActivities(params, searchPredicates);
+        if (orCheckbox != null && orCheckbox.equals("true")) {
             searchPredicates.put("group.p.or", "true");
         }
 
@@ -63,10 +63,21 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchResults = searchProvider.buildSearchResults(result, null);
         for (SearchResult searchResult : searchResults) {
             ContentFragment contentFragment = request.getResourceResolver().resolve(searchResult.getPath()).adaptTo(ContentFragment.class);
-            String codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
-            if (codeMetier != null) {
-                cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
+            String cfType = resourceResolver.getResource(searchResult.getPath() + "/jcr:content/data").getValueMap().get("cq:model", String.class);
+            if (cfType.equals(METIER_CF_TYPE)) {
+                String codeMetier = ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class);
+                if (codeMetier != null) {
+                    cleMetierList.add(ContentFragmentUtils.getSingleValue(contentFragment, CODE_METIER_KEY, String.class));
+                }
+            } else {
+                List<String> listCodeMetier = Arrays.asList(ContentFragmentUtils.getMultifieldValue(contentFragment, CODE_METIER_KEY, String.class));
+                if (listCodeMetier != null) {
+                    listCodeMetier.forEach(codeMetier -> {
+                        cleMetierList.add(codeMetier);
+                    });
+                }
             }
+
         }
         return cleMetierList;
     }
@@ -75,23 +86,29 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         return searchResults;
     }
 
-    private void createPropertiesQuery(String queryParameter, Map<String, String> searchPredicates){
+    private void createPropertiesQueryMetier(List<String> params, Map<String, String> searchPredicates) {
         int index = 0;
-        if (queryParameter != null) {
-            List<String> params = Arrays.asList(queryParameter.split(","));
+        if (params != null) {
             for (String param : params) {
-                for (int i = 0; i < properties.size(); i++) {
+                for (int i = 0; i < propertiesMetier.size(); i++) {
                     index++;
-                    if(!properties.get(i).equals("description")) {
-                        searchPredicates.put("group." + index + "_property.value", param);
-                        searchPredicates.put("group." + index + "_property", "jcr:content/data/master/" + properties.get(i));
-                    } else {
-                        searchPredicates.put("group." + index + "_fulltext", param);
-                        searchPredicates.put("group." + index + "_fulltext.property", "jcr:content/data/master/" + properties.get(i));
-                    }
+                    searchPredicates.put("1_group." + index + "_fulltext", param);
+                    searchPredicates.put("1_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
                 }
             }
-            searchPredicates.put("group_1.p.or", "true");
+            searchPredicates.put("1_group.p.or", "true");
+            searchPredicates.put("1_group.path", "/content/dam/leforemhe/metiers");
         }
+    }
+
+    private void createPropertiesQueryActivities(List<String> params, Map<String, String> searchPredicates) {
+        int index = 0;
+        for (String param : params) {
+            index++;
+            searchPredicates.put("2_group." + index + "_fulltext", param);
+            searchPredicates.put("2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
+        }
+        searchPredicates.put("2_group.p.or", "true");
+        searchPredicates.put("2_group.path", "/content/dam/leforemhe/activites");
     }
 }
