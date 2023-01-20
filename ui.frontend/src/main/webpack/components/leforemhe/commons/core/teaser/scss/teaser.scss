@@ -1,5 +1,10 @@
 .teaser.popupOpener,
 .teaser.linkOpener {
+  & a.cmp-teaser__link:focus-visible,
+  & a.cmp-teaser__link:focus {
+    border: orange solid 0.5pt;
+  }
+
   margin: 1rem;
   padding: 1.5rem;
   .cmp-teaser {
