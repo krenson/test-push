@@ -7,12 +7,20 @@ try {
   let searchCheckbox = document.querySelector(".searchCheckbox-container");
   let innerValueChips = [];
   let tagsValue = "";
+  let inputContainer = document.querySelectorAll(".searchbox div")[0];
 
   // get value form the input field
   // and add it to the suggestion drop down container
   function getValue(e) {
     if (e.value == "" || e.value.split("")[0] == " ") {
       suggestions.style.display = "none";
+      form.style.bottom = "0rem";
+      inputContainer.style.marginBottom = "0rem";
+
+      if (window.screen.width < 1200) {
+        form.style.bottom = "-10rem";
+      }
+
       return;
     }
     const suggestionsList = document.querySelector("#searchSuggestions");
@@ -32,13 +40,13 @@ try {
       suggestionsList.querySelector("button").innerText = suggeText;
     }
 
-    if (window.screen.width <= 1425) {
-      suggestions.style.display = "none";
-      valueChips.style.display = "none";
-      return;
-    }
-
     suggestions.style.display = "block";
+    searchCheckbox.style.bottom = "-8.8rem";
+
+    if (window.screen.width < 1200 && suggestions.style.display == "block") {
+      form.style.bottom = "-18rem";
+      inputContainer.style.marginBottom = "8rem";
+    }
   }
 
   // on click of the suggestion
@@ -48,7 +56,7 @@ try {
     suggestions.style.display = "none";
 
     valueChips.style.display = "block";
-    searchCheckbox.style.bottom = "-10.8rem";
+    searchCheckbox.style.bottom = "-8.8rem";
 
     var chip = document.createElement("span");
 
@@ -78,6 +86,13 @@ try {
     if (valueChips.childNodes.length < 1) {
       valueChips.style.display = "none";
       searchCheckbox.style.bottom = "-4.8rem";
+
+      form.style.bottom = "0rem";
+      inputContainer.style.marginBottom = "0rem";
+
+      if (window.screen.width < 1200) {
+        form.style.bottom = "-10rem";
+      }
     }
     let index = innerValueChips.indexOf(e.innerText);
     innerValueChips.splice(index, 1);
@@ -120,11 +135,13 @@ try {
     query = inputValue === "" ? "" : `q=${inputValue}&`;
     query = query + (tagsValue === "" ? "" : `tags=${tagsValue}`);
     $.get(form.dataset.quickSearchResults, query, function (data) {
-      searchResultList.innerHTML = "";
-      $.each(data.results, function (index, result) {
-        const html = $(`<a href="${result.url}"> ${result.title}</a>`);
-        searchResultList.append(html.get(0));
-      });
+      if (searchResultList) {
+        searchResultList.innerHTML = "";
+        $.each(data.results, function (index, result) {
+          const html = $(`<a href="${result.url}"> ${result.title}</a>`);
+          searchResultList.append(html.get(0));
+        });
+      }
     });
   }
 
@@ -151,6 +168,33 @@ try {
   if (document.querySelector("#rechercheMetier")) {
     getTagValues("");
   }
+
+  window.addEventListener("resize", () => {
+    if (
+      suggestions.style.display == "block" ||
+      valueChips.style.display == "block"
+    ) {
+      form.style.bottom = "0rem";
+      inputContainer.style.marginBottom = "0rem";
+
+      if (window.screen.width < 1200) {
+        form.style.bottom = "-18rem";
+        inputContainer.style.marginBottom = "8rem";
+      }
+    }
+
+    if (
+      suggestions.style.display == "none" &&
+      valueChips.style.display == "none"
+    ) {
+      form.style.bottom = "0rem";
+      inputContainer.style.marginBottom = "0rem";
+
+      if (window.screen.width < 1200) {
+        form.style.bottom = "-10rem";
+      }
+    }
+  });
 } catch (error) {
   console.log(error);
 }
