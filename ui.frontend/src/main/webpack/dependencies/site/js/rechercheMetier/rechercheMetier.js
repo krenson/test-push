@@ -8,6 +8,10 @@ try {
   let innerValueChips = [];
   let tagsValue = "";
   let inputContainer = document.querySelectorAll(".searchbox div")[0];
+  let searchBtn = document.querySelector(".aem.searchBtn button");
+  let focusedElement = null;
+
+  suggestions.style.display = valueChips.style.display = "none";
 
   // get value form the input field
   // and add it to the suggestion drop down container
@@ -23,6 +27,7 @@ try {
 
       return;
     }
+
     const suggestionsList = document.querySelector("#searchSuggestions");
     if (form.dataset.quickSuggestionsEnabled === "true") {
       $.get(form.dataset.quickSuggestions, `q=${e.value}`, function (data) {
@@ -47,7 +52,33 @@ try {
       form.style.bottom = "-18rem";
       inputContainer.style.marginBottom = "8rem";
     }
+
+    dynamicTabIndex();
   }
+
+  // input on enter
+  input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      suggestionClick(suggestions.querySelector("button"));
+    }
+  });
+
+  // checkbox on enter
+  searchCheckbox.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchCheckbox.querySelector("input").click();
+    }
+  });
+
+  // searchBtn on enter
+  searchBtn.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchBtn.click();
+    }
+  });
 
   // on click of the suggestion
   // add a chip to the second value drop down menu
@@ -69,6 +100,10 @@ try {
       deleteValueChip(this);
     });
 
+    chip.addEventListener("keypress", function () {
+      deleteValueChip(this);
+    });
+
     valueChips.appendChild(chip);
     let query = "";
     innerValueChips.forEach((value) => {
@@ -76,6 +111,8 @@ try {
     });
     getQuickResults(query);
     getTagValues(query);
+
+    dynamicTabIndex();
   }
 
   // on click on the chip
@@ -102,6 +139,8 @@ try {
     });
     getQuickResults(query);
     getTagValues(query);
+
+    dynamicTabIndex();
   }
 
   function checkboxClick(e) {
@@ -156,6 +195,7 @@ try {
       });
     });
   }
+
   function clickAccordion(e) {
     const itemPanel = document.querySelector("#accordion-item-panel");
     if (itemPanel.style.display === "none") {
@@ -169,6 +209,54 @@ try {
     getTagValues("");
   }
 
+  // dynamically modify tab index
+  function dynamicTabIndex() {
+    let index = 4;
+
+    if (
+      suggestions.style.display == "block" &&
+      valueChips.style.display == "block"
+    ) {
+      suggestions.querySelector("button").tabIndex = index++;
+      valueChips.querySelectorAll("span").forEach((chip) => {
+        chip.tabIndex = index;
+
+        index++;
+      });
+    }
+
+    if (
+      suggestions.style.display == "none" &&
+      valueChips.style.display == "block"
+    ) {
+      valueChips.querySelectorAll("span").forEach((chip) => {
+        chip.tabIndex = index;
+
+        index++;
+      });
+    }
+
+    if (
+      suggestions.style.display == "block" &&
+      valueChips.style.display == "none"
+    ) {
+      index = 2;
+      suggestions.querySelector("button").tabIndex = index++;
+    }
+
+    searchCheckbox.tabIndex = index++;
+    searchBtn.tabIndex = index++;
+  }
+
+  window.addEventListener(
+    "focus",
+    (e) => {
+      focusedElement = e.target;
+    },
+    true
+  );
+
+  // css mods on wondow resize
   window.addEventListener("resize", () => {
     if (
       suggestions.style.display == "block" ||
