@@ -1,8 +1,13 @@
 var popupOpener = document.getElementsByClassName("popupOpener");
+var clickedOpener;
+
 if (popupOpener.length > 0) {
   [...popupOpener].forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
+
+      clickedOpener = element.querySelector(".cmp-teaser__link");
+
       var popupId = element.children[0].getAttribute("popup-id");
 
       if (popupId != null && popupId != "") {
@@ -21,6 +26,7 @@ if (popupOpener.length > 0) {
 }
 
 var popups = document.getElementsByClassName("popup aem");
+
 if (popups != null) {
   [...popups].forEach((element) => {
     var closeCross = element.getElementsByClassName("popup-close");
@@ -48,6 +54,7 @@ if (popups != null) {
     var bottomCloseButton = element.getElementsByClassName(
       "popup-close-bottom-btn"
     );
+
     bottomCloseButton[0].addEventListener("keyup", function (event) {
       event.preventDefault();
       if (event.keyCode === 13) {
@@ -60,4 +67,8 @@ if (popups != null) {
 function closePopup(element) {
   document.querySelector("html").classList.remove("openPopup");
   element.classList.remove("open");
+
+  if (clickedOpener) {
+    clickedOpener.focus();
+  }
 }
