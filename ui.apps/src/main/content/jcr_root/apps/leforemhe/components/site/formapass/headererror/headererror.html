@@ -1,8 +1,0 @@
-<c:choose>
-    <c:when test="${'${not empty exceptionLevel}'}">
-        <c:set var="exceptionLevelMessage" value="${'${exceptionLevel}'}"/>
-    </c:when>
-    <c:otherwise>
-        <c:set var="exceptionLevelMessage" value="Erreur"/>
-    </c:otherwise>
-</c:choose>
