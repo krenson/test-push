@@ -23,7 +23,6 @@ div.short-searchContainer
 
 .twoCol.listeResultats-container .container-content {
   gap: 3rem !important;
-  margin-top: 5.85rem;
   width: 100%;
   flex-direction: row;
   //   padding-right: unset;
@@ -31,6 +30,7 @@ div.short-searchContainer
   .filter-back-container {
     min-width: 30rem;
     width: 38.5rem;
+    margin-top: 3.34rem;
   }
 
   .resultats-container {
