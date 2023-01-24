@@ -215,7 +215,7 @@ $(document).ready(function () {
         function setResultCounterLabel(resultTotal, resultElement) {
             if (resultElement !== undefined) {
                 let resultCounterData = resultElement.dataset;
-                resultElement.innerText = resultTotal === 1 ?
+                resultElement.innerText = resultTotal === '1' ?
                     `${resultTotal} ${resultCounterData.resultcounterlabelone}` :
                     `${resultTotal} ${resultCounterData.resultcounterlabel}`;
             }
