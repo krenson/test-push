@@ -73,7 +73,11 @@ try {
           },
         },
       },
-
+      layout: {
+        padding: {
+          left: 10,
+        },
+      },
       indexAxis: "y",
       scales: {
         y: {

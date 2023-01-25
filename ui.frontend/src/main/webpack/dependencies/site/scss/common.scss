@@ -733,22 +733,6 @@ header .container-content {
   }
 }
 
-.container-background-partial {
-  position: relative;
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    content: "";
-    height: 35%;
-    width: 100%;
-    background-color: unset;
-    background: transparent linear-gradient(99deg, #f8e7ce 0%, #f9f5ed 100%) 0%
-      0% no-repeat padding-box;
-  }
-}
-
 .height {
   &-top-IMR-page {
     height: 18.2rem;
