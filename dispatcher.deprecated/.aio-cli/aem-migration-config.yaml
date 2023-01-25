@@ -1,8 +1,0 @@
-dispatcherConverter:
-    # Absolute path to the src folder of the dispatcher sdk. You must include the src folder itself in the path.
-    sdkSrc: ./src
-    # Add information about Adobe Managed Services dispatcher configuration here
-    ams:
-        # Path to dispatcher configuration folder
-        # (expected immediate subfolders - conf, conf.d, conf.dispatcher.d and conf.modules.d)
-        cfg: ./src
