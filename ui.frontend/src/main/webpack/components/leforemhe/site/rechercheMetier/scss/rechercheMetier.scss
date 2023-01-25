@@ -296,8 +296,9 @@ div#rechercheMetier,
 
         .searchSuggestions,
         .valueChips {
-          padding-top: unset;
-          display: none !important;
+          button {
+            font-weight: 400;
+          }
         }
 
         .searchBtn {

@@ -160,7 +160,7 @@ $(document).ready(function () {
                                     $jobTagHtml.append('<button class="chip-button" style="background-color: ' + jobTag.backgroundColor + '">' + jobTag.title + '</button>');
                                 })
                                 $jobTagHtml.append('</div>');
-                                const html = $(`<div class="teaser tuileContainer">
+                                const html = $(`<div class="teaser tuileContainer" tabindex="0">
 <a href="${result.vanityPath}">
     <div class="cmp-teaser">
         <div class="cmp-teaser__image">
@@ -215,7 +215,7 @@ $(document).ready(function () {
         function setResultCounterLabel(resultTotal, resultElement) {
             if (resultElement !== undefined) {
                 let resultCounterData = resultElement.dataset;
-                resultElement.innerText = resultTotal === 1 ?
+                resultElement.innerText = resultTotal === '1' ?
                     `${resultTotal} ${resultCounterData.resultcounterlabelone}` :
                     `${resultTotal} ${resultCounterData.resultcounterlabel}`;
             }

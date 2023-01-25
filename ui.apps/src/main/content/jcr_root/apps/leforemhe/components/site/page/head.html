@@ -31,7 +31,7 @@
     <meta data-sly-test.graphImage="${openGraphService.image}" property="og:image" content="${configService.config.publicServerURI}${graphImage}" />
     <link data-sly-use.configService="com.leforemhe.aem.site.core.services.GlobalConfigService"
           data-sly-test="${properties['sling:vanityPath']}" rel="canonical"
-          content="${configService.config.publicServerURI}${properties['sling:vanityPath']}"/>
+          href="${configService.config.publicServerURI}${properties['sling:vanityPath']}"/>
     <sly data-sly-include="head.links.html"></sly>
     <meta name="wcmmode" content="${wcmmode.edit}">
     <sly data-sly-include="customheaderlibs.html"></sly>

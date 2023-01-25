@@ -85,13 +85,11 @@ public class ChartImpl implements Chart {
             if(this.dataPath != null) {
                 this.graphData = graphDataService.getChartData(request, this.dataPath);
             } else {
-                this.graphData = graphDataService.getChartData(request, automaticGeneratedPath + Constants.JSON_EXTENSION);
+                this.graphData = graphDataService.getChartData(request, automaticGeneratedPath);
             }
         }
         return this.graphData;
     }
-    ///content/dam/leforemhe/fr/chiffres-graphes/A120301-1_Historique.json
-    ///content/dam/leforemhe/fr/chiffres-graphes/A120301-1_Historique.json
 
     @Override
     public boolean getShowAsPercentage() {

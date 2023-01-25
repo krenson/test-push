@@ -357,23 +357,13 @@ strong {
 
 .background-Yellow {
   background: $article-header-backgroud-color;
-  &.partial-background::after {
-    background: $article-header-backgroud-color;
-  }
 }
 
 .background-Yellow2 {
   background: #fcf9f4;
-
-  &.partial-background::after {
-    background: #fcf9f4;
-  }
 }
 .background-DarkBlue {
   background: $primary-colorV2;
-  &.partial-background::after {
-    background: $primary-colorV2;
-  }
 }
 
 .header-minHeight {
@@ -427,27 +417,6 @@ strong {
     p:first-child {
       margin-top: 2rem;
     }
-  }
-}
-
-.partial-background header {
-  min-height: initial !important;
-  margin-bottom: 0 !important;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -35.8rem;
-    height: 38.5rem;
-    width: 100%;
-    z-index: -1;
-    background: transparent linear-gradient(99deg, #f8e7ce 0%, #f9f5ed 100%) 0%
-      0% no-repeat padding-box;
-  }
-
-  .container-content {
-    padding-bottom: 0 !important;
   }
 }
 
@@ -519,13 +488,6 @@ header .container-content {
         margin-top: 1rem;
         margin-bottom: 2rem;
       }
-    }
-  }
-
-  .partial-background header {
-    &::after {
-      bottom: -9.99rem;
-      height: 10rem;
     }
   }
 
@@ -660,6 +622,11 @@ header .container-content {
 
 // container styling
 
+.container-max-width {
+  max-width: calc(140rem + 1.5rem);
+  margin: 0 auto;
+}
+
 .container-styling-fill {
   height: 5rem;
   background-color: lightblue;
@@ -789,5 +756,9 @@ header .container-content {
 
   &-search-component {
     height: 42.21rem;
+  }
+
+  &-en-tête {
+    height: 32.6rem;
   }
 }

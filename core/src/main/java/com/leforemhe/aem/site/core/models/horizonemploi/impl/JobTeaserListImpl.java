@@ -72,7 +72,7 @@ public class JobTeaserListImpl implements JobTeaserList {
                 } else {
                     imageResource = resourceResolver.getResource(fallbackImage);
                 }
-                teasers.add(new TeaserListItemImpl(page, imageResource, url));
+                teasers.add(new TeaserListItemImpl(page, imageResource, url, imageService, fallbackImage));
             });
         }
         return teasers;

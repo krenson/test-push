@@ -120,7 +120,6 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                     },
                     ticks: {
                         autoSkip: false,
-                        stepSize: 20,
                         font: {
                             size: 15,
                         },
