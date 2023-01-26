@@ -105,7 +105,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         int index = 0;
         for (String param : params) {
             index++;
-            searchPredicates.put("2_group." + index + "_fulltext", param);
+            searchPredicates.put("2_group." + index + "_fulltext", '"' + param + '"');
             searchPredicates.put("2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
         }
         searchPredicates.put("2_group.p.or", "true");
