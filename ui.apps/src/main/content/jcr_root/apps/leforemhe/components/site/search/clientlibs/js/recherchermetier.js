@@ -157,10 +157,10 @@ $(document).ready(function () {
                             $.each(data.results, function (index, result) {
                                 var $jobTagHtml = $("<div>");
                                 $.each(result.jobTags, function (newIndex, jobTag) {
-                                    $jobTagHtml.append('<button class="chip-button" style="background-color: ' + jobTag.backgroundColor + '">' + jobTag.title + '</button>');
+                                    $jobTagHtml.append('<button class="chip-button" tabindex="-1" style="background-color: ' + jobTag.backgroundColor + '">' + jobTag.title + '</button>');
                                 })
                                 $jobTagHtml.append('</div>');
-                                const html = $(`<div class="teaser tuileContainer" tabindex="0">
+                                const html = $(`<div class="teaser tuileContainer">
 <a href="${result.vanityPath}">
     <div class="cmp-teaser">
         <div class="cmp-teaser__image">
