@@ -65,7 +65,7 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
             plugins: {
                 legend: {
                     display: data.datasets.length > 1 ? true : false,
-                    align: "start",
+                    align: "center",
                     labels: {
                         font: {
                             family: "Poppins",
