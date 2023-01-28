@@ -282,11 +282,21 @@ try {
       valueChips.style.display == "none"
     ) {
       index = 2;
-      suggestions.querySelector("button").tabIndex = index++;
+
+      suggestions.querySelectorAll("button").forEach((button) => {
+        button.tabIndex = index++;
+      });
     }
 
     searchCheckbox.tabIndex = index++;
     searchBtn.tabIndex = index++;
+
+    if (
+      window.screen.width > 1200 &&
+      suggestions.style.display == "block" &&
+      valueChips.style.display == "none"
+    )
+      searchCheckbox.tabIndex = -1;
   }
 
   window.addEventListener(
@@ -300,6 +310,7 @@ try {
   // css mods on wondow resize
   window.addEventListener("resize", () => {
     dynamicSpacing();
+    dynamicTabIndex();
   });
 
   function dynamicSpacing() {
