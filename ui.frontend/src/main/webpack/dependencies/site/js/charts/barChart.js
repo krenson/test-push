@@ -62,6 +62,52 @@ try {
     },
     options: {
       plugins: {
+        tooltip: {
+          titleAlign: "center",
+          padding: 20,
+          displayColors: false,
+          backgroundColor: "#ffffff",
+          footerColor: "blue",
+          titleColor: "#2f3a48",
+          bodyColor: "#2f3a48",
+          borderColor: "#fbe7cb",
+          borderWidth: 1,
+          callbacks: {
+            title: function (tooltipItem) {
+              let tooltipTitle = tooltipItem[0].label.split("&").join(" ");
+              return tooltipTitle;
+            },
+
+            label: function (tooltipItem) {
+              let percentage;
+              let sum;
+
+              if (tooltipItem.datasetIndex == 0) {
+                percentage = tooltipItem.raw;
+                let sumFunction = () => {
+                  let index =
+                    chartConfig.data.datasets[0].data.indexOf(percentage);
+                  return chartConfig.data.datasets[1].data[index];
+                };
+
+                sum = sumFunction();
+              } else {
+                sum = tooltipItem.raw;
+                percentageFunction = () => {
+                  let index = chartConfig.data.datasets[1].data.indexOf(sum);
+                  return chartConfig.data.datasets[0].data[index];
+                };
+
+                percentage = percentageFunction();
+              }
+
+              return [
+                percentage + " % pour ce métier",
+                sum + " % pour tous les métiers",
+              ];
+            },
+          },
+        },
         legend: {
           align: "center",
 
@@ -93,7 +139,7 @@ try {
             },
             callback: function (value) {
               var valueLegend = this.getLabelForValue(value);
-              console.log(valueLegend);
+
               var arr = valueLegend.split("&");
               return arr;
             },
