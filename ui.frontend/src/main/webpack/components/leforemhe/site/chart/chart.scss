@@ -80,12 +80,25 @@ div.chart-container {
               border-collapse: separate;
               border: solid rgb(222, 202, 173) 0.2rem;
 
+              caption {
+                text-align: left;
+                font-size: 1.6rem;
+                font-weight: 500;
+                margin: 1rem 0rem;
+              }
+
               tr {
                 background-color: white;
 
                 &:not(:first-child) {
                   td:not(:first-child) {
                     text-align: end;
+                  }
+
+                  th {
+                    border-top: unset;
+                    border-bottom: unset;
+                    font-weight: unset;
                   }
                 }
 
