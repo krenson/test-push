@@ -11,12 +11,12 @@ div.chart-container {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 63rem !important;
-    height: 33.1rem !important;
+    max-width: 63rem !important;
+    max-height: 33.1rem !important;
   }
 
   div.chartDoughnut {
-    width: 63rem !important;
+    max-width: 63rem !important;
     height: 30.4rem !important;
     margin: 0;
   }
