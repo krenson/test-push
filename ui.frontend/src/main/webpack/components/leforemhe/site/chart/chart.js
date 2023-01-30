@@ -118,12 +118,6 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                         },
                     },
                 },
-                callbacks: {
-                    label: function (context) {
-                        let label = context.dataset.label || '';
-                        return `${label}: ${context.formattedValue}${showAsPercentage ? '%' : ''}`
-                    }
-                }
             },
             layout: {
                 padding: {
