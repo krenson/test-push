@@ -129,6 +129,13 @@ div.chart-container {
               align-items: center;
               justify-content: center;
 
+              &:hover,
+              &:focus-visible,
+              &:focus-within {
+                //border: 0.1rem solid #f2cb80;
+                outline: -webkit-focus-ring-color auto 1px;
+              }
+
               .details-close {
                 height: 1.45rem;
                 width: 1.45rem;

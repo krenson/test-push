@@ -132,7 +132,7 @@ try {
     "accordion-2098845c33-item-ace86c638b-button"
   );
 
-  var detailsCloseBtn = document.getElementById("close-container");
+  var detailsCloseBtn = document.querySelector(".details-close");
 
   detailsCloseBtn.addEventListener("click", () => {
     detailsBtn.click();
