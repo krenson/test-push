@@ -63,6 +63,51 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
         options: {
             scaleShowValues: true,
             plugins: {
+                tooltip: {
+                    titleAlign: "center",
+                    padding: 20,
+                    displayColors: false,
+                    backgroundColor: "#ffffff",
+                    footerColor: "blue",
+                    titleColor: "#2f3a48",
+                    bodyColor: "#2f3a48",
+                    borderColor: "#fbe7cb",
+                    borderWidth: 1,
+                    callbacks: {
+                        title: function (tooltipItem) {
+                            let tooltipTitle = tooltipItem[0].label.split("&").join(" ");
+                            return tooltipTitle;
+                        },
+
+                        label: function (tooltipItem) {
+                            let percentage;
+                            let sum;
+
+                            if (tooltipItem.datasetIndex == 0) {
+                                percentage = tooltipItem.raw;
+                                let sumFunction = () => {
+                                    let index =
+                                        chartConfig.data.datasets[0].data.indexOf(percentage);
+                                    return chartConfig.data.datasets[1].data[index];
+                                };
+
+                                sum = sumFunction();
+                            } else {
+                                sum = tooltipItem.raw;
+                                let percentageFunction = () => {
+                                    let index = chartConfig.data.datasets[1].data.indexOf(sum);
+                                    return chartConfig.data.datasets[0].data[index];
+                                };
+                                percentage = percentageFunction();
+                            }
+
+                            return [
+                                percentage + " % pour ce métier",
+                                sum + " % pour tous les métiers",
+                            ];
+                        },
+                    },
+                },
                 legend: {
                     display: data.datasets.length > 1 ? true : false,
                     align: "center",
@@ -73,14 +118,17 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                         },
                     },
                 },
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            let label = context.dataset.label || '';
-                            return `${label}: ${context.formattedValue}${showAsPercentage ? '%' : ''}`
-                        }
+                callbacks: {
+                    label: function (context) {
+                        let label = context.dataset.label || '';
+                        return `${label}: ${context.formattedValue}${showAsPercentage ? '%' : ''}`
                     }
                 }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                },
             },
             indexAxis: resolvedChartType == CHART.HorizontalBar ? "y" : "x",
             scales: {
