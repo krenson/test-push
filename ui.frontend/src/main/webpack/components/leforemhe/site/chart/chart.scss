@@ -80,12 +80,25 @@ div.chart-container {
               border-collapse: separate;
               border: solid rgb(222, 202, 173) 0.2rem;
 
+              caption {
+                text-align: left;
+                font-size: 1.6rem;
+                font-weight: 500;
+                margin: 1rem 0rem;
+              }
+
               tr {
                 background-color: white;
 
                 &:not(:first-child) {
                   td:not(:first-child) {
                     text-align: end;
+                  }
+
+                  th {
+                    border-top: unset;
+                    border-bottom: unset;
+                    font-weight: unset;
                   }
                 }
 
@@ -115,6 +128,13 @@ div.chart-container {
               display: flex;
               align-items: center;
               justify-content: center;
+
+              &:hover,
+              &:focus-visible,
+              &:focus-within {
+                //border: 0.1rem solid #f2cb80;
+                outline: -webkit-focus-ring-color auto 1px;
+              }
 
               .details-close {
                 height: 1.45rem;
