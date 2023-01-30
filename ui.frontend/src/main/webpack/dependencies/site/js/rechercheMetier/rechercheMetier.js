@@ -9,7 +9,7 @@ try {
   let tagsValue = "";
   let inputContainer = document.querySelectorAll(".searchbox div")[0];
   let searchBtn = document.querySelector(".aem.searchBtn button");
-  let focusedElement = null;
+  let searchbox = document.querySelector(".searchbox");
 
   suggestions.style.display = valueChips.style.display = "none";
 
@@ -17,12 +17,17 @@ try {
   // and add it to the suggestion drop down container
   function getValue(e) {
     if (e.value == "" || e.value.split("")[0] == " ") {
-      suggestions.style.display = "none";
-      form.style.bottom = "0rem";
-      inputContainer.style.marginBottom = "0rem";
+      if (valueChips.style.display == "block") {
+      } else {
+        suggestions.style.display = "none";
+        searchbox.style.marginBottom = "0rem";
+        inputContainer.style.marginBottom = "0rem";
 
-      if (window.screen.width < 1200) {
-        form.style.bottom = "-10rem";
+        if (window.screen.width > 1200) {
+          form.style.bottom = "0rem";
+        } else {
+          form.style.bottom = "-10rem";
+        }
       }
 
       return;
@@ -46,7 +51,6 @@ try {
     }
 
     suggestions.style.display = "block";
-    searchCheckbox.style.bottom = "-8.8rem";
 
     if (window.screen.width < 1200 && suggestions.style.display == "block") {
       form.style.bottom = "-18rem";
@@ -54,13 +58,19 @@ try {
     }
 
     dynamicTabIndex();
+    dynamicSpacing();
+    chipOnEnter();
   }
 
   // input on enter
   input.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-      event.preventDefault();
-      suggestionClick(suggestions.querySelector("button"));
+      setTimeout(() => {
+        event.preventDefault();
+        if (suggestions.style.display == "block") {
+          suggestionClick(suggestions.querySelector("button"));
+        }
+      }, 250);
     }
   });
 
@@ -80,6 +90,30 @@ try {
     }
   });
 
+  function chipOnEnter() {
+    if (suggestions.style.display == "block") {
+      suggestions.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("keyup", (event) => {
+          if (event.key == "Enter") {
+            event.preventDefault();
+            suggestionClick(button);
+          }
+        });
+      });
+    }
+
+    if (valueChips.style.display == " block") {
+      valueChips.querySelectorAll("span").forEach((span) => {
+        span.addEventListener("keyup", (event) => {
+          if (event.key == "Enter") {
+            event.preventDefault();
+            deleteValueChip(span);
+          }
+        });
+      });
+    }
+  }
+
   // on click of the suggestion
   // add a chip to the second value drop down menu
   function suggestionClick(e) {
@@ -87,14 +121,18 @@ try {
     suggestions.style.display = "none";
 
     valueChips.style.display = "block";
-    searchCheckbox.style.bottom = "-8.8rem";
 
     var chip = document.createElement("span");
 
     chip.className = "chips chips-secondary";
 
-    chip.innerText = e.innerText.trim().split(":")[1];
-    innerValueChips.push(e.innerText.trim().split(":")[1]);
+    if (e.innerText.trim().split("").includes(":")) {
+      chip.innerText = e.innerText.trim().split(":")[1];
+      innerValueChips.push(e.innerText.trim().split(":")[1]);
+    } else {
+      chip.innerText = e.innerText.trim();
+      innerValueChips.push(e.innerText.trim());
+    }
 
     chip.addEventListener("click", function () {
       deleteValueChip(this);
@@ -113,6 +151,8 @@ try {
     getTagValues(query);
 
     dynamicTabIndex();
+    dynamicSpacing();
+    chipOnEnter();
   }
 
   // on click on the chip
@@ -141,6 +181,7 @@ try {
     getTagValues(query);
 
     dynamicTabIndex();
+    dynamicSpacing();
   }
 
   function checkboxClick(e) {
@@ -241,11 +282,21 @@ try {
       valueChips.style.display == "none"
     ) {
       index = 2;
-      suggestions.querySelector("button").tabIndex = index++;
+
+      suggestions.querySelectorAll("button").forEach((button) => {
+        button.tabIndex = index++;
+      });
     }
 
     searchCheckbox.tabIndex = index++;
     searchBtn.tabIndex = index++;
+
+    if (
+      window.screen.width > 1200 &&
+      suggestions.style.display == "block" &&
+      valueChips.style.display == "none"
+    )
+      searchCheckbox.tabIndex = -1;
   }
 
   window.addEventListener(
@@ -258,31 +309,66 @@ try {
 
   // css mods on wondow resize
   window.addEventListener("resize", () => {
-    if (
-      suggestions.style.display == "block" ||
-      valueChips.style.display == "block"
-    ) {
-      form.style.bottom = "0rem";
-      inputContainer.style.marginBottom = "0rem";
-
-      if (window.screen.width < 1200) {
-        form.style.bottom = "-18rem";
-        inputContainer.style.marginBottom = "8rem";
-      }
-    }
-
-    if (
-      suggestions.style.display == "none" &&
-      valueChips.style.display == "none"
-    ) {
-      form.style.bottom = "0rem";
-      inputContainer.style.marginBottom = "0rem";
-
-      if (window.screen.width < 1200) {
-        form.style.bottom = "-10rem";
-      }
-    }
+    dynamicSpacing();
+    dynamicTabIndex();
   });
+
+  function dynamicSpacing() {
+    if (window.screen.width > 1200) {
+      form.style.bottom = "0rem";
+      searchbox.style.marginBottom = "0rem";
+      inputContainer.style.marginBottom = "0rem";
+    } else {
+      form.style.bottom = "-10rem";
+      searchbox.style.marginBottom = "0rem";
+    }
+
+    if (window.screen.width > 1200 && suggestions.style.display == "block") {
+      if (suggestions.offsetHeight > 88) {
+        let marginBottom = ((suggestions.offsetHeight - 88) / 46) * 5;
+        //searchbox.style.marginBottom = marginBottom + 5 + "rem";
+      } else {
+        //searchbox.style.marginBottom = "5rem";
+      }
+    }
+
+    if (window.screen.width > 1200 && valueChips.style.display == "block") {
+      if (valueChips.offsetHeight > 88) {
+        let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
+        searchbox.style.marginBottom = marginBottom + 5 + "rem";
+      } else {
+        searchbox.style.marginBottom = "5rem";
+      }
+    }
+
+    if (window.screen.width < 1200 && suggestions.style.display == "block") {
+      if (suggestions.offsetHeight > 88) {
+        let marginBottom = ((suggestions.offsetHeight - 88) / 46) * 5 + 8;
+
+        inputContainer.style.marginBottom = marginBottom + "rem";
+
+        let bottom = ((suggestions.offsetHeight - 88) / 46) * 5 + 18;
+        form.style.bottom = -bottom + "rem";
+      } else {
+        inputContainer.style.marginBottom = "8rem";
+        form.style.bottom = "-18rem";
+      }
+    }
+
+    if (window.screen.width < 1200 && valueChips.style.display == "block") {
+      if (valueChips.offsetHeight > 88) {
+        let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 8;
+
+        inputContainer.style.marginBottom = marginBottom + "rem";
+
+        let bottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18;
+        form.style.bottom = -bottom + "rem";
+      } else {
+        inputContainer.style.marginBottom = "8rem";
+        form.style.bottom = "-18rem";
+      }
+    }
+  }
 } catch (error) {
   console.log(error);
 }
