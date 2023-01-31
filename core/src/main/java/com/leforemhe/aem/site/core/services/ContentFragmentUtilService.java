@@ -127,6 +127,7 @@ public class ContentFragmentUtilService {
         Map<String, String> paramMap = new HashMap();
         paramMap.put("path", path);
         paramMap.put("type", "dam:Asset");
+        paramMap.put("p.limit", "-1");
         paramMap.put("1_property.property", "jcr:content/data/cq:model");
         paramMap.put("1_property.value", contentFragmentType);
         paramMap.put("2_property.property", "jcr:content/data/master/" + Activity.CODE_METIER_KEY);
