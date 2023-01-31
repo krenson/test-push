@@ -1,4 +1,5 @@
 try {
+  // function to make sure the tuile gets a tabindex of 0
   function dynamicTab() {
     let tuiles = document.querySelectorAll(".tuileContainer");
 
@@ -17,12 +18,14 @@ try {
       let oldValue = mutation.oldValue;
       let newValue = mutation.target.textContent;
       if (oldValue !== newValue) {
-        console.log(mutation);
         dynamicTab();
       }
     });
   });
 
+  // observe body for changes
+  // once api call response 200
+  // add tabindex to tuiles
   observer.observe(document.body, {
     characterDataOldValue: true,
     subtree: true,
@@ -30,5 +33,6 @@ try {
     characterData: true,
   });
 
+  // for storybook
   dynamicTab();
 } catch (error) {}
