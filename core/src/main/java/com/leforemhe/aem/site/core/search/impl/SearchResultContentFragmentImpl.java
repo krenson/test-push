@@ -52,6 +52,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         log.debug("Search parameter q={}", queryParameter);
         searchPredicates.put("type", "dam:Asset");
         searchPredicates.put("p.limit", "-1");
+        searchPredicates.put("path", "/content/dam/leforemhe");
         List<String> params = Arrays.asList(queryParameter.split(","));
         createPropertiesQueryMetier(params, searchPredicates);
         createPropertiesQueryActivities(params, searchPredicates);
@@ -97,7 +98,6 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
                 }
             }
             searchPredicates.put("1_group.p.or", "true");
-            searchPredicates.put("1_group.path", "/content/dam/leforemhe/metiers");
         }
     }
 
@@ -109,6 +109,5 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
             searchPredicates.put("2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
         }
         searchPredicates.put("2_group.p.or", "true");
-        searchPredicates.put("2_group.path", "/content/dam/leforemhe/activites");
     }
 }
