@@ -50,6 +50,7 @@ public class PageHandlerByIdCF implements WorkflowProcess {
     private String template;
     private String destinationFolder;
     private String action;
+    private boolean hideHamburgerMenuDesktop;
 
     @Override
     public void execute(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap metaDataMap) throws WorkflowException {
@@ -59,6 +60,7 @@ public class PageHandlerByIdCF implements WorkflowProcess {
             template = metaDataMap.get("pageTemplate", "empty");
             destinationFolder = metaDataMap.get("folderDestination", "empty");
             action = metaDataMap.get("action", "empty");
+            hideHamburgerMenuDesktop = metaDataMap.get("hideHamburgerMenuNavigation", false);
             boolean updatePage = action.equals(Constants.UPDATE);
             MetaDataMap map = workItem.getWorkflow().getWorkflowData().getMetaDataMap();
             List<String> ids = (List<String>) map.get("allIds");
@@ -134,6 +136,7 @@ public class PageHandlerByIdCF implements WorkflowProcess {
             pageNode.setProperty(Constants.SLING_VANITY_PATH, job.getVanityUrl());
             pageNode.setProperty(Constants.CLE_METIER, job.getCodeMetier());
             pageNode.setProperty(Constants.LAST_UPDATED, Calendar.getInstance(TimeZone.getTimeZone("CET")));
+            pageNode.setProperty("hideHamburgermenuOnDesktop", hideHamburgerMenuDesktop);
         } catch (Exception e) {
             LOG.error(e.getMessage());
         }
