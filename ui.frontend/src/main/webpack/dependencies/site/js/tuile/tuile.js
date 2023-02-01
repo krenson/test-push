@@ -13,26 +13,5 @@ try {
     });
   }
 
-  let observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      let oldValue = mutation.oldValue;
-      let newValue = mutation.target.textContent;
-      if (oldValue !== newValue) {
-        dynamicTab();
-      }
-    });
-  });
-
-  // observe body for changes
-  // once api call response 200
-  // add tabindex to tuiles
-  observer.observe(document.body, {
-    characterDataOldValue: true,
-    subtree: true,
-    childList: true,
-    characterData: true,
-  });
-
-  // for storybook
   dynamicTab();
 } catch (error) {}
