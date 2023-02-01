@@ -58,6 +58,13 @@
                                             value="replace"/>
                                     </items>
                              </radioGroup>
+                            <hideHamburgerMenuNavigation
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                    text="Disable hamburger menu option on page properties"
+                                    name="./metaData/hideHamburgerMenuNavigation"
+                                    value="true"
+                                    uncheckedValue="false"/>
                         </items>
                     </columns>
                 </items>
