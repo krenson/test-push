@@ -9,7 +9,7 @@ const EMPTY_STRING = '';
 $(document).ready(function () {
         let input = document.getElementById("searchInput");
         let suggestions = document.getElementById("searchSuggestions");
-        const form = document.getElementsByClassName("searchContainer")[0];
+        const form = document.getElementById("rechercheMetier");
         const checkboxes = document.querySelectorAll('.checkbox-container input');
         let valueChips = document.getElementById("valueChips");
         const showResults = form.dataset.showSearchResults;
@@ -146,7 +146,7 @@ $(document).ready(function () {
                 tagsValue = getTagQuery();
                 let query = EMPTY_STRING;
                 query = inputValue === EMPTY_STRING ? EMPTY_STRING : `q=${inputValue}&`;
-                query = query + (orCheckboxInput.checked === false ? EMPTY_STRING : `or=true&`);
+                query = query + (orCheckboxInput && orCheckboxInput.checked === true ? `or=true&` : EMPTY_STRING);
                 query = query + (tagsValue === EMPTY_STRING ? EMPTY_STRING : `tags=${tagsValue}`);
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                         let noResultText = searchResultList.dataset.noresult;
@@ -195,7 +195,7 @@ $(document).ready(function () {
         function getTagValues(inputValue) {
             checkboxes.forEach(checkbox => {
                 const inputQuery = inputValue !== EMPTY_STRING ? `&q=${inputValue}` : EMPTY_STRING;
-                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : EMPTY_STRING) + (orCheckboxInput.checked === false ? EMPTY_STRING : `&or=true`) + inputQuery
+                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : EMPTY_STRING) + (orCheckboxInput && orCheckboxInput.checked === true ? `or=true&` : EMPTY_STRING) + inputQuery
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                     checkbox.parentElement.parentElement.querySelector(".checkbox-amount").innerHTML = data.resultTotal;
                 });

@@ -1,7 +1,7 @@
 try {
   let input = document.getElementById("searchInput");
   let suggestions = document.getElementById("searchSuggestions");
-  const form = document.getElementsByClassName("searchContainer")[0];
+  const form = document.getElementById("rechercheMetier");
   const checkboxes = document.querySelectorAll(".checkbox-container input");
   let valueChips = document.getElementById("valueChips");
   let searchCheckbox = document.querySelector(".searchCheckbox-container");

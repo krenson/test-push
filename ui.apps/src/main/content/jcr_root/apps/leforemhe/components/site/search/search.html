@@ -8,7 +8,16 @@
     <sly data-sly-test="${searchResults.showResults}">
         <div class="short-searchContainer">
     </sly>
-    <div id="rechercheMetier">
+    <div id="rechercheMetier"
+         data-show-search-results="${searchResults.showResults ? 'true' : 'false'}"
+         data-show-input-field="${searchResults.showInputField ? 'true' : 'false'}"
+         data-search-result-page="${searchResults.action}"
+         data-quick-suggestions-enabled="${properties.showSuggestions}"
+         data-quick-suggestions="${resource.path}/quick-suggestions.suggestions.json"
+         data-quick-search-results-enabled="${properties.showQuickResults}"
+         data-fallback-image="${searchResults.fallbackImage}"
+         data-dynamic-search="${properties.dynamicSearch}"
+         data-quick-search-results="${resource.path}/quick-results.results.json">
         <div class="background-Yellow">
             <sly data-sly-test="${searchResults.showResults}">
                 <div class="short-content-container">
@@ -24,26 +33,28 @@
                 <h1>${'Résultats' @ i18n}</h1>
                 <h5 class="subTitle result-counter-header" data-resultCounterLabel="${searchResults.multipleResultLabel}" data-resultCounterLabelOne="${searchResults.oneResultLabel}"></h5>
             </div>
-            <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults, fallbackImage = searchResults.fallbackImage}" data-sly-unwrap/>
-            <sly data-sly-test="${searchResults.showResults}">
-                </div>
+            <sly data-sly-test="${searchResults.showInputField}">
+                <section data-sly-call="${searchField.searchField  @ action = searchResults.action, showResults = searchResults.showResults, fallbackImage = searchResults.fallbackImage}" data-sly-unwrap/>
             </sly>
+            <sly data-sly-test="${searchResults.showResults}">
         </div>
+</sly>
+</div>
+</div>
+<sly data-sly-test="${searchResults.showResults}">
     </div>
-    <sly data-sly-test="${searchResults.showResults}">
-        </div>
-    </sly>
+</sly>
 
 
-    <div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
-        <div class="container-content">
-            <div class="filter-back-container" data-sly-test="${properties.showFacets == 'true'}"
-                     data-sly-call="${facets.facets @ tags=searchResults.tagNamespaces}"></div>
-            <div class="resultats-container"
-                     data-sly-call="${results.results @ oneResultLabel = searchResults.oneResultLabel, multipleResultLabel = searchResults.multipleResultLabel, noResultText= searchResults.noResultText}">
-            </div>
+<div data-sly-test="${searchResults.showResults}" class="container maxWidth padding-bottom aem twoCol listeResultats-container">
+    <div class="container-content">
+        <div class="filter-back-container" data-sly-test="${properties.showTags == 'true'}"
+             data-sly-call="${facets.facets @ tags=searchResults.tagNamespaces}"></div>
+        <div class="resultats-container"
+             data-sly-call="${results.results @ oneResultLabel = searchResults.oneResultLabel, multipleResultLabel = searchResults.multipleResultLabel, noResultText= searchResults.noResultText}">
         </div>
     </div>
-    <sly data-sly-call="${popup.popup @ tags=searchResults.tagNamespaces}"></sly>
+</div>
+<sly data-sly-call="${popup.popup @ tags=searchResults.tagNamespaces}"></sly>
 </sly>
 
