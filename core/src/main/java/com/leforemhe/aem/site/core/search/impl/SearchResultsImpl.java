@@ -60,6 +60,8 @@ public class SearchResultsImpl implements SearchResults {
     @Self
     private SearchResultsContentFragment searchResultsContentFragment;
     @ValueMapValue
+    private boolean showInputField;
+    @ValueMapValue
     private boolean showResults;
     @ValueMapValue
     private String searchResultPage;
@@ -115,6 +117,12 @@ public class SearchResultsImpl implements SearchResults {
     public boolean getShowResults() {
         return this.showResults;
     }
+
+    @Override
+    public Boolean getShowInputField() {
+        return showInputField;
+    }
+
 
     public String getAction() {
         return ModelUtils.getVanityOfPageIfExists(this.searchResultPage, resourceResolver);

@@ -268,6 +268,14 @@
                     text="Montrer les résultats"
                     uncheckedValue="{Boolean}false"
                     value="{Boolean}true"/>
+                  <showInputField
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                    fieldDescription="Afficher champ de saisie"
+                    name="./showInputField"
+                    text="Montrer champ de saisie"
+                    uncheckedValue="{Boolean}false"
+                    value="{Boolean}true"/>
                   <dynamicSearch
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"

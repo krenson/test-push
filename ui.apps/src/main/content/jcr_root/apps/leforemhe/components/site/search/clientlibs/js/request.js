@@ -1,8 +1,9 @@
 $(document).ready(function () {
-    const form = document.getElementsByClassName("searchContainer")[0];
+    const form = document.getElementById("rechercheMetier");
     const orCheckbox = document.getElementById("searchCheckbox");
     const urlSearch = form.dataset.searchResultPage;
     const showResults = form.dataset.showSearchResults;
+    const showInputField = form.dataset.showInputField;
     const dynamicSearch = form.dataset.dynamicSearch;
     let searchBtn = document.getElementsByClassName("searchBtn")[0];
     const checkboxes = document.querySelectorAll('.checkbox-container input');
@@ -45,7 +46,7 @@ $(document).ready(function () {
     }
 
     function initSearch() {
-        if (showResults == "false" || dynamicSearch == "false") {
+        if (showResults == "false" || dynamicSearch == "false" && showInputField == "true") {
             searchBtn.addEventListener("click", doSearch);
         }
     }

@@ -14,4 +14,5 @@ public interface SearchResults {
     String getMultipleResultLabel();
     String getNoResultText();
     List<FilterModel> getTagNamespaces();
+    Boolean getShowInputField();
 }
