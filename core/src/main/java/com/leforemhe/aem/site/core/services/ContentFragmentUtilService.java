@@ -116,6 +116,7 @@ public class ContentFragmentUtilService {
         } else {
             Job job = doQueryForJobFromJobID(jobID, resolveRelatedJobs, resolvePossibleJobs);
             request.setAttribute(Constants.CURRENT_JOB_REQUEST, job);
+            LOG.debug("Queried job with id: {} and added to request", jobID);
             return job;
         }
     }
@@ -255,8 +256,10 @@ public class ContentFragmentUtilService {
     private Job getJobFromRequestAndJobID(SlingHttpServletRequest request, String jobID) {
         Job job = (Job) request.getAttribute(Constants.CURRENT_JOB_REQUEST);
         if (job != null && job.getCodeMetier().equals(jobID)) {
+            LOG.debug("Fetched job from request with job id: {}", jobID);
             return job;
         } else {
+            LOG.debug("No job found in request with job id: {}", jobID);
             return null;
         }
     }
