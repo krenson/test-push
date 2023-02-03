@@ -14,6 +14,7 @@ import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -79,9 +80,6 @@ public class ContentFragmentUtilService {
         }
     }
 
-    /*
-     * Returns a job based on JobID
-     */
     public Job getJobFromJobID(String jobID) {
         if (!jobID.isEmpty()) {
             return getJobFromJobID(jobID, false, false);
@@ -90,18 +88,50 @@ public class ContentFragmentUtilService {
         }
     }
 
+
+    /*
+     * Returns a job based on JobID
+     */
+    public Job getJobFromJobID(String jobID, SlingHttpServletRequest request) {
+        if (!jobID.isEmpty()) {
+            Job requestJob = getJobFromRequestAndJobID(request, jobID);
+            if (requestJob != null) {
+                return requestJob;
+            } else {
+                return getJobFromJobID(jobID, false, false, request);
+            }
+        } else {
+            return new Job();
+        }
+    }
+
     public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs) {
+        return doQueryForJobFromJobID(jobID, resolveRelatedJobs, resolvePossibleJobs);
+    }
+
+    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs, SlingHttpServletRequest request) {
+        Job requestJob = getJobFromRequestAndJobID(request, jobID);
+        if (requestJob != null) {
+            return requestJob;
+        } else {
+            Job job = doQueryForJobFromJobID(jobID, resolveRelatedJobs, resolvePossibleJobs);
+            request.setAttribute(Constants.CURRENT_JOB_REQUEST, job);
+            return job;
+        }
+    }
+
+    private Job doQueryForJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs) {
         SearchResult resultPage = createQueryForPageWithLinkedContentFragment(
                 Constants.CONTENT_ROOT_PATH, jobID);
         SearchResult result = createQueryForContentFragments(
                 contentFragmentConfigService.getConfig().modelMetierPath(), jobID, Job.CONTENT_FRAGMENT_MODEL_CONF);
         if (!result.getHits().isEmpty()) {
             Resource iterationResource = result.getResources().next();
-            if (iterationResource != null ) {
+            if (iterationResource != null) {
                 ContentFragment contentFragmentJob = getContentFragmentFromPath(iterationResource.getPath());
                 if (contentFragmentJob != null) {
-                   String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY};
-                   String[] tagListIds = resolveTagIds(tagLabels, contentFragmentJob);
+                    String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY};
+                    String[] tagListIds = resolveTagIds(tagLabels, contentFragmentJob);
                     Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage), tagListIds);
                     if (resolveRelatedJobs) {
                         String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
@@ -119,6 +149,7 @@ public class ContentFragmentUtilService {
         }
         return null;
     }
+
 
     /*
      * Created query to search for Content Fragments based on JobID
@@ -211,7 +242,7 @@ public class ContentFragmentUtilService {
 
     private String[] resolveTagIds(String[] tagLabels, ContentFragment contentFragmentJob) {
         ArrayList<String> tagIds = new ArrayList<>();
-        for(String label : tagLabels) {
+        for (String label : tagLabels) {
             String[] ids = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, label,
                     String.class);
             if (ids != null && ids.length > 0) {
@@ -219,5 +250,14 @@ public class ContentFragmentUtilService {
             }
         }
         return tagIds.toArray(new String[0]);
+    }
+
+    private Job getJobFromRequestAndJobID(SlingHttpServletRequest request, String jobID) {
+        Job job = (Job) request.getAttribute(Constants.CURRENT_JOB_REQUEST);
+        if (job != null && job.getCodeMetier().equals(jobID)) {
+            return job;
+        } else {
+            return null;
+        }
     }
 }

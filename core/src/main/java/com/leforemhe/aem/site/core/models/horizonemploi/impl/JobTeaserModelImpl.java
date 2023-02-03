@@ -48,6 +48,9 @@ public class JobTeaserModelImpl implements JobTeaserModel {
     @Via(type = ResourceSuperType.class)
     private Teaser teaser;
 
+    @Self
+    private SlingHttpServletRequest request;
+
     private Job job;
 
     @Override
@@ -102,13 +105,13 @@ public class JobTeaserModelImpl implements JobTeaserModel {
         if (getLink() == null) {
             if (this.job == null && !inExperienceFragment) {
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-                job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+                job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
             }
         } else {
             if (this.job == null && !inExperienceFragment) {
                 Page linkedResourcePage = currentResource.getResourceResolver().getResource(StringUtils.removeEnd(getLink().getURL(), ".html")).adaptTo(Page.class);
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(linkedResourcePage);
-                job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+                job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
             }
         }
         return job.getLabels();

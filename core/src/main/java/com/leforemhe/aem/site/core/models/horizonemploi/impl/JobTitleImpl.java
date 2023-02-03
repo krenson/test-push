@@ -35,6 +35,9 @@ public class JobTitleImpl implements JobTitle {
     @Via(type = ResourceSuperType.class)
     private Title title;
 
+    @Self
+    private SlingHttpServletRequest request;
+
     private Job job;
 
     @Override
@@ -42,7 +45,7 @@ public class JobTitleImpl implements JobTitle {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (job == null && !inExperienceFragment) {
             String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-            this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
         }
         return job.getTitle();
     }
