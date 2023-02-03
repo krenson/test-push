@@ -33,9 +33,6 @@ public class ActivitiesImpl implements Activities {
     @Via(type = ResourceSuperType.class)
     private Accordion accordion;
 
-    @Self
-    private SlingHttpServletRequest request;
-
     private List<Activity> activities;
 
     public List<Activity> getActivities() {
