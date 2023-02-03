@@ -1,5 +1,7 @@
 package com.leforemhe.aem.site.core.models;
 
+import com.adobe.cq.dam.cfm.ContentFragment;
+
 import java.util.List;
 
 public class Constants {
@@ -24,5 +26,6 @@ public class Constants {
     public static final String JSON_EXTENSION = ".json";
 
     public static final List<String> ALLOWED_NAMESPACES = List.of("he-metier");
+    public static final String CURRENT_JOB_REQUEST = "currentJobRequest";
 
 }

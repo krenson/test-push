@@ -9,6 +9,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
@@ -28,6 +29,9 @@ public class TextModel {
     @ValueMapValue
     private String selectedJobElement;
 
+    @Self
+    private SlingHttpServletRequest request;
+
     private Job job;
 
     public String getText() {
@@ -35,7 +39,7 @@ public class TextModel {
         if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE) && !isInExperienceFragment()) {
             if (this.job == null) {
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
             }
             if (job != null) {
                 text = getSingleTextValueFromElementJob(selectedJobElement);
@@ -49,7 +53,7 @@ public class TextModel {
         if (getContentFragmentModelType(contentFragmentModel).equals(Job.CONTENT_FRAGMENT_MODEL_TYPE)  && !isInExperienceFragment()) {
             if (this.job == null) {
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+                this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
             }
             if (job != null) {
                 text = getMultiTextValueFromElementJob(selectedJobElement);

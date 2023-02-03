@@ -61,7 +61,7 @@ public class JobPageModelImpl implements JobPageModel {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
                 String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-                job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+                job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
         }
         return job.getLabels();
     }

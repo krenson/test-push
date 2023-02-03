@@ -8,6 +8,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
@@ -26,6 +27,9 @@ public class JobsModel {
     @ValueMapValue
     private String selectedJobElement;
 
+    @Self
+    private SlingHttpServletRequest request;
+
     private Job job;
 
     public List<Job> getJobs() {
@@ -33,7 +37,7 @@ public class JobsModel {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
             String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-            this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, true, true);
+            this.job = contentFragmentUtilService.getJobFromJobID(cleMetier, true, true, request);
             if (job != null) {
                 jobs = job.getJobsFromElement(selectedJobElement);
             }

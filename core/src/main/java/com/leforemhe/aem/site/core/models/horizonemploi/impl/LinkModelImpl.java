@@ -23,6 +23,9 @@ import javax.inject.Inject;
 public class LinkModelImpl implements LinkModel {
     public static final String RESOURCE_TYPE = "leforemhe/components/site/linkicon";
 
+    @Self
+    private SlingHttpServletRequest request;
+
     @Inject
     private Page currentPage;
 
@@ -88,7 +91,7 @@ public class LinkModelImpl implements LinkModel {
         boolean inExperienceFragment = currentPage.getContentResource().getResourceType().equalsIgnoreCase(Constants.EF_RESOURCE_TYPE);
         if (this.job == null && !inExperienceFragment) {
             String cleMetier = contentFragmentUtilService.getCleMeteirFromPage(currentPage);
-            job = contentFragmentUtilService.getJobFromJobID(cleMetier);
+            job = contentFragmentUtilService.getJobFromJobID(cleMetier, request);
             jobTitle = job.getTitle();
         }
         return jobTitle;
