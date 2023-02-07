@@ -18,11 +18,11 @@
          data-fallback-image="${searchResults.fallbackImage}"
          data-dynamic-search="${properties.dynamicSearch}"
          data-quick-search-results="${resource.path}/quick-results.results.json">
-        <div data-sly-test="${searchResults.showInputField}" class="background-Yellow">
+        <div class="${searchResults.showInputField === true ? 'background-Yellow' : ''}">
             <sly data-sly-test="${searchResults.showResults}">
                 <div class="short-content-container">
             </sly>
-            <div class="aem title-container">
+            <div data-sly-test="${searchResults.showInputField}" class="aem title-container">
                 <h1>${properties.title}</h1>
                 <h5 data-sly-test="${properties.subtitle}" class="subTitle">
                     ${properties.subtitle}
