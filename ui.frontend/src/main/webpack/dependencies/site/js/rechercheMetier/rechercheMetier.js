@@ -57,7 +57,7 @@ try {
       inputContainer.style.marginBottom = "8rem";
     }
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -150,7 +150,7 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -180,7 +180,7 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
   }
 
@@ -310,7 +310,7 @@ try {
   // css mods on wondow resize
   window.addEventListener("resize", () => {
     dynamicSpacing();
-    dynamicTabIndex();
+    //dynamicTabIndex();
   });
 
   function dynamicSpacing() {
