@@ -4,10 +4,12 @@ try {
     let tuiles = document.querySelectorAll(".tuileContainer");
 
     tuiles.forEach((tuile) => {
-      if (tuile.tabIndex == 0) {
-        observer.disconnect();
-        return;
-      }
+      tuile.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          tuile.querySelector("a").click();
+        }
+      });
+
       tuile.tabIndex = 0;
       tuile.querySelector("a").tabIndex = -1;
     });

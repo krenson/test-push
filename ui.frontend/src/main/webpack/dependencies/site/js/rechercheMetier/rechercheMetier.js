@@ -2,6 +2,7 @@ try {
   let input = document.getElementById("searchInput");
   let suggestions = document.getElementById("searchSuggestions");
   const form = document.getElementById("rechercheMetier");
+  const shortRecherMetier = form.parentElement;
   const checkboxes = document.querySelectorAll(".checkbox-container input");
   let valueChips = document.getElementById("valueChips");
   let searchCheckbox = document.querySelector(".searchCheckbox-container");
@@ -57,7 +58,7 @@ try {
       inputContainer.style.marginBottom = "8rem";
     }
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -150,7 +151,7 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -180,7 +181,7 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    dynamicTabIndex();
+    //dynamicTabIndex();
     dynamicSpacing();
   }
 
@@ -310,10 +311,11 @@ try {
   // css mods on wondow resize
   window.addEventListener("resize", () => {
     dynamicSpacing();
-    dynamicTabIndex();
+    //dynamicTabIndex();
   });
 
   function dynamicSpacing() {
+    if (shortRecherMetier != null) return;
     if (window.screen.width > 1200) {
       form.style.bottom = "0rem";
       searchbox.style.marginBottom = "0rem";
@@ -367,6 +369,13 @@ try {
         inputContainer.style.marginBottom = "8rem";
         form.style.bottom = "-18rem";
       }
+    }
+
+    if (
+      suggestions.style.display == "none" &&
+      valueChips.style.display == "none"
+    ) {
+      form.style.bottom = "0rem";
     }
   }
 } catch (error) {
