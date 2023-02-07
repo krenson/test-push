@@ -46,7 +46,7 @@ $(document).ready(function () {
     }
 
     function initSearch() {
-        if (showResults === "true" && dynamicSearch === "false" && searchBtn !== undefined) {
+        if (dynamicSearch === "false" && searchBtn !== undefined) {
             searchBtn.addEventListener("click", doSearch);
         }
     }
