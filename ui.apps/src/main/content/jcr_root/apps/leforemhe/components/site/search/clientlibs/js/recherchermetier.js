@@ -143,7 +143,7 @@ $(document).ready(function () {
         function getQuickResults(inputValue) {
             if (showResults == TRUE_LABEL) {
                 const searchResultList = document.querySelector('.tuile-results-container')
-                tagsValue = getTagQuery();
+                tagsValue = params.tags !== null ? params.tags : EMPTY_STRING + getTagQuery();
                 let query = EMPTY_STRING;
                 query = inputValue === EMPTY_STRING ? EMPTY_STRING : `q=${inputValue}&`;
                 query = query + (orCheckboxInput && orCheckboxInput.checked === true ? `or=true&` : EMPTY_STRING);
