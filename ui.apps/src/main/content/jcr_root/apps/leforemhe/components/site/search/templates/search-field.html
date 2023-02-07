@@ -11,18 +11,18 @@
 
         <div class="searchbox">
             <div>
-                <input tabindex="2" onkeyup="getValue(this)" id="searchInput" type="text"
+                <input onkeyup="getValue(this)" id="searchInput" type="text"
                        placeholder="Rechercher par mots-cles, métiers, numéro">
                 <div id="searchSuggestions" class="aem searchSuggestions">
                 </div>
                 <div id="valueChips" class="aem valueChips"></div>
             </div>
-            <div tabindex="3" class="searchCheckbox-container">
+            <div class="searchCheckbox-container">
                 <input type="checkbox" id="searchCheckbox" name="or" class="searchCheckbox">
                 <label for="searchCheckbox">${properties.showOffersWhichNotAllIncludeKeywordsLabel}</label>
             </div>
             <div class="aem searchBtn">
-                <button tabindex="4" class="btn btn-primary">
+                <button class="btn btn-primary">
                     <img src="/etc.clientlibs/leforemhe/clientlibs/clientlib-site/resources/images/magnifying-glass.svg" alt="" aria-hidden="true">
                 </button>
             </div>
