@@ -99,7 +99,11 @@ public class LinkModelImpl implements LinkModel {
 
     @Override
     public Boolean isInternalLink() {
-        return linkType.equals("internal-link");
+        if (linkType != null) {
+            return linkType.equals("internal-link");
+        } else {
+            return false;
+        }
     }
 
     @Override

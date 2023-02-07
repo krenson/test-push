@@ -111,7 +111,7 @@ public class ContentFragmentUtilService {
 
     public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs, SlingHttpServletRequest request) {
         Job requestJob = getJobFromRequestAndJobID(request, jobID);
-        if (requestJob != null) {
+        if (requestJob != null && (!resolvePossibleJobs || !resolveRelatedJobs)) {
             return requestJob;
         } else {
             Job job = doQueryForJobFromJobID(jobID, resolveRelatedJobs, resolvePossibleJobs);
