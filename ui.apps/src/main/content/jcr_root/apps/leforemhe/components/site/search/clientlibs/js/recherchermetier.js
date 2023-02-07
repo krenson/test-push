@@ -229,7 +229,9 @@ $(document).ready(function () {
             if (orCheckboxInitValue === TRUE_LABEL) {
                 document.getElementById("searchCheckbox").checked = TRUE_LABEL;
             }
-            initSuggestionValues(value, tags);
+            if(input !== null) {
+                initSuggestionValues(value, tags);
+            }
 
             if (value != null) {
                 getQuickResults(value);
