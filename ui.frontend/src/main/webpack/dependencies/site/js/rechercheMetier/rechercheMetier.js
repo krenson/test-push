@@ -11,6 +11,7 @@ try {
   let inputContainer = document.querySelectorAll(".searchbox div")[0];
   let searchBtn = document.querySelector(".aem.searchBtn button");
   let searchbox = document.querySelector(".searchbox");
+  let searchContainer = document.querySelector(".searchContainer");
 
   suggestions.style.display = valueChips.style.display = "none";
 
@@ -25,9 +26,9 @@ try {
         inputContainer.style.marginBottom = "0rem";
 
         if (window.screen.width > 1200) {
-          form.style.bottom = "0rem";
+          searchContainer.style.bottom = "0rem";
         } else {
-          form.style.bottom = "-10rem";
+          searchContainer.style.bottom = "-10rem";
         }
       }
 
@@ -54,7 +55,7 @@ try {
     suggestions.style.display = "block";
 
     if (window.screen.width < 1200 && suggestions.style.display == "block") {
-      form.style.bottom = "-18rem";
+      searchContainer.style.bottom = "-18rem";
       inputContainer.style.marginBottom = "8rem";
     }
 
@@ -124,6 +125,7 @@ try {
     valueChips.style.display = "block";
 
     var chip = document.createElement("span");
+    chip.tabIndex = 0;
 
     chip.className = "chips chips-secondary";
 
@@ -165,11 +167,11 @@ try {
       valueChips.style.display = "none";
       searchCheckbox.style.bottom = "-4.8rem";
 
-      form.style.bottom = "0rem";
+      searchContainer.style.bottom = "0rem";
       inputContainer.style.marginBottom = "0rem";
 
       if (window.screen.width < 1200) {
-        form.style.bottom = "-10rem";
+        searchContainer.style.bottom = "-10rem";
       }
     }
     let index = innerValueChips.indexOf(e.innerText);
@@ -315,13 +317,13 @@ try {
   });
 
   function dynamicSpacing() {
-    if (shortRecherMetier != null) return;
+    if (shortRecherMetier.className == "short-searchContainer") return;
     if (window.screen.width > 1200) {
-      form.style.bottom = "0rem";
+      searchContainer.style.bottom = "0rem";
       searchbox.style.marginBottom = "0rem";
       inputContainer.style.marginBottom = "0rem";
     } else {
-      form.style.bottom = "-10rem";
+      searchContainer.style.bottom = "-10rem";
       searchbox.style.marginBottom = "0rem";
     }
 
@@ -350,10 +352,10 @@ try {
         inputContainer.style.marginBottom = marginBottom + "rem";
 
         let bottom = ((suggestions.offsetHeight - 88) / 46) * 5 + 18;
-        form.style.bottom = -bottom + "rem";
+        searchContainer.style.bottom = -bottom + "rem";
       } else {
         inputContainer.style.marginBottom = "8rem";
-        form.style.bottom = "-18rem";
+        searchContainer.style.bottom = "-18rem";
       }
     }
 
@@ -364,10 +366,10 @@ try {
         inputContainer.style.marginBottom = marginBottom + "rem";
 
         let bottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18;
-        form.style.bottom = -bottom + "rem";
+        searchContainer.style.bottom = -bottom + "rem";
       } else {
         inputContainer.style.marginBottom = "8rem";
-        form.style.bottom = "-18rem";
+        searchContainer.style.bottom = "-18rem";
       }
     }
 
@@ -375,7 +377,11 @@ try {
       suggestions.style.display == "none" &&
       valueChips.style.display == "none"
     ) {
-      form.style.bottom = "0rem";
+      if (window.screen.width > 1200) {
+        searchContainer.style.bottom = "0rem";
+      } else {
+        searchContainer.style.bottom = "-10rem";
+      }
     }
   }
 } catch (error) {
