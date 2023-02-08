@@ -3,10 +3,17 @@ function dynamicTab() {
   let tuiles = document.querySelectorAll(".tuileContainer");
 
   tuiles.forEach((tuile) => {
+    tuile.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        tuile.querySelector("a").click();
+      }
+    });
+
     if (tuile.tabIndex == 0) {
       observer.disconnect();
       return;
     }
+
     tuile.tabIndex = 0;
     tuile.querySelector("a").tabIndex = -1;
   });
