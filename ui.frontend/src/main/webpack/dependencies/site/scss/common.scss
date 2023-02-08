@@ -555,6 +555,7 @@ header .container-content {
   max-width: calc(100% - #{$colSize} - #{$gapSize});
   flex-grow: 1;
 }
+
 .offsetTop {
   transform: translateY(-10rem);
 }
@@ -619,6 +620,10 @@ header .container-content {
       max-width: 100% !important;
       width: 100% !important;
     }
+  }
+
+  .topOffset120 {
+    margin-top: 12rem;
   }
 }
 
