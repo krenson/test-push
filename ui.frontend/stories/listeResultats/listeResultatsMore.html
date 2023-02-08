@@ -1187,7 +1187,26 @@
   type="text/javascript"
   src="http://dispatcher.realdolmen.com/clientlib-site/resources/js/popup/popup.js"
 ></script>
-<script
-  type="text/javascript"
-  src="http://dispatcher.realdolmen.com/clientlib-site/resources/js/tuile/tuile.js"
-></script>
+
+<script type="text/javascript">
+  // js difference for storybook & AEM
+  try {
+    // function to make sure the tuile gets a tabindex of 0
+    function dynamicTab() {
+      let tuiles = document.querySelectorAll(".tuileContainer");
+
+      tuiles.forEach((tuile) => {
+        tuile.addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
+            tuile.querySelector("a").click();
+          }
+        });
+
+        tuile.tabIndex = 0;
+        tuile.querySelector("a").tabIndex = -1;
+      });
+    }
+
+    dynamicTab();
+  } catch (error) {}
+</script>
