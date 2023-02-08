@@ -38,7 +38,7 @@ $(document).ready(function () {
         let index = 0;
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked && !tagsValue.includes(checkbox.name)) {
-                tagsValue += index === 0 ? checkbox.name : ',' + checkbox.name;
+                tagsValue += checkbox.name + ",";
                 index++
             }
         })
