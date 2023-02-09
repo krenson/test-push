@@ -111,7 +111,7 @@ $(document).ready(function () {
     }
 
     // searchBtn on enter
-    if(searchBtn !== null){
+    if(searchBtn !== undefined){
         searchBtn.addEventListener("keypress", (event) => {
             if (event.key === "Enter") {
                 event.preventDefault();
