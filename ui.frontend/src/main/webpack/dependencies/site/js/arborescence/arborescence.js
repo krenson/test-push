@@ -111,7 +111,7 @@ function openOption(opt) {
 }
 
 function createUrlParams() {
-  let urlParams = "tags=";
+  let urlParams = "or=true&tags=";
   subCheckboxes.forEach((subCheckbox) => {
     if (subCheckbox.checked === true) {
       urlParams += subCheckbox.dataset.tagname + ",";

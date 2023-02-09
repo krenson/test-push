@@ -258,7 +258,7 @@ $(document).ready(function () {
                 let tags = params.tags;
                 let orCheckboxInitValue = params.or; // "some_value"
 
-                if (orCheckboxInitValue === TRUE_LABEL) {
+                if (orCheckboxInitValue === TRUE_LABEL && document.getElementById("searchCheckbox") !== null ) {
                     document.getElementById("searchCheckbox").checked = TRUE_LABEL;
                 }
                 if (input !== null) {
