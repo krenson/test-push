@@ -54,8 +54,9 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchPredicates.put("p.limit", "-1");
         searchPredicates.put("path", "/content/dam/leforemhe");
         List<String> params = Arrays.asList(queryParameter.split(","));
-        createPropertiesQueryMetier(params, searchPredicates);
-        createPropertiesQueryActivities(params, searchPredicates);
+        orCheckbox = orCheckbox != null && orCheckbox.equals("true") ? "true": "false";
+        createPropertiesQueryMetier(params, searchPredicates, orCheckbox);
+        createPropertiesQueryActivities(params, searchPredicates, orCheckbox);
         if (orCheckbox != null && orCheckbox.equals("true")) {
             searchPredicates.put("group.p.or", "true");
         }
@@ -87,7 +88,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         return searchResults;
     }
 
-    private void createPropertiesQueryMetier(List<String> params, Map<String, String> searchPredicates) {
+    private void createPropertiesQueryMetier(List<String> params, Map<String, String> searchPredicates, String orCheckbox) {
         int index = 0;
         if (params != null) {
             for (String param : params) {
@@ -97,17 +98,17 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
                     searchPredicates.put("1_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
                 }
             }
-            searchPredicates.put("1_group.p.or", "true");
+            searchPredicates.put("1_group.p.or", orCheckbox);
         }
     }
 
-    private void createPropertiesQueryActivities(List<String> params, Map<String, String> searchPredicates) {
+    private void createPropertiesQueryActivities(List<String> params, Map<String, String> searchPredicates, String orCheckbox) {
         int index = 0;
         for (String param : params) {
             index++;
             searchPredicates.put("2_group." + index + "_fulltext", '"' + param + '"');
             searchPredicates.put("2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
         }
-        searchPredicates.put("2_group.p.or", "true");
+        searchPredicates.put("2_group.p.or", orCheckbox);
     }
 }
