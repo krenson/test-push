@@ -178,7 +178,7 @@ $(document).ready(function () {
                     tagsValue = (params.tags !== null ? params.tags : EMPTY_STRING) + getTagQuery();
                     let query = EMPTY_STRING;
                     query = inputValue === EMPTY_STRING ? EMPTY_STRING : `q=${inputValue}&`;
-                    query = query + (orCheckboxInput && orCheckboxInput.checked === true ? `or=true&` : EMPTY_STRING);
+                    query = query + (orCheckboxInput && orCheckboxInput.checked === true || params.or === TRUE_LABEL ? `or=true&` : EMPTY_STRING);
                     query = query + (tagsValue === EMPTY_STRING ? EMPTY_STRING : `tags=${tagsValue}`);
                     $.get(form.dataset.quickSearchResults, query, function (data) {
                             let noResultText = searchResultList.dataset.noresult;
