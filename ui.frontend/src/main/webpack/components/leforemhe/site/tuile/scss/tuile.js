@@ -25,7 +25,6 @@ let observer = new MutationObserver((mutations) => {
     let newValue = mutation.target.textContent;
     if (oldValue !== newValue) {
       dynamicTab();
-      console.log("test");
     }
   });
 });
