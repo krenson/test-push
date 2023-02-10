@@ -79,32 +79,55 @@ try {
             },
 
             label: function (tooltipItem) {
-              let percentage;
-              let sum;
+              let chartDatasets = [];
+              let selectedData;
 
-              if (tooltipItem.datasetIndex == 0) {
-                percentage = tooltipItem.raw;
-                let sumFunction = () => {
-                  let index =
-                    chartConfig.data.datasets[0].data.indexOf(percentage);
-                  return chartConfig.data.datasets[1].data[index];
-                };
+              let tooltipArrString = [];
 
-                sum = sumFunction();
-              } else {
-                sum = tooltipItem.raw;
-                percentageFunction = () => {
-                  let index = chartConfig.data.datasets[1].data.indexOf(sum);
-                  return chartConfig.data.datasets[0].data[index];
-                };
+              // get all the relevant data: label + data array
 
-                percentage = percentageFunction();
+              for (i = 0; i < chartConfig.data.labels.length; i++) {
+                let legend = chartConfig.data.labels[i];
+                let dataset = [];
+
+                for (j = 0; j < chartConfig.data.datasets.length; j++) {
+                  dataset.push({
+                    label: chartConfig.data.datasets[j].label,
+                    data: chartConfig.data.datasets[j].data[i],
+                  });
+                }
+
+                chartDatasets.push({ legend: legend, data: dataset });
               }
 
-              return [
-                percentage + " % pour ce métier",
-                sum + " % pour tous les métiers",
-              ];
+              // selected data on the chart
+              selectedData = {
+                legend: tooltipItem.label,
+                label: tooltipItem.dataset.label,
+                data: tooltipItem.raw,
+              };
+
+              // look for the right data based on wat the tooltip selected
+              // return every data set of the chart legend
+
+              for (i = 0; i < chartDatasets.length; i++) {
+                if (chartDatasets[i].legend == selectedData.legend) {
+                  chartDatasets[i].data.forEach((set) => {
+                    tooltipArrString.push(
+                      `${set.data} % pour ${set.label}`.toLocaleLowerCase()
+                    );
+
+                    if (chartDatasets[i].data.length == 2) {
+                      let string = tooltipArrString[0].split("pour");
+                      let newString = string[0] + " pour ce métier";
+
+                      tooltipArrString[0] = newString;
+                    }
+                  });
+                }
+              }
+
+              return tooltipArrString;
             },
           },
         },
