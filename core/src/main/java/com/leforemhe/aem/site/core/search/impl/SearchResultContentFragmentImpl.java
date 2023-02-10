@@ -57,7 +57,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         orCheckbox = orCheckbox != null && orCheckbox.equals("true") ? "true": "false";
         createPropertiesQueryMetier(params, searchPredicates, orCheckbox);
         createPropertiesQueryActivities(params, searchPredicates, orCheckbox);
-        searchPredicates.put("group.p.or", "true");
+
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         searchResults = searchProvider.buildSearchResults(result, null);
         for (SearchResult searchResult : searchResults) {
