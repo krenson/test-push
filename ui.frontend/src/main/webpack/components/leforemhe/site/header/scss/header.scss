@@ -567,6 +567,7 @@ $backgroud-menu-color: #faf5ec;
     width: 100%;
     top: 0;
     left: 0;
+
     a span {
       display: none;
     }
@@ -575,6 +576,11 @@ $backgroud-menu-color: #faf5ec;
       margin-top: 12rem;
     }
   }
+
+  .containerv2.container {
+    margin-top: 12rem;
+  }
+
   .aem.topV2 header {
     font-size: 1.8rem;
   }
