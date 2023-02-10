@@ -317,11 +317,13 @@ try {
   });
 
   function dynamicSpacing() {
-    if (shortRecherMetier.className == "short-searchContainer") return;
     if (window.screen.width > 1200) {
       searchContainer.style.bottom = "0rem";
       searchbox.style.marginBottom = "0rem";
       inputContainer.style.marginBottom = "0rem";
+
+      if (shortRecherMetier.className == "short-searchContainer")
+        searchCheckbox.style.bottom = "-4.8rem";
     } else {
       searchContainer.style.bottom = "-10rem";
       searchbox.style.marginBottom = "0rem";
@@ -338,10 +340,28 @@ try {
 
     if (window.screen.width > 1200 && valueChips.style.display == "block") {
       if (valueChips.offsetHeight > 88) {
-        let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
-        searchbox.style.marginBottom = marginBottom + 5 + "rem";
+        // if short recherche metier
+        if (shortRecherMetier.className == "short-searchContainer") {
+          let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
+
+          searchContainer.style.marginBottom = marginBottom + 5 + "rem";
+
+          let bottom = ((valueChips.offsetHeight - 88) / 46) * 5;
+          searchCheckbox.style.bottom = -bottom - 8.8 + "rem";
+        } else {
+          let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
+
+          searchbox.style.marginBottom = marginBottom + 5 + "rem";
+        }
       } else {
-        searchbox.style.marginBottom = "5rem";
+        // if short recherche metier
+        if (shortRecherMetier.className == "short-searchContainer") {
+          searchCheckbox.style.bottom = "-8.8rem";
+
+          searchContainer.style.marginBottom = "5rem";
+        } else {
+          searchbox.style.marginBottom = "5rem";
+        }
       }
     }
 
