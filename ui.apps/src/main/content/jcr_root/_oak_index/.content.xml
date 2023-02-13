@@ -2,7 +2,7 @@
 <jcr:root xmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0" xmlns:slingevent="http://sling.apache.org/jcr/event/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cm="http://www.adobe.com/aemfd/cm/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:social="http://www.adobe.com/social/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="nt:unstructured">
-    <searchIndexContentFragment
+    <contentFragment
         jcr:primaryType="oak:QueryIndexDefinition"
         async="[async,nrt]"
         compatVersion="{Long}2"
@@ -36,7 +36,7 @@
                         useInSpellcheck="{Boolean}true"
                         useInSuggest="{Boolean}true"
                         analyzed="{Boolean}true"
-                        boost="{Double}3.0"/>
+                        boost="{Double}4.0"/>
                     <synonymes
                         jcr:primaryType="nt:unstructured"
                         name="jcr:content/data/master/synonymes"
@@ -46,7 +46,7 @@
                         useInSpellcheck="{Boolean}true"
                         useInSuggest="{Boolean}true"
                         analyzed="{Boolean}true"
-                        boost="{Double}2.0"/>
+                        boost="{Double}3.0"/>
                     <codemetier
                       jcr:primaryType="nt:unstructured"
                       name="jcr:content/data/master/codeMetier"
@@ -56,7 +56,16 @@
                       useInSpellcheck="{Boolean}true"
                       useInSuggest="{Boolean}true"
                       analyzed="{Boolean}true"
-                      boost="{Double}4.0"/>
+                      boost="{Double}5.0"/>
+                    <descriptionMetier
+                      jcr:primaryType="nt:unstructured"
+                      name="jcr:content/data/master/description"
+                      nodeScopeIndex="{Boolean}true"
+                      propertyIndex="{Boolean}true"
+                      type="String"
+                      useInSpellcheck="{Boolean}true"
+                      analyzed="{Boolean}true"
+                      boost="{Double}2.0"/>
                     <description
                       jcr:primaryType="nt:unstructured"
                       name="jcr:content/data/master/description"
@@ -65,11 +74,11 @@
                       type="String"
                       useInSpellcheck="{Boolean}true"
                       analyzed="{Boolean}true"
-                      boost="{Double}4.0"/>
+                      boost="{Double}1.0"/>
                 </properties>
             </dam:Asset>
         </indexRules>
-    </searchIndexContentFragment>
+    </contentFragment>
     <activityIndex
       jcr:primaryType="oak:QueryIndexDefinition"
       async="[async,nrt]"
