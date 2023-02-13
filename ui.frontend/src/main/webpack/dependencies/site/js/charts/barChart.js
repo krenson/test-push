@@ -116,13 +116,6 @@ try {
                     tooltipArrString.push(
                       `${set.data} % pour ${set.label}`.toLocaleLowerCase()
                     );
-
-                    if (chartDatasets[i].data.length == 2) {
-                      let string = tooltipArrString[0].split("pour");
-                      let newString = string[0] + " pour ce métier";
-
-                      tooltipArrString[0] = newString;
-                    }
                   });
                 }
               }

@@ -90,8 +90,8 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
               for (i = 0; i < chartConfig.data.labels.length; i++) {
                 let legend = chartConfig.data.labels[i];
                 let dataset = [];
-                var j = 0;
-                for (j; j < chartConfig.data.datasets.length; j++) {
+
+                for (j = 0; j < chartConfig.data.datasets.length; j++) {
                   dataset.push({
                     label: chartConfig.data.datasets[j].label,
                     data: chartConfig.data.datasets[j].data[i],
@@ -117,13 +117,6 @@ const renderGraph = (showAsPercentage, barChartElement, data, chartType) => {
                     tooltipArrString.push(
                       `${set.data} % pour ${set.label}`.toLocaleLowerCase()
                     );
-
-                    if (chartDatasets[i].data.length == 2) {
-                      let string = tooltipArrString[0].split("pour");
-                      let newString = string[0] + "pour ce métier";
-
-                      tooltipArrString[0] = newString;
-                    }
                   });
                 }
               }
