@@ -716,32 +716,55 @@ header .container-content {
   &-center,
   &-right {
     display: flex;
+    flex-direction: column;
+
+    & > * {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: fit-content !important;
+    }
   }
 
   &-left {
-    justify-content: start;
+    align-items: flex-start;
   }
 
   &-center {
-    justify-content: center;
+    align-items: center;
   }
 
   &-right {
-    justify-content: end;
+    align-items: flex-end;
   }
 }
 
 .text-alignment {
-  &-left {
+  &-left * p {
     text-align: start;
   }
 
-  &-center {
+  &-center * p {
     text-align: center;
   }
 
-  &-right {
+  &-right * p {
     text-align: end;
+  }
+}
+
+.container-background-partial {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    height: 35%;
+    width: 100%;
+    background-color: unset;
+    background: transparent linear-gradient(99deg, #f8e7ce 0%, #f9f5ed 100%) 0%
+      0% no-repeat padding-box;
   }
 }
 
@@ -756,5 +779,60 @@ header .container-content {
 
   &-en-tête {
     height: 32.6rem;
+  }
+}
+
+.no-vertical-margins,
+.no-vertical-margins div.aem.title-container h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.no-horizontal-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.horizontal-header-padding {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+div.height-en-tête.container-max-width {
+  div.container-content div.accroche {
+    padding-left: 1.5rem;
+  }
+}
+
+div.height-en-tête.container-max-width {
+  max-width: calc(140rem + calc(1.5rem * 2));
+  margin: 0 auto;
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .height {
+    &-top-IMR-page,
+    &-search-component,
+    &-en-tête {
+      margin-top: 12rem !important;
+    }
+
+    &-search-component,
+    &-en-tête {
+      padding-top: 3rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    &-top-IMR-page {
+      height: 16.2rem !important;
+    }
+
+    &-search-component {
+      height: 31.6rem !important;
+    }
+
+    &-en-tête {
+      height: 19.6rem !important;
+    }
   }
 }
