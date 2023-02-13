@@ -84,16 +84,31 @@ try {
 
               let tooltipArrString = [];
 
-              // get all the relevant data: label + data array
+              // get all the relevant data: Legend + label + data array
+              // example:
+              // { legend :
+              //   [ label : 'title', data : [1, 2, 3]],
+              //   [ label : 'title', data : [1, 2, 3]]
+              // }
 
-              for (i = 0; i < chartConfig.data.labels.length; i++) {
-                let legend = chartConfig.data.labels[i];
+              for (
+                legendIndex = 0;
+                legendIndex < chartConfig.data.labels.length;
+                legendIndex++
+              ) {
+                let legend = chartConfig.data.labels[legendIndex];
                 let dataset = [];
 
-                for (j = 0; j < chartConfig.data.datasets.length; j++) {
+                for (
+                  labelIndex = 0;
+                  labelIndex < chartConfig.data.datasets.length;
+                  labelIndex++
+                ) {
                   dataset.push({
-                    label: chartConfig.data.datasets[j].label,
-                    data: chartConfig.data.datasets[j].data[i],
+                    label: chartConfig.data.datasets[labelIndex].label,
+                    data: chartConfig.data.datasets[labelIndex].data[
+                      legendIndex
+                    ],
                   });
                 }
 
@@ -110,9 +125,13 @@ try {
               // look for the right data based on wat the tooltip selected
               // return every data set of the chart legend
 
-              for (i = 0; i < chartDatasets.length; i++) {
-                if (chartDatasets[i].legend == selectedData.legend) {
-                  chartDatasets[i].data.forEach((set) => {
+              for (
+                datasetIndex = 0;
+                datasetIndex < chartDatasets.length;
+                datasetIndex++
+              ) {
+                if (chartDatasets[datasetIndex].legend == selectedData.legend) {
+                  chartDatasets[datasetIndex].data.forEach((set) => {
                     tooltipArrString.push(
                       `${set.data} % pour ${set.label}`.toLocaleLowerCase()
                     );
