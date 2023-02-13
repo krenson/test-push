@@ -577,7 +577,7 @@ $backgroud-menu-color: #faf5ec;
     }
   }
 
-  .containerv2.container {
+  .containerv2.container:has(.filariane.breadcrumb) {
     margin-top: 12rem;
   }
 
