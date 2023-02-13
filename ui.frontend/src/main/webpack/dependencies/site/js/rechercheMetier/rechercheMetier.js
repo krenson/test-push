@@ -59,7 +59,6 @@ try {
       inputContainer.style.marginBottom = "8rem";
     }
 
-    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -153,7 +152,6 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    //dynamicTabIndex();
     dynamicSpacing();
     chipOnEnter();
   }
@@ -183,7 +181,6 @@ try {
     getQuickResults(query);
     getTagValues(query);
 
-    //dynamicTabIndex();
     dynamicSpacing();
   }
 
@@ -253,55 +250,6 @@ try {
     getTagValues("");
   }
 
-  // dynamically modify tab index
-  function dynamicTabIndex() {
-    let index = 4;
-
-    if (
-      suggestions.style.display == "block" &&
-      valueChips.style.display == "block"
-    ) {
-      suggestions.querySelector("button").tabIndex = index++;
-      valueChips.querySelectorAll("span").forEach((chip) => {
-        chip.tabIndex = index;
-
-        index++;
-      });
-    }
-
-    if (
-      suggestions.style.display == "none" &&
-      valueChips.style.display == "block"
-    ) {
-      valueChips.querySelectorAll("span").forEach((chip) => {
-        chip.tabIndex = index;
-
-        index++;
-      });
-    }
-
-    if (
-      suggestions.style.display == "block" &&
-      valueChips.style.display == "none"
-    ) {
-      index = 2;
-
-      suggestions.querySelectorAll("button").forEach((button) => {
-        button.tabIndex = index++;
-      });
-    }
-
-    searchCheckbox.tabIndex = index++;
-    searchBtn.tabIndex = index++;
-
-    if (
-      window.screen.width > 1200 &&
-      suggestions.style.display == "block" &&
-      valueChips.style.display == "none"
-    )
-      searchCheckbox.tabIndex = -1;
-  }
-
   window.addEventListener(
     "focus",
     (e) => {
@@ -313,10 +261,11 @@ try {
   // css mods on wondow resize
   window.addEventListener("resize", () => {
     dynamicSpacing();
-    //dynamicTabIndex();
   });
 
   function dynamicSpacing() {
+    if (searchContainer == null) return;
+
     if (window.screen.width > 1200) {
       searchContainer.style.bottom = "0rem";
       searchbox.style.marginBottom = "0rem";
