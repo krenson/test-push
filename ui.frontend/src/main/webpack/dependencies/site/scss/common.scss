@@ -269,7 +269,10 @@ strong {
     padding: 2rem 0rem;
 
     .filArianeContainer {
-      font-size: 0;
+      // font-size: 0;
+
+      display: flex;
+      gap: 1 rem;
 
       > a:last-of-type {
         font-size: 1.6rem;
