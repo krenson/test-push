@@ -36,7 +36,7 @@ public class ContentFragmentUtilService {
 
     public static final String ELEMENT_TITLE = "titre";
     public static final String ELEMENT_SYNONYMES = "synonymes";
-    public static final String ELEMENT_ACCROCHE = "description";
+    public static final String ELEMENT_ACCROCHE = "descriptionMetier";
     public static final String ELEMENT_ETIQUETTES = "etiquettes";
 
     @Reference

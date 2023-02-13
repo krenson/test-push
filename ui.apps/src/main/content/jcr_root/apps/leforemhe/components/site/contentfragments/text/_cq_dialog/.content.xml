@@ -46,7 +46,7 @@
                                   sling:resourceType="granite/ui/components/foundation/form/select"
                                   fieldLabel="Content fragment element: " name="./selectedJobElement">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <description jcr:primaryType="nt:unstructured" text="Description" value="description" />
+                                    <description jcr:primaryType="nt:unstructured" text="Description" value="descriptionMetier" />
                                     <codeMetier jcr:primaryType="nt:unstructured" text="Code Métier" value="codeMetier" />
                                 </items>
                             </list>

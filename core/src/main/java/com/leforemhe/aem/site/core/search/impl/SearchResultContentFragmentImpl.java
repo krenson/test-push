@@ -34,7 +34,7 @@ import static com.leforemhe.aem.site.core.models.cfmodels.Job.CODE_METIER_KEY;
 )
 public class SearchResultContentFragmentImpl implements SearchResultsContentFragment {
     private static final Logger log = LoggerFactory.getLogger(SearchResultContentFragmentImpl.class);
-    private static List<String> propertiesMetier = List.of("codeMetier", "titre", "synonymes", "description");
+    private static List<String> propertiesMetier = List.of("codeMetier", "titre", "synonymes", "descriptionMetier");
     private static final String METIER_CF_TYPE = "/conf/leforemhe/settings/dam/cfm/models/metier";
     @Self
     private SlingHttpServletRequest request;
@@ -91,11 +91,11 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
             for (String param : params) {
                 for (int i = 0; i < propertiesMetier.size(); i++) {
                     index++;
-                    searchPredicates.put("1_group." + index + "_fulltext", param);
-                    searchPredicates.put("1_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
+                    searchPredicates.put("group.1_group." + index + "_fulltext", param);
+                    searchPredicates.put("group.1_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
                 }
             }
-            searchPredicates.put("1_group.p.or", orCheckbox);
+            searchPredicates.put("group.1_group.p.or", orCheckbox);
         }
     }
 
@@ -103,8 +103,8 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         int index = 0;
         for (String param : params) {
             index++;
-            searchPredicates.put("2_group." + index + "_fulltext", '"' + param + '"');
-            searchPredicates.put("2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
+            searchPredicates.put("group.2_group." + index + "_fulltext", '"' + param + '"');
+            searchPredicates.put("group.2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
         }
         searchPredicates.put("2_group.p.or", orCheckbox);
     }

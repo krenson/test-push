@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 public class Job {
     public static final String CODE_METIER_KEY = "codeMetier";
     public static final String TITLE_KEY = "titre";
-    public static final String DESCRIPTION_KEY = "description";
+    public static final String DESCRIPTION_KEY = "descriptionMetier";
     public static final String SYNONYMES_KEY = "synonymes";
     public static final String LABELS_KEY = "etiquettes";
     public static final String SECTORS_KEY = "secteurs";
