@@ -7,7 +7,7 @@
     <filter root="/apps/leforemhe/email"/>
     <filter root="/apps/sling"/>
     <!-- oak:index -->
-    <filter root="/oak:index/contentFragment"/>
+    <filter root="/oak:index/searchIndexContentFragment"/>
     <filter root="/oak:index/jobIndex"/>
     <filter root="/oak:index/activityIndex"/>
     <!-- Blueprint filter -->

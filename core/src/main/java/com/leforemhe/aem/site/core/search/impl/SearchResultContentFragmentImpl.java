@@ -44,6 +44,8 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
     private SearchProvider searchProvider;
 
     private List<String> cleMetierList = new ArrayList<>();
+
+    private List<String> cleMetierActivityList = new ArrayList<>();
     private List<SearchResult> searchResults = Collections.EMPTY_LIST;
 
 
@@ -72,12 +74,12 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
                 List<String> listCodeMetier = Arrays.asList(ContentFragmentUtils.getMultifieldValue(contentFragment, CODE_METIER_KEY, String.class));
                 if (listCodeMetier != null) {
                     listCodeMetier.forEach(codeMetier -> {
-                        cleMetierList.add(codeMetier);
+                        cleMetierActivityList.add(codeMetier);
                     });
                 }
             }
-
         }
+        cleMetierList.addAll(cleMetierActivityList);
         return cleMetierList;
     }
 
