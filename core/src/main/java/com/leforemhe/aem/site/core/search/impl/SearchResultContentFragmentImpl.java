@@ -55,8 +55,8 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         searchPredicates.put("path", "/content/dam/leforemhe");
         List<String> params = Arrays.asList(queryParameter.split(","));
         orCheckbox = orCheckbox != null && orCheckbox.equals("true") ? "true": "false";
-        createPropertiesQueryMetier(params, searchPredicates, orCheckbox);
-        createPropertiesQueryActivities(params, searchPredicates, orCheckbox);
+        searchPredicates.put("group.p.or", orCheckbox);
+        createQuery(params, searchPredicates, orCheckbox);
 
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         searchResults = searchProvider.buildSearchResults(result, null);
@@ -85,27 +85,19 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
         return searchResults;
     }
 
-    private void createPropertiesQueryMetier(List<String> params, Map<String, String> searchPredicates, String orCheckbox) {
+    private void createQuery(List<String> params, Map<String, String> searchPredicates, String orCheckbox) {
         int index = 0;
         if (params != null) {
-            for (String param : params) {
+            for (int paramIndex = 0; paramIndex < params.size(); paramIndex++) {
                 for (int i = 0; i < propertiesMetier.size(); i++) {
                     index++;
-                    searchPredicates.put("group.1_group." + index + "_fulltext", param);
-                    searchPredicates.put("group.1_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
+                    searchPredicates.put("group."+ paramIndex + "_group." + index + "_fulltext", params.get(paramIndex));
+                    searchPredicates.put("group." + paramIndex + "_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
                 }
+                searchPredicates.put("group." + paramIndex + "_group.1_fulltext", '"' + params.get(paramIndex) + '"');
+                searchPredicates.put("group." + paramIndex + "_group.1_fulltext.relPath", "jcr:content/data/master/@description");
+                searchPredicates.put("group." + paramIndex + "_group.p.or", "true");
             }
-            searchPredicates.put("group.1_group.p.or", orCheckbox);
         }
-    }
-
-    private void createPropertiesQueryActivities(List<String> params, Map<String, String> searchPredicates, String orCheckbox) {
-        int index = 0;
-        for (String param : params) {
-            index++;
-            searchPredicates.put("group.2_group." + index + "_fulltext", '"' + param + '"');
-            searchPredicates.put("group.2_group." + index + "_fulltext.relPath", "jcr:content/data/master/@description");
-        }
-        searchPredicates.put("2_group.p.or", orCheckbox);
     }
 }
