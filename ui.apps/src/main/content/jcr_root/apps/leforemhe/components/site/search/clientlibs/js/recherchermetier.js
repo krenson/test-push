@@ -318,6 +318,7 @@ $(document).ready(function () {
         initSearchPage();
 
         function dynamicSpacing() {
+            if (searchContainer == null) return;
             if (window.screen.width > 1200) {
                 searchContainer.style.bottom = "0rem";
                 searchbox.style.marginBottom = "0rem";
