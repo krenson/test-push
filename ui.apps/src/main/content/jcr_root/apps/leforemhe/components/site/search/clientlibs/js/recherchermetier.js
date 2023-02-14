@@ -91,8 +91,8 @@ $(document).ready(function () {
             orCheckbox.style.bottom = "-" + valueChips.offsetHeight + PX;
             if (dynamicSearch === TRUE_LABEL) {
                 getQuickResults(query)
+                getTagValues(query);
             }
-            getTagValues(query);
             dynamicSpacing();
         }
 
@@ -140,8 +140,10 @@ $(document).ready(function () {
             innerValueChips.forEach(value => {
                 query = query + value + ',';
             })
-            getQuickResults(query);
-            getTagValues(query)
+            if (dynamicSearch === TRUE_LABEL) {
+                getQuickResults(query);
+                getTagValues(query)
+            }
             dynamicSpacing();
         }
 
@@ -157,8 +159,10 @@ $(document).ready(function () {
             innerValueChips.forEach(value => {
                 query = query + value + ',';
             })
-            getQuickResults(query);
-            getTagValues(query)
+            if (dynamicSearch === TRUE_LABEL) {
+                getQuickResults(query);
+                getTagValues(query)
+            }
             checkboxes.forEach(checkbox => {
                 if (checkbox.id === e.id) {
                     checkbox.checked = e.checked
