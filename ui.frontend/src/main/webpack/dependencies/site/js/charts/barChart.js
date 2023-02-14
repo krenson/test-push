@@ -92,7 +92,7 @@ try {
               // }
 
               for (
-                legendIndex = 0;
+                let legendIndex = 0;
                 legendIndex < chartConfig.data.labels.length;
                 legendIndex++
               ) {
@@ -100,7 +100,7 @@ try {
                 let dataset = [];
 
                 for (
-                  labelIndex = 0;
+                  let labelIndex = 0;
                   labelIndex < chartConfig.data.datasets.length;
                   labelIndex++
                 ) {
@@ -126,7 +126,7 @@ try {
               // return every data set of the chart legend
 
               for (
-                datasetIndex = 0;
+                let datasetIndex = 0;
                 datasetIndex < chartDatasets.length;
                 datasetIndex++
               ) {
