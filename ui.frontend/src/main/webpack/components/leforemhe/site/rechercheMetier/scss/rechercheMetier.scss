@@ -413,9 +413,13 @@ div#rechercheMetier,
     }
   }
 
-  div.container-content:has(div#rechercheMetier) {
-    & + div {
-      margin-top: 15rem;
-    }
+  // div.container-content:has(div#rechercheMetier) {
+  //   & + div {
+  //     margin-top: 15rem;
+  //   }
+  // }
+
+  div#rechercheMetier {
+    margin-bottom: 15rem !important;
   }
 }
