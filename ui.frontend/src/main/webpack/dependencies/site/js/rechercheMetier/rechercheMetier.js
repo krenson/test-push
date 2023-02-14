@@ -330,6 +330,7 @@ try {
     } else {
       searchContainer.style.bottom = "-10rem";
       searchbox.style.marginBottom = "0rem";
+      form.style.marginBottom = "0rem";
     }
 
     if (window.screen.width > 1200 && suggestions.style.display == "block") {
@@ -388,7 +389,9 @@ try {
         searchContainer.style.bottom = "-18rem";
       }
 
-      t();
+      // to push page content below the mobile recherche metier
+      let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18 + 5;
+      form.style.marginBottom = marginBottom + "rem";
     }
 
     if (
@@ -403,10 +406,6 @@ try {
         inputContainer.style.marginBottom = "0rem";
       }
     }
-  }
-
-  function t() {
-    let rechercheMetierContainer;
   }
 } catch (error) {
   console.log(error);
