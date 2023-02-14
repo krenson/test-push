@@ -322,17 +322,19 @@ $(document).ready(function () {
                 searchContainer.style.bottom = "0rem";
                 searchbox.style.marginBottom = "0rem";
                 inputContainer.style.marginBottom = "0rem";
+                orCheckbox.style.bottom = "-4.8rem";
 
                 if (shortRecherMetier.className == "short-searchContainer")
                     orCheckbox.style.bottom = "-4.8rem";
             } else {
                 searchContainer.style.bottom = "-10rem";
                 searchbox.style.marginBottom = "0rem";
+                form.style.marginBottom = "0rem";
             }
 
             if (window.screen.width > 1200 && suggestions.style.display == "block") {
                 if (suggestions.offsetHeight > 88) {
-                    let marginBottom = ((suggestions.offsetHeight - 88) / 46) * 5;
+                    //let marginBottom = ((suggestions.offsetHeight - 88) / 46) * 5;
                     //searchbox.style.marginBottom = marginBottom + 5 + "rem";
                 } else {
                     //searchbox.style.marginBottom = "5rem";
@@ -345,10 +347,8 @@ $(document).ready(function () {
                     if (shortRecherMetier.className == "short-searchContainer") {
                         let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
 
-                        searchContainer.style.marginBottom = marginBottom + 5 + "rem";
-
-                        let bottom = ((valueChips.offsetHeight - 88) / 46) * 5;
-                        orCheckbox.style.bottom = -bottom - 8.8 + "rem";
+                        searchContainer.style.marginBottom = marginBottom + 10 + "rem";
+                        orCheckbox.style.bottom = -valueChips.offsetHeight / 10 - 2 + "rem";
                     } else {
                         let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5;
 
@@ -359,25 +359,17 @@ $(document).ready(function () {
                     if (shortRecherMetier.className == "short-searchContainer") {
                         orCheckbox.style.bottom = "-8.8rem";
 
-                        searchContainer.style.marginBottom = "5rem";
+                        searchbox.style.marginBottom = "5rem";
                     } else {
                         searchbox.style.marginBottom = "5rem";
+                        searchContainer.style.marginBottom = "5rem";
                     }
                 }
             }
 
             if (window.screen.width < 1200 && suggestions.style.display == "block") {
-                if (suggestions.offsetHeight > 88) {
-                    let marginBottom = ((suggestions.offsetHeight - 88) / 46) * 5 + 8;
-
-                    inputContainer.style.marginBottom = marginBottom + "rem";
-
-                    let bottom = ((suggestions.offsetHeight - 88) / 46) * 5 + 18;
-                    searchContainer.style.bottom = -bottom + "rem";
-                } else {
-                    inputContainer.style.marginBottom = "8rem";
-                    searchContainer.style.bottom = "-18rem";
-                }
+                inputContainer.style.marginBottom = "0rem";
+                searchContainer.style.bottom = "-10rem";
             }
 
             if (window.screen.width < 1200 && valueChips.style.display == "block") {
@@ -392,6 +384,9 @@ $(document).ready(function () {
                     inputContainer.style.marginBottom = "8rem";
                     searchContainer.style.bottom = "-18rem";
                 }
+                // to push page content below the mobile recherche metier
+                let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18 + 5;
+                form.style.marginBottom = marginBottom + "rem";
             }
 
             if (
@@ -400,8 +395,10 @@ $(document).ready(function () {
             ) {
                 if (window.screen.width > 1200) {
                     searchContainer.style.bottom = "0rem";
+                    searchContainer.style.marginBottom = "5rem";
                 } else {
                     searchContainer.style.bottom = "-10rem";
+                    inputContainer.style.marginBottom = "0rem";
                 }
             }
         }
