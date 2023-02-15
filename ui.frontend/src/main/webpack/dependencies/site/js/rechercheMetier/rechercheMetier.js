@@ -14,6 +14,7 @@ try {
   let searchContainer = document.querySelector(".searchContainer");
 
   suggestions.style.display = valueChips.style.display = "none";
+  form.style.marginBottom = "15rem";
 
   // get value form the input field
   // and add it to the suggestion drop down container
@@ -353,6 +354,13 @@ try {
       } else {
         searchContainer.style.bottom = "-10rem";
         inputContainer.style.marginBottom = "0rem";
+
+        if (
+          shortRecherMetier.className != "short-searchContainer" &&
+          form.style.display != "none"
+        ) {
+          form.style.marginBottom = "15rem";
+        }
       }
     }
   }
