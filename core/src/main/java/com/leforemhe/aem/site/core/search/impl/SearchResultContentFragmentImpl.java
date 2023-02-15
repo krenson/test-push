@@ -93,7 +93,7 @@ public class SearchResultContentFragmentImpl implements SearchResultsContentFrag
             for (int paramIndex = 0; paramIndex < params.size(); paramIndex++) {
                 for (int i = 0; i < propertiesMetier.size(); i++) {
                     index++;
-                    searchPredicates.put("group."+ paramIndex + "_group." + index + "_fulltext", params.get(paramIndex));
+                    searchPredicates.put("group."+ paramIndex + "_group." + index + "_fulltext", '"' + params.get(paramIndex)+ '"');
                     searchPredicates.put("group." + paramIndex + "_group." + index + "_fulltext.relPath", "jcr:content/data/master/@" + propertiesMetier.get(i));
                 }
                 searchPredicates.put("group." + paramIndex + "_group.1_fulltext", '"' + params.get(paramIndex) + '"');
