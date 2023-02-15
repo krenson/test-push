@@ -111,21 +111,22 @@ function openOption(opt) {
 }
 
 function createUrlParams() {
-  let urlParams = "or=true&tags=";
+  const searchParams = new URLSearchParams();
+  let arborescenceTags = [];
   subCheckboxes.forEach((subCheckbox) => {
     if (subCheckbox.checked === true) {
-      urlParams += subCheckbox.dataset.tagname + ",";
+      arborescenceTags.push(subCheckbox.dataset.tagname);
     }
   });
   optionCheckboxes.forEach((optionCheckbox) => {
     if (optionCheckbox.checked === true) {
-      urlParams += optionCheckbox.dataset.tagname + ",";
+      arborescenceTags.push(optionCheckbox.dataset.tagname);
     }
   });
-  return urlParams;
+  searchParams.set("arborescence", arborescenceTags.join(","));
+  return searchParams;
 }
 
 function clickButton(href) {
-  let urlParams = createUrlParams();
-  window.location = href + "?" + urlParams;
+  window.location = href + "?" + createUrlParams();
 }
