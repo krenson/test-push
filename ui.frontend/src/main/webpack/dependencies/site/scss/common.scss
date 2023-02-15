@@ -269,11 +269,7 @@ strong {
     padding: 2rem 0rem;
 
     .filArianeContainer {
-      // font-size: 0;
-
-      display: flex;
-      gap: 1rem;
-      align-items: center;
+      font-size: 0 !important;
 
       > a:last-of-type {
         font-size: 1.6rem;
@@ -286,8 +282,8 @@ strong {
           padding-right: 1rem;
           transform: rotate(180deg);
           display: inline-flex;
-          width: 0.8rem;
-          height: 1.5rem;
+          width: 0.5rem;
+          height: 1.2rem;
           background-size: contain;
           content: "";
           mask-image: url($resourcePath + "/images/header/chevron-right-regular.svg");
@@ -299,6 +295,23 @@ strong {
       }
     }
   }
+
+  // firefox compability
+  .aem#filAriane div.filArianeContainer {
+    font-size: 0 !important;
+  }
+  .aem#filAriane div.filArianeContainer a {
+    font-size: 0rem !important;
+  }
+  .aem#filAriane div.filArianeContainer a:last-of-type {
+    font-size: 1rem !important;
+
+    :before {
+      width: 0.5rem;
+      height: 1.2rem;
+    }
+  }
+
   .centrePage header,
   .centrePage article > article {
     min-height: initial;
@@ -835,7 +848,7 @@ div.height-en-tête.container-max-width {
       &:has(div.filariane.breadcrumb) {
         div.filariane.breadcrumb {
           nav {
-            padding-top: 0rem;
+            padding-top: 0rem !important;
 
             &,
             div.filArianeContainer a {
