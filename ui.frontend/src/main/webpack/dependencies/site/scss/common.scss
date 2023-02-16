@@ -891,4 +891,71 @@ div.height-en-tête.container-max-width {
       height: 19.6rem !important;
     }
   }
+
+  // firefox compability
+  .height-top-IMR-page,
+  .height-search-component,
+  .height-en-tête {
+    margin-top: 12rem !important;
+  }
+  .height-search-component,
+  .height-en-tête {
+    padding-top: 3rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .height-en-tête {
+    padding-left: 1.7rem;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav {
+    padding-top: 0rem !important;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav,
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    nav
+    div.filArianeContainer
+    a {
+    font-size: 1.2rem !important;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    nav
+    div.filArianeContainer
+    a:before {
+    width: 0.5rem;
+    height: 1.2rem;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    nav
+    div.filArianeContainer,
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    nav
+    div.filArianeContainer
+    a {
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    + div.title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .height-en-tête:has(div.filariane.breadcrumb)
+    div.filariane.breadcrumb
+    + div.title
+    h1 {
+    font-size: 2.6rem;
+  }
+  .height-top-IMR-page {
+    height: 16.2rem !important;
+  }
+  .height-search-component {
+    height: 31.6rem !important;
+  }
+  .height-en-tête {
+    height: 19.6rem !important;
+  }
 }
