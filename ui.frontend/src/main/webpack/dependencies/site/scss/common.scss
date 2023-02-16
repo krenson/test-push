@@ -267,12 +267,13 @@ strong {
 @media screen and (max-width: $breakpointMobile) {
   .aem#filAriane {
     padding: 2rem 0rem;
+    padding-top: 0 !important;
 
     .filArianeContainer {
       font-size: 0 !important;
 
       > a:last-of-type {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         display: flex;
         gap: 1rem;
         align-items: center;
