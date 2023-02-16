@@ -102,12 +102,12 @@ public class SearchResultsImpl implements SearchResults {
         searchPredicates.putAll(predicateResolver.getRequestPredicateFromGroup(request, "searchPaths"));
         addClemetiers(cleMetierList, searchPredicates);
         if (request.getParameter("tags") != null) {
-            addTags(request.getParameter("tags"), searchPredicates);
+            addTags(request.getParameter("tags"), searchPredicates, "0", orCheckbox != null && orCheckbox.equals("true"));
         }
-        if (orCheckbox != null && orCheckbox.equals("true")) {
-            searchPredicates.put("group.p.or", "true");
-        }
+        if(request.getParameter("arborescence") != null){
+            addTags(request.getParameter("arborescence"), searchPredicates, "1", true);
 
+        }
         com.day.cq.search.result.SearchResult result = searchProvider.search(resourceResolver, searchPredicates);
         pagination = searchProvider.buildPagination(result, "Previous", "Next");
         searchResults = searchProvider.buildSearchResults(result, cleMetierList);
@@ -149,12 +149,15 @@ public class SearchResultsImpl implements SearchResults {
         }
     }
 
-    private void addTags(String tags, Map<String, String> searchPredicates) {
+    private void addTags(String tags, Map<String, String> searchPredicates, String groupIndex, boolean isOr) {
         int index = 1;
         for (String tag : tags.split(",")) {
             index++;
-            searchPredicates.put("group." + index + "_property", "jcr:content/cq:tags");
-            searchPredicates.put("group." + index + "_property.value", tag);
+            searchPredicates.put("group." + groupIndex + "_group." + index + "_property", "jcr:content/cq:tags");
+            searchPredicates.put("group." + groupIndex + "_group." + index + "_property.value", tag);
+        }
+        if(isOr) {
+            searchPredicates.put("group." + groupIndex + "_group.p.or", "true");
         }
     }
 
