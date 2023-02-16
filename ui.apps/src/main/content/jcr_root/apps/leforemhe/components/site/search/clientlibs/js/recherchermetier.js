@@ -29,6 +29,7 @@ $(document).ready(function () {
         let searchContainer = document.querySelector(".searchContainer");
         let inputContainer = document.querySelectorAll(".searchbox div")[0];
         const shortRecherMetier = form.parentElement;
+        form.style.marginBottom = "15rem";
 
 
 // get value form the input field
@@ -406,6 +407,9 @@ $(document).ready(function () {
                 } else {
                     searchContainer.style.bottom = "-10rem";
                     inputContainer.style.marginBottom = "0rem";
+                    if (shortRecherMetier.className != "short-searchContainer" && form.style.display != "none") {
+                        form.style.marginBottom = "15rem";
+                    }
                 }
             }
         }
