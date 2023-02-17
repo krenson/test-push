@@ -14,7 +14,14 @@ try {
   let searchContainer = document.querySelector(".searchContainer");
 
   suggestions.style.display = valueChips.style.display = "none";
-  form.style.marginBottom = "15rem";
+
+  if (
+    window.screen.width < 1200 &&
+    shortRecherMetier.className != "short-searchContainer" &&
+    form.style.display != "none"
+  ) {
+    form.style.marginBottom = "15rem";
+  }
 
   // get value form the input field
   // and add it to the suggestion drop down container
@@ -264,8 +271,6 @@ try {
     dynamicSpacing();
   });
 
-  //TODO: checkbox should keep bottom -4.8rem
-
   function dynamicSpacing() {
     if (searchContainer == null) return;
 
@@ -318,7 +323,7 @@ try {
         // if short recherche metier
         if (shortRecherMetier.className == "short-searchContainer") {
           searchCheckbox.style.bottom = "-8.8rem";
-
+          searchContainer.style.marginBottom = "5rem";
           searchbox.style.marginBottom = "5rem";
         } else {
           // if not short recherche metier
@@ -347,8 +352,14 @@ try {
       }
 
       // to push page content below the mobile recherche metier
-      let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18 + 5;
-      form.style.marginBottom = marginBottom + "rem";
+
+      if (
+        shortRecherMetier.className != "short-searchContainer" &&
+        form.style.display != "none"
+      ) {
+        let marginBottom = ((valueChips.offsetHeight - 88) / 46) * 5 + 18 + 5;
+        form.style.marginBottom = marginBottom + "rem";
+      }
     }
 
     if (
