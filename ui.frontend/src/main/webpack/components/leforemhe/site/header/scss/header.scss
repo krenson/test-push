@@ -574,6 +574,10 @@ $backgroud-menu-color: #faf5ec;
 
     & + section {
       margin-top: 12rem;
+
+      .centrePage main nav#filAriane {
+        padding-bottom: 0rem;
+      }
     }
   }
 
