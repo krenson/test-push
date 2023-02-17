@@ -265,6 +265,11 @@ strong {
 }
 
 @media screen and (max-width: $breakpointMobile) {
+  .container-content {
+    .aem#filAriane {
+      padding-top: 0 !important;
+    }
+  }
   .aem#filAriane {
     padding: 2rem 0rem;
 
@@ -272,7 +277,7 @@ strong {
       font-size: 0 !important;
 
       > a:last-of-type {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         display: flex;
         gap: 1rem;
         align-items: center;
@@ -828,6 +833,9 @@ div.height-en-tête.container-max-width {
 }
 
 @media screen and (max-width: $breakpointMobile) {
+  main nav#filAriane {
+    padding-top: 2rem;
+  }
   .height {
     &-top-IMR-page,
     &-search-component,
@@ -959,3 +967,4 @@ div.height-en-tête.container-max-width {
     height: 19.6rem !important;
   }
 }
+
