@@ -265,9 +265,13 @@ strong {
 }
 
 @media screen and (max-width: $breakpointMobile) {
+  .container-content {
+    .aem#filAriane {
+      padding-top: 0 !important;
+    }
+  }
   .aem#filAriane {
     padding: 2rem 0rem;
-    padding-top: 0 !important;
 
     .filArianeContainer {
       font-size: 0 !important;
@@ -829,6 +833,9 @@ div.height-en-tête.container-max-width {
 }
 
 @media screen and (max-width: $breakpointMobile) {
+  main nav#filAriane {
+    padding-top: 2rem;
+  }
   .height {
     &-top-IMR-page,
     &-search-component,
@@ -960,3 +967,4 @@ div.height-en-tête.container-max-width {
     height: 19.6rem !important;
   }
 }
+
