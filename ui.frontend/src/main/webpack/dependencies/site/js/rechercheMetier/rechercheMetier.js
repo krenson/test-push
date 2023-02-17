@@ -281,6 +281,13 @@ try {
       searchContainer.style.bottom = "-10rem";
       searchbox.style.marginBottom = "0rem";
       form.style.marginBottom = "0rem";
+
+      if (
+        shortRecherMetier.className != "short-searchContainer" &&
+        form.style.display != "none"
+      ) {
+        form.style.marginBottom = "15rem";
+      }
     }
 
     if (window.screen.width > 1200 && suggestions.style.display == "block") {
