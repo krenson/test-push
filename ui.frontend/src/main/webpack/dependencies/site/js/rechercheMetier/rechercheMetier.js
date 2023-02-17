@@ -14,7 +14,14 @@ try {
   let searchContainer = document.querySelector(".searchContainer");
 
   suggestions.style.display = valueChips.style.display = "none";
-  form.style.marginBottom = "15rem";
+
+  if (
+    window.screen.width < 1200 &&
+    shortRecherMetier.className != "short-searchContainer" &&
+    form.style.display != "none"
+  ) {
+    form.style.marginBottom = "15rem";
+  }
 
   // get value form the input field
   // and add it to the suggestion drop down container
