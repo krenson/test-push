@@ -270,12 +270,11 @@ strong {
   //     padding-top: 0 !important;
   //   }
   // }
- 
-  
+
   .aem#filAriane {
     // padding: 2rem 0rem;
 
-    .filArianeContainer:has(a) {
+    .filArianeContainer {
       font-size: 0 !important;
 
       > a:last-of-type {
@@ -304,13 +303,13 @@ strong {
   }
 
   // firefox compability
-  .aem#filAriane div.filArianeContainer:has(a) {
+  .aem#filAriane div.filArianeContainer {
     font-size: 0 !important;
   }
-  .aem#filAriane div.filArianeContainer:has(a) > a:last-of-type {
+  .aem#filAriane div.filArianeContainer > a:last-of-type {
     font-size: 0rem !important;
   }
-  .aem#filAriane div.filArianeContainer:has(a) > a:last-of-type {
+  .aem#filAriane div.filArianeContainer > a:last-of-type {
     font-size: 1.2rem !important;
 
     :before {
@@ -916,9 +915,11 @@ div.height-en-tête.container-max-width {
   .height-en-tête {
     padding-left: 1.7rem;
   }
+
   .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav {
     padding-top: 0rem !important;
   }
+
   .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav,
   .height-en-tête:has(div.filariane.breadcrumb)
     div.filariane.breadcrumb
@@ -969,4 +970,3 @@ div.height-en-tête.container-max-width {
     height: 19.6rem !important;
   }
 }
-
