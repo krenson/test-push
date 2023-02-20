@@ -273,7 +273,7 @@ strong {
   .aem#filAriane {
     padding: 2rem 0rem;
 
-    .filArianeContainer {
+    .filArianeContainer:has(a) {
       font-size: 0 !important;
 
       > a:last-of-type {
@@ -302,13 +302,13 @@ strong {
   }
 
   // firefox compability
-  .aem#filAriane div.filArianeContainer {
+  .aem#filAriane div.filArianeContainer:has(a) {
     font-size: 0 !important;
   }
-  .aem#filAriane div.filArianeContainer a {
+  .aem#filAriane div.filArianeContainer:has(a) > a:last-of-type {
     font-size: 0rem !important;
   }
-  .aem#filAriane div.filArianeContainer a:last-of-type {
+  .aem#filAriane div.filArianeContainer:has(a) > a:last-of-type {
     font-size: 1.2rem !important;
 
     :before {
