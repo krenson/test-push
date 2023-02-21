@@ -31,8 +31,8 @@ function init() {
       });
     }
     var unfocusableMenuConnectionLinks = document
-        .getElementById("connectButton")
-        .querySelectorAll("a , button");
+      .getElementById("connectButton")
+      .querySelectorAll("a , button");
     if (unfocusableMenuConnectionLinks != null) {
       unfocusableMenuConnectionLinks.forEach((element) => {
         element.setAttribute("tabindex", "-1");
@@ -192,7 +192,7 @@ if (inputSearch != null) {
 window.addEventListener("keydown", function (e) {
   if (e.key == "Tab") {
     if (
-        document.activeElement == this.document.getElementById("searchButton")
+      document.activeElement == this.document.getElementById("searchButton")
     ) {
       if (connectButton != null) {
         connectButton.style.minWidth = null;
@@ -200,8 +200,8 @@ window.addEventListener("keydown", function (e) {
       searchTopBar.classList.remove("active");
     }
     if (
-        document.getElementById("searchTopMobile") != null &&
-        document.getElementById("searchTopMobile").style.display != "none"
+      document.getElementById("searchTopMobile") != null &&
+      document.getElementById("searchTopMobile").style.display != "none"
     ) {
       document.getElementById("search-light-mobile").tabIndex = "0";
     } else {
@@ -238,7 +238,7 @@ function clickMenuConnect() {
   closeEverything("connect");
   connectButton.classList.toggle("menuConnectOpen");
   let menuButtonConnection = document.getElementsByClassName(
-      "menuButtonConnection"
+    "menuButtonConnection"
   );
   menuButtonConnection = [...menuButtonConnection];
   menuButtonConnection.forEach((element) => {
@@ -247,8 +247,8 @@ function clickMenuConnect() {
       element.style.height = null;
       element.style.bottom = null;
       var unfocusableMenuConnectionLinks = document
-          .getElementById("connectButton")
-          .querySelectorAll("a , button");
+        .getElementById("connectButton")
+        .querySelectorAll("a , button");
       if (unfocusableMenuConnectionLinks != null) {
         unfocusableMenuConnectionLinks.forEach((element) => {
           element.setAttribute("tabindex", "-1");
@@ -259,8 +259,8 @@ function clickMenuConnect() {
       element.style.height = element.scrollHeight + "px";
       element.style.bottom = -element.scrollHeight + "px";
       var unfocusableMenuConnectionLinks = document
-          .getElementById("connectButton")
-          .querySelectorAll("a , button");
+        .getElementById("connectButton")
+        .querySelectorAll("a , button");
       if (unfocusableMenuConnectionLinks != null) {
         unfocusableMenuConnectionLinks.forEach((element) => {
           element.setAttribute("tabindex", "0");
@@ -284,8 +284,8 @@ if (menu != null) {
         if (!element.classList.contains("current")) {
           if (window.getComputedStyle(element, null).display != "none") {
             element.setAttribute(
-                "width-save",
-                element.querySelector("a").scrollWidth
+              "width-save",
+              element.querySelector("a").scrollWidth
             );
             element.style.width = element.getAttribute("width-save") + "px";
             initMenu = true;
@@ -309,7 +309,7 @@ if (menu != null) {
         subMenu.forEach((element) => {
           if (!element.classList.contains("current")) {
             element.style.width = element.style.width =
-                element.getAttribute("width-save") + "px";
+              element.getAttribute("width-save") + "px";
           }
         });
       }
@@ -333,7 +333,7 @@ if (menu != null) {
         }
 
         var menuHeaderElements = document.querySelectorAll(
-            "header .partInf .icone-link a"
+          "header .partInf .icone-link a"
         );
 
         if (menuHeaderElements != null) {
@@ -356,7 +356,7 @@ if (menu != null) {
         if (menuExtraLinks.length != 0) {
           if (window.getComputedStyle(menuExtraLinks[0]).display == "none") {
             var unfocusableMenuExtraLinks =
-                menuExtraLinks[0].querySelectorAll("a, button");
+              menuExtraLinks[0].querySelectorAll("a, button");
             if (unfocusableMenuExtraLinks != null) {
               unfocusableMenuExtraLinks.forEach((element) => {
                 element.setAttribute("tabindex", "-1");
@@ -372,7 +372,7 @@ if (menu != null) {
           });
         }
         var menuHeaderElements = document.querySelectorAll(
-            "header .partInf .icone-link a"
+          "header .partInf .icone-link a"
         );
 
         if (menuHeaderElements != null) {
@@ -411,7 +411,7 @@ function closeEverything(target) {
         });
       }
       var menuHeaderElements = document.querySelectorAll(
-          "header .partInf .icone-link a"
+        "header .partInf .icone-link a"
       );
 
       if (menuHeaderElements != null) {
@@ -439,15 +439,15 @@ function closeEverything(target) {
     if (connectButton != null) {
       connectButton.classList.remove("menuConnectOpen");
       let menuButtonConnection = document.getElementsByClassName(
-          "menuButtonConnection"
+        "menuButtonConnection"
       );
       menuButtonConnection = [...menuButtonConnection];
       menuButtonConnection.forEach((element) => {
         element.style.height = null;
         element.style.bottom = null;
         var unfocusableMenuConnectionLinks = document
-            .getElementById("connectButton")
-            .querySelectorAll("a , button");
+          .getElementById("connectButton")
+          .querySelectorAll("a , button");
         if (unfocusableMenuConnectionLinks != null) {
           unfocusableMenuConnectionLinks.forEach((element) => {
             element.setAttribute("tabindex", "-1");
@@ -503,7 +503,7 @@ var resultsElement = document.getElementById("results");
 var initSearch = false;
 if (resultsElement != null) {
   var MutationObserver =
-      window.MutationObserver || window.WebKitMutationObserver;
+    window.MutationObserver || window.WebKitMutationObserver;
   new MutationObserver(function (mutations) {
     for (var i = 0; i < mutations.length; ++i) {
       if (mutations[i].target.classList.contains("gsc-results")) {
@@ -528,7 +528,7 @@ if (resultsElement != null) {
 
 function googleRedesign() {
   var googleSearch = document.querySelector(
-      ".gsc-result-info-container .gsc-result-info"
+    ".gsc-result-info-container .gsc-result-info"
   );
   if (googleSearch != null) {
     var headerInject = document.querySelector(".aem.title-container");
@@ -574,7 +574,7 @@ function buttonToggle() {
 
 function googleSearchBar() {
   var searchformInput = document.querySelector(
-      "form.gsc-search-box.gsc-search-box-tools"
+    "form.gsc-search-box.gsc-search-box-tools"
   );
   if (searchformInput != null) {
     var inputSearchContainer = document.createElement("div");
@@ -637,7 +637,7 @@ function fillcobrowsing(num) {
   }
 
   var closeCobrowsing = cowBrowsingContainer.querySelector(
-      ".popup-close-top-btn"
+    ".popup-close-top-btn"
   );
 
   closeCobrowsing.focus();
@@ -651,21 +651,35 @@ function fillcobrowsing(num) {
 
 // to keep focus on the cobrowsing popup window when it is open
 window.addEventListener(
-    "focus",
-    (e) => {
-      let event = e;
-      let containerPopup = document.querySelector(".cobrowsing-container");
+  "focus",
+  (e) => {
+    let event = e;
+    let containerPopup = document.querySelector(".cobrowsing-container");
 
-      if (containerPopup.classList.contains("open")) {
-        if (
-            event.target.className == "popup-close-top-btn" ||
-            event.target.className == "btn btn-primary" ||
-            event.target.className == "cobrowsing-container open"
-        ) {
-        } else {
-          containerPopup.focus();
-        }
+    if (containerPopup.classList.contains("open")) {
+      if (
+        event.target.className == "popup-close-top-btn" ||
+        event.target.className == "btn btn-primary" ||
+        event.target.className == "cobrowsing-container open"
+      ) {
+      } else {
+        containerPopup.focus();
       }
-    },
-    true
+    }
+  },
+  true
 );
+
+// breadcrumb
+
+window.addEventListener("resize", () => {
+  if (window.screen.width < 1200) {
+    let filAriane = document.querySelector(
+      "#filAriane.aem .filArianeContainer"
+    );
+
+    if (filAriane && filAriane.children.length == 1) {
+      filAriane.children[0].style.fontSize = "1.2rem";
+    }
+  }
+});
