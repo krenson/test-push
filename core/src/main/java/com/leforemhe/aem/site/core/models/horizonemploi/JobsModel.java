@@ -55,7 +55,7 @@ public class JobsModel {
     }
 
     public String getPlaceholderEmptyJobsList() {
-        return getJobs() != null ? placeholderEmptyJobsList : StringUtils.EMPTY;
+        return placeholderEmptyJobsList;
     }
 
 }
