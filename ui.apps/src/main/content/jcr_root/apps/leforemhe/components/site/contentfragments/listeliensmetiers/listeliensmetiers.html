@@ -8,6 +8,13 @@
             </span>
         </li>
     </ul>
+    <ul class="cmp-list"  data-sly-test="${!jobsModel.jobs}">
+        <li class="cmp-list__item">
+            <span class="cmp-list__item-title aem">
+              ${jobsModel.placeholderEmptyJobsList}
+            </span>
+        </li>
+    </ul>
 </div>
 
 <sly data-sly-call="${template.placeholder @ isEmpty=!jobsModel.jobs , classAppend='cmp-list'}"></sly>
