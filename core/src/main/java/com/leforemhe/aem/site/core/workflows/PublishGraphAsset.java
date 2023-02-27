@@ -54,7 +54,7 @@ public class PublishGraphAsset implements WorkflowProcess {
                 String resourcePath = resource.getPath();
                 MetaDataMap map = workItem.getWorkflow().getWorkflowData().getMetaDataMap();
                 List<String> ids = new ArrayList<>();
-                if (resource.getResourceType().equals(Constants.DAM_ASSET) && resourcePath.contains("chiffres-graphes")) {
+                if (resource.getResourceType().equals(Constants.DAM_ASSET)) {
                     String format = resource.getChild("jcr:content/metadata").getValueMap().get(Constants.DC_FORMAT).toString();
                     if (format.equals(Constants.APPLICATION_JSON)) {
                         replicator.replicate(workflowSession.getSession(), ReplicationActionType.ACTIVATE, resourcePath);
