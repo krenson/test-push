@@ -23,6 +23,14 @@
                                     <metiersEnvisageables jcr:primaryType="nt:unstructured" text="Metiers Envisageables" value="metiersEnvisageables" />
                                 </items>
                             </list>
+                            <placeholderEmptyJobsList
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Placeholder"
+                                    fieldDescription="Ce texte s'affiche si aucun métier n'a été trouvé"
+                                    name="./placeholderEmptyJobsList"
+                                    value="Pas de métier proche identifié"
+                                    required="{Boolean}true"/>
                         </items>
                     </jobElement>
                 </items>
