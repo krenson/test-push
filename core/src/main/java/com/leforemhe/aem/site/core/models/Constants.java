@@ -17,6 +17,7 @@ public class Constants {
     public static final String CQ_TAGS = "cq:tags";
     public static final String SLING_VANITY_PATH = "sling:vanityPath";
     public static final String DAM_ASSET = "dam:Asset";
+    public static final String DC_FORMAT = "dc:format";
 
     public static final String IMAGE_RENDITION_MARKER = "vig";
     public static final String FALLBACK_RENDITION = "/jcr:content/renditions/cq5dam.web.1280.1280.jpeg";
@@ -24,6 +25,7 @@ public class Constants {
     public static final String JOB_PAGE_RESOURCE_TYPE = "leforemhe/components/site/jobpage";
 
     public static final String JSON_EXTENSION = ".json";
+    public static final String APPLICATION_JSON = "application/json";
 
     public static final List<String> ALLOWED_NAMESPACES = List.of("he-metier");
     public static final String CURRENT_JOB_REQUEST = "currentJobRequest";
