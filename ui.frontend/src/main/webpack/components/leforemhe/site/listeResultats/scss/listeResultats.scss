@@ -1,5 +1,4 @@
-div.short-searchContainer
-  div#rechercheMetier:has(div.aem.title-container.results) {
+div.short-searchContainer div#rechercheMetier {
   div.aem.title-container.results {
     display: none !important;
     width: fit-content;
@@ -9,15 +8,6 @@ div.short-searchContainer
   div.aem.title-container {
     display: flex !important;
     justify-content: flex-start;
-  }
-}
-
-// firefox compability
-.short-searchContainer div#rechercheMetier div.background-Yellow {
-  div.short-content-container {
-    div.results {
-      display: none !important;
-    }
   }
 }
 
@@ -91,13 +81,13 @@ div.short-searchContainer
     }
   }
 
-  div#rechercheMetier:not(:has(div.aem.title-container.results)) {
-    & + div .container-content {
-      margin-top: 15rem !important;
-    }
-  }
+  // div#rechercheMetier:not(:has(div.aem.title-container.results)) {
+  //   & + div .container-content {
+  //     margin-top: 15rem !important;
+  //   }
+  // }
 
-  div.short-searchContainer:has(div.aem.title-container.results) {
+  div.short-searchContainer {
     div#rechercheMetier div.background-Yellow {
       padding: 1rem 2rem;
 
@@ -112,6 +102,7 @@ div.short-searchContainer
       div.aem.title-container.results {
         display: flex !important;
         margin-top: 2rem;
+        align-items: start;
         h1,
         h5 {
           width: 100%;
@@ -133,28 +124,6 @@ div.short-searchContainer
     }
   }
 
-  // firefox compability
-  .short-searchContainer {
-    div#rechercheMetier div.background-Yellow {
-      &::after {
-        all: unset !important;
-      }
-
-      div.short-content-container {
-        div.aem.title-container,
-        div.searchContainer {
-          display: none;
-        }
-
-        div.results {
-          display: flex !important;
-          align-items: start;
-        }
-      }
-    }
-  }
-
-  // firefox compability
   .short-searchContainer {
     & + div.aem.twoCol.listeResultats-container div.container-content {
       margin-top: 5.85rem !important;
@@ -243,12 +212,6 @@ div.short-searchContainer
 
     .filter-back-container {
       display: none;
-    }
-  }
-
-  div.short-searchContainer:has(div.aem.title-container.results) {
-    & + div .container-content {
-      margin-top: 3rem !important;
     }
   }
 

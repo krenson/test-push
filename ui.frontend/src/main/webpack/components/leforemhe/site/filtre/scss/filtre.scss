@@ -149,13 +149,13 @@
   }
 }
 
-div.popup-content:has(div.filter-container) {
+div.popup-content {
   div.filter-container {
     max-width: unset;
   }
 
   div.filter-container,
-  div.accordion.panelcontainer div {
+  div.filter-container div.accordion.panelcontainer div {
     padding-left: 0rem;
   }
 
