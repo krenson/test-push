@@ -181,7 +181,7 @@ strong {
 
 .centrePage {
   > *:first-child article header div:first-child * {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 
   header {
@@ -252,8 +252,9 @@ strong {
 }
 
 .aem#filAriane {
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
   background: $article-header-backgroud-color;
+
   .filArianeContainer {
     @include max-width;
     margin: 0 auto;
@@ -278,7 +279,7 @@ strong {
       font-size: 0 !important;
 
       > a:last-of-type {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
         display: flex;
         gap: 1rem;
         align-items: center;
@@ -303,24 +304,12 @@ strong {
   }
 
   // firefox compability
-  .aem#filAriane div.filArianeContainer {
-    font-size: 0 !important;
-  }
-
-  .aem#filAriane div.filArianeContainer > a:last-of-type {
-    font-size: 1.2rem !important;
-
-    :before {
-      width: 0.5rem;
-      height: 1.2rem;
-    }
-  }
 
   .centrePage header,
   .centrePage article > article {
     min-height: initial;
     > div:first-child {
-      padding-top: 3rem;
+      padding-top: 2rem;
     }
     > div:last-child {
       padding-bottom: 1.5rem;
@@ -844,7 +833,7 @@ div.height-en-tête.container-max-width {
 
     &-search-component,
     &-en-tête {
-      padding-top: 3rem !important;
+      padding-top: 2rem !important;
       padding-bottom: 1.5rem !important;
     }
 
@@ -852,15 +841,10 @@ div.height-en-tête.container-max-width {
       padding-left: 1.7rem;
 
       // breadcrumb inside heigt en tete
-      &:has(div.filariane.breadcrumb) {
+      & div.filariane.breadcrumb {
         div.filariane.breadcrumb {
           nav {
             padding-top: 0rem !important;
-
-            &,
-            div.filArianeContainer a {
-              font-size: 1.2rem !important;
-            }
 
             div.filArianeContainer a:before {
               width: 0.5rem;
@@ -907,55 +891,31 @@ div.height-en-tête.container-max-width {
   }
   .height-search-component,
   .height-en-tête {
-    padding-top: 3rem !important;
+    padding-top: 2rem !important;
     padding-bottom: 1.5rem !important;
   }
   .height-en-tête {
     padding-left: 1.7rem;
   }
 
-  .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav {
+  .height-en-tête div.filariane.breadcrumb nav {
     padding-top: 0rem !important;
   }
 
-  .height-en-tête:has(div.filariane.breadcrumb) div.filariane.breadcrumb nav,
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    nav
-    div.filArianeContainer
-    a {
-    font-size: 1.2rem !important;
-  }
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    nav
-    div.filArianeContainer
-    a:before {
+  .height-en-tête div.filariane.breadcrumb nav div.filArianeContainer a:before {
     width: 0.5rem;
     height: 1.2rem;
   }
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    nav
-    div.filArianeContainer,
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    nav
-    div.filArianeContainer
-    a {
+  .height-en-tête div.filariane.breadcrumb nav div.filArianeContainer,
+  .height-en-tête div.filariane.breadcrumb nav div.filArianeContainer a {
     gap: 0.5rem;
     align-items: center;
   }
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    + div.title {
+  .height-en-tête div.filariane.breadcrumb + div.title {
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
-  .height-en-tête:has(div.filariane.breadcrumb)
-    div.filariane.breadcrumb
-    + div.title
-    h1 {
+  .height-en-tête div.filariane.breadcrumb + div.title h1 {
     font-size: 2.6rem;
   }
   .height-top-IMR-page {
