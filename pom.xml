@@ -320,6 +320,7 @@ Bundle-DocURL:
                             <cloudManagerTarget>none</cloudManagerTarget>
                         </properties>
                         <validatorsSettings>
+
                             <jackrabbit-filter>
                                 <options>
                                     <validRoots>/oak:index</validRoots>
@@ -331,6 +332,7 @@ Bundle-DocURL:
                                     </options>
                                 </jackrabbit-packagetype>
                             <jackrabbit-nodetypes>
+                                <isDisabled>true</isDisabled>
                                 <options>
                                     <!-- use the nodetypes and namespaces from the aem-nodetypes.jar provided in the plugin dependencies -->
                                     <cnds>tccl:aem.cnd</cnds>
