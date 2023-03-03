@@ -13,6 +13,8 @@ import com.leforemhe.aem.site.core.models.ModelUtils;
 import com.leforemhe.aem.site.core.models.cfmodels.Activity;
 import com.leforemhe.aem.site.core.models.cfmodels.Job;
 import com.leforemhe.aem.site.core.models.utils.ContentFragmentUtils;
+
+import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -24,6 +26,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -88,7 +92,6 @@ public class ContentFragmentUtilService {
         }
     }
 
-
     /*
      * Returns a job based on JobID
      */
@@ -109,7 +112,8 @@ public class ContentFragmentUtilService {
         return doQueryForJobFromJobID(jobID, resolveRelatedJobs, resolvePossibleJobs);
     }
 
-    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs, SlingHttpServletRequest request) {
+    public Job getJobFromJobID(String jobID, boolean resolveRelatedJobs, boolean resolvePossibleJobs,
+            SlingHttpServletRequest request) {
         Job requestJob = getJobFromRequestAndJobID(request, jobID);
         if (requestJob != null && (!resolvePossibleJobs || !resolveRelatedJobs)) {
             return requestJob;
@@ -131,16 +135,19 @@ public class ContentFragmentUtilService {
             if (iterationResource != null) {
                 ContentFragment contentFragmentJob = getContentFragmentFromPath(iterationResource.getPath());
                 if (contentFragmentJob != null) {
-                    String[] tagLabels = {Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY};
+                    String[] tagLabels = { Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY };
                     String[] tagListIds = resolveTagIds(tagLabels, contentFragmentJob);
-                    Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage), tagListIds);
+                    Job job = new Job(contentFragmentJob, resolveTags(tagListIds), resolveLinkedPage(resultPage),
+                            tagListIds);
                     if (resolveRelatedJobs) {
-                        String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.RELATED_JOBS_KEY,
+                        String[] relatedJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob,
+                                Job.RELATED_JOBS_KEY,
                                 String.class);
                         job.setRelatedJobs(resolveJobs(relatedJobIds));
                     }
                     if (resolvePossibleJobs) {
-                        String[] possibleJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob, Job.POSSIBLE_JOBS_KEY,
+                        String[] possibleJobIds = ContentFragmentUtils.getMultifieldValue(contentFragmentJob,
+                                Job.POSSIBLE_JOBS_KEY,
                                 String.class);
                         job.setPossibleJobs(resolveJobs(possibleJobIds));
                     }
@@ -151,6 +158,39 @@ public class ContentFragmentUtilService {
         return null;
     }
 
+    private List<Job> getJobListBasedOnJobIDs(List<String> jobIDs) {
+        SearchResult jobPagesResult = getJobListPagesSearchResult(Constants.CONTENT_ROOT_PATH, jobIDs);
+        SearchResult jobContentFragments = getJobListContentFragmentsSearchResult(
+                contentFragmentConfigService.getConfig().modelMetierPath(), Job.CONTENT_FRAGMENT_MODEL_CONF, jobIDs);
+
+        if (!jobPagesResult.getHits().isEmpty() && !jobContentFragments.getHits().isEmpty()) {
+            return linkPagesToContentFragments(jobContentFragments, jobPagesResult);
+        }
+        return Collections.emptyList();
+    }
+
+    private List<Job> linkPagesToContentFragments(SearchResult jobContentFragments, SearchResult jobPages) {
+        List<Job> resolvedJobs = new ArrayList<>();
+        jobContentFragments.getResources().forEachRemaining((jobResource) -> {
+            ContentFragment jobCF = getContentFragmentFromPath(jobResource.getPath());
+            if (jobCF != null) {
+                String[] tagLabels = { Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY };
+                String[] tagListIds = resolveTagIds(tagLabels, jobCF);
+                Job job = new Job(jobCF, resolveTags(tagListIds), getPageLinkFromResult(jobPages, ContentFragmentUtils.getSingleValue(jobCF, Job.CODE_METIER_KEY, String.class)),  tagListIds);
+                resolvedJobs.add(job);
+            }
+        });
+        return resolvedJobs;
+    }
+
+    private String getPageLinkFromResult(SearchResult jobPagesSearchResult, String jobID) {
+        List<Resource> jobPageResources = IteratorUtils.toList(jobPagesSearchResult.getResources());
+        Optional<Resource> matchedPageResource = jobPageResources.stream().filter(jobPageResource -> jobPageResource.getChild("jcr:content").getValueMap().get("clemetier", String.class).equals(jobID)).findFirst();
+        if(matchedPageResource.isPresent()){
+            return ModelUtils.getVanityOfPageIfExists(matchedPageResource.get().getPath(), getResourceResolver());
+        }
+        return null;
+    }
 
     /*
      * Created query to search for Content Fragments based on JobID
@@ -173,7 +213,8 @@ public class ContentFragmentUtilService {
     }
 
     /*
-     * Created query to search for Page with a linked content fragment through a JobID
+     * Created query to search for Page with a linked content fragment through a
+     * JobID
      */
     private SearchResult createQueryForPageWithLinkedContentFragment(String path, String jobID) {
         Map<String, String> paramMap = new HashMap();
@@ -206,23 +247,51 @@ public class ContentFragmentUtilService {
         return tags;
     }
 
-    private List<Job> resolveJobs(String[] jobIds) {
-        List<Job> jobs = new ArrayList<>();
-        if (jobIds != null) {
-            for (String relatedJobID : jobIds) {
-                Job resolvedJob = getJobFromJobID(relatedJobID);
-                if (resolvedJob != null) {
-                    jobs.add(resolvedJob);
-                }
-            }
+    private SearchResult getJobListPagesSearchResult(String path, List<String> jobIDs) {
+        Map<String, String> paramMap = new HashMap();
+        paramMap.put("path", path);
+        paramMap.put("type", "cq:Page");
+        paramMap.put("property", "jcr:content/clemetier");
+        for (int i = 0; i < jobIDs.size(); i++) {
+            paramMap.put("property." + i + "_value", jobIDs.get(i));
         }
-        return jobs;
+
+        ResourceResolver resourceResolver = getResourceResolver();
+        QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
+
+        Query query = builder.createQuery(PredicateGroup.create(paramMap), resourceResolver.adaptTo(Session.class));
+        return query.getResult();
+    }
+
+    private SearchResult getJobListContentFragmentsSearchResult(String path, String contentFragmentType,
+            List<String> jobIDs) {
+        Map<String, String> paramMap = new HashMap();
+        paramMap.put("path", path);
+        paramMap.put("type", "dam:Asset");
+        paramMap.put("p.limit", "-1");
+        paramMap.put("1_property.property", "jcr:content/data/cq:model");
+        paramMap.put("1_property.value", contentFragmentType);
+        paramMap.put("2_property.property", "jcr:content/data/master/" + Activity.CODE_METIER_KEY);
+        for (int i = 0; i < jobIDs.size(); i++) {
+            paramMap.put("2_property." + i + "_value", jobIDs.get(i));
+        }
+
+        ResourceResolver resourceResolver = getResourceResolver();
+        QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
+
+        Query query = builder.createQuery(PredicateGroup.create(paramMap), resourceResolver.adaptTo(Session.class));
+        return query.getResult();
+    }
+
+    private List<Job> resolveJobs(String[] jobIds) {
+        return getJobListBasedOnJobIDs(Arrays.asList(jobIds));
     }
 
     private String resolveLinkedPage(SearchResult searchResult) {
         if (!searchResult.getHits().isEmpty()) {
             try {
-                return ModelUtils.getVanityOfPageIfExists(searchResult.getHits().get(0).getPath(), getResourceResolver());
+                return ModelUtils.getVanityOfPageIfExists(searchResult.getHits().get(0).getPath(),
+                        getResourceResolver());
             } catch (RepositoryException e) {
                 e.printStackTrace();
                 return StringUtils.EMPTY;
