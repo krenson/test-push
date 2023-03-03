@@ -6,6 +6,7 @@
     "https://.*\\.workfront-dev\\.com:443",
     "https://.*\\.dev\\.workfront\\.tech:443",
     "https://.*\\.forem\\.be:443",
+    "https://.*\\.leforem\\.be:443",
     "https://.*\\.adobeaemcloud\\.com:443"
   ],
   "allow.hosts": [
