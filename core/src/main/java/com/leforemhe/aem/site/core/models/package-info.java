@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-@Version("1.0.0")
+@Version("0.0.2")
 package com.leforemhe.aem.site.core.models;
 
 import org.osgi.annotation.versioning.Version;

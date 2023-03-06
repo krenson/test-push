@@ -387,4 +387,6 @@ Go to http://publish.realdolmen.com:8081/storybook
 
 ## Releases leforemhe
 
-1.0.0 In progress...
+0.0.1 Feb-2023
+0.0.2 03-03-2023 (newsletter hotfix)
+0.0.3 In progress...
