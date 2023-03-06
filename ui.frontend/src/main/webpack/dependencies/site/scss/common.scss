@@ -968,3 +968,17 @@ div.height-en-tête.container-max-width {
     height: 19.6rem !important;
   }
 }
+
+.resultats-arborescence-title-container.results {
+  display: none;
+}
+
+@media screen and (max-width: $breakpointMobile) {
+  .resultats-arborescence-title-container.results {
+    display: block;
+  }
+
+  .resultats-arborescence-title-container {
+    display: none;
+  }
+}
