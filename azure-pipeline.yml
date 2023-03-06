@@ -52,7 +52,7 @@ stages:
           alwaysRunSonar: true
         sonarType: SonarQube
         projectName: 'adobe-dxp-horizons-emploi'
-        mavenMainTaskOptions: '-PautoInstallSinglePackage'
+        # mavenMainTaskOptions: '-PautoInstallSinglePackage'
         mavenGoal: 'package'
 
   - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
