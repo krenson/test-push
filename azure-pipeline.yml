@@ -41,8 +41,7 @@ variables:
   - name: isBuildReasonTriggeringPushToExternalRepository
     value: ${{ or(eq(variables['Build.Reason'], 'Manual'), eq(variables['Build.Reason'], 'IndividualCI')) }}
   - name: mustPublishToExternalRepository
-    # value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
-    value: true
+    value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
 
 stages:
   - ${{ if true }}:
@@ -52,8 +51,6 @@ stages:
           alwaysRunSonar: true
         sonarType: SonarQube
         projectName: 'adobe-dxp-horizons-emploi'
-        # mavenMainTaskOptions: '-PautoInstallSinglePackage'
-        mavenGoal: 'install'
 
   - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
     - template: templates/push-to-external-host.template.yaml@templates
