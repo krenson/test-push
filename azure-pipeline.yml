@@ -45,7 +45,7 @@ variables:
     value: true
 
 stages:
-  - ${{ if false }}:
+  - ${{ if true }}:
     - template: template.yaml@templates
       parameters:
         ${{ if eq(variables.isPrincipalBranch, True) }}:
