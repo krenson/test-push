@@ -60,12 +60,6 @@ $(document).ready(function () {
                     });
                 });
             }
-
-            if (window.screen.width <= 1425) {
-                suggestions.style.display = HIDE;
-                valueChips.style.display = HIDE;
-                return;
-            }
             suggestions.style.display = SHOW;
         }
 
