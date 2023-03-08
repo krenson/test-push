@@ -24,7 +24,7 @@ resources:
     - repository: templates
       type: git
       name: 'Composants partagés Forem/devops-java-ci-templates'
-      ref: refs/heads/release/v3
+      ref: refs/heads/feature/test-adobe
 
 parameters:
   - name: forcePushToExternalRepository
@@ -44,12 +44,13 @@ variables:
     value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
 
 stages:
-  - template: template.yaml@templates
-    parameters:
-      ${{ if eq(variables.isPrincipalBranch, True) }}:
-        alwaysRunSonar: true
-      sonarType: SonarQube
-      projectName: 'adobe-dxp-horizons-emploi'
+  - ${{ if false }}:
+    - template: template.yaml@templates
+      parameters:
+        ${{ if eq(variables.isPrincipalBranch, True) }}:
+          alwaysRunSonar: true
+        sonarType: SonarQube
+        projectName: 'adobe-dxp-horizons-emploi'
 
   - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
     - template: templates/push-to-external-host.template.yaml@templates
