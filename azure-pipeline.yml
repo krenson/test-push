@@ -24,7 +24,7 @@ resources:
     - repository: templates
       type: git
       name: 'Composants partagés Forem/devops-java-ci-templates'
-      ref: refs/heads/feature/test-adobe
+      ref: refs/heads/release/v3
 
 parameters:
   - name: forcePushToExternalRepository
