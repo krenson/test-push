@@ -44,13 +44,12 @@ variables:
     value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
 
 stages:
-  - ${{ if true }}:
-    - template: template.yaml@templates
-      parameters:
-        ${{ if eq(variables.isPrincipalBranch, True) }}:
-          alwaysRunSonar: true
-        sonarType: SonarQube
-        projectName: 'adobe-dxp-horizons-emploi'
+  - template: template.yaml@templates
+    parameters:
+      ${{ if eq(variables.isPrincipalBranch, True) }}:
+        alwaysRunSonar: true
+      sonarType: SonarQube
+      projectName: 'adobe-dxp-horizons-emploi'
 
   - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
     - template: templates/push-to-external-host.template.yaml@templates
