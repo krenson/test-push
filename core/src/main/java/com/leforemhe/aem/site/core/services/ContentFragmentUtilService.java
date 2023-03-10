@@ -176,7 +176,10 @@ public class ContentFragmentUtilService {
             if (jobCF != null) {
                 String[] tagLabels = { Job.LABELS_KEY, Job.SECTORS_KEY, Job.TREE_STRUCTURE_KEY };
                 String[] tagListIds = resolveTagIds(tagLabels, jobCF);
-                Job job = new Job(jobCF, resolveTags(tagListIds), getPageLinkFromResult(jobPages, ContentFragmentUtils.getSingleValue(jobCF, Job.CODE_METIER_KEY, String.class)),  tagListIds);
+                Job job = new Job(jobCF, resolveTags(tagListIds),
+                        getPageLinkFromResult(jobPages,
+                                ContentFragmentUtils.getSingleValue(jobCF, Job.CODE_METIER_KEY, String.class)),
+                        tagListIds);
                 resolvedJobs.add(job);
             }
         });
@@ -185,8 +188,12 @@ public class ContentFragmentUtilService {
 
     private String getPageLinkFromResult(SearchResult jobPagesSearchResult, String jobID) {
         List<Resource> jobPageResources = IteratorUtils.toList(jobPagesSearchResult.getResources());
-        Optional<Resource> matchedPageResource = jobPageResources.stream().filter(jobPageResource -> jobPageResource.getChild("jcr:content").getValueMap().get("clemetier", String.class).equals(jobID)).findFirst();
-        if(matchedPageResource.isPresent()){
+        Optional<Resource> matchedPageResource = jobPageResources.stream().filter(Objects::nonNull)
+                .filter(jobPageResource -> jobPageResource.getChild("jcr:content") != null
+                        && jobPageResource.getChild("jcr:content").getValueMap()
+                                .get("clemetier", "-1").equals(jobID))
+                .findFirst();
+        if (matchedPageResource.isPresent()) {
             return ModelUtils.getVanityOfPageIfExists(matchedPageResource.get().getPath(), getResourceResolver());
         }
         return null;
