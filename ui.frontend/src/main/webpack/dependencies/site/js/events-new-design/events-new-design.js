@@ -678,15 +678,6 @@ function breadcrumbReduce() {
       "#filAriane.aem .filArianeContainer"
     );
 
-    if (filAriane && filAriane.children.length > 1) {
-      for (let i = 0; i < filAriane.children.length; i++) {
-        filAriane.children[i].style.fontSize = "0rem !important";
-      }
-
-      filAriane.children[filAriane.children.length - 2].style.fontSize =
-        "1.2rem !important";
-    }
-
     if (filAriane && filAriane.children.length == 1) {
       filAriane.children[0].style.fontSize = "1.2rem";
     }

@@ -1,0 +1,60 @@
+trigger:
+  - develop
+  - master
+  - release/*
+
+schedules:
+  - cron: "0 0 * * Sat"
+    displayName: Weekly nightly CI
+    branches:
+      include:
+        - master
+        - develop
+    always: false
+
+  - cron: "0 0 * * Mon-Fri"
+    displayName: Daily nightly CI
+    branches:
+      include:
+        - develop
+    always: false
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: 'Composants partagés Forem/devops-java-ci-templates'
+      ref: refs/heads/release/v3
+
+parameters:
+  - name: forcePushToExternalRepository
+    displayName: Publish to Adobe?
+    type: boolean
+    default: true
+
+variables:
+  - group: 'adobe-dxp-ci'
+  - name: shortBranchName
+    value: ${{ replace(variables['Build.SourceBranch'],'refs/heads/', '') }}
+  - name: isPrincipalBranch
+    value: ${{ or(eq(variables.shortBranchName, 'develop'), eq(variables.shortBranchName, 'master')) }}
+  - name: isBuildReasonTriggeringPushToExternalRepository
+    value: ${{ or(eq(variables['Build.Reason'], 'Manual'), eq(variables['Build.Reason'], 'IndividualCI')) }}
+  - name: mustPublishToExternalRepository
+    value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
+
+stages:
+  - template: template.yaml@templates
+    parameters:
+      ${{ if eq(variables.isPrincipalBranch, True) }}:
+        alwaysRunSonar: true
+      sonarType: SonarQube
+      projectName: 'adobe-dxp-horizons-emploi'
+
+  - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
+    - template: templates/push-to-external-host.template.yaml@templates
+      parameters:
+        gitRepoHostName: $(gitrepo.hostname)
+        gitRepoBranchName: ${{ variables.shortBranchName }}
+        gitRepoShortName: $(gitrepo.shortname)
+        gitRepoUrl: $(gitrepo.url)$(gitrepohorizonemploi.context)

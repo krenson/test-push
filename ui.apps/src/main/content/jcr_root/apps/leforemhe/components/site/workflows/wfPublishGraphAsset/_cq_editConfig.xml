@@ -6,7 +6,7 @@
     <cq:formParameters
             jcr:description="This workflow will publish a graph asset."
             jcr:primaryType="nt:unstructured"
-            jcr:title="Publish graph asset"
-            PROCESS="com.leforemhe.aem.site.core.workflows.PublishGraphAsset"
+            jcr:title="Publish DAM Asset"
+            PROCESS="com.leforemhe.aem.site.core.workflows.PublishDAMAsset"
             PROCESS_AUTO_ADVANCE="true"/>
 </jcr:root>

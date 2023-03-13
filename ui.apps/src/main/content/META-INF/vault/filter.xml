@@ -8,7 +8,7 @@
     <filter root="/apps/sling"/>
     <!-- oak:index -->
     <filter root="/oak:index/contentFragment"/>
-    <filter root="/oak:index/contentFragment-custom-2"/>
+    <filter root="/oak:index/forem.contentFragment-custom-3"/>
     <filter root="/oak:index/jobIndex"/>
     <filter root="/oak:index/activityIndex"/>
     <!-- Blueprint filter -->

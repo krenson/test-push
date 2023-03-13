@@ -26,7 +26,7 @@
     <groupId>com.leforemhe.aem.site</groupId>
     <artifactId>leforemhe-site</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>Le Forem Horizons Emploi Site</name>
     <description>Le Forem Horizons Emploi Site</description>
 
@@ -66,7 +66,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2022.9.8722.20220912T101352Z-220800</aem.sdk.api>
+        <aem.sdk.api>2023.1.10912.20230130T173736Z-230100</aem.sdk.api>
         <aemanalyser.version>1.4.16</aemanalyser.version>
         <componentGroupName>Le Forem Horizons Emploi Site</componentGroupName>
 
@@ -320,6 +320,7 @@ Bundle-DocURL:
                             <cloudManagerTarget>none</cloudManagerTarget>
                         </properties>
                         <validatorsSettings>
+
                             <jackrabbit-filter>
                                 <options>
                                     <validRoots>/oak:index</validRoots>
@@ -331,6 +332,7 @@ Bundle-DocURL:
                                     </options>
                                 </jackrabbit-packagetype>
                             <jackrabbit-nodetypes>
+                                <isDisabled>true</isDisabled>
                                 <options>
                                     <!-- use the nodetypes and namespaces from the aem-nodetypes.jar provided in the plugin dependencies -->
                                     <cnds>tccl:aem.cnd</cnds>
