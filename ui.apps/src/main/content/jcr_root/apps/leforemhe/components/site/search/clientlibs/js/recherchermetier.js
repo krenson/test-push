@@ -240,7 +240,7 @@ $(document).ready(function () {
         function getTagValues(inputValue) {
             checkboxes.forEach(checkbox => {
                 const inputQuery = inputValue !== EMPTY_STRING ? `&q=${inputValue}` : EMPTY_STRING;
-                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : EMPTY_STRING) + (orCheckboxInput && orCheckboxInput.checked === true || params.or === TRUE_LABEL ? `&or=true&` : EMPTY_STRING) + (params.arborescence !== null ? `&arborescence=${params.arborescence}` : EMPTY_STRING) + inputQuery
+                const query = "tags=" + checkbox.name + (params.tags !== null ? ',' + params.tags : EMPTY_STRING) + (orCheckboxInput && orCheckboxInput.checked === true || params.or === TRUE_LABEL ? `&or=true` : EMPTY_STRING) + (params.arborescence !== null ? `&arborescence=${params.arborescence}` : EMPTY_STRING) + inputQuery
                 $.get(form.dataset.quickSearchResults, query, function (data) {
                     checkbox.parentElement.parentElement.querySelector(".checkbox-amount").innerHTML = data.resultTotal;
                 });
