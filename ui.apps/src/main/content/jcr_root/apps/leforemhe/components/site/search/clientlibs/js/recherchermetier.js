@@ -15,6 +15,7 @@ $(document).ready(function () {
         const showResults = form.dataset.showSearchResults;
         const fallbackImage = form.dataset.fallbackImage;
         const dynamicSearch = form.dataset.dynamicSearch;
+        const resultsMobileArboresence = form.dataset.mobileArboresence;
         const orCheckbox = document.querySelector('.searchCheckbox-container')
         const orCheckboxInput = document.querySelector('.searchCheckbox-container input');
         const resultCounter = document.querySelector('.result-counter');
@@ -198,6 +199,10 @@ $(document).ready(function () {
                         searchResultList.innerHTML = EMPTY_STRING;
                         setResultCounterLabel(data.resultTotal, resultCounter.getElementsByTagName('h5')[0]);
                         setResultCounterLabel(data.resultTotal, resultCounterHeader);
+                        if (resultsMobileArboresence) {
+                            var resultElement = document.getElementsByClassName("subTitle results arboresence")[0]
+                            setResultCounterLabel(data.resultTotal, resultElement);
+                        }
                         if (data.resultTotal > 0) {
                             $.each(data.results, function (index, result) {
                                 var $jobTagHtml = $("<div>");
@@ -292,6 +297,9 @@ $(document).ready(function () {
                 dynamicSpacing();
                 //dynamicTabIndex();
             });
+
+            addResultatsMobileArboresence();
+
         }
 
         function initSuggestionValues(qParams, tags) {
@@ -323,6 +331,26 @@ $(document).ready(function () {
         }
 
         initSearchPage();
+
+        function addResultatsMobileArboresence() {
+
+            if (resultsMobileArboresence === 'true') {
+                var headerTitle = document.getElementsByClassName("filariane breadcrumb")[0];
+                var resultNode =  headerTitle.nextElementSibling;
+                if (resultNode.className === 'title') {
+                    var htmlMobileResultsArboresence =
+                        "<div class=\"aem resultats-arborescence-title-container\">" +
+                        "<h1>Rechercher un métier par arborescence</h1>" +
+                        "</div>" +
+                        "<div class=\"aem resultats-arborescence-title-container results\">" +
+                        "<h1>Résultats</h1>" +
+                        "<h5 class=\"subTitle results arboresence\" data-resultcounterlabel=\"métiers\" data-resultcounterlabelone=\"métier\"></h5>" +
+                        "</div>";
+                    resultNode.innerHTML = htmlMobileResultsArboresence;
+                }
+                headerTitle.after(resultNode);
+            }
+        }
 
         function dynamicSpacing() {
             if (searchContainer == null) return;
