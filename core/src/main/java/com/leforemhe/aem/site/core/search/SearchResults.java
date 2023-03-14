@@ -15,4 +15,5 @@ public interface SearchResults {
     String getNoResultText();
     List<FilterModel> getTagNamespaces();
     Boolean getShowInputField();
+    boolean getShowResultsMobileArboresence();
 }

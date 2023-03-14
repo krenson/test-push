@@ -17,7 +17,8 @@
          data-quick-search-results-enabled="${properties.showQuickResults}"
          data-fallback-image="${searchResults.fallbackImage}"
          data-dynamic-search="${properties.dynamicSearch}"
-         data-quick-search-results="${resource.path}/quick-results.results.json">
+         data-quick-search-results="${resource.path}/quick-results.results.json"
+         data-mobile-arboresence="${searchResults.showResultsMobileArboresence ? 'true' : 'false'}">
         <div class="${searchResults.showInputField == true ? 'background-Yellow' : ''}">
             <sly data-sly-test="${searchResults.showResults}">
                 <div class="short-content-container">

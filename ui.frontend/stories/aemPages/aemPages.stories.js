@@ -1,9 +1,14 @@
+import resultatsArborescence from "./resultatsArborescencePage.html";
 import arborescence from "./rechercheArborescencePage.html";
 import listeResultats from "./listeResultatsPage.html";
 import métierDetail from "./métierDetailPage.html";
 import recherche from "./recherchePage.html";
 import { storiesOf } from "@storybook/html";
 
+storiesOf("AEM Components / AEM Pages", resultatsArborescence).add(
+  "Resultats par arborescence",
+  () => resultatsArborescence
+);
 storiesOf("AEM Components / AEM Pages", arborescence).add(
   "Recherche arborescence",
   () => arborescence

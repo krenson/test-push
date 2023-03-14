@@ -213,4 +213,14 @@ public class SearchResultsImpl implements SearchResults {
         return tagsList;
     }
 
+    @Override
+    public boolean getShowResultsMobileArboresence() {
+        // TODO: OPTIMIZE WHOLE SEARCH
+        if (showResults && !showInputField) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
