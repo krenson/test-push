@@ -464,6 +464,28 @@ Bundle-DocURL:
 
     <profiles>
         <!-- ====================================================== -->
+        <!-- AZURE ARTIFACTS                                        -->
+        <!-- ====================================================== -->
+        <profile>
+            <id>forem-feed</id>
+
+            <activation>
+                <property>
+                    <name>env.CM_BUILD</name>
+                </property>
+            </activation>
+
+            <repositories>
+                <repository>
+                    <id>forem-feed</id>
+                    <name>Azure Artifacs LeForem</name>
+                    <url>https://pkgs.dev.azure.com/leforem/_packaging/ForemFeed/maven/v1</url>
+                </repository>
+            </repositories>
+
+        </profile>
+
+        <!-- ====================================================== -->
         <!-- A D O B E P U B L I C P R O F I L E -->
         <!-- ====================================================== -->
         <profile>
