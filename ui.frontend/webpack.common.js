@@ -25,9 +25,7 @@ module.exports = (env) => {
       site: SOURCE_ROOT + "/site/site.js",
       dependencies: SOURCE_ROOT + "/site/leforemhe.js",
       phpapplication: SOURCE_ROOT + "/site/leforemhe-php-application.js",
-      layout: SOURCE_ROOT + "/site/leforemhe-layout.js",
-      foremWebComponent: SOURCE_ROOT + "/site/foremWebComponent.js",
-    },
+      layout: SOURCE_ROOT + "/site/leforemhe-layout.js"},
     output: {
       filename: (chunkData) => {
         switch (chunkData.chunk.name) {
@@ -37,8 +35,6 @@ module.exports = (env) => {
             return "clientlib-phpapplication/[name].js";
           case "layout":
             return "clientlib-layout/[name].js";
-          case "foremWebComponent":
-            return "clientlib-foremWebComponent/[name].js";
           default:
             return "clientlib-site/[name].js";
         }
@@ -125,11 +121,7 @@ module.exports = (env) => {
         {
           from: path.resolve(__dirname, SOURCE_ROOT + "/resources"),
           to: "./clientlib-site/resources",
-        },
-        {
-          from: path.resolve(__dirname, DIST_WC_FONTS + "/fonts"),
-          to: "./clientlib-foremWebComponent/resources/fonts",
-        },
+        }
       ]),
       new AemClientlibGeneratorPlugin(),
     ],

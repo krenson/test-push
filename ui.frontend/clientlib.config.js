@@ -83,7 +83,6 @@ module.exports = {
             src: "dist/clientlib-site/resources/images/forms/*.*",
             dest: "images/forms/",
           },
-          /*  { src: "dist/clientlib-foremWebComponent/resources/fonts/*.*", dest: "fonts/" }, */
           { src: "dist/clientlib-site/resources/lang/*.*", dest: "lang/" },
         ],
       },
@@ -121,28 +120,6 @@ module.exports = {
         css: ["dist/clientlib-formapass/*.css"],
         css: ["dist/clientlib-formapass/*.js"],
       },
-    },
-    {
-      name: "clientlib-foremWebComponent",
-      allowProxy: true,
-      categories: ["leforemhe.foremWebComponent", "leforemhe.site"],
-      serializationFormat: "xml",
-      cssProcessor: ["default:none", "min:none"],
-      jsProcessor: ["default:none", "min:none"],
-      assets: {
-        css: ["dist/clientlib-foremWebComponent/*.css"],
-        js: ["dist/clientlib-foremWebComponent/*.js"],
-        resources: [
-          {
-            src: "dist/clientlib-foremWebComponent/resources/fonts/*.*",
-            dest: "fonts/",
-          },
-          {
-            src: "dist/clientlib-foremWebComponent/resources/fonts/fontawesome/*.*",
-            dest: "fonts/fontawesome/",
-          },
-        ],
-      },
-    },
+    }
   ],
 };
