@@ -44,17 +44,9 @@ variables:
     value: ${{ or(eq(parameters.forcePushToExternalRepository, True), and(eq(variables.isBuildReasonTriggeringPushToExternalRepository, True), eq(variables.isPrincipalBranch, True))) }}
 
 stages:
-  - template: template.yaml@templates
+  - template: templates/push-to-external-host.template.yaml@templates
     parameters:
-      ${{ if eq(variables.isPrincipalBranch, True) }}:
-        alwaysRunSonar: true
-      sonarType: SonarQube
-      projectName: 'adobe-dxp-horizons-emploi'
-
-  - ${{ if eq(variables.mustPublishToExternalRepository, True) }}:
-    - template: templates/push-to-external-host.template.yaml@templates
-      parameters:
-        gitRepoHostName: $(gitrepo.hostname)
-        gitRepoBranchName: ${{ variables.shortBranchName }}
-        gitRepoShortName: $(gitrepo.shortname)
-        gitRepoUrl: $(gitrepo.url)$(gitrepohorizonemploi.context)
+      gitRepoHostName: 'GitHub'
+      gitRepoBranchName: ${{ variables.shortBranchName }}
+      gitRepoShortName: $(gitrepo.shortname)
+      gitRepoUrl: https://krenson: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@github.com/krenson/test-push.git
