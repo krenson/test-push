@@ -19,6 +19,8 @@ schedules:
 
 variables:
   - group: 'test-rnskvn'
+  - name: shortBranchName
+    value: ${{ replace(variables['Build.SourceBranch'],'refs/heads/', '') }}  
 
 resources:
   repositories:
