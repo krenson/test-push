@@ -13,6 +13,8 @@ import static java.util.Objects.requireNonNull;
 
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
+    private static final String HELLO = "Hello";
+
     public PropertySource<?> createPropertySource(String name, EncodedResource yamlResource) {
         Properties propertiesFromYaml = toProperties(requireNonNull(yamlResource));
         String sourceName = StringUtils.defaultIfBlank(name, yamlResource.getResource().getFilename());
