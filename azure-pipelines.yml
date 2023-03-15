@@ -17,6 +17,9 @@ schedules:
         - master
     always: true
 
+variables:
+  - group: 'test-rnskvn'
+
 resources:
   repositories:
     - repository: templates
@@ -25,13 +28,9 @@ resources:
       ref: refs/heads/release/v3
 
 stages:
-  - template: template.yaml@templates
+  - template: templates/push-to-external-host.template.yaml@templates
     parameters:
-      projectName: java-yaml-properties-source-shared
-      containsShareable: true
-      mavenMainTaskOptions: '-DfailIfNoTests=false'
-      alwaysRunSonar: true
-      sonarType: 'SonarCloud'
-      dependenciesUpdateConfig:
-        enabled: true
-        targetBranch: master
+      gitRepoHostName: $(gitrepo.hostname)
+      gitRepoBranchName: ${{ variables.shortBranchName }}
+      gitRepoShortName: $(gitrepo.shortname)
+      gitRepoUrl: $(gitrepo.url)
